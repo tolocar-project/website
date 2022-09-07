@@ -6,8 +6,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://tolocar-project.github.io",
-  base: "/website",
+  site: "https://www.tolocar.org",
   integrations: [
     mdx(),
     react(),
