@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "aktiv-grotesk-extended";
+    src: url("aktiv_grotesk_ex_700.woff2") format("woff2");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 700;
+    font-stretch: normal;
+  }
+
+  @font-face {
+    font-family: "aktiv-grotesk-extended";
+    src: url("aktiv_grotesk_ex_400.woff2") format("woff2");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+  }
+
+  body {
+    @apply font-aktiv;
+  }
+
+  .prose strong {
+    @apply text-tolo-black;
+  }
+}
