@@ -7,6 +7,7 @@ module.exports = {
         "illustration-1": "url('/tolocar_illustration_1.svg')",
         "illustration-2": "url('/tolocar_illustration_2.svg')",
         "illustration-3": "url('/tolocar_illustration_3.svg')",
+        "illustration-wide": "url('/tolocar_illustration_wide.svg')"
       },
     },
     colors: {

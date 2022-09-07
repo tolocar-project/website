@@ -21,11 +21,11 @@
     font-stretch: normal;
   }
 
-  body {
-    @apply font-aktiv antialiased;
-  }
-
   .prose strong {
     @apply text-tolo-black;
+  }
+
+  .container-width {
+    @apply max-w-[1440px] w-full md:w-[84.4%] px-[5%] sm:px-8;
   }
 }
