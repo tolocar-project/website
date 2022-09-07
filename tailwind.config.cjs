@@ -20,7 +20,7 @@ module.exports = {
       "tolo-black": "#111111",
     },
     fontFamily: {
-      aktiv: ["aktiv-grotesk-extended"],
+      aktiv: ["aktiv-grotesk-extended", "Arial", "sans-serif"],
     },
   },
   plugins: [],
