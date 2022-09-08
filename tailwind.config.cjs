@@ -7,7 +7,8 @@ module.exports = {
         "illustration-1": "url('/tolocar_illustration_1.svg')",
         "illustration-2": "url('/tolocar_illustration_2.svg')",
         "illustration-3": "url('/tolocar_illustration_3.svg')",
-        "illustration-wide": "url('/tolocar_illustration_wide.svg')"
+        "illustration-wide": "url('/tolocar_illustration_wide.svg')",
+        "illustration-1-dark": "url('/tolocar_illustration_1_dark.svg')"
       },
     },
     colors: {
@@ -24,5 +25,6 @@ module.exports = {
       aktiv: ["aktiv-grotesk-extended", "Arial", "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 };

@@ -21,11 +21,19 @@
     font-stretch: normal;
   }
 
+  .prose {
+    @apply text-tolo-grey;
+  }
+
   .prose strong {
     @apply text-tolo-black;
   }
 
+  .prose p + p {
+    @apply mt-4;
+  }
+
   .container-width {
-    @apply max-w-[1440px] w-full md:w-[84.4%] px-[5%] sm:px-8;
+    @apply max-w-[1440px] w-full lg:w-[84.4%] px-[5%] lg:px-8;
   }
 }
