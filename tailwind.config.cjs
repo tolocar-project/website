@@ -21,6 +21,7 @@ module.exports = {
       "tolo-grey": "#7B7B7B",
       "tolo-light-grey": "#F5F5F5",
       "tolo-link-grey": "#B8B8B8",
+      "tolo-footer-grey": "#707070",
       "tolo-black": "#111111",
     },
     fontFamily: {
