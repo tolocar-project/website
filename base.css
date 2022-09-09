@@ -22,7 +22,7 @@
   }
 
   .prose {
-    @apply text-tolo-grey;
+    @apply text-tolo-grey text-base leading-[22px] lg:text-lg lg:leading-6;
   }
 
   .prose strong {
@@ -34,6 +34,6 @@
   }
 
   .container-width {
-    @apply max-w-[1440px] w-full lg:w-[84.4%] px-[5%] lg:px-8;
+    @apply max-w-[1440px] w-full lg:w-[84.4%] px-[5%] lg:px-8 mx-auto;
   }
 }

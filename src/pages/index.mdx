@@ -8,6 +8,8 @@ import HeroImage from "../components/HeroImage";
 import SideBySide from "../components/SideBySide";
 import Card from "../components/Card";
 import HeadlineUnderlined from "../components/HeadlineUnderlined";
+import Footer from "../components/Footer";
+import ImageGrid from "../components/ImageGrid";
 
 <HeaderLogo className="mt-8 sm:mt-16" />
 <HeroImage className="mt-8 sm:mt-16" />
@@ -29,11 +31,12 @@ import HeadlineUnderlined from "../components/HeadlineUnderlined";
   </div>
   <div class="absolute -z-10 bottom-0 w-full h-3/4 lg:h-72 bg-tolo-dark-grey bg-illustration-wide bg-no-repeat bg-cover fill-white"></div>
 </div>
-<HeadlineUnderlined large variant={1} className="container-width mt-8 sm:mt-16">Motivation</HeadlineUnderlined>
-<div class="bg-illustration-1-dark bg-no-repeat bg-left-bottom w-full">
+
+<div class="bg-illustration-1-dark bg-no-repeat bg-left-bottom w-full bg-tolo-light-grey">
+  <HeadlineUnderlined large variant={1} className="container-width mt-8 sm:mt-16">Motivation</HeadlineUnderlined>
 <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-16">
   <div class="flex flex-col lg:w-10/12 ">
-    <div class="flex flex-col lg:flex-row prose gap-8">
+    <div class="flex flex-col lg:flex-row prose text-lg leading-6 gap-8">
       <div class="flex-1">
         When faced with challenges or adversity way beyond what a person can handle - one of the cultural responses in Ukraine is "Toloka".​
 
@@ -43,9 +46,12 @@ import HeadlineUnderlined from "../components/HeadlineUnderlined";
         In Germany a cultural memory of support and shared purpose beyond traditional perspectives and means is the Berlin air bridge. In keeping with pushing the envelope of technical feasibility at scale the operation **provided crucial material and immaterial support where it was needed most.**
       </div>
     </div>
-    <div class="text-2xl leading-7 my-16 lg:w-3/5">
+    <div class="text-lg leading-6 lg:text-2xl lg:leading-7 mt-4 mb-12 lg:mt-16 lg:mb-20 lg:w-3/5">
       **The Tolocar car project follows this spirit in providing an open mobile means of production and innovation in crisis situations**
     </div>
+      <ImageGrid />
   </div>
+
 </div>
 </div>
+<Footer />

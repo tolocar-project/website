@@ -19,6 +19,8 @@ module.exports = {
       "tolo-green": "#148554",
       "tolo-dark-grey": "#212121",
       "tolo-grey": "#7B7B7B",
+      "tolo-light-grey": "#F5F5F5",
+      "tolo-link-grey": "#B8B8B8",
       "tolo-black": "#111111",
     },
     fontFamily: {

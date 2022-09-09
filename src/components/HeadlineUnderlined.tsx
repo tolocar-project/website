@@ -20,7 +20,7 @@ const HeadlineUnderlined: React.FC<Props> = ({
   return (
     <div className={`${className || ""}`}>
       <h2
-        className={`text-black relative font-bold ${
+        className={`text-black relative z-10 font-bold ${
           large ? "text-5xl" : "text-2xl"
         } leading-7`}
       >
