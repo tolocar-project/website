@@ -17,9 +17,9 @@ const Card: React.FC<Props> = ({
   target,
 }: Props) => {
   const bgMapping = [
-    "bg-illustration-1 bg-bottom",
-    "bg-illustration-2 bg-bottom",
-    "bg-illustration-3 bg-right-bottom",
+    "bg-illustration-1 bg-[position:left_-100px_bottom_-40px]",
+    "bg-illustration-2 bg-bottom bg-contain",
+    "bg-illustration-3 bg-right-bottom bg-contain",
   ];
   const cardContent = (
     <>
@@ -32,7 +32,7 @@ const Card: React.FC<Props> = ({
   );
   return (
     <div
-      className={`flex-1 basis-0 lg:max-w-[384px] h-[220px] lg:h-[360px] bg-tolo-green text-white p-5 lg:p-8 bg-no-repeat bg-contain relative ${
+      className={`flex-1 basis-0 lg:max-w-[384px] h-[220px] lg:h-[360px] bg-tolo-green text-white p-5 lg:p-8 bg-no-repeat relative ${
         bgMapping[bg - 1]
       } ${className || ""}`}
     >

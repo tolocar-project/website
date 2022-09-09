@@ -16,6 +16,7 @@ module.exports = {
       current: "currentColor",
       white: "#ffffff",
       black: "#000000",
+      "tolo-black": "#111111",
       "tolo-green": "#148554",
       "tolo-dark-grey": "#212121",
       "tolo-grey": "#7B7B7B",

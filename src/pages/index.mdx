@@ -14,7 +14,10 @@ import ImageGrid from "../components/ImageGrid";
 <HeaderLogo className="mt-8 sm:mt-16" />
 <HeroImage className="mt-8 sm:mt-16" />
 <SideBySide className="mt-8 sm:mt-20">
-  <HeadlineUnderlined className="flex-[2]">A Tolocar is a converted van that offers the possibilities of a makerspace or fablab on wheels.</HeadlineUnderlined>
+  <HeadlineUnderlined className="flex-[2]">
+    A Tolocar is a converted van that offers the possibilities of a makerspace
+    or fablab on wheels.
+  </HeadlineUnderlined>
   <div className="flex-[3] text-lg leading-6 prose">
     Equipped with various tools and machines for working with wood, metal or
     other materials, it is the perfect mobile hub for artisans and makers, so
@@ -32,26 +35,73 @@ import ImageGrid from "../components/ImageGrid";
   <div class="absolute -z-10 bottom-0 w-full h-3/4 lg:h-72 bg-tolo-dark-grey bg-illustration-wide bg-no-repeat bg-cover fill-white"></div>
 </div>
 
-<div class="bg-illustration-1-dark bg-no-repeat bg-left-bottom w-full bg-tolo-light-grey">
-  <HeadlineUnderlined large variant={1} className="container-width mt-8 sm:mt-16">Motivation</HeadlineUnderlined>
-<div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-16">
-  <div class="flex flex-col lg:w-10/12 ">
-    <div class="flex flex-col lg:flex-row prose text-lg leading-6 gap-8">
-      <div class="flex-1">
-        When faced with challenges or adversity way beyond what a person can handle - one of the cultural responses in Ukraine is "Toloka".​
+<div class="w-full bg-tolo-light-grey">
+  <HeadlineUnderlined large variant={2} className="container-width mt-8 sm:mt-16">Motivation</HeadlineUnderlined>
+  <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-16">
+    <div class="flex flex-col lg:w-10/12 ">
+      <div class="flex flex-col lg:flex-row prose text-lg leading-6 gap-8">
+        <div class="flex-1">
+          When faced with challenges or adversity way beyond what a person can handle - one of the cultural responses in Ukraine is "Toloka".​
 
-        **Turning to the crowd for support. Providing solutions at the needed scale, and with ingenuity and insight beyond what an individual can muster.**
+          **Turning to the crowd for support. Providing solutions at the needed scale, and with ingenuity and insight beyond what an individual can muster.**
+        </div>
+        <div class="flex-1">
+          In Germany a cultural memory of support and shared purpose beyond traditional perspectives and means is the Berlin air bridge. In keeping with pushing the envelope of technical feasibility at scale the operation **provided crucial material and immaterial support where it was needed most.**
+        </div>
       </div>
-      <div class="flex-1">
-        In Germany a cultural memory of support and shared purpose beyond traditional perspectives and means is the Berlin air bridge. In keeping with pushing the envelope of technical feasibility at scale the operation **provided crucial material and immaterial support where it was needed most.**
+      <div class="text-lg leading-6 lg:text-2xl lg:leading-7 mt-4 mb-12 lg:mt-16 lg:mb-20 lg:w-3/5">
+        **The Tolocar car project follows this spirit in providing an open mobile means of production and innovation in crisis situations**
       </div>
-    </div>
-    <div class="text-lg leading-6 lg:text-2xl lg:leading-7 mt-4 mb-12 lg:mt-16 lg:mb-20 lg:w-3/5">
-      **The Tolocar car project follows this spirit in providing an open mobile means of production and innovation in crisis situations**
-    </div>
       <ImageGrid />
+    </div>
   </div>
+</div>
 
+<div class="w-full bg-tolo-dark-grey bg-illustration-1-dark bg-no-repeat bg-[position:right_-50px_bottom_-40px]">
+  <div class="container-width flex lg:justify-end">
+    <div class="lg:w-10/12">
+      <HeadlineUnderlined light variant={3} className="mt-8 lg:mt-16" id="who-we-are">Who we are</HeadlineUnderlined>
+      <div class="text-tolo-link-grey mt-8 lg:mt-6 mb-8 lg:mb-24 lg:w-1/2">The Tolocar project was funded by the BMZ, initiated through the GIZ, implemented by Creative Rural Hub, Makers Hub, MetaLab, Insha Osvita, Platform Ostriv, BUR and CADUS, and managed by MitOst e.V. in its pilot phase, and by HIWW in its main phase.</div>
+    </div>
+  </div>
 </div>
+
+<div class="w-full bg-tolo-light-grey">
+  <HeadlineUnderlined large variant={2} className="container-width mt-8 sm:mt-16" id="what-is-a-tolocar">What is a Tolocar?</HeadlineUnderlined>
+  <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-16">
+    <div class="flex flex-col lg:w-10/12 ">
+      <div class="flex flex-col lg:flex-row prose text-lg leading-6 gap-8 mb-12 lg:mb-20">
+        <div class="flex-1">
+          <p class="text-2xl leading-7 font-bold text-tolo-black">A Tolocar is a converted van that offers the possibilities of a makerspace or fablab on wheels.</p>
+
+          This means **they bring the capacity of high end manufacturing or diagnosis technologies to the point of need.** 
+
+          But crucially they remain plugged into a world wide community of diverse domain experts who can bring their collective intelligence to bear in ways that complement conventional relief or rebuilding efforts.
+        </div>
+        <div class="flex-1">
+          The aim is to enable communities to replicate some of the capabilities and so to catalyze rebuilding efforts and establish support networks.  
+
+          Beyond the technical capability this provides the Tolocars with the agility, diversity of perspective, and capacity to absorb feedback directly from the user’s context. 
+
+          All this enables highly reactive user centered designs, short feedback loops, and disintermediation, and adapting products and services to complex and changing environments.
+        </div>
+      </div>
+      <div class="w-full flex flex-col lg:flex-row gap-4 lg:gap-6 lg:h-[342px]">
+        <div className="flex-1">
+          <img
+            className="w-full h-full object-cover"
+            src="https://picsum.photos/id/1047/1920/1080"
+          />
+        </div>
+        <div className="flex-1">
+          <img
+            className="w-full h-full object-cover"
+            src="https://picsum.photos/id/1048/1920/1080"
+          />
+        </div>
+        </div>
+    </div>
+  </div>
 </div>
+
 <Footer />
