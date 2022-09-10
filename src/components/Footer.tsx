@@ -1,5 +1,7 @@
 import React from "react";
 import TolocarLogoSvg from "../assets/tolocar_logo.svg";
+import DeutscheZusammenArbeitImg from "../assets/deutsche_zusammenarbeit.png";
+import GizUkraineImg from "../assets/giz_ukraine.png";
 
 interface Props {
   className?: string;
@@ -7,39 +9,36 @@ interface Props {
 
 const linkListItems = [
   {
-    title: "Our mission",
-    target: "#",
+    title: "Motivation",
+    target: "#motivation",
   },
   {
-    title: "What makes a Tolocar",
-    target: "#",
+    title: "What is a Tolocar",
+    target: "#what-is-a-tolocar",
   },
   {
-    title: "Community Ecosystem",
-    target: "#",
+    title: "Projects & Community",
+    target: "#projects-community",
   },
   {
     title: "Contact",
-    target: "#",
+    target: "mailto:info@tolocar.org",
   },
 ];
 
 const Footer: React.FC<Props> = ({ className }: Props) => {
   return (
     <div
-      className={`w-full lg:h-[368px] flex bg-tolo-dark-grey py-16 ${
-        className || ""
-      }`}
+      className={`w-full lg:h-[368px] flex bg-white py-16 ${className || ""}`}
     >
-      <div className="container-width flex flex-col justify-between text-white">
+      <div className="container-width flex flex-col justify-between text-black">
         <div className="flex flex-col lg:flex-row">
-          <div className="flex-1 flex flex-col text-sm items-start">
-            <img className="h-16 mb-4" src={TolocarLogoSvg} />
-            The Tolocar Project
-          </div>
-          <div className="flex-1 flex flex-col lg:flex-row text-sm">
-            <div className="flex-1 mt-10 lg:mt-0 ">
-              <h4 className="mb-5">Overview</h4>
+          <div className="flex-1 flex flex-col gap-8 text-sm items-start">
+            <div className="flex gap-4 items-center">
+              <img className="h-12" src={TolocarLogoSvg} />
+              The Tolocar Project
+            </div>
+            <div className="mt-10 lg:mt-0 ">
               <ul>
                 {linkListItems.map((listItem) => (
                   <FooterLinkListItem target={listItem.target}>
@@ -48,11 +47,17 @@ const Footer: React.FC<Props> = ({ className }: Props) => {
                 ))}
               </ul>
             </div>
+          </div>
+          <div className="flex-1 flex flex-col lg:flex-row text-sm">
             <div className="flex-1 mt-10 lg:mt-0">
-              <h4 className="mb-5">Operated By</h4>
+              <a href="https://www.bmz.de/">
+                <img src={DeutscheZusammenArbeitImg} />
+              </a>
             </div>
-            <div className="flex-1 mt-10 lg:mt-0">
-              <h4 className="mb-5">Initiated Through</h4>
+            <div className="flex-1 flex justify-end items-center mt-10 lg:mt-0">
+              <a href="https://www.giz.de/">
+                <img src={GizUkraineImg} />
+              </a>
             </div>
           </div>
         </div>
@@ -70,7 +75,7 @@ const Footer: React.FC<Props> = ({ className }: Props) => {
 
 interface FooterLinkListItemProps {
   target: string;
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
 const FooterLinkListItem: React.FC<FooterLinkListItemProps> = ({
@@ -79,7 +84,7 @@ const FooterLinkListItem: React.FC<FooterLinkListItemProps> = ({
 }: FooterLinkListItemProps) => {
   return (
     <li>
-      <a className="underline text-tolo-link-grey" href={target}>
+      <a className="underline text-tolo-footer-grey" href={target}>
         {children}
       </a>
     </li>
