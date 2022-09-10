@@ -2,6 +2,7 @@ import React from "react";
 import Underline1Svg from "../assets/tolocar_underline_1.svg";
 import Underline2Svg from "../assets/tolocar_underline_2.svg";
 import Underline3Svg from "../assets/tolocar_underline_3.svg";
+import Underline4Svg from "../assets/tolocar_underline_4.svg";
 
 interface Props {
   children: React.ReactNode;
@@ -16,6 +17,7 @@ const underlineSvgAndClassesMapping = [
   { src: Underline1Svg, classes: "-bottom-3" },
   { src: Underline2Svg, classes: "-bottom-3" },
   { src: Underline3Svg, classes: "bottom-0" },
+  { src: Underline4Svg, classes: "-bottom-4" },
 ];
 
 const HeadlineUnderlined: React.FC<Props> = ({

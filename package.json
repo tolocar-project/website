@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.1.5"
+    "astro": "^1.2.1"
   },
   "devDependencies": {
     "@astrojs/mdx": "^0.11.1",
-    "@astrojs/react": "^1.1.1",
+    "@astrojs/react": "^1.1.2",
     "@astrojs/tailwind": "^1.0.0",
     "@tailwindcss/typography": "^0.5.7",
     "react": "^18.2.0",
