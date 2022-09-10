@@ -7,6 +7,7 @@ interface Props {
   bg: number;
   target?: string;
   children: React.ReactNode;
+  small?: boolean;
 }
 
 const Card: React.FC<Props> = ({
@@ -15,6 +16,7 @@ const Card: React.FC<Props> = ({
   children,
   bg,
   target,
+  small,
 }: Props) => {
   const bgMapping = [
     "bg-illustration-1 bg-[position:left_-100px_bottom_-40px]",
@@ -23,16 +25,33 @@ const Card: React.FC<Props> = ({
   ];
   const cardContent = (
     <>
-      {title && <h2 className="font-bold font-aktiv text-lg md:text-2xl pr-10">{title}</h2>}
+      {title && (
+        <h2
+          className={`font-bold font-aktiv ${
+            small ? "text-lg md:text-2xl" : "text-4xl"
+          } pr-10`}
+        >
+          {title}
+        </h2>
+      )}
       {target && (
-        <img src={ArrowSvg} className="w-8 h-8 absolute right-8 top-8" />
+        <div
+          className={`absolute right-8 ${
+            small ? "top-8" : "bottom-8 flex items-center gap-4"
+          }`}
+        >
+          {!small && <>Get in contact</>}
+          <img src={ArrowSvg} className="w-8 h-8" />
+        </div>
       )}
       <p className="mt-3 text-lg leading-6 mb-24 md:mb-12">{children}</p>
     </>
   );
   return (
     <div
-      className={`flex-1 basis-0 lg:max-w-[384px] h-[220px] lg:h-[360px] bg-tolo-green text-white p-5 lg:p-8 bg-no-repeat relative ${
+      className={`flex-1 basis-0 ${
+        small ? "lg:max-w-[384px] h-[220px] lg:h-[360px] " : ""
+      }bg-tolo-green text-white p-5 lg:p-8 bg-no-repeat relative ${
         bgMapping[bg - 1]
       } ${className || ""}`}
     >

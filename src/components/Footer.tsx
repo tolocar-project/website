@@ -48,23 +48,23 @@ const Footer: React.FC<Props> = ({ className }: Props) => {
               </ul>
             </div>
           </div>
-          <div className="flex-1 flex flex-col lg:flex-row text-sm">
+          <div className="flex-1 flex flex-col lg:flex-row text-sm mt-8">
             <div className="flex-1 mt-10 lg:mt-0">
               <a href="https://www.bmz.de/">
                 <img src={DeutscheZusammenArbeitImg} />
               </a>
             </div>
-            <div className="flex-1 flex justify-end items-center mt-10 lg:mt-0">
+            <div className="flex-1 flex lg:justify-end items-center mt-10 lg:mt-0">
               <a href="https://www.giz.de/">
                 <img src={GizUkraineImg} />
               </a>
             </div>
           </div>
         </div>
-        <div className="text-sm text-tolo-footer-grey flex flex-col lg:flex-row">
-          <div>Imprint</div>
+        <div className="text-sm text-tolo-footer-grey flex flex-col lg:flex-row gap-2 lg:gap-0 mt-8 lg:mt-0">
+          <div><a href="legal">Legal notice</a></div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
-          <div>Privacy Policy</div>
+          <div><a href="privacy">Privacy Policy</a></div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
           <div>© 2022 Tolocar Project Operators</div>
         </div>

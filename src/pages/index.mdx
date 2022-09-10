@@ -29,9 +29,9 @@ import ImageCard from "../components/ImageCard";
 </SideBySide>
 <div class="relative w-full flex">
   <div class="container-width flex flex-col lg:flex-row lg:justify-between gap-8 mt-16 mb-24 lg:mt-24 mx-auto">
-    <Card title="Our motivation" bg={1} target="#motivation">Learn why we are doing the Tolocar project</Card>
-    <Card title="What is a Tolocar?" bg={2} target="#what-is-a-tolocar">Learn more about the Tolocars</Card>
-    <Card title="Projects & Community" bg={3} target="#projects-community">Explore our projects’ community and ecosystem</Card>
+    <Card small title="Our motivation" bg={1} target="#motivation">Learn why we are doing the Tolocar project</Card>
+    <Card small title="What is a Tolocar?" bg={2} target="#what-is-a-tolocar">Learn more about the Tolocars</Card>
+    <Card small title="Projects & Community" bg={3} target="#projects-community">Explore our projects’ community and ecosystem</Card>
   </div>
   <div class="absolute -z-10 bottom-0 w-full h-3/4 lg:h-72 bg-tolo-dark-grey bg-illustration-wide bg-no-repeat bg-cover fill-white"></div>
 </div>
@@ -128,10 +128,17 @@ import ImageCard from "../components/ImageCard";
   </div>
 </section>
 <section class="w-full bg-tolo-dark-grey">
-  <div class="container-width flex flex-col lg:flex-row gap-6 -mt-20 mb-8">
-  <ImageCard title="Maker workshops" img="https://picsum.photos/id/1012/1920/1080" >We perform different maker workshops with various groups like schools, universities, fablabs and others in topics like digital fabrication, coding and more.</ImageCard>
-  <ImageCard title="Replication workshops" img="https://picsum.photos/id/1038/1920/1080" >In our replication workshops we train fablabs and local businesses to build/replicate certain open source hardware machines like 3D printers, cnc-milling machines and laser cutters.</ImageCard>
-  <ImageCard title="Support projects" img="https://picsum.photos/id/1077/1920/1080" >We support various partners with their project through our expertise, tools and machines. In this projects we renovate, repair, build and invent special solutions.</ImageCard>
+  <div class="container-width flex flex-col lg:flex-row gap-6 -mt-20 mb-24">
+    <ImageCard title="Maker workshops" img="https://picsum.photos/id/1012/1920/1080" >We perform different maker workshops with various groups like schools, universities, fablabs and others in topics like digital fabrication, coding and more.</ImageCard>
+    <ImageCard title="Replication workshops" img="https://picsum.photos/id/1038/1920/1080" >In our replication workshops we train fablabs and local businesses to build/replicate certain open source hardware machines like 3D printers, cnc-milling machines and laser cutters.</ImageCard>
+    <ImageCard title="Support projects" img="https://picsum.photos/id/1077/1920/1080" >We support various partners with their project through our expertise, tools and machines. In this projects we renovate, repair, build and invent special solutions.</ImageCard>
+  </div>
+</section>
+<section class="w-full relative">
+  <div class="absolute w-full bg-tolo-dark-grey h-32 top-0" />
+  <div class="container-width flex justify-between gap-8 h-[408px]">
+    <Card title="You are based in Ukraine and think we could help you?" bg={1} target="mailto:info@tolocar.org">Schools, universities, NGOs, Startups and other organizations can reach out to us to request the Tolocars for projects, workshops and trainings.</Card>
+    <Card title="You are a Maker and want to partner with us?" bg={2} target="mailto:info@tolocar.org">We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other Communities who wants to partner with us in the Ukraine and internationally over the internet.</Card>
   </div>
 </section>
 
