@@ -62,9 +62,9 @@ const Footer: React.FC<Props> = ({ className }: Props) => {
           </div>
         </div>
         <div className="text-sm text-tolo-footer-grey flex flex-col lg:flex-row gap-2 lg:gap-0 mt-8 lg:mt-0">
-          <div><a href="legal">Legal notice</a></div>
+          <div><a href="legal">Legal Notice</a></div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
-          <div><a href="privacy">Privacy notice</a></div>
+          <div><a href="privacy">Privacy Notice</a></div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
           <div>© 2022 Tolocar Project Operators</div>
         </div>
