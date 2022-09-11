@@ -6,8 +6,10 @@ module.exports = {
       backgroundImage: {
         "illustration-1": "url('/tolocar_illustration_1.svg')",
         "illustration-2": "url('/tolocar_illustration_2.svg')",
+        "illustration-2-alpha": "url('/tolocar_illustration_2_alpha.svg')",
         "illustration-3": "url('/tolocar_illustration_3.svg')",
         "illustration-3-dark": "url('/tolocar_illustration_3_dark.svg')",
+        "illustration-3-alpha": "url('/tolocar_illustration_3_alpha.svg')",
         "illustration-wide": "url('/tolocar_illustration_wide.svg')",
         "illustration-1-dark": "url('/tolocar_illustration_1_dark.svg')"
       },
