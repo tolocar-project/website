@@ -33,6 +33,10 @@
     @apply mt-4;
   }
 
+  .prose a {
+    @apply underline
+  }
+
   .container-width {
     @apply max-w-[1440px] w-full lg:w-[84.4%] px-[5%] lg:px-8 mx-auto;
   }

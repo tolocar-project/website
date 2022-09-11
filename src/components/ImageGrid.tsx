@@ -19,31 +19,12 @@ const ImageGrid: React.FC<Props> = ({
   caption,
   subCaption,
 }: Props) => {
-  const imgClasses = "w-full h-full object-cover";
   return (
     <>
-      <div
-        className={`w-full flex flex-col lg:flex-row gap-4 lg:gap-6 lg:h-[342px] z-10 ${
-          className || ""
-        }`}
-      >
-        <div className="flex-[2] flex gap-4 lg:gap-6">
-          <div className="flex-[2]">
-            <img className={imgClasses} src={images[0]} />
-          </div>
-          <div className="flex-1">
-            <img className={imgClasses} src={images[1]} />
-          </div>
-        </div>
-        <div className="flex-1 flex flex-col gap-4 lg:gap-6">
-          <div className="flex-1 overflow-hidden">
-            <img className={imgClasses} src={images[2]} />
-          </div>
-          <div className="flex-1 overflow-hidden">
-            <img className={imgClasses} src={images[3]} />
-          </div>
-        </div>
-      </div>
+      <ImageGridWrapper className={className}>
+        {images.length === 4 && <FourPictureGrid images={images} />}
+        {images.length === 2 && <TwoPictureGrid images={images} />}
+      </ImageGridWrapper>
       {caption && (
         <div className="flex flex-col items-end text-tolo-link-grey z-10 mt-4 text-lg leading-6">
           {caption}
@@ -58,5 +39,64 @@ const ImageGrid: React.FC<Props> = ({
     </>
   );
 };
+
+interface ImageGridWrapperProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const ImageGridWrapper: React.FC<ImageGridWrapperProps> = ({
+  children,
+  className,
+}: ImageGridWrapperProps) => {
+  return (
+    <div
+      className={`w-full flex flex-col lg:flex-row gap-4 lg:gap-6 lg:h-[342px] z-10 ${
+        className || ""
+      }`}
+    >
+      {children}
+    </div>
+  );
+};
+
+interface PictureGridProps {
+  images: string[];
+}
+
+const FourPictureGrid: React.FC<PictureGridProps> = ({
+  images,
+}: PictureGridProps) => {
+  const imgClasses = "w-full h-full object-cover";
+  return (
+    <>
+      <div className="lg:flex-[77] flex flex-col lg:flex-row gap-4 lg:gap-6">
+        <div className="flex-[46]">
+          <img className={imgClasses} src={images[0]} />
+        </div>
+        <div className="lg:flex-[28] flex flex-col gap-4 lg:gap-6">
+          <div className="flex-1 overflow-hidden">
+            <img className={imgClasses} src={images[1]} />
+          </div>
+          <div className="flex-1 overflow-hidden">
+            <img className={imgClasses} src={images[2]} />
+          </div>
+        </div>
+      </div>
+      <div className="lg:flex-[21] h-72 lg:h-auto">
+        <img className={imgClasses} src={images[3]} />
+      </div>
+    </>
+  );
+};
+
+const TwoPictureGrid: React.FC<PictureGridProps> = ({images}:PictureGridProps) => {
+  return(
+    <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+      <img className="flex-1 w-full h-full object-cover" src={images[0]} />
+      <img className="flex-1 w-full h-full object-cover" src={images[1]} />
+    </div>
+  )
+}
 
 export default ImageGrid;

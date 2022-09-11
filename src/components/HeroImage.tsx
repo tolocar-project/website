@@ -1,11 +1,15 @@
 import React from "react";
 import TolocarHero from "../assets/tolocar_hero.svg";
 
-const HeroImage = ({ className }) => {
+interface Props {
+  className?: string;
+}
+
+const HeroImage: React.FC<Props> = ({ className }: Props) => {
   return (
     <div className="container-width">
       <div
-        className={`flex p-8 bg-center justify-center w-full h-full items-center bg-[url('/src/assets/workshop.png')] ${
+        className={`grayscale flex p-8 bg-center justify-center w-full h-full items-center bg-[url('/src/assets/Header.jpg')] ${
           className || ""
         }`}
       >
