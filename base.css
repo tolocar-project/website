@@ -34,7 +34,11 @@
   }
 
   .prose a {
-    @apply underline
+    @apply underline;
+  }
+
+  .prose h2 {
+    @apply font-bold text-3xl text-tolo-dark-grey my-4;
   }
 
   .container-width {

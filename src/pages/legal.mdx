@@ -3,4 +3,31 @@ layout: ../layouts/Layout.astro
 title: Legal Notice – Tolocar Project
 ---
 
-Hello this is all the legal stuff
+import HeaderLogo from "../components/HeaderLogo";
+import Footer from "../components/Footer";
+
+<div class="w-full bg-tolo-light-grey">
+  <HeaderLogo className="mt-8 sm:mt-16" />
+  <h1 class="mt-20 container-width text-5xl font-bold">Legal Notice</h1>
+  <p class="container-width mt-10 mb-20 text-lg">Feel free to get in touch with us via the e-mail specified below.</p>
+</div>
+<div class="container-width my-20 prose">
+**Hamburger Institut für Wertschöpfungssystematik und Wissensmanagement UG (haftungsbeschränkt)**
+
+Silker Weiche 5 · 21465 Reinbek · Germany
+
+**E-Mail:** info@tolocar.org
+
+**Managing Director:** Dr.-Ing. Tobias Redlich  
+**Register court:** Local court Lübeck  
+**Registration number:** HRB 15855 HL  
+
+**Responsible persons in terms of § 55 Abs. 2 RStV:**  
+Tobias Redlich and Pascal Krenz  
+Silker Weiche 5 · 21465 Reinbek · Germany
+
+## Questions
+If you have any questions, **don't hesitate to contact us via email at info@tolocar.org**.
+</div>
+
+<Footer className="!bg-tolo-light-grey"/>

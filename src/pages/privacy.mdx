@@ -1,6 +1,34 @@
 ---
 layout: ../layouts/Layout.astro
-title: Privacy Policy – Tolocar Project
+title: Privacy Notice – Tolocar Project
 ---
 
-Hello this is all the privacy stuff
+import HeaderLogo from "../components/HeaderLogo";
+import Footer from "../components/Footer";
+
+<div class="w-full bg-tolo-light-grey">
+  <HeaderLogo className="mt-8 sm:mt-16" />
+  <h1 class="mt-20 container-width text-5xl font-bold">Privacy Notice</h1>
+  <p class="container-width mt-10 mb-20 text-lg">To run our website we need a few things to keep it running smoothly.</p>
+</div>
+<div class="container-width my-20 prose">
+## Static website hosting
+Our website is hosted on GitHub Pages. GitHub Pages provides a content delivery network, or CDN. They store a copy of this website on many servers around the world, so no matter where you are, the website is delivered quickly.
+
+GitHub Pages has access to your HTTP request, the website request required to view this website or any other website. This request includes your IP address and a user agent, a string with the name of your browser and the version you are using.
+
+## Contact via email
+Data submitted when contacting us, including contact information, is stored in order to process the request or to be available for follow-up questions.
+
+## Fonts
+We integrate fonts on our website via Adobe Fonts. Adobe Fonts allows us to use new fonts without expensive licenses through our Creative Cloud subscription. When you visit the site, your browser loads these fonts from Adobe's servers. In doing so, Adobe learns that your IP address has been used to access our website.
+
+You can find more information about Adobe Fonts via [fonts.adobe.com](https://fonts.adobe.com).
+
+
+## Questions
+
+If you have any questions, don’t hesitate to contact us via email at info@tolocar.org.
+</div>
+
+<Footer className="!bg-tolo-light-grey"/>
