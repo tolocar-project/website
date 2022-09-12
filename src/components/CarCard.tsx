@@ -34,7 +34,7 @@ const CarCard: React.FC<Props> = ({
     screwdriver: ScrewdriverIcon,
   };
   return (
-    <div className={`flex flex-col bg-tolo-dark-grey ${className || ""}`}>
+    <div className={`flex flex-col bg-tolo-dark-grey w-full ${className || ""}`}>
       <img src={img} className="w-full h-full object-cover max-h-72" />
       <div className="p-8 flex flex-col items-start text-white">
         <h3 className="font-bold text-2xl">

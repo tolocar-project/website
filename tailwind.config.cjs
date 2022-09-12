@@ -20,7 +20,7 @@ module.exports = {
       white: "#ffffff",
       black: "#000000",
       "tolo-black": "#111111",
-      "tolo-green": "#148554",
+      "tolo-green": "#009664",
       "tolo-dark-grey": "#212121",
       "tolo-grey": "#7B7B7B",
       "tolo-light-grey": "#F5F5F5",
