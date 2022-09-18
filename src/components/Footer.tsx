@@ -41,7 +41,7 @@ const Footer: React.FC<Props> = ({ className }: Props) => {
             <div className="mt-10 lg:mt-0 ">
               <ul>
                 {linkListItems.map((listItem) => (
-                  <FooterLinkListItem target={listItem.target}>
+                  <FooterLinkListItem target={listItem.target} key={listItem.title}>
                     {listItem.title}
                   </FooterLinkListItem>
                 ))}
