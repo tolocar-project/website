@@ -19,11 +19,11 @@ const Card: React.FC<Props> = ({
   small,
 }: Props) => {
   const bgMapping = [
-    "bg-illustration-1 bg-[position:left_-100px_bottom_-40px] bg-no-repeat",
-    "bg-illustration-2 bg-bottom bg-contain bg-no-repeat",
+    "bg-illustration-1 bg-contain bg-[position:bottom_-40px_right] lg:bg-[position:left_-100px_bottom_-40px] bg-no-repeat",
+    "bg-illustration-2 bg-contain bg-[position:bottom_-70px_right] lg:bg-bottom bg-no-repeat",
     "bg-illustration-3 bg-right-bottom bg-contain bg-no-repeat",
     "bg-illustration-3-alpha bg-[position:right_-40px_bottom_-30px] bg-[length:65%] bg-contain bg-no-repeat",
-    "bg-illustration-2-alpha bg-[position:bottom_-50%_left] bg-[length:70%] bg-repeat-x",
+    "bg-illustration-2-alpha bg-[position:bottom_-40px_left] bg-[length:70%] bg-repeat-x",
   ];
   const cardContent = (
     <>
@@ -51,8 +51,8 @@ const Card: React.FC<Props> = ({
   );
   return (
     <div
-      className={`flex-1 basis-0 ${
-        small ? "lg:max-w-[384px] h-[220px] lg:h-[360px] " : ""
+      className={`flex-1 ${
+        small ? "basis-[220px] lg:basis-0 h-auto lg:h-[360px] " : ""
       }bg-tolo-green text-white p-5 lg:p-8 relative ${
         bgMapping[bg - 1]
       } ${className || ""}`}
