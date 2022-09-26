@@ -14,6 +14,8 @@ import ImageGrid from "../components/ImageGrid";
 import ImageCard from "../components/ImageCard";
 import CardContainer from "../components/CardContainer";
 import IllustrationBgContainer from "../components/IllustrationBgContainer";
+import TextBlock from "../components/TextBlock";
+import ContentSection from "../components/ContentSection";
 
 <HeaderLogo />
 <HeroImage />
@@ -21,11 +23,11 @@ import IllustrationBgContainer from "../components/IllustrationBgContainer";
   <HeadlineUnderlined className="flex-[2]">
     The Tolocar project sends mobile makerspaces into Ukraine to help, empower, equip and train local communities through open technology, knowledge and innovation. 
   </HeadlineUnderlined>
-  <div className="flex-[3] text-lg leading-6 prose">
+  <TextBlock className="flex-[3]">
     The word "Toloka" stands for a traditional form of solidarity support in Ukraine. 
     With that in mind, the Tolocar project uses mobile makerspaces equipped with tools, open source hardware machines and consumables to support humanitarian activities in Ukraine.
     Various partners work together in differnt projects like **reconstruction & renovation, open production, knowledge transfer and innovation** to strenghten the eco-system of Ukraine. 
-  </div>
+  </TextBlock>
 </SideBySide>
 <IllustrationBgContainer>
   <CardContainer>
@@ -35,41 +37,41 @@ import IllustrationBgContainer from "../components/IllustrationBgContainer";
   </CardContainer>
 </IllustrationBgContainer>
 
-<section class="w-full bg-tolo-light-grey relative" id="motivation">
-  <HeadlineUnderlined large variant={2} className="container-width mt-8 sm:mt-16">Motivation</HeadlineUnderlined>
-  <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-8">
-    <div class="flex flex-col lg:w-10/12 ">
-      <div class="flex flex-col lg:flex-row prose text-lg leading-6 gap-8">
-        <div class="flex-1">
-          When faced with challenges or adversity way beyond what a person can handle - one of the cultural responses in Ukraine is "Toloka".
+<ContentSection id="motivation">
+  <div class="container-width">
+    <HeadlineUnderlined large variant={2} className="mt-8 sm:mt-16">Motivation</HeadlineUnderlined>
+    <div class="flex lg:justify-end mt-8 sm:mt-16 mb-8">
+      <div class="flex flex-col lg:w-10/12">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <TextBlock className="flex-1">
+            When faced with challenges or adversity way beyond what a person can handle - one of the cultural responses in Ukraine is "Toloka".
 
-          **Turning to the crowd for support. Providing solutions at the needed scale, and with ingenuity and insight beyond what an individual can muster.**
+            **Turning to the crowd for support. Providing solutions at the needed scale, and with ingenuity and insight beyond what an individual can muster.**
+          </TextBlock>
+          <TextBlock className="flex-1">
+            In Germany a cultural memory of support and shared purpose beyond traditional perspectives and means is the Berlin air bridge. In keeping with pushing the envelope of technical feasibility at scale the operation **provided crucial material and immaterial support where it was needed most.**
+          </TextBlock>
         </div>
-        <div class="flex-1">
-          In Germany a cultural memory of support and shared purpose beyond traditional perspectives and means is the Berlin air bridge. In keeping with pushing the envelope of technical feasibility at scale the operation **provided crucial material and immaterial support where it was needed most.**
-        </div>
+        <TextBlock big className="mt-4 mb-12 lg:mt-16 lg:mb-20 lg:w-3/5">
+          **The Tolocar car project follows this spirit in providing an open mobile means of production and innovation in crisis situations**
+        </TextBlock>
+        <ImageGrid images={["images/group_session.jpg", "images/saw.jpg", "images/stands.jpg", "images/drills.jpg"]} caption="Dormitory in Striy. Ostriv platform's team." subCaption="Photos by Nika Popova."/>
       </div>
-      <div class="text-lg leading-6 lg:text-2xl lg:leading-7 mt-4 mb-12 lg:mt-16 lg:mb-20 lg:w-3/5">
-        **The Tolocar car project follows this spirit in providing an open mobile means of production and innovation in crisis situations**
-      </div>
-      
-      <ImageGrid images={["images/group_session.jpg", "images/saw.jpg", "images/stands.jpg", "images/drills.jpg"]} caption="Dormitory in Striy. Ostriv platform's team." subCaption="Photos by Nika Popova."/>
-
     </div>
   </div>
   <div className="bg-tolo-dark-grey absolute w-full h-44 bottom-0 z-0"/>
-</section>
+</ContentSection>
 
-<section class="w-full bg-tolo-dark-grey bg-illustration-1-dark bg-no-repeat bg-[position:right_-50px_bottom_-40px]" id="who-we-are">
+<ContentSection variant="dark" className="bg-illustration-1-dark bg-no-repeat bg-[position:right_-50px_bottom_-40px]" id="who-we-are">
   <div class="container-width flex lg:justify-end">
     <div class="lg:w-10/12">
       <HeadlineUnderlined light variant={3} className="mt-8">Who we are</HeadlineUnderlined>
       <div class="text-tolo-link-grey mt-8 lg:mt-6 mb-8 lg:mb-24 lg:w-3/5 prose">The Tolocar project is commissioned by the German Federal Ministry for Economic Cooperation and Development (BMZ) and implemented by the Deutsche Gesellschaft für internationale Zusammenarbeit (<a href="https://www.giz.de/de/weltweit/102083.html" target="_blank">GIZ</a>) GmbH in close collaboration with its Ukrainian and international partners: Creative Rural Hub, <a href="https://www.metalab.space/metalab-en" target="_blank">MetaLab</a>, <a href="https://insha-osvita.org/en/" target="_blank">Insha Osvita</a>, <a href="http://ostrivplatform.com/">Platform Ostriv</a>, <a href="https://bur.ukredu.org/en/" target="_blank">BUR</a>, <a href="https://makerhub.org/" target="_blank">Maker Hub</a>, and <a href="https://www.cadus.org/de/blog/artikel/eine-mobile-werkstatt-fuer-die-ukraine" target="_blank">CADUS</a>. The project is managed by <a href="https://www.mitost.org/" target="_blank">MitOst e.V.</a> in its pilot phase and by Hamburger Institut für Wertschöpfungssystematik und Wissensmanagement (<a href="https://www.hiww.de/" target="_blank">HIWW</a>) in its main phase.</div>
     </div>
   </div>
-</section>
+</ContentSection>
 
-<section class="w-full bg-white" id="what-is-a-tolocar">
+<ContentSection variant="white" id="what-is-a-tolocar">
   <HeadlineUnderlined large variant={5} className="container-width mt-8 sm:mt-16">What is a Tolocar?</HeadlineUnderlined>
   <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-16">
     <div class="flex flex-col lg:w-10/12 ">
@@ -92,9 +94,9 @@ import IllustrationBgContainer from "../components/IllustrationBgContainer";
         <ImageGrid images={["images/roof.jpg", "images/car.jpg"]}/>
     </div>
   </div>
-</section>
+</ContentSection>
 
-<section class="w-full mb-16">
+<ContentSection variant="white" className="mb-16">
   <div class="container-width flex flex-col lg:flex-row gap-4">
     <div class="flex flex-col flex-1 gap-4 lg:order-1 order-2">
       <CarCard img="images/cars/image4.jpg" title="The Cadus Crafter" subtitle="Tolocar 01" tag="Renovation & Handcraft" date="May - August 2022" operator="cadus" tagIcon="hammer"/>
@@ -112,9 +114,9 @@ import IllustrationBgContainer from "../components/IllustrationBgContainer";
       <CarCard img="images/cars/image7.jpg" title="The HIWW Truck" subtitle="Tolocar 05" tag="Making & Open Source HW" tagIcon="cog" date="September 2022 - Open End" operator="hiww"/>
     </div>
   </div>
-</section>
+</ContentSection>
 
-<section class="w-full bg-tolo-light-grey bg-illustration-3-dark bg-no-repeat bg-left-bottom" id="what-is-a-tolocar" id="projects-community">
+<ContentSection className="bg-illustration-3-dark bg-no-repeat bg-left-bottom" id="what-is-a-tolocar" id="projects-community">
   <HeadlineUnderlined large variant={4} className="container-width mt-8 sm:mt-16">Projects & Community</HeadlineUnderlined>
   <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-16">
     <div class="flex flex-col lg:w-10/12 ">
@@ -132,20 +134,20 @@ import IllustrationBgContainer from "../components/IllustrationBgContainer";
       </div>
     </div>
   </div>
-</section>
-<section class="w-full bg-tolo-dark-grey">
-  <div class="container-width flex flex-col lg:flex-row gap-6 -mt-20 mb-24">
+</ContentSection>
+<ContentSection variant="dark" className="z-10">
+  <div class="container-width flex flex-col lg:flex-row gap-6 -mt-20">
     <ImageCard title="Maker workshops" img="images/arduino.jpg">We perform different maker workshops with various groups like schools, universities, fablabs and others in topics like digital fabrication, coding and more </ImageCard>
     <ImageCard title="Replication workshops" img="images/replication.jpg">In our replication workshops we train fablabs and local businesses to build/replicate certain open source hardware machines like 3D printers, cnc-milling machines and laser cutters </ImageCard>
     <ImageCard title="Support projects" img="images/support.jpg">We support various partners with their project through our expertise, tools and machines. In this projects we renovate, repair, build and invent special solutions </ImageCard>
   </div>
-</section>
-<section class="w-full relative">
-  <div class="absolute w-full bg-tolo-dark-grey h-32 top-0" />
-  <div class="container-width flex flex-col md:flex-row justify-between gap-8 md:h-[408px]">
+</ContentSection>
+<ContentSection variant="white">
+  <div class="absolute w-full bg-tolo-dark-grey h-40 top-0" />
+  <CardContainer className="lg:h-[408px]">
     <Card title="You are based in Ukraine and think we could help you?" bg={4} target="mailto:info@tolocar.org">Schools, universities, NGOs, Startups and other organizations can reach out to us to request the Tolocars for projects, workshops and trainings.</Card>
     <Card title="You are a Maker and want to partner with us?" bg={5} target="mailto:info@tolocar.org">We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other Communities who wants to partner with us in the Ukraine and internationally over the internet.</Card>
-  </div>
-</section>
+  </CardContainer>
+</ContentSection>
 
 <Footer />
