@@ -1,5 +1,6 @@
 {
-  "name": "@example/basics",
+  "name": "@tolocar-project/website",
+  "homepage": "https://tolocar.org",
   "version": "0.0.1",
   "private": true,
   "scripts": {

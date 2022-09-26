@@ -8,7 +8,7 @@ interface Props {
 const CardContainer: React.FC<Props> = ({ className, children }) => {
   return (
     <div
-      class={`container-width flex flex-col lg:flex-row lg:justify-between gap-8 mt-16 mb-24 lg:mt-24 mx-auto ${
+      className={`container-width flex flex-col lg:flex-row lg:justify-between gap-8 mt-16 mb-24 lg:mt-24 mx-auto ${
         className || ""
       }`}
     >
