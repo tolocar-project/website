@@ -9,10 +9,12 @@ interface Props {
 const Navigation: React.FC<Props> = ({ target = "/", className }: Props) => {
   const Image = <img className={`h-8 sm:h-10`} src={TolocarLogoSvg} />;
   return (
-    <div className="w-full bg-white h-20 fixed flex items-center justify-center top-0 z-20">
-      <div
-        className={`container-width flex justify-between ${className || ""}`}
-      >
+    <div
+      className={`w-full bg-white h-20 fixed flex items-center justify-center top-0 z-20 ${
+        className || ""
+      }`}
+    >
+      <div className="container-width flex justify-between">
         {target ? <a href={target}>{Image}</a> : Image}
         <nav>
           <ul className="flex gap-2 text-tolo-footer-grey font-medium font-aktiv text-[15px]">
@@ -38,8 +40,10 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
   className,
   children,
 }: MenuListItemProps) => (
-  <li className={`px-3 py-2 hover:bg-tolo-light-grey hover:text-tolo-dark-grey rounded-md ${className || ""}`}>
-    <a href={target}>{children}</a>
+  <li className={`rounded-md overflow-hidden ${className || ""}`}>
+    <a href={target} className=" hover:text-tolo-dark-grey">
+      <div className="px-3 py-2 hover:bg-tolo-light-grey">{children}</div>
+    </a>
   </li>
 );
 
