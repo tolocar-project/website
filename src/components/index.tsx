@@ -12,6 +12,9 @@ import CardContainer from "@components/CardContainer";
 import IllustrationBgContainer from "@components/IllustrationBgContainer";
 import ContentSection from "@components/ContentSection";
 import Navigation from "@components/Navigation";
+import WideCard from "@components/WideCard";
+import Course from "@components/Course";
+import ArrowSvg from "@components/ArrowSvg";
 
 export {
   ImageGrid,
@@ -28,4 +31,7 @@ export {
   TextBlock,
   Card,
   Navigation,
+  WideCard,
+  Course,
+  ArrowSvg
 };

@@ -21,7 +21,7 @@ const Navigation: React.FC<Props> = ({ target = "/", className }: Props) => {
             <MenuListItem target="/#top">Home</MenuListItem>
             <MenuListItem target="/#top">Interventions</MenuListItem>
             <MenuListItem target="/#top">Community</MenuListItem>
-            <MenuListItem target="/#top">Makerspace Academy</MenuListItem>
+            <MenuListItem target="/academy">Makerspace Academy</MenuListItem>
           </ul>
         </nav>
       </div>

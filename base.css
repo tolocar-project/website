@@ -53,4 +53,9 @@
   .container-width {
     @apply max-w-[1440px] w-full lg:w-[84.4%] px-[5%] lg:px-8 mx-auto;
   }
+
+  .mask-illustration {
+    mask-image: linear-gradient(to right, transparent 40%, black 70%);
+  }
+
 }
