@@ -1,22 +1,16 @@
 ---
-layout: ../layouts/Layout.astro
+layout: ../../layouts/Layout.astro
 title: Maker Academy – Tolocar Project
 ---
 
 import { HeaderLogo, Footer, Navigation, WideCard, Course } from "@components";
+import AcademyIndexLoader from "@components/AcademyIndexLoader.astro";
 
 <Navigation />
 <WideCard title="Makerspace Academy">Lorem ipsum Makerspace Academy is a wonderful place to learn we offer you this and that</WideCard>
 <div class="container-width">
   <div class="w-full my-8 grid grid-cols-2 gap-16">
-    <Course
-      course={{
-        title: "Hello",
-        img: "https://picsum.photos/1280/720?random=1",
-        items: [{ title: "Bla bla Lesson", target: "#" }, { title: "Another lesson", target: "#" }],
-      }}
-    >
-    </Course>
+    <AcademyIndexLoader />
   </div>
 </div>
 
