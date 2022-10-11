@@ -37,7 +37,7 @@ jobs:
         with:
           name: github-pages
       - name: Extract artifact
-        run: tar -xvf artifact.tar -C artifact
+        run: tar -xvf artifact.tar --one-top-level
       - name: Install LFTP
         run: sudo apt-get install -y lftp
       - name: Add Known Hosts
@@ -52,4 +52,4 @@ jobs:
       - name: List dir
         run: ls -la
       - name: Deploy via SFTP
-        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --delete ./artifact; bye"
+        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --delete ./github-pages; bye"
