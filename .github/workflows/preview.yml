@@ -38,8 +38,8 @@ jobs:
           name: github-pages
       - name: Extract artifact
         run: |
-          mkdir ${GITHUB_REF##*/}
-          tar -xvf artifact.tar -C ${GITHUB_REF##*/}
+          mkdir ${GITHUB_BASE_REF##*/}
+          tar -xvf artifact.tar -C ${GITHUB_BASE_REF##*/}
       - name: Install LFTP
         run: sudo apt-get install -y lftp
       - name: Add Known Hosts
@@ -51,4 +51,4 @@ jobs:
           pwd
           ls -la
       - name: Deploy via SFTP
-        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --delete ./${GITHUB_REF##*/}; bye"
+        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --delete ./${GITHUB_BASE_REF##*/}; bye"
