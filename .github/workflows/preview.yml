@@ -25,19 +25,26 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      SSH_KNOWN_HOSTS: '${{ secrets.SSH_KNOWN_HOSTS }}'
+      SFTP_HOST: '${{ secrets.SFTP_HOST }}'
+      SFTP_USER: '${{ secrets.SFTP_USER }}'
+      SFTP_PASSWORD: '${{ secrets.SFTP_PASSWORD }}'
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
             name: github-pages
+      - name: Extract artifact
+        run: tar -xvf artifact.tar
       - name: Install LFTP
         run: |
           sudo apt-get install -y lftp
       - name: Add Known Hosts
         run: |
           mkdir -p ~/.ssh/
-          echo ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts
+          echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
       - name: List dir
         run: ls -la
       - name: Deploy via SFTP
-        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://${{ secrets.SFTP_HOST }}; user ${{ secrets.SFTP_USER }} ${{ secrets.SFTP_PASSWORD }}; mirror --reverse --delete ~/.ssh/; bye"
+        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://'$SFTP_HOST'; user '$SFTP_USER' '$SFTP_PASSWORD'; mirror --reverse --delete ~/.ssh/; bye"
