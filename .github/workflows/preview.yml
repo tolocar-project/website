@@ -42,14 +42,11 @@ jobs:
         run: sudo apt-get install -y lftp
       - name: Add Known Hosts
         run: mkdir -p ~/.ssh/
-        shell: bash
       - name: Known Hosts
         run: echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
-        shell: bash
-      - name: List known Hosts
-        run: cat ~/.ssh/known_hosts
-        shell: bash
       - name: List dir
-        run: ls -la
+        run: |
+          pwd
+          ls -la
       - name: Deploy via SFTP
-        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --delete ./github-pages; bye"
+        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --delete ./artifact; bye"
