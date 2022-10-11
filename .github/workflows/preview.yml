@@ -34,21 +34,17 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-            name: github-pages
+          name: github-pages
       - name: Extract artifact
         run: tar -xvf artifact.tar
       - name: Install LFTP
-        run: |
-          sudo apt-get install -y lftp
+        run: sudo apt-get install -y lftp
       - name: Add Known Hosts
-        run: |
-          mkdir -p ~/.ssh/
+        run: mkdir -p ~/.ssh/
       - name: Known Hosts
-        run: |
-          echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+        run: echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
       - name: List known Hosts
-        run: |
-          cat ~/.ssh/known_hosts
+        run: cat ~/.ssh/known_hosts
       - name: List dir
         run: ls -la
       - name: Deploy via SFTP
