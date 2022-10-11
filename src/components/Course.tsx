@@ -30,7 +30,7 @@ const Course: React.FC<Props> = ({ className, course, imgAlt }) => {
             <a href={item.target} key={index} >
               <h3 className="flex items-center text-2xl font-bold">
                 {item.title}
-                <ArrowSvg className="ml-4 text-tolo-green w-6 h-6" />
+                <ArrowSvg className="shrink-0 ml-4 text-tolo-green w-6 h-6" />
               </h3>
             </a>
           ))}

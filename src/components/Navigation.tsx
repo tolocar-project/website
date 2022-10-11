@@ -19,8 +19,9 @@ const Navigation: React.FC<Props> = ({ target = "/", className }: Props) => {
         <nav>
           <ul className="flex gap-2 text-tolo-footer-grey font-medium font-aktiv text-[15px]">
             <MenuListItem target="/#top">Home</MenuListItem>
-            <MenuListItem target="/#top">Interventions</MenuListItem>
-            <MenuListItem target="/#top">Community</MenuListItem>
+            <MenuListItem target="/#motivation">Motivation</MenuListItem>
+            <MenuListItem target="/#what-is-a-tolocar">What is a Tolocar?</MenuListItem>
+            <MenuListItem target="/#projects-community">Community</MenuListItem>
             <MenuListItem target="/academy">Makerspace Academy</MenuListItem>
           </ul>
         </nav>

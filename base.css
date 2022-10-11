@@ -30,23 +30,23 @@
     font-stretch: normal;
   }
 
-  .prose {
+  .custom-prose {
     @apply text-tolo-grey text-base leading-[22px] lg:text-lg lg:leading-6;
   }
 
-  .prose strong {
+  .custom-prose strong {
     @apply text-tolo-black;
   }
 
-  .prose p + p {
+  .custom-prose p + p {
     @apply mt-4;
   }
 
-  .prose a {
+  .custom-prose a {
     @apply underline;
   }
 
-  .prose h2 {
+  .custom-prose h2 {
     @apply font-bold text-3xl text-tolo-dark-grey my-4;
   }
 

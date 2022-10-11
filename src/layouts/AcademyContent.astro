@@ -25,10 +25,11 @@ const parentPage = getParentPage(rawAcademyContent, url);
       title={frontmatter.title}
       teaser={frontmatter.teaser}
       category={parentPage.frontmatter.title}
+      img={frontmatter.img || parentPage.frontmatter.img}
     />
     <div class="mt-8 flex">
       <div class="flex-1">Table of Contents</div>
-      <div class="flex-[3] prose"><slot /></div>
+      <div class="flex-[3] prose prose-lg prose-p:text-tolo-footer-grey prose-li:text-tolo-footer-grey prose-ol:text-tolo-footer-grey prose-p:leading-7"><slot /></div>
     </div>
   </div>
   <ContentSection variant="white">

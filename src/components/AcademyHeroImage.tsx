@@ -5,6 +5,7 @@ interface Props {
   title: string;
   teaser?: string;
   category?: string;
+  img: string;
 }
 
 const AcademyHeroImage: React.FC<Props> = ({
@@ -12,10 +13,12 @@ const AcademyHeroImage: React.FC<Props> = ({
   title,
   teaser,
   category,
+  img,
 }: Props) => {
   return (
     <div
-      className={`relative w-full h-[382px] bg-blend-darken bg-black/40 bg-[url('/src/assets/Header.jpg')] overflow-hidden ${
+      style={{ backgroundImage: `url(${img})` }}
+      className={`relative w-full h-[382px] bg-blend-darken bg-black/40 overflow-hidden bg-cover bg-center ${
         className || ""
       }`}
     >
