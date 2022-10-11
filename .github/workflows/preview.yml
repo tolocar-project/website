@@ -11,10 +11,6 @@ permissions:
   contents: read
   id-token: write
 
-environment:
-  name: ${GITHUB_BASE_REF##*/}
-  url: https://dev.tolocar.org/${GITHUB_BASE_REF##*/}
-
 jobs:
   build:
     runs-on: ubuntu-latest
