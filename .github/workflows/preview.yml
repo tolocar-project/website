@@ -27,5 +27,9 @@ jobs:
       - name: Install LFTP
         run: |
           sudo apt-get install -y lftp
-      - name: Check LFTP version
-        run: lftp --version
+      - name: Add Known Hosts
+        run: echo ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts
+      - name: List dir
+        run: ls -la
+      - name: Deploy via SFTP
+        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://${{ secrets.SFTP_HOST }}; user ${{ secrets.SFTP_USER }} ${{ secrets.SFTP_PASSWORD }}; mirror --reverse --delete ~/.ssh/; bye"
