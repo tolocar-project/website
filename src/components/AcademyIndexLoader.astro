@@ -1,56 +1,15 @@
 ---
 import { Course } from "@components";
+import { transformAcademy } from "@util/ContentTransformer";
+import { AcademyPageFrontmatter } from "@types/Academy";
 
-interface AcademyPageFrontmatter {
-  title?: string;
-  order?: number;
-  img?: string;
-}
-
-interface AcademyPage {
-  frontmatter: AcademyPageFrontmatter;
-  url: string;
-  file: string;
-}
-
-interface AcademyPageParent extends AcademyPage {
-  children?: Array<AcademyPage>;
-}
 
 // Only get files named index.mdx that are inside of a subfolder within the academy folder
 const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
   "../pages/academy/*/*.mdx"
 );
 
-// console.log("Academy Content", JSON.parse(JSON.stringify(rawAcademyContent)));
-
-const courses = rawAcademyContent
-  .filter((item) => item.file.toLowerCase().includes("index.mdx"))
-  .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
-
-
-// This is the "rest"/opposite of the filter result above
-const possibleLessons = rawAcademyContent
-  .filter((item) => !item.file.toLowerCase().includes("index.mdx"))
-  .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
-
-const coursesAndLessons: Record<string, AcademyPageParent> = {};
-
-courses.forEach((course) => {
-  coursesAndLessons[course.url] = { ...course, children: [] };
-
-  possibleLessons.forEach((possibleLesson) => {
-    if (possibleLesson.url.toLowerCase().startsWith(course.url)) {
-      if (coursesAndLessons[course.url]) {
-        coursesAndLessons[course.url] = {
-          ...coursesAndLessons[course.url],
-          children: [...coursesAndLessons[course.url].children, possibleLesson],
-        };
-      }
-    }
-  });
-});
-
+const coursesAndLessons = transformAcademy(rawAcademyContent);
 ---
 
 {

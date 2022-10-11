@@ -1,0 +1,54 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import {
+  AcademyHeroImage,
+  BackButton,
+  ContentSection,
+  Card,
+  CardContainer,
+} from "@components";
+import { AcademyPageFrontmatter } from "@types/Academy";
+import { getParentPage } from "@util/ContentTransformer";
+
+const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
+  "../pages/academy/*/*.mdx"
+);
+
+const { frontmatter, url } = Astro.props;
+const parentPage = getParentPage(rawAcademyContent, url);
+---
+
+<BaseLayout frontmatter={frontmatter}>
+  <div class="mt-20 container-width">
+    <BackButton target="/academy">Back to Academy Overview</BackButton>
+    <AcademyHeroImage
+      title={frontmatter.title}
+      teaser={frontmatter.teaser}
+      category={parentPage.frontmatter.title}
+    />
+    <div class="mt-8 flex">
+      <div class="flex-1">Table of Contents</div>
+      <div class="flex-[3] prose"><slot /></div>
+    </div>
+  </div>
+  <ContentSection variant="white">
+    <div class="absolute w-full bg-white h-64 top-0"></div>
+    <CardContainer className="lg:h-[408px]">
+      <Card
+        title="You are based in Ukraine and think we could help you?"
+        bg={4}
+        target="mailto:info@tolocar.org"
+        >Schools, universities, NGOs, Startups and other organizations can reach
+        out to us to request the Tolocars for projects, workshops and trainings.</Card
+      >
+      <Card
+        title="You are a Maker and want to partner with us?"
+        bg={5}
+        target="mailto:info@tolocar.org"
+        >We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other
+        Communities who wants to partner with us in the Ukraine and
+        internationally over the internet.</Card
+      >
+    </CardContainer>
+  </ContentSection>
+</BaseLayout>

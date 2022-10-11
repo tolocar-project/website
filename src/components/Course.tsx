@@ -20,7 +20,7 @@ const Course: React.FC<Props> = ({ className, course, imgAlt }) => {
           alt={imgAlt}
           className="w-full h-full object-cover aspect-[12/5]"
         />
-        <h2 className="absolute bottom-6 left-6 bg-black bg-opacity-80 text-white rounded-md px-2 py-[6px] text-[15px] font-bold uppercase">
+        <h2 className="absolute bottom-6 left-6 bg-black/80 leading-none text-white rounded-md px-2 py-[6px] text-[15px] font-bold uppercase">
           {course.title}
         </h2>
       </div>

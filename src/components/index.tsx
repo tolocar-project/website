@@ -15,8 +15,12 @@ import Navigation from "@components/Navigation";
 import WideCard from "@components/WideCard";
 import Course from "@components/Course";
 import ArrowSvg from "@components/ArrowSvg";
+import AcademyHeroImage from "@components/AcademyHeroImage";
+import BackButton from "@components/BackButton";
 
 export {
+  BackButton,
+  AcademyHeroImage,
   ImageGrid,
   ImageCard,
   CardContainer,

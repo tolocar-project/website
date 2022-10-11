@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/Layout.astro
+layout: ../layouts/BaseLayout.astro
 title: Tolocar Project
 ---
 
@@ -17,10 +17,8 @@ import {
   IllustrationBgContainer,
   TextBlock,
   ContentSection,
-  Navigation
 } from "@components";
 
-<Navigation />
 <HeroImage />
 <SideBySide className="mt-8 sm:mt-20">
   <HeadlineUnderlined className="flex-[2]">
@@ -152,5 +150,3 @@ import {
     <Card title="You are a Maker and want to partner with us?" bg={5} target="mailto:info@tolocar.org">We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other Communities who wants to partner with us in the Ukraine and internationally over the internet.</Card>
   </CardContainer>
 </ContentSection>
-
-<Footer />

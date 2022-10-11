@@ -12,7 +12,7 @@ module.exports = {
         "illustration-3-alpha": "url('/tolocar_illustration_3_alpha.svg')",
         "illustration-4-wide": "url('/tolocar_illustration_4_wide.svg')",
         "illustration-wide": "url('/tolocar_illustration_wide.svg')",
-        "illustration-1-dark": "url('/tolocar_illustration_1_dark.svg')"
+        "illustration-1-dark": "url('/tolocar_illustration_1_dark.svg')",
       },
     },
     colors: {
@@ -33,6 +33,5 @@ module.exports = {
       aktiv: ["aktiv-grotesk-extended", "Arial", "sans-serif"],
     },
   },
-  plugins: [
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };

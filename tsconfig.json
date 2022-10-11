@@ -8,7 +8,11 @@
       "@layouts": ["src/layouts"],
       "@layouts/*": ["src/layouts/*"],
       "@assets": ["src/assets"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@util": ["src/util"],
+      "@util/*": ["src/util/*"],
+      "@types": ["src/types"],
+      "@types/*": ["src/types/*"]
     }
   }
 }
