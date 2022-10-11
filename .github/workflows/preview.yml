@@ -39,8 +39,8 @@ jobs:
           name: github-pages
       - name: Extract artifact
         run: |
-          mkdir $GITHUB_HEAD_REF
-          tar -xvf artifact.tar -C $GITHUB_HEAD_REF
+          mkdir $SFTP_FOLDER
+          tar -xvf artifact.tar -C $SFTP_FOLDER
       - name: Install LFTP
         run: sudo apt-get install -y lftp
       - name: Add Known Hosts
