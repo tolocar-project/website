@@ -26,10 +26,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     env:
-      SSH_KNOWN_HOSTS: '${{ secrets.SSH_KNOWN_HOSTS }}'
-      SFTP_HOST: '${{ secrets.SFTP_HOST }}'
-      SFTP_USER: '${{ secrets.SFTP_USER }}'
-      SFTP_PASSWORD: '${{ secrets.SFTP_PASSWORD }}'
+      SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+      SFTP_HOST: ${{ secrets.SFTP_HOST }}
+      SFTP_USER: ${{ secrets.SFTP_USER }}
+      SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
