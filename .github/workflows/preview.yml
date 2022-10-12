@@ -75,3 +75,9 @@ jobs:
           ls -la
       - name: Deploy via LFTP to SFTP target
         run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --delete ./${GITHUB_BASE_REF##*/}; bye"
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: |
+            Successfully deployed to: https://dev.tolocar.org/${{ env.ASTRO_BASE_PATH }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
