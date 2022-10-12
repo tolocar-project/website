@@ -9,6 +9,7 @@ type Props = MarkdownLayoutProps<{
 }>;
 
 const { frontmatter, footerGrey = false } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <!DOCTYPE html>
@@ -29,6 +30,7 @@ const { frontmatter, footerGrey = false } = Astro.props;
       data-website-id="7642c494-7e60-4564-952b-5d0d33e7c16b"
       src="https://analytics.fabcity.hamburg/umami.js"
     ></script>
+    {baseUrl && <base href={baseUrl} />}
     <title>{frontmatter?.title}</title>
   </head>
   <body class="w-full font-aktiv antialiased h-full">
