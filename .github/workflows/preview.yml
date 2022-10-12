@@ -14,6 +14,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      BRANCH_NAME_URL: "${GITHUB_BASE_REF##*/}"
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v2
@@ -35,7 +37,7 @@ jobs:
       - name: Create artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${GITHUB_BASE_REF##*/}
+          name: $BRANCH_NAME_URL
           path: |
             dist
 
