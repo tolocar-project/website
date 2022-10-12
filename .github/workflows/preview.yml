@@ -58,7 +58,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: deployment
-          path: $ASTRO_BASE_PATH
+          path: ${{ env.ASTRO_BASE_PATH }}
       - name: List dir
         run: |
           pwd
