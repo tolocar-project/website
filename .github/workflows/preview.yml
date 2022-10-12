@@ -37,7 +37,7 @@ jobs:
       - name: Create artifact
         uses: actions/upload-artifact@v3
         with:
-          name: $BRANCH_NAME_URL
+          name: ${{ env.BRANCH_NAME_URL }}
           path: |
             dist
 
