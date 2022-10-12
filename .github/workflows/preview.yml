@@ -19,24 +19,21 @@ jobs:
     env: 
       ASTRO_CONFIG: ${{ secrets.ASTRO_CONFIG }}
     steps:
-      - name: Set env to include shell substitution logic
+      - name: Set env to use shell substitution logic
         run: echo "ASTRO_BASE_PATH=${GITHUB_BASE_REF##*/}" >> $GITHUB_ENV
-      - name: Checkout your repository using git
+      - name: Checkout repository using git
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: List dir
-        run: |
-          pwd
-          ls -la
-      - name: Replace config file
+      - name: Replace config file with Prod version
         run: echo "$ASTRO_CONFIG" > astro.config.mjs
-      - name: Install dependencies
+      - name: Install Node dependencies
         run: npm ci
       - name: Build site
         run: npm run build
-      - name: Create artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: deployment
@@ -53,20 +50,16 @@ jobs:
       SFTP_USER: ${{ secrets.SFTP_USER }}
       SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
     steps:
-      - name: Set env to include shell substitution logic
+      - name: Set env to use shell substitution logic
         run: echo "ASTRO_BASE_PATH=${GITHUB_BASE_REF##*/}" >> $GITHUB_ENV
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
           name: deployment
           path: ${{ env.ASTRO_BASE_PATH }}
-      - name: List dir
-        run: |
-          pwd
-          ls -la
       - name: Install LFTP
         run: sudo apt-get install -y lftp
-      - name: Add Known Hosts
+      - name: Add SSH Known Hosts
         run: |
           mkdir -p ~/.ssh/
           echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
@@ -85,6 +78,6 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Successfully deployed to: https://dev.tolocar.org/${{ env.ASTRO_BASE_PATH }}'
+              body: '✅ Successfully deployed to: https://dev.tolocar.org/${{ env.ASTRO_BASE_PATH }}'
             })
 
