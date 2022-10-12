@@ -28,7 +28,9 @@ jobs:
           pwd
           ls -la
       - name: Replace config file
-        run: echo "${{ secrets.ASTRO_CONFIG }}" > astro.config.mjs
+        run: echo "$ASTRO_CONFIG" > astro.config.mjs
+      - name: Variable substitution
+        run: sed -i "s/REPLACEME/${GITHUB_BASE_REF##*/}/" astro.config.mjs
       - name: Install dependencies
         run: npm ci
       - name: Build site
