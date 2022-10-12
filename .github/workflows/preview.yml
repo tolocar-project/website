@@ -13,10 +13,13 @@ permissions:
 
 jobs:
   build:
-    runs-on: node:18-slim
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - name: List dir
         run: |
           pwd
