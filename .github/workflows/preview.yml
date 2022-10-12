@@ -28,7 +28,7 @@ jobs:
           pwd
           ls -la
       - name: Replace config file
-        run: echo "$ASTRO_CONFIG" > astro.config.mjs
+        run: echo "${{ secrets.ASTRO_CONFIG }}" > astro.config.mjs
       - name: Install dependencies
         run: npm ci
       - name: Build site
