@@ -32,6 +32,12 @@ jobs:
         run: npm ci
       - name: Build site
         run: npm run build
+      - name: Create artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${GITHUB_BASE_REF##*/}
+          path: |
+            dist
 
   deploy:
     needs: build
