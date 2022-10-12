@@ -52,11 +52,13 @@ jobs:
       SFTP_USER: ${{ secrets.SFTP_USER }}
       SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
     steps:
+      - name: Set env to include shell substitution logic
+        run: echo "ASTRO_BASE_PATH=${GITHUB_BASE_REF##*/}" >> $GITHUB_ENV
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
           name: deployment
-          path: ${GITHUB_BASE_REF##*/}
+          path: $ASTRO_BASE_PATH
       - name: List dir
         run: |
           pwd
