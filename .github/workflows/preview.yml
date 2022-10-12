@@ -13,14 +13,22 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: node:alpine
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v2
-      - name: Install, build, and upload your site
-        uses: withastro/action@v0
-        with:
-            node-version: 18
+      - name: List dir
+        run: |
+          pwd
+          ls -la
+      - name: Replace config file
+        run: |
+          echo "$ASTRO_CONFIG" > astro.config.mjs
+          cat astro.config.mjs
+      - name: Install dependencies
+        run: npm ci
+      - name: Build site
+        run: npm run build
 
   deploy:
     needs: build
@@ -40,10 +48,6 @@ jobs:
         run: |
           mkdir ${GITHUB_BASE_REF##*/}
           tar -xvf artifact.tar -C ${GITHUB_BASE_REF##*/}
-      - name: Replace config file
-        run: |
-          echo "$ASTRO_CONFIG" >> ./${GITHUB_BASE_REF##*/}/astro.config.mjs
-          cat ./${GITHUB_BASE_REF##*/}/astro.config.mjs
       - name: Install LFTP
         run: sudo apt-get install -y lftp
       - name: Add Known Hosts
