@@ -56,14 +56,11 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: deployment
+          path: ${GITHUB_BASE_REF##*/}
       - name: List dir
         run: |
           pwd
           ls -la
-      - name: Extract artifact
-        run: |
-          mkdir ${GITHUB_BASE_REF##*/}
-          tar -xvf deployment.tar -C ${GITHUB_BASE_REF##*/}
       - name: Install LFTP
         run: sudo apt-get install -y lftp
       - name: Add Known Hosts
