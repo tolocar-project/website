@@ -39,7 +39,9 @@ jobs:
         with:
           name: deployment
           retention-days: 5
-          path: ./
+          path: |
+            ./
+            !node_modules
 
   deploy:
     needs: build
