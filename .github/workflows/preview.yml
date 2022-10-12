@@ -39,8 +39,7 @@ jobs:
         with:
           name: deployment
           retention-days: 5
-          path: |
-            dist
+          path: .
 
   deploy:
     needs: build
