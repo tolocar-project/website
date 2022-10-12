@@ -17,8 +17,9 @@ jobs:
     environment: ionos
     env: 
       ASTRO_CONFIG: ${{ secrets.ASTRO_CONFIG }}
-      ASTRO_BASE_PATH: ${GITHUB_BASE_REF##*/}
     steps:
+      - name: Set env
+        run: echo "ASTRO_BASE_PATH=${GITHUB_BASE_REF##*/}" >> $GITHUB_ENV
       - name: Checkout your repository using git
         uses: actions/checkout@v2
       - uses: actions/setup-node@v3
