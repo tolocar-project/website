@@ -39,7 +39,7 @@ jobs:
         with:
           name: deployment
           retention-days: 5
-          path: .
+          path: ./
 
   deploy:
     needs: build
