@@ -3,10 +3,10 @@ import TolocarLogoSvg from "../assets/tolocar_logo.svg";
 
 interface Props {
   className?: string;
-  target?: string;
+  logoTarget?: string;
 }
 
-const Navigation: React.FC<Props> = ({ target = "/", className }: Props) => {
+const Navigation: React.FC<Props> = ({ logoTarget = "/", className }: Props) => {
   const Image = <img className={`h-8 sm:h-10`} src={TolocarLogoSvg} />;
   return (
     <div
@@ -15,7 +15,7 @@ const Navigation: React.FC<Props> = ({ target = "/", className }: Props) => {
       }`}
     >
       <div className="container-width flex justify-between">
-        {target ? <a href={target}>{Image}</a> : Image}
+        {logoTarget ? <a href={logoTarget}>{Image}</a> : Image}
         <nav>
           <ul className="flex gap-2 text-neutral-500 font-medium font-aktiv text-[15px]">
             <MenuListItem target="#top">Home</MenuListItem>

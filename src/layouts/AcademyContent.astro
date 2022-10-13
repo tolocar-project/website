@@ -60,10 +60,15 @@ const parentPage = getParentPage(rawAcademyContent, url);
       <slot />
     </div>
   </div>
-  <Giscus />
+  {!frontmatter.disableComments && <Giscus />}
 
   <ContentSection variant="white">
-    <div class="absolute w-full bg-neutral-50 h-64 top-0"></div>
+    <div
+      class:list={`absolute w-full h-64 top-0 ${
+        frontmatter.disableComments ? "bg-white" : "bg-neutral-50"
+      }`}
+    >
+    </div>
     <CardContainer className="lg:h-[408px]">
       <Card
         title="You are based in Ukraine and think we could help you?"

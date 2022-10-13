@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       opacity: {
-        '15': '.15',
+        15: ".15",
       },
       backgroundImage: {
         "illustration-1": "url('/tolocar_illustration_1.svg')",
