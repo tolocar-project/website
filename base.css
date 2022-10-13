@@ -51,7 +51,7 @@
   }
 
   .container-width {
-    @apply max-w-[1440px] w-full lg:w-[84.4%] px-[5%] lg:px-8 mx-auto;
+    @apply max-w-[1440px] w-full lg:w-[84.4%] px-[4%] lg:px-8 mx-auto;
   }
 
   .container-width-hero {
