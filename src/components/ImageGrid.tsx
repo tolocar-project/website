@@ -26,7 +26,7 @@ const ImageGrid: React.FC<Props> = ({
         {images.length === 2 && <TwoPictureGrid images={images} />}
       </ImageGridWrapper>
       {caption && (
-        <div className="flex flex-col items-end text-tolo-neutral-300 z-10 mt-4 text-lg leading-6">
+        <div className="flex flex-col items-end text-neutral-300 z-10 mt-4 text-lg leading-6">
           {caption}
           {subCaption && (
             <>
