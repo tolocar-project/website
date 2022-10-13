@@ -19,3 +19,35 @@ If you want to run this setup locally:
 - Clone the repo
 - Inside the repo folder, run `npm install`
 - Run `npm run dev` to start the local dev server
+
+## Preview deployments
+This project will automatically deploy a preview version, when a new Pull Request is created. Because this requires to set a different URL and Base path, and Astro does not allow `.env` variables in their config file, we are manually overwriting the Astro config with this one (stored in a GitHub secret):
+
+```
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
+import tailwind from "@astrojs/tailwind";
+
+async function loadEnv() {
+  const { loadEnv: loadViteEnv } = await import("vite");
+  const { MODE } = process.env;
+  const PROD = MODE === "production";
+  const env = loadViteEnv(MODE, process.cwd(), "");
+  return { ...env, MODE, DEV: !PROD, PROD };
+}
+
+const { ASTRO_BASE_PATH } = await loadEnv();
+
+export default defineConfig({
+  site: "https://dev.tolocar.org",
+  base: ASTRO_BASE_PATH,
+  integrations: [
+    mdx(),
+    react(),
+    tailwind({
+      config: { applyBaseStyles: false },
+    }),
+  ],
+});
+```
