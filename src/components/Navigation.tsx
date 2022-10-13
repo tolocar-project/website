@@ -43,7 +43,7 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
 }: MenuListItemProps) => (
   <li className={`rounded-md overflow-hidden ${className || ""}`}>
     <a href={target} className=" hover:text-neutral-800">
-      <div className="px-3 py-2 hover:bg-tolo-neutral-50">{children}</div>
+      <div className="px-3 py-2 hover:bg-neutral-50">{children}</div>
     </a>
   </li>
 );

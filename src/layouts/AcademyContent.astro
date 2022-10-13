@@ -10,6 +10,7 @@ import {
 import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
 import { getParentPage } from "@util/ContentTransformer";
 import fs from "node:fs";
+import Giscus from "@components/Giscus.astro";
 
 const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
   "../pages/academy/*/*.mdx"
@@ -22,7 +23,6 @@ const editDate = new Date(statsMtime);
 
 const parentPage = getParentPage(rawAcademyContent, url);
 ---
-
 <BaseLayout frontmatter={frontmatter}>
   <div class="mt-20 container-width">
     <BackButton target="academy">Back to Academy Overview</BackButton>
@@ -35,7 +35,7 @@ const parentPage = getParentPage(rawAcademyContent, url);
       img={frontmatter.img || parentPage.frontmatter.img}
     />
   </div>
-  <div class="container-width mt-8 grid grid-cols-12 gap-8">
+  <div class="container-width mt-8 mb-24 grid grid-cols-12 gap-8">
     <div class="col-span-4">
       <div class="text-lg font-bold">Placeholder</div>
       <div class="mt-8">
@@ -60,9 +60,10 @@ const parentPage = getParentPage(rawAcademyContent, url);
       <slot />
     </div>
   </div>
+  <Giscus />
 
   <ContentSection variant="white">
-    <div class="absolute w-full bg-white h-64 top-0"></div>
+    <div class="absolute w-full bg-neutral-50 h-64 top-0"></div>
     <CardContainer className="lg:h-[408px]">
       <Card
         title="You are based in Ukraine and think we could help you?"
