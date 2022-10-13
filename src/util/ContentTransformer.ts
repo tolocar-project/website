@@ -1,10 +1,13 @@
-import { AcademyPageParent, AcademyPageFrontmatter } from "@types/Academy";
+import type {
+  AcademyPageParent,
+  AcademyPageFrontmatter,
+} from "@interfaces/IAcademy";
 import type { MDXInstance } from "astro";
 
 export function flatAcademyContentMap(
   rawAcademyContent: MDXInstance<AcademyPageFrontmatter>[]
 ) {
-  const flatMap: Record<string, AcademyPageFrontmatter> = {};
+  const flatMap: Record<string, MDXInstance<AcademyPageFrontmatter>> = {};
   rawAcademyContent.forEach((page) => {
     flatMap[page.url] = page;
   });

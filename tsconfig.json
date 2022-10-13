@@ -11,8 +11,8 @@
       "@assets/*": ["src/assets/*"],
       "@util": ["src/util"],
       "@util/*": ["src/util/*"],
-      "@types": ["src/types"],
-      "@types/*": ["src/types/*"]
+      "@interfaces": ["src/interfaces"],
+      "@interfaces/*": ["src/interfaces/*"]
     }
   }
 }

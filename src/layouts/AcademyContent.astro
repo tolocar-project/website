@@ -7,7 +7,7 @@ import {
   Card,
   CardContainer,
 } from "@components";
-import { AcademyPageFrontmatter } from "@types/Academy";
+import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
 import { getParentPage } from "@util/ContentTransformer";
 
 const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
@@ -27,9 +27,16 @@ const parentPage = getParentPage(rawAcademyContent, url);
       category={parentPage.frontmatter.title}
       img={frontmatter.img || parentPage.frontmatter.img}
     />
-    <div class="mt-8 flex">
-      <div class="flex-1">Table of Contents</div>
-      <div class="flex-[3] prose prose-lg prose-p:text-tolo-footer-grey prose-li:text-tolo-footer-grey prose-ol:text-tolo-footer-grey prose-p:leading-7"><slot /></div>
+    <div class="mt-8 grid grid-cols-12 gap-8">
+      <div class="col-span-4">
+        <div class="text-lg font-bold">Placeholder</div>
+        <div class="font-bold uppercase text-tolo-grey text-[15px] mt-8">Last updated</div>
+      </div>
+      <div
+        class="col-span-7 prose prose-lg prose-p:text-tolo-footer-grey prose-li:text-tolo-footer-grey prose-ol:text-tolo-footer-grey prose-p:leading-7"
+      >
+        <slot />
+      </div>
     </div>
   </div>
   <ContentSection variant="white">
