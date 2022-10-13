@@ -17,7 +17,7 @@ const Navigation: React.FC<Props> = ({ target = "/", className }: Props) => {
       <div className="container-width flex justify-between">
         {target ? <a href={target}>{Image}</a> : Image}
         <nav>
-          <ul className="flex gap-2 text-tolo-footer-grey font-medium font-aktiv text-[15px]">
+          <ul className="flex gap-2 text-neutral-500 font-medium font-aktiv text-[15px]">
             <MenuListItem target="#top">Home</MenuListItem>
             <MenuListItem target="#motivation">Motivation</MenuListItem>
             <MenuListItem target="#what-is-a-tolocar">What is a Tolocar?</MenuListItem>
@@ -42,8 +42,8 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
   children,
 }: MenuListItemProps) => (
   <li className={`rounded-md overflow-hidden ${className || ""}`}>
-    <a href={target} className=" hover:text-tolo-dark-grey">
-      <div className="px-3 py-2 hover:bg-tolo-light-grey">{children}</div>
+    <a href={target} className=" hover:text-neutral-800">
+      <div className="px-3 py-2 hover:bg-tolo-neutral-50">{children}</div>
     </a>
   </li>
 );

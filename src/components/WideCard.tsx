@@ -9,7 +9,7 @@ interface Props {
 
 const WideCard: React.FC<Props> = ({ className, children, title }) => {
   return (
-    <div className={`container-width mt-20 h-full ${className || ""}`}>
+    <div className={`container-width-hero mt-20 h-full ${className || ""}`}>
       <div className="bg-tolo-green relative overflow-hidden">
         <div className="p-12 text-white absolute items-start w-2/3 h-full flex flex-col justify-between">
           {title && <h1 className="font-bold text-5xl">{title}</h1>}

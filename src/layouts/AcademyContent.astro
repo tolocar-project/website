@@ -9,36 +9,58 @@ import {
 } from "@components";
 import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
 import { getParentPage } from "@util/ContentTransformer";
+import fs from "node:fs";
 
 const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
   "../pages/academy/*/*.mdx"
 );
 
-const { frontmatter, url } = Astro.props;
+const { frontmatter, url, file } = Astro.props;
+
+const statsMtime = fs.statSync(file).mtime;
+const editDate = new Date(statsMtime);
+
 const parentPage = getParentPage(rawAcademyContent, url);
 ---
 
 <BaseLayout frontmatter={frontmatter}>
   <div class="mt-20 container-width">
     <BackButton target="academy">Back to Academy Overview</BackButton>
+  </div>
+  <div class="container-width-hero">
     <AcademyHeroImage
       title={frontmatter.title}
       teaser={frontmatter.teaser}
       category={parentPage.frontmatter.title}
       img={frontmatter.img || parentPage.frontmatter.img}
     />
-    <div class="mt-8 grid grid-cols-12 gap-8">
-      <div class="col-span-4">
-        <div class="text-lg font-bold">Placeholder</div>
-        <div class="font-bold uppercase text-tolo-grey text-[15px] mt-8">Last updated</div>
-      </div>
-      <div
-        class="col-span-7 prose prose-lg prose-p:text-tolo-footer-grey prose-li:text-tolo-footer-grey prose-ol:text-tolo-footer-grey prose-p:leading-7"
-      >
-        <slot />
+  </div>
+  <div class="container-width mt-8 grid grid-cols-12 gap-8">
+    <div class="col-span-4">
+      <div class="text-lg font-bold">Placeholder</div>
+      <div class="mt-8">
+        <span class="font-bold uppercase text-neutral-400 text-[15px]"
+          >Last updated</span
+        ><br />
+        <span class="font-medium text-lg"
+          >{
+            editDate.toLocaleDateString("en", {
+              timeZone: "Europe/Berlin",
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })
+          }
+        </span>
       </div>
     </div>
+    <div
+      class="col-span-7 prose prose-lg prose-p:text-neutral-500 prose-li:text-neutral-500 prose-ol:text-neutral-500 prose-p:leading-7"
+    >
+      <slot />
+    </div>
   </div>
+
   <ContentSection variant="white">
     <div class="absolute w-full bg-white h-64 top-0"></div>
     <CardContainer className="lg:h-[408px]">

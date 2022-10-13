@@ -18,7 +18,7 @@ const Course: React.FC<Props> = ({ className, course, imgAlt }) => {
         <img
           src={course.img}
           alt={imgAlt}
-          className="w-full h-full object-cover aspect-[12/5]"
+          className="w-full h-full object-cover outline outline-offset-[-2px] outline-2 outline-black/15 aspect-[12/5]"
         />
         <h2 className="absolute bottom-6 left-6 bg-black/80 leading-none text-white rounded-md px-2 py-[6px] text-[15px] font-bold uppercase">
           {course.title}

@@ -8,9 +8,9 @@ interface Props {
 }
 
 const bgColorMapping = {
-  dark: "bg-tolo-dark-grey",
+  dark: "bg-neutral-800",
   white: "bg-white",
-  default: "bg-tolo-light-grey",
+  default: "bg-tolo-neutral-50",
 };
 
 const ContentSection: React.FC<Props> = ({

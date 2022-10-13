@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      opacity: {
+        '15': '.15',
+      },
       backgroundImage: {
         "illustration-1": "url('/tolocar_illustration_1.svg')",
         "illustration-2": "url('/tolocar_illustration_2.svg')",
@@ -22,12 +25,18 @@ module.exports = {
       black: "#000000",
       "tolo-black": "#111111",
       "tolo-green": "#009664",
-      "tolo-dark-grey": "#212121",
-      "tolo-grey": "#7B7B7B",
-      "tolo-light-grey": "#F5F5F5",
-      "tolo-link-grey": "#B8B8B8",
-      "tolo-footer-grey": "#707070",
-      "tolo-black": "#111111",
+      neutral: {
+        50: "#F5F5F5",
+        100: "#EEEEEE",
+        200: "#DCDCDC",
+        300: "#B8B8B8",
+        400: "#8F8F8F",
+        500: "#707070",
+        600: "#575757",
+        700: "#343434",
+        800: "#212121",
+        900: "#131313",
+      },
     },
     fontFamily: {
       aktiv: ["aktiv-grotesk-extended", "Arial", "sans-serif"],

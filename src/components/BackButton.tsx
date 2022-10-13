@@ -9,7 +9,7 @@ interface Props {
 
 const BackButton: React.FC<Props> = ({ className, children, target }: Props) => {
   return (
-    <div className={`text-tolo-footer-grey hover:text-tolo-black mt-14 mb-11 font-medium text-[18px] ${className || ""}`}>
+    <div className={`text-neutral-500 hover:text-tolo-black mt-14 mb-11 font-medium text-[18px] ${className || ""}`}>
       <a href={target} className="flex items-center">
         <ArrowSvg className="h-6 w-6 mr-4 rotate-180" />
         {children}

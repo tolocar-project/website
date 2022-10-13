@@ -31,7 +31,7 @@
   }
 
   .custom-prose {
-    @apply text-tolo-grey text-base leading-[22px] lg:text-lg lg:leading-6;
+    @apply text-neutral-500 text-base leading-[22px] lg:text-lg lg:leading-6;
   }
 
   .custom-prose strong {
@@ -47,11 +47,15 @@
   }
 
   .custom-prose h2 {
-    @apply font-bold text-3xl text-tolo-dark-grey my-4;
+    @apply font-bold text-3xl text-neutral-800 my-4;
   }
 
   .container-width {
     @apply max-w-[1440px] w-full lg:w-[84.4%] px-[5%] lg:px-8 mx-auto;
+  }
+
+  .container-width-hero {
+    @apply max-w-[1440px] w-full lg:w-[84.4%] px-0 mx-auto;
   }
 
   .mask-illustration {

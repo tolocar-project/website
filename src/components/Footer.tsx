@@ -61,7 +61,7 @@ const Footer: React.FC<Props> = ({ className }: Props) => {
             </div>
           </div>
         </div>
-        <div className="text-sm text-tolo-footer-grey flex flex-col lg:flex-row gap-2 lg:gap-0 mt-8 lg:mt-0">
+        <div className="text-sm text-neutral-500 flex flex-col lg:flex-row gap-2 lg:gap-0 mt-8 lg:mt-0">
           <div><a href="/legal">Legal Notice</a></div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
           <div><a href="/privacy">Privacy Notice</a></div>
@@ -84,7 +84,7 @@ const FooterLinkListItem: React.FC<FooterLinkListItemProps> = ({
 }: FooterLinkListItemProps) => {
   return (
     <li>
-      <a className="underline text-tolo-footer-grey" href={target}>
+      <a className="underline text-neutral-500" href={target}>
         {children}
       </a>
     </li>
