@@ -46,7 +46,7 @@ export function transformAcademy(rawAcademyContent) {
     };
 
     possibleLessons.forEach((possibleLesson) => {
-      if (possibleLesson.url.toLowerCase().startsWith(course.url)) {
+      if (possibleLesson.url.startsWith(course.url)) {
         if (coursesAndLessons[course.url]) {
           coursesAndLessons[course.url] = {
             ...coursesAndLessons[course.url],
