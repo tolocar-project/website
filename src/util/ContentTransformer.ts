@@ -25,6 +25,7 @@ export function getParentPage(
 }
 
 export function transformAcademy(rawAcademyContent) {
+  console.log("Raw Content", JSON.stringify(rawAcademyContent, null, 2));
   const courses = rawAcademyContent
     .filter((item) => item.file.toLowerCase().includes("index.mdx"))
     .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
