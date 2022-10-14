@@ -22,7 +22,7 @@ const AcademyHeroImage: React.FC<Props> = ({
         className || ""
       }`}
     >
-      <div className="p-12 text-white absolute h-full flex flex-col items-start">
+      <div className="p-[4%] md:p-12 text-white absolute h-full flex flex-col items-start">
         {category && (
           <h2 className="bg-black/30 backdrop-blur-sm text-white rounded-md px-2 py-[6px] leading-none text-[15px] font-bold uppercase">
             {category}
