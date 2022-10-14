@@ -29,10 +29,10 @@ const parentPage = getParentPage(rawAcademyContent, url);
   </div>
   <div class="container-width-hero">
     <AcademyHeroImage
-      title={frontmatter.title}
-      teaser={frontmatter.teaser}
-      category={parentPage.frontmatter.title}
-      img={frontmatter.img || parentPage.frontmatter.img}
+      title={frontmatter?.title}
+      teaser={frontmatter?.teaser}
+      category={parentPage?.frontmatter?.title}
+      img={frontmatter?.img || parentPage.frontmatter?.img}
     />
   </div>
   <div class="container-width mt-8 mb-24 flex flex-col md:grid grid-cols-12 gap-8">
