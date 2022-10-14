@@ -29,11 +29,13 @@ export function transformAcademy(rawAcademyContent) {
   const courses = rawAcademyContent
     .filter((item) => item.file.toLowerCase().includes("index.mdx"))
     .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
-
+  console.log("Courses", JSON.stringify(courses, null, 2));
   // This is the "rest"/opposite of the filter result above
   const possibleLessons = rawAcademyContent.filter(
     (item) => !item.file.toLowerCase().includes("index.mdx")
   );
+
+  console.log("Possible Lessons", JSON.stringify(possibleLessons, null, 2));
 
   const coursesAndLessons: Record<string, AcademyPageParent> = {};
 
@@ -65,5 +67,9 @@ export function transformAcademy(rawAcademyContent) {
     };
   });
 
+  console.log(
+    "Courses and Lessons",
+    JSON.stringify(coursesAndLessons, null, 2)
+  );
   return coursesAndLessons;
 }
