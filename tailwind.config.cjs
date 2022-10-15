@@ -16,6 +16,7 @@ module.exports = {
         "illustration-4-wide": "url('/tolocar_illustration_4_wide.svg')",
         "illustration-wide": "url('/tolocar_illustration_wide.svg')",
         "illustration-1-dark": "url('/tolocar_illustration_1_dark.svg')",
+        "link": "url('/link.svg')",
       },
     },
     colors: {

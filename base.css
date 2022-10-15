@@ -62,4 +62,16 @@
     mask-image: linear-gradient(to right, transparent 40%, black 70%);
   }
 
+  .icon {
+    @apply hidden ml-2 bg-link w-6 h-6 bg-contain bg-no-repeat;
+  }
+
+  .prose h1:hover .icon,
+  .prose h2:hover .icon,
+  .prose h3:hover .icon,
+  .prose h4:hover .icon,
+  .prose h5:hover .icon,
+  .prose h6:hover .icon {
+    @apply inline-block;
+  }
 }

@@ -28,6 +28,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 async function loadEnv() {
   const { loadEnv: loadViteEnv } = await import("vite");
@@ -43,7 +44,9 @@ export default defineConfig({
   site: "https://dev.tolocar.org",
   base: ASTRO_BASE_PATH,
   integrations: [
-    mdx(),
+    mdx({
+      rehypePlugins: [[rehypeAutolinkHeadings, { behavior: "append" }]],
+    }),
     react(),
     tailwind({
       config: { applyBaseStyles: false },
