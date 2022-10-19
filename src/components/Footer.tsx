@@ -55,22 +55,22 @@ const Footer: React.FC<Props> = ({ className }: Props) => {
           <div className="flex-1 flex flex-col gap-8 lg:flex-row text-sm mt-8">
             <div className="flex-1 mt-10 lg:mt-0 flex items-center justify-center">
               <a className="w-full h-auto" href="https://www.hiww.de/">
-                <img className="w-full h-auto" src={HiwwLogoImg} />
+                <img className="max-w-xs w-full h-auto" src={HiwwLogoImg} />
               </a>
             </div>
-            <div className="flex-1 mt-10 lg:mt-0">
-              <a href="https://www.bmz.de/">
-                <img src={DeutscheZusammenArbeitImg} />
+            <div className="flex-1 mt-10 lg:mt-0 flex items-center justify-center">
+              <a className="w-full h-auto" href="https://www.bmz.de/">
+                <img className="max-w-xs w-full h-auto" src={DeutscheZusammenArbeitImg} />
               </a>
             </div>
-            <div className="flex-1 flex items-center mt-10 lg:mt-0">
+            <div className="flex-1 mt-10 lg:mt-0 flex items-center justify-center">
               <a className="w-full h-auto" href="https://www.giz.de/">
-                <img className="w-full h-auto" src={GizUkraineImg} />
+                <img className="max-w-xs w-full h-auto" src={GizUkraineImg} />
               </a>
             </div>
           </div>
         </div>
-        <div className="text-sm text-tolo-footer-grey flex flex-col lg:flex-row gap-2 lg:gap-0 mt-8 lg:mt-0">
+        <div className="text-sm text-tolo-footer-grey flex flex-col lg:flex-row gap-2 lg:gap-0 mt-8">
           <div>
             <a href="/legal">Legal Notice</a>
           </div>
