@@ -51,29 +51,48 @@ Using Tinkercad Circuits, you can build, program, and simulate your designs. You
 ### Exercise 1: Board Builtin LED
 The Arduino Uno board has a builtin LED connected to pin 13 (instead of pin number, you can access the builtin LED using “LED_BUILTIN”). The code below will define pin 13 as output, and set its value to HIGH, which will turn the LED on. Any digital output can be set to HIGH or LOW.
 
-![Arduino 1](images/academy/arduino_basic_programming/image_6.png)
+![Arduino](images/academy/arduino_basic_programming/image_6.png)
+
+![Arduino](images/academy/arduino_basic_programming/image_7.png)
 
 Note that we need to execute the code once, so it is written in block setup()
 
 Your turn: change the code to turn the builtin LED off.
+
 ### Exercise 2: Serial Monitor
 You can use the serial monitor to display messages on your PC sent from the Arduino board. If you want to display a message once, write the code in block setup(). Messages continuously updating are sent from block loop().
 There are many builtin functions that can be used to control the flow of your software. For example, the delay(n) function is used to delay the execution for n milliseconds. 
 The code below will print some messages one time, and then print a message in a new line telling that 1000 ms (1 second) have elapsed. 
 
-Your turn: Write a code to continuously blink the builtin LED, on for 1.30 sec and off for 0.95 sec. Update the state of the LED on the serial monitor by sending a message saying “Builtin LED in ON” or “Builtin LED is OFF”
+![monitor](images/academy/arduino_basic_programming/image_8.png)
+
+**Your turn:** Write a code to continuously blink the builtin LED, on for 1.30 sec and off for 0.95 sec. Update the state of the LED on the serial monitor by sending a message saying “Builtin LED in ON” or “Builtin LED is OFF”
 
 ### Exercise 3: LED & Push Button
 Digital pins could be defined as inputs or outputs. A pin connected to a LED should be defined as output, while a pin reading the state of a push button should be defined as input. A series resistor should be used in the LED circuit, something between 220-330 ohms. In the push button circuit, a 10k ohms pull down resistor should be connected to force its value to be LOW when it is not pressed.
 The code below reads the value from the push button and controls the LED. When the push button is pressed, the LED will be on.
 
-Your turn: The previous code reads the value from the push button and sends it directly to the LED. Now you will add another LED, let’s say a green one. When the push button is pressed, orange led is on, green led is off, and when the push button is not pressed, orange led is off and green led is on. Use the boolean operator Logical Not
+![picture](images/academy/arduino_basic_programming/image_9.png)
+
+![picture](images/academy/arduino_basic_programming/image_10.png)
+
+**Your turn:** The previous code reads the value from the push button and sends it directly to the LED. Now you will add another LED, let’s say a green one. When the push button is pressed, orange led is on, green led is off, and when the push button is not pressed, orange led is off and green led is on. Use the boolean operator [Logical Not](https://www.arduino.cc/reference/en/language/structure/boolean-operators/logicalnot/)
 
 ### Exercise 4: 16x2 LCD
 LCDs are used to display messages. A 16x2 LCD has two lines, in each line 16 characters can be displayed. LiquidCrystal.h is a library written to control LCDs. You only need to import the library and start using it. 
 The code below displays some messages on the LCD, and uses the function millis() to display the time passed since the board is powered. Note that 11k ohm resistor is used to control the contrast of the LCD, and 220 ohm for the back light led.
 
-Your turn: You will design a system with 2 push buttons and 16x2 LCD. The push button will be used to write binary numbers of 2 digits to the system. The LCD should display the number in binary (line 1 in LCD) and decimal (line 2 in LCD). The table shows all possible inputs.
+![picture](images/academy/arduino_basic_programming/image_11.png)
+
+![picture](images/academy/arduino_basic_programming/image_12.png)
+
+**Your turn:** You will design a system with 2 push buttons and 16x2 LCD. The push button will be used to write binary numbers of 2 digits to the system. The LCD should display the number in binary (line 1 in LCD) and decimal (line 2 in LCD). The table shows all possible inputs.
+
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
 
 Left push button
 Right push button
