@@ -88,107 +88,45 @@ The code below displays some messages on the LCD, and uses the function millis()
 
 **Your turn:** You will design a system with 2 push buttons and 16x2 LCD. The push button will be used to write binary numbers of 2 digits to the system. The LCD should display the number in binary (line 1 in LCD) and decimal (line 2 in LCD). The table shows all possible inputs.
 
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+| Left push button | Right push button | Binary | Decimal |         LCD message        |
+|:----------------:|:-----------------:|:------:|:-------:|:--------------------------:|
+| off              | off               | 00     | 0       | Binary:    00 Decimal:   0 |
+| off              | on                | 01     | 1       | Binary:    01 Decimal:   1 |
+| on               | off               | 10     | 2       | Binary:    10 Decimal:   2 |
+| on               | on                | 11     | 3       | Binary:    11 Decimal:   3 |
 
-Left push button
-Right push button
-Binary
-Decimal
-LCD message
-off
-off
-00
-0
-Binary:    00
-Decimal:   0
-off
-on
-01
-1
-Binary:    01
-Decimal:   1
-on
-off
-10
-2
-Binary:    10
-Decimal:   2
-on 
-on
-11
-3
-Binary:    11
-Decimal:   3
-
-You can use conditional statements (if, if-else), or switch-case to complete this task.
+You can use conditional statements ([if](https://www.arduino.cc/reference/en/language/structure/control-structure/if/), [if-else](https://www.arduino.cc/reference/en/language/structure/control-structure/else/)), or [switch-case](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) to complete this task.
 
 ### Exercise 5: H-Bridge DC Motor Control
-The h-bridge is used with DC motors to control the direction of rotation (CW: clockwise, CCW: counterclockwise). In this exercise, we will use L293D, which can be used to control 2 DC motors. Each channel has 3 inputs to enable control and set direction of rotation (EN12, AH1, AH2) and (EN34, AH3, AH4), and two outputs to connect DC motors (output1, outpu2) and (output3, output4).
+The h-bridge is used with DC motors to control the direction of rotation (CW: clockwise, CCW: counterclockwise). In this exercise, we will use [L293D](https://www.ti.com/lit/ds/symlink/l293.pdf), which can be used to control 2 DC motors. Each channel has 3 inputs to enable control and set direction of rotation (EN12, AH1, AH2) and (EN34, AH3, AH4), and two outputs to connect DC motors (output1, outpu2) and (output3, output4).
 The system below enables the control of 2 DC motors and sets the direction for each motor. Note that in this system we are using an external power supply 12VDC.
 
-Your turn: Add two push buttons to the system to control the direction of control of each motor. For example, push button pressed motor will rotate CW, and push button unpressed motor will rotate CCW.
+![picture](images/academy/arduino_basic_programming/image_13.png)
+
+![picture](images/academy/arduino_basic_programming/image_14.png)
+
+**Your turn:** Add two push buttons to the system to control the direction of control of each motor. For example, push button pressed motor will rotate CW, and push button unpressed motor will rotate CCW.
 
 ### Exercise 6: Analog to Digital Converter
 A2D is used to read variable voltage input (0-5 VDC) through a potentiometer, and convert that value into integer number (0 - 1023). For example, this value could be used to control the speed of a DC motor. The voltage value is converted to a number such that 0 VDC = 0 and 5 VDC = 1023. 
 The system below reads the voltage from a potentiometer and displays the value results from conversion. Then it calculates the voltage, which should match with reading in the voltmeter.
 
-Your turn: The result after the analog to digital converter is in the range 0 - 1023. Sometimes we need this value to be in a different range, let’s say 0 - 255. Use the map() function to convert the range from 0 - 1023 to 0 - 255. The serial monitor display should be similar to the following example
-Potentiometer reading (0-1023) = 675
-Potentiometer reading (0-255) = 168
-Voltage value = 3.30 V
+![picture](images/academy/arduino_basic_programming/image_15.png)
+
+![picture](images/academy/arduino_basic_programming/image_16.png)
+
+**Your turn:** The result after the analog to digital converter is in the range 0 - 1023. Sometimes we need this value to be in a different range, let’s say 0 - 255. Use the [map()](https://www.arduino.cc/reference/en/language/functions/math/map/) function to convert the range from 0 - 1023 to 0 - 255. The serial monitor display should be similar to the following example
+
+*Potentiometer reading (0-1023) = 675*
+*Potentiometer reading (0-255) = 168*
+*Voltage value = 3.30 V*
 
 ### Exercise 7: Pulse Width Modulation
-PWM is a technique used to control the speed of DC motors. A PWM signal is fed into the EN pin of the h-bridge (0 - 255), and the motor will receive variable input voltage (PWM = 0, Vin = 0 VDC and PWM = 255, Vin = 12 VDC). the Arduino UNO board has 5 PWM pins (3, 5, 6, 10, 11).
+PWM is a technique used to control the speed of DC motors. A PWM signal is fed into the EN pin of the h-bridge (0 - 255), and the motor will receive variable input voltage (PWM = 0, Vin = 0 VDC and PWM = 255, Vin = 12 VDC). The Arduino UNO board has 5 PWM pins (3, 5, 6, 10, 11).
 The system below controls a 24V DC motor in one direction using a N-MOSFET. Changing the setting of the potentiometer will change the motor speed. Note the oscilloscope displaying the signal fed to the MOSFET gate.
 
-Your turn: Design a system using L293D h-bridge to control two 24V DC motors. The system should have two potentiometers to control the rotation speed of each motor, and also two slide switches to control the direction of each motor.
+![picture](images/academy/arduino_basic_programming/image_17.png)
 
+![picture](images/academy/arduino_basic_programming/image_18.png)
 
-
-**Quid** vimque tenetis Bacchus vetitos; suos eruit ira, cursus de dixit quoque.
-Membris est aut, cultuque imitatur: post mea simul dementer tremulis. Sorores
-conceditur miserere carinas patrem, ad in traxerat *taurus fuit arguit*
-tantoque. Ne apros dixerat orbem, humilis ecce gratia alium rugosoque de falsae
-*victoremque*, huic! Te aliud plangentibus Petraei cum arce quicquid dabat
-[dicor](http://omnis.io/hunc), quid se fortunaque *ense cum* illo gelidoque
-ramis paruerit.
-
-## Quae tribus senior quas Piscibus solebat superantque
-
-Illis iura posset quisquis sumptaque Ismenos Corythi terras tempore, de corpus
-ferro [quicumque momordi](http://falcisvictores.io/ait-venulus) missus
-spectarat. Illa cum [plura](http://peractum.net/etdonec.html) mensis.
-
-Mirabere oscula obstantes. Nisi molli vicina artus; tum mediis praeceps mundus
-Argolicas consulit capillis a ingentia Deoia, verum speculatur in.
-
-## Auxilioque nec et
-
-Sacra similisque Dianae disiectisque novem vestibus incipit matre obstitit
-rabida hastis demisi soli coniugis, dat famulumque. Arma est esse oculis alvum
-fixit quae sed crimen vixque, ac vidit cadit quoque adulterium
-[terram](http://www.videntursoporem.net/)! [Iusta](http://www.in.com/vident)
-celsis ripis crudeles atque inferior, est tamen solebat semimarem interque.
-
-## Tumulus saxoque ferre
-
-[Murmur](http://illos.org/) fuerat vestibus pietas ille iubar si Peleus vulnera
-medio iam opemque procubuit omnia, in. Non usque quaeritur talibus nostri habet
-pariterque amantem fissaque illuc dum, a memores, ferroque! Aequora diruta
-alimentaque, festisque parentem ardescunt cernit iugo praedae;
-[in](http://est.net/eratnon) aut velant utinam operum aures pocula.
-
-1. Facundum montis venisses cadat fumificisque longis pedesque
-2. Orbis illo quoque Plena regione circum sequitur
-3. Furtim ac aprorum sic factaque caelum prima
-4. Cruore pelago montes est
-5. Sum amicior iamque ante tua calenti altaribus
-
-Et vino favorque. Cum geminos, hac ante congelat requiescit et tamen pennas
-dignior. Arboris procul Minyae mortisque potius. Quod culpa terribiles quam;
-hinc motis, [et cortice](http://www.his-terrae.org/foedaque-erebi) prospiciunt
-inter sternentemque Aenea.
+**Your turn:** Design a system using L293D h-bridge to control two 24V DC motors. The system should have two potentiometers to control the rotation speed of each motor, and also two slide switches to control the direction of each motor.
