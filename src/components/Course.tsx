@@ -1,10 +1,10 @@
 import React from "react";
 import { ArrowSvg } from "@components";
+import GithubSlugger from "github-slugger";
 
 interface Props {
   className?: string;
   course: {
-    link: string;
     title: string;
     img: string;
     imgAlt?: string;
@@ -13,16 +13,19 @@ interface Props {
 }
 
 const Course: React.FC<Props> = ({ className, course }) => {
+  const slugger = new GithubSlugger();
   return (
-    <div className={`border-b-[1px] border-black/10 ${className || ""}`}>
+    <div
+      id={slugger.slug(course.title)}
+      className={`border-b-[1px] border-black/10 ${className || ""}`}
+    >
       <div className="relative">
-        <a href={course.link}>
-          <img
-            src={course.img}
-            alt={course.imgAlt}
-            className="w-full h-full object-cover outline outline-offset-[-2px] outline-2 outline-black/15 aspect-[12/5]"
-          />
-        </a>
+        <img
+          src={course.img}
+          alt={course.imgAlt}
+          className="w-full h-full object-cover outline outline-offset-[-2px] outline-2 outline-black/15 aspect-[12/5]"
+        />
+
         <h2 className="absolute bottom-6 left-6 bg-black/80 leading-none text-white rounded-md px-2 py-[6px] text-[15px] font-bold uppercase">
           {course.title}
         </h2>

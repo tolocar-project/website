@@ -17,6 +17,7 @@
     "@tailwindcss/typography": "^0.5.7",
     "@types/node": "^18.11.7",
     "astro": "^1.6.1",
+    "github-slugger": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rehype-autolink-headings": "^6.1.1",

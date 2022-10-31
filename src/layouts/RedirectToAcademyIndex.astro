@@ -1,0 +1,27 @@
+---
+import GithubSlugger from "github-slugger";
+const { frontmatter } = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL;
+const slugger = new GithubSlugger();
+const targetSlug = slugger.slug(frontmatter.title);
+const targetUrl = baseUrl + "academy/#" + targetSlug;
+---
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content={`0; url=${targetUrl}`} />
+    <script type="text/javascript">
+      window.location.href = { targetUrl };
+    </script>
+    <title>Redirect</title>
+  </head>
+  <body>
+    If you are not redirected automatically, follow this <a href={targetUrl}
+      >link to example</a
+    >.
+    <meta http-equiv="refresh" content={`0; url=${targetUrl}`} />
+  </body>
+</html>

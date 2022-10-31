@@ -33,10 +33,10 @@ const TableOfContents: React.FC<Props> = ({ title, headlines }) => {
     <nav>
       <div className={"text-lg font-bold text-neutral-800"}>{title}</div>
       <ul className="text-neutral-500 text-lg font-medium flex flex-col gap-4 mt-4 pl-10 pl-">
-        {headlinesWithoutDepthGaps.map((headline) => {
+        {headlinesWithoutDepthGaps.map((headline, index) => {
           const leftPadding = paddingMapping[headline.depth];
           return (
-            <li className={leftPadding}>
+            <li key={index} className={leftPadding}>
               <a className="hover:text-neutral-900" href={`#${headline.slug}`}>{headline.text}</a>
             </li>
           );
