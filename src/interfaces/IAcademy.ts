@@ -2,6 +2,7 @@ export interface AcademyPageFrontmatter {
   title?: string;
   order?: number;
   img?: string;
+  imgAlt?: string;
   disableComments?: boolean;
 }
 

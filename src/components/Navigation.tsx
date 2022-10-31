@@ -37,7 +37,6 @@ const Navigation: React.FC<Props> = ({
   const [showOverlayMenu, setShowOverlayMenu] = useState(false);
 
   const toggleMenu = () => {
-    console.log("HELLO");
     setShowOverlayMenu(!showOverlayMenu);
   };
 

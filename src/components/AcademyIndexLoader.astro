@@ -23,6 +23,8 @@ const coursesAndLessons = transformAcademy(rawAcademyContent);
         course={{
           title: course.frontmatter.title,
           img: course.frontmatter.img,
+          imgAlt: course.frontmatter.imgAlt,
+          link: course.url,
           items: lessons,
         }}
       />
