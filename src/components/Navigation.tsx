@@ -4,36 +4,33 @@ import ArrowSvg from "@components/ArrowSvg";
 
 interface Props {
   className?: string;
-  logoTarget?: string;
+  baseUrl?: string;
 }
 
-const menu: Array<{ title: string; target: string }> = [
+const getMenu = (baseUrl: string): Array<{ title: string; target: string }> => [
   {
     title: "Home",
-    target: "#top",
+    target: baseUrl + "#top",
   },
   {
     title: "Motivation",
-    target: "#motivation",
+    target: baseUrl + "#motivation",
   },
   {
     title: "What is a Tolocar?",
-    target: "#what-is-a-tolocar",
+    target: baseUrl + "#what-is-a-tolocar",
   },
   {
     title: "Community",
-    target: "#projects-community",
+    target: baseUrl + "#projects-community",
   },
   {
     title: "Makerspace Academy",
-    target: "academy",
+    target: baseUrl + "academy",
   },
 ];
 
-const Navigation: React.FC<Props> = ({
-  logoTarget = "/",
-  className,
-}: Props) => {
+const Navigation: React.FC<Props> = ({ baseUrl = "/", className }: Props) => {
   const [showOverlayMenu, setShowOverlayMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -42,6 +39,8 @@ const Navigation: React.FC<Props> = ({
 
   const Image = <img className={`h-8 sm:h-10`} src={TolocarLogoSvg} />;
 
+  const menu = getMenu(baseUrl);
+
   return (
     <div
       className={`w-full bg-white h-20 fixed flex items-center justify-center top-0 z-20 ${
@@ -49,8 +48,8 @@ const Navigation: React.FC<Props> = ({
       }`}
     >
       <div className="container-width justify-between flex">
-        {logoTarget ? (
-          <a className="z-20" href={logoTarget}>
+        {baseUrl ? (
+          <a className="z-20" href={baseUrl}>
             {Image}
           </a>
         ) : (
@@ -68,7 +67,11 @@ const Navigation: React.FC<Props> = ({
         <div className="flex items-center md:hidden bg-white box-border z-20">
           <HamburgerButton onClick={toggleMenu} isOpen={showOverlayMenu} />
         </div>
-        <OverlayMenu show={showOverlayMenu} toggleMenu={toggleMenu} />
+        <OverlayMenu
+          show={showOverlayMenu}
+          toggleMenu={toggleMenu}
+          menu={menu}
+        />
         {showOverlayMenu && (
           <div className="fixed top-0 left-0 w-full h-full bg-black/60" />
         )}
@@ -77,12 +80,14 @@ const Navigation: React.FC<Props> = ({
   );
 };
 
-const HamburgerButton: React.FC = ({
-  onClick,
-  isOpen,
-}: {
+interface HamburgerButtonProps {
   onClick: () => void;
   isOpen: boolean;
+}
+
+const HamburgerButton: React.FC<HamburgerButtonProps> = ({
+  onClick,
+  isOpen,
 }) => {
   return (
     <button
@@ -147,13 +152,24 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
   >
     <a href={target} onClick={onClick} className="md:hover:text-neutral-800">
       <div className="flex items-center md:text-base md:font-medium md:px-1 lg:px-3 md:py-2 md:hover:bg-neutral-50 text-2xl font-bold">
-        {children}<ArrowSvg className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
+        {children}
+        <ArrowSvg className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
       </div>
     </a>
   </li>
 );
 
-const OverlayMenu: React.FC = ({ show, toggleMenu }) => {
+interface OverlayMenuProps {
+  show: boolean;
+  toggleMenu: () => void;
+  menu: any;
+}
+
+const OverlayMenu: React.FC<OverlayMenuProps> = ({
+  menu,
+  show,
+  toggleMenu,
+}) => {
   return (
     <div
       className={`fixed z-10 top-0 inset-x-0 transition transform origin-top-right${
@@ -164,7 +180,11 @@ const OverlayMenu: React.FC = ({ show, toggleMenu }) => {
         <div className="mt-16 py-10 px-5">
           <ul className="flex flex-col gap-5">
             {menu.map((item) => (
-              <MenuListItem key={item.title} target={item.target} onClick={toggleMenu}>
+              <MenuListItem
+                key={item.title}
+                target={item.target}
+                onClick={toggleMenu}
+              >
                 {item.title}
               </MenuListItem>
             ))}
