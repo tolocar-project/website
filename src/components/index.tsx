@@ -17,6 +17,7 @@ import Course from "@components/Course";
 import ArrowSvg from "@components/ArrowSvg";
 import AcademyHeroImage from "@components/AcademyHeroImage";
 import BackButton from "@components/BackButton";
+import TableOfContents from "@components/TableOfContents";
 
 export {
   BackButton,
@@ -37,5 +38,6 @@ export {
   Navigation,
   WideCard,
   Course,
-  ArrowSvg
+  ArrowSvg,
+  TableOfContents
 };
