@@ -34,11 +34,11 @@ const CarCard: React.FC<Props> = ({
     screwdriver: ScrewdriverIcon,
   };
   return (
-    <div className={`flex flex-col bg-tolo-dark-grey w-full ${className || ""}`}>
+    <div className={`flex flex-col bg-neutral-800 w-full ${className || ""}`}>
       <img src={img} className="w-full h-full object-cover max-h-72" />
       <div className="p-8 flex flex-col items-start text-white">
         <h3 className="font-bold text-2xl">
-          <span className="text-tolo-link-grey text-base uppercase">
+          <span className="text-neutral-300 text-base uppercase">
             {subtitle}
           </span>
           <br />
@@ -50,7 +50,7 @@ const CarCard: React.FC<Props> = ({
           )}
           {tag}
         </div>
-        <div className="text-tolo-link-grey mt-6 flex gap-2 justify-center items-center">
+        <div className="text-neutral-300 mt-6 flex gap-2 justify-center items-center">
           <img src={CalendarIcon} className="w-5 h-5 inline-block" />
           {date}
         </div>

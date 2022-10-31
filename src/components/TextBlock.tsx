@@ -9,7 +9,7 @@ interface Props {
 const TextBlock: React.FC<Props> = ({ className, children, big }) => {
   return (
     <div
-      className={`text-lg leading-6 prose ${big ? "lg:leading-7 lg:text-2xl" : ""} ${
+      className={`text-lg leading-6 custom-prose ${big ? "lg:leading-7 lg:text-2xl" : ""} ${
         className || ""
       }`}
     >

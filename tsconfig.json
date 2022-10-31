@@ -6,7 +6,13 @@
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],
       "@layouts": ["src/layouts"],
-      "@layouts/*": ["src/layouts/*"]
+      "@layouts/*": ["src/layouts/*"],
+      "@assets": ["src/assets"],
+      "@assets/*": ["src/assets/*"],
+      "@util": ["src/util"],
+      "@util/*": ["src/util/*"],
+      "@interfaces": ["src/interfaces"],
+      "@interfaces/*": ["src/interfaces/*"]
     }
   }
 }

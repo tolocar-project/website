@@ -1,16 +1,16 @@
 ---
-layout: ../layouts/Layout.astro
+layout: "@layouts/BaseLayout.astro"
 title: Legal Notice – Tolocar Project
 ---
 
 import { HeaderLogo, Footer } from "@components";
 
-<div class="w-full bg-tolo-light-grey">
+<div class="w-full bg-neutral-50">
   <HeaderLogo />
   <h1 class="mt-20 container-width text-5xl font-bold">Legal Notice</h1>
   <p class="container-width mt-10 mb-20 text-lg">Feel free to get in touch with us via the e-mail specified below.</p>
 </div>
-<div class="container-width my-20 prose h-full">
+<div class="container-width my-20 custom-prose h-full">
 **Hamburger Institut für Wertschöpfungssystematik und Wissensmanagement UG (haftungsbeschränkt)**
 
 Silker Weiche 5 · 21465 Reinbek · Deutschland
@@ -30,4 +30,4 @@ Silker Weiche 5 · 21465 Reinbek · Germany
 If you have any questions, **don't hesitate to contact us via email at info@tolocar.org**.
 </div>
 
-<Footer className="!bg-tolo-light-grey"/>
+<Footer className="!bg-neutral-50"/>

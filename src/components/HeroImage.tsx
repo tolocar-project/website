@@ -7,7 +7,7 @@ interface Props {
 
 const HeroImage: React.FC<Props> = ({ className }: Props) => {
   return (
-    <div className="container-width mt-8 sm:mt-16">
+    <div className="container-width mt-8 sm:mt-20">
       <div
         className={`grayscale flex p-8 bg-center justify-center w-full h-full items-center bg-[url('/src/assets/Header.jpg')] ${
           className || ""

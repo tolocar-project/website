@@ -1,0 +1,32 @@
+---
+import { Course } from "@components";
+import { transformAcademy } from "@util/ContentTransformer";
+import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
+
+
+// Only get files named index.mdx that are inside of a subfolder within the academy folder
+const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
+  "../pages/academy/*/*.mdx"
+);
+
+const coursesAndLessons = transformAcademy(rawAcademyContent);
+---
+
+{
+  Object.values(coursesAndLessons).map((course) => {
+    const lessons = course.children.map((child) => ({
+      title: child.frontmatter.title,
+      target: child.url,
+    }));
+    return (
+      <Course
+        course={{
+          title: course.frontmatter.title,
+          img: course.frontmatter.img,
+          imgAlt: course.frontmatter.imgAlt,
+          items: lessons,
+        }}
+      />
+    );
+  })
+}
