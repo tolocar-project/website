@@ -27,33 +27,33 @@ Welcome to Basic Arduino Programming Module! In this module will learn about the
 
 Arduino Uno is a microcontroller board based on the ATmega328P. A microcontroller is a computer present in a single integrated circuit. It contains memory, programmable input/output peripherals as well as a processor.
 
-![Arduino pins](images/academy/arduino_basic_programming/image_2.png)
+![Arduino pins](/images/academy/arduino_basic_programming/image_2.png)
 
 Arduino Uno has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, a 16 MHz ceramic resonator, a USB connection, a power jack and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a AC-to-DC adapter or battery to get started.
 
 ## Arduino IDE
 After installing the Arduino IDE, you need to tell the software which board will be used. 
 
-![Arduino IDE](images/academy/arduino_basic_programming/image_3.png)
+![Arduino IDE](/images/academy/arduino_basic_programming/image_3.png)
 
 Each program consists of two main blocks; setup and loop. Block setup() is executed only once when you power your board, while block loop() is executed continuously. 
 
-![Arduino sketch1](images/academy/arduino_basic_programming/image_4.png)
+![Arduino sketch1](/images/academy/arduino_basic_programming/image_4.png)
 
 After writing your code, use the ✔ icon to verify it. If there are no errors, connect your board to the USB port and click on ➡ to download it.
 
 ## AUTODESK Tinkercad
 Using Tinkercad Circuits, you can build, program, and simulate your designs. You can use Tinkercad the same way you do in real hardware (Arduino board and electronics) and Arduino IDE.
 
-![tinker 1](images/academy/arduino_basic_programming/image_5.png)
+![tinker 1](/images/academy/arduino_basic_programming/image_5.png)
 
 ## Exercises
 ### Exercise 1: Board Builtin LED
 The Arduino Uno board has a builtin LED connected to pin 13 (instead of pin number, you can access the builtin LED using “LED_BUILTIN”). The code below will define pin 13 as output, and set its value to HIGH, which will turn the LED on. Any digital output can be set to HIGH or LOW.
 
-![Arduino](images/academy/arduino_basic_programming/image_6.png)
+![Arduino](/images/academy/arduino_basic_programming/image_6.png)
 
-![Arduino](images/academy/arduino_basic_programming/image_7.png)
+![Arduino](/images/academy/arduino_basic_programming/image_7.png)
 
 Note that we need to execute the code once, so it is written in block setup()
 
@@ -64,7 +64,7 @@ You can use the serial monitor to display messages on your PC sent from the Ardu
 There are many builtin functions that can be used to control the flow of your software. For example, the delay(n) function is used to delay the execution for n milliseconds. 
 The code below will print some messages one time, and then print a message in a new line telling that 1000 ms (1 second) have elapsed. 
 
-![monitor](images/academy/arduino_basic_programming/image_8.png)
+![monitor](/images/academy/arduino_basic_programming/image_8.png)
 
 **Your turn:** Write a code to continuously blink the builtin LED, on for 1.30 sec and off for 0.95 sec. Update the state of the LED on the serial monitor by sending a message saying “Builtin LED in ON” or “Builtin LED is OFF”
 
@@ -72,9 +72,9 @@ The code below will print some messages one time, and then print a message in a 
 Digital pins could be defined as inputs or outputs. A pin connected to a LED should be defined as output, while a pin reading the state of a push button should be defined as input. A series resistor should be used in the LED circuit, something between 220-330 ohms. In the push button circuit, a 10k ohms pull down resistor should be connected to force its value to be LOW when it is not pressed.
 The code below reads the value from the push button and controls the LED. When the push button is pressed, the LED will be on.
 
-![picture](images/academy/arduino_basic_programming/image_19.png)
+![picture](/images/academy/arduino_basic_programming/image_19.png)
 
-![picture](images/academy/arduino_basic_programming/image_10.png)
+![picture](/images/academy/arduino_basic_programming/image_10.png)
 
 **Your turn:** The previous code reads the value from the push button and sends it directly to the LED. Now you will add another LED, let’s say a green one. When the push button is pressed, orange led is on, green led is off, and when the push button is not pressed, orange led is off and green led is on. Use the boolean operator [Logical Not](https://www.arduino.cc/reference/en/language/structure/boolean-operators/logicalnot/)
 
@@ -82,9 +82,9 @@ The code below reads the value from the push button and controls the LED. When t
 LCDs are used to display messages. A 16x2 LCD has two lines, in each line 16 characters can be displayed. LiquidCrystal.h is a library written to control LCDs. You only need to import the library and start using it. 
 The code below displays some messages on the LCD, and uses the function millis() to display the time passed since the board is powered. Note that 11k ohm resistor is used to control the contrast of the LCD, and 220 ohm for the back light led.
 
-![picture](images/academy/arduino_basic_programming/image_11.png)
+![picture](/images/academy/arduino_basic_programming/image_11.png)
 
-![picture](images/academy/arduino_basic_programming/image_12.png)
+![picture](/images/academy/arduino_basic_programming/image_12.png)
 
 **Your turn:** You will design a system with 2 push buttons and 16x2 LCD. The push button will be used to write binary numbers of 2 digits to the system. The LCD should display the number in binary (line 1 in LCD) and decimal (line 2 in LCD). The table shows all possible inputs.
 
@@ -101,9 +101,9 @@ You can use conditional statements ([if](https://www.arduino.cc/reference/en/lan
 The h-bridge is used with DC motors to control the direction of rotation (CW: clockwise, CCW: counterclockwise). In this exercise, we will use [L293D](https://www.ti.com/lit/ds/symlink/l293.pdf), which can be used to control 2 DC motors. Each channel has 3 inputs to enable control and set direction of rotation (EN12, AH1, AH2) and (EN34, AH3, AH4), and two outputs to connect DC motors (output1, outpu2) and (output3, output4).
 The system below enables the control of 2 DC motors and sets the direction for each motor. Note that in this system we are using an external power supply 12VDC.
 
-![picture](images/academy/arduino_basic_programming/image_13.png)
+![picture](/images/academy/arduino_basic_programming/image_13.png)
 
-![picture](images/academy/arduino_basic_programming/image_14.png)
+![picture](/images/academy/arduino_basic_programming/image_14.png)
 
 **Your turn:** Add two push buttons to the system to control the direction of control of each motor. For example, push button pressed motor will rotate CW, and push button unpressed motor will rotate CCW.
 
@@ -111,9 +111,9 @@ The system below enables the control of 2 DC motors and sets the direction for e
 A2D is used to read variable voltage input (0-5 VDC) through a potentiometer, and convert that value into integer number (0 - 1023). For example, this value could be used to control the speed of a DC motor. The voltage value is converted to a number such that 0 VDC = 0 and 5 VDC = 1023. 
 The system below reads the voltage from a potentiometer and displays the value results from conversion. Then it calculates the voltage, which should match with reading in the voltmeter.
 
-![picture](images/academy/arduino_basic_programming/image_15.png)
+![picture](/images/academy/arduino_basic_programming/image_15.png)
 
-![picture](images/academy/arduino_basic_programming/image_16.png)
+![picture](/images/academy/arduino_basic_programming/image_16.png)
 
 **Your turn:** The result after the analog to digital converter is in the range 0 - 1023. Sometimes we need this value to be in a different range, let’s say 0 - 255. Use the [map()](https://www.arduino.cc/reference/en/language/functions/math/map/) function to convert the range from 0 - 1023 to 0 - 255. The serial monitor display should be similar to the following example
 
@@ -127,7 +127,7 @@ The system below reads the voltage from a potentiometer and displays the value r
 PWM is a technique used to control the speed of DC motors. A PWM signal is fed into the EN pin of the h-bridge (0 - 255), and the motor will receive variable input voltage (PWM = 0, Vin = 0 VDC and PWM = 255, Vin = 12 VDC). The Arduino UNO board has 5 PWM pins (3, 5, 6, 10, 11).
 The system below controls a 24V DC motor in one direction using a N-MOSFET. Changing the setting of the potentiometer will change the motor speed. Note the oscilloscope displaying the signal fed to the MOSFET gate.
 
-![picture](images/academy/arduino_basic_programming/image_17.png)
+![picture](/images/academy/arduino_basic_programming/image_17.png)
 
 ![picture](images/academy/arduino_basic_programming/image_18.png)
 
