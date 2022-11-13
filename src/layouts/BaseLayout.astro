@@ -3,6 +3,7 @@ import type { MarkdownLayoutProps } from "astro";
 import { Navigation, Footer } from "@components";
 import TolocarFavicon from "../assets/favicon.png";
 import CommonUtils from "@util/CommonUtils";
+import type { IMenuMarkdown } from "@interfaces/IMenu";
 import "../../base.css";
 
 type Props = MarkdownLayoutProps<{
@@ -19,7 +20,7 @@ const localeFromUrl = Astro?.url?.pathname
   .filter(Boolean)[0]
   .toLowerCase();
 
-const rawMenu = await Astro.glob<any>("../pages/**/_menu.mdx");
+const rawMenu = await Astro.glob<IMenuMarkdown>("../pages/**/_menu.mdx");
 const menu = rawMenu.find(
   (rawMenu) =>
     rawMenu.url.split("/").filter(Boolean)[0].toLowerCase() === localeFromUrl

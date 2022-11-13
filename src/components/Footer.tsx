@@ -24,7 +24,7 @@ const Footer: React.FC<Props> = ({ className, menu }: Props) => {
             </div>
             <div className="mt-10 lg:mt-0 ">
               <ul>
-                {menu.map(
+                {menu?.map(
                   (listItem) =>
                     !listItem.hideInFooter && (
                       <FooterLinkListItem

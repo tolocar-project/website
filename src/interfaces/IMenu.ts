@@ -5,3 +5,6 @@ export interface IMenuItem {
   hideInHeader?: boolean;
 }
 
+export interface IMenuMarkdown {
+  menu: IMenuItem[];
+}
