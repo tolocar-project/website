@@ -9,6 +9,7 @@ interface Props {
   baseUrl?: string;
   path?: string;
   menu?: IMenuItem[];
+  locale: string;
 }
 
 const Navigation: React.FC<Props> = ({
@@ -16,22 +17,13 @@ const Navigation: React.FC<Props> = ({
   baseUrl = "/",
   className,
   path,
+  locale
 }: Props) => {
   const [showOverlayMenu, setShowOverlayMenu] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("");
 
   const toggleMenu = () => {
     setShowOverlayMenu(!showOverlayMenu);
   };
-
-  useEffect(() => {
-    const localeFromUrl = path
-      .replace(baseUrl, "")
-      .split("/")
-      .filter(Boolean)[0]
-      .toLowerCase();
-    setSelectedLanguage(localeFromUrl);
-  }, []);
 
   // Changing the language requires only to change the locale in the URL
   // The rest (slug) will be handled by redirect logic
@@ -79,7 +71,7 @@ const Navigation: React.FC<Props> = ({
                 onClick={() => {
                   changeLanguage("ua");
                 }}
-                isSelected={selectedLanguage === "ua"}
+                isSelected={locale === "ua"}
               >
                 UA
               </LanguageSwitcherItem>
@@ -88,7 +80,7 @@ const Navigation: React.FC<Props> = ({
                 onClick={() => {
                   changeLanguage("en");
                 }}
-                isSelected={selectedLanguage === "en"}
+                isSelected={locale === "en"}
               >
                 EN
               </LanguageSwitcherItem>
