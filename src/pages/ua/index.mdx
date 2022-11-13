@@ -1,0 +1,149 @@
+---
+layout: "@layouts/BaseLayout.astro"
+title: Home
+---
+
+import {
+  HeaderLogo,
+  HeroImage,
+  SideBySide,
+  Card,
+  CarCard,
+  HeadlineUnderlined,
+  Footer,
+  ImageGrid,
+  ImageCard,
+  CardContainer,
+  IllustrationBgContainer,
+  TextBlock,
+  ContentSection,
+} from "@components";
+
+<HeroImage />
+<SideBySide className="mt-8 sm:mt-20">
+  <HeadlineUnderlined className="flex-[2]">
+    Проєкт «Tolocar» направляє в Україну мобільні мейкерспейси, щоб допомогти, розширити можливості, оснастити та навчити місцеві громади за допомогою відкритих технологій, знань та інновацій.
+  </HeadlineUnderlined>
+  <TextBlock className="flex-[3]">
+    «Толока» — це традиція взаємодопомоги та спільної праці громади для виконання великої за обсягом роботи, прийнята в Україні. З огляду на це, проєкт «Tolocar» використовує мобільні мейкерспейси, оснащені інструментами, обладнанням з відкритим вихідним кодом та витратними матеріалами, для підтримки гуманітарної діяльності в Україні. Для зміцнення екосистеми України різні партнери об’єдналися разом втілюючи різноманітні проєкти **з реконструкції та відновлення, відкритого виробництва, передачі знань та інновацій.** 
+  </TextBlock>
+</SideBySide>
+<IllustrationBgContainer>
+  <CardContainer>
+    <Card small title="Наша мотивація" bg={1} target="#motivation">Дізнайтеся, чому ми робимо проєкт «Tolocar»</Card>
+    <Card small title="Що таке Толокар?" bg={2} target="#what-is-a-tolocar">Дізнайтеся більше про Толокари</Card>
+    <Card small title="Проєкти та спільнота" bg={3} target="#projects-community">Ознайомтеся з нашими проєктами та спільнотою</Card>
+  </CardContainer>
+</IllustrationBgContainer>
+
+<ContentSection id="motivation">
+  <div class="container-width">
+    <HeadlineUnderlined large variant={2} className="mt-8 sm:mt-20">Мотивація</HeadlineUnderlined>
+    <div class="flex lg:justify-end mt-8 sm:mt-16 mb-8">
+      <div class="flex flex-col lg:w-10/12">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <TextBlock className="flex-1">
+            Якщо людина постає перед труднощами чи негараздами, з якими вона не в змозі впоратися самостійно, то однією з традиційних відповідей в Україні є «Толока»
+
+            **Звернення до спільноти за підтримкою. Надання рішень у необхідному масштабі, з винахідливістю і прозорливістю, які виходять за рамки того, що може зробити окрема людина.**
+          </TextBlock>
+          <TextBlock className="flex-1">
+            У Німеччині культурною пам'яттю про підтримку і спільні цілі, яка виходить за рамки традиційних поглядів і засобів, є Берлінський повітряний міст. Розширюючи межі технічної здійсненності, операція **забезпечила критично важливу матеріальну і нематеріальну підтримку там, де вона була найбільш необхідна.**
+          </TextBlock>
+        </div>
+        <TextBlock big className="mt-4 mb-12 lg:mt-16 lg:mb-20 lg:w-3/5">
+          **Проєкт «Tolocar» слідує цьому духу, надаючи відкриті мобільні засоби виробництва та інновацій у кризових ситуаціях.**
+        </TextBlock>
+        <ImageGrid images={["/images/group_session.jpg", "/images/saw.jpg", "/images/stands.jpg", "/images/drills.jpg"]} caption='Гуртожиток у Стрию. Команда платформи "Острів". Світлини Ніки Попової.'/>
+      </div>
+    </div>
+  </div>
+  <div className="bg-neutral-800 absolute w-full h-44 bottom-0 z-0"/>
+</ContentSection>
+
+<ContentSection variant="dark" className="bg-illustration-1-dark bg-no-repeat bg-[position:right_-50px_bottom_-40px]" id="who-we-are">
+  <div class="container-width flex lg:justify-end">
+    <div class="lg:w-10/12">
+      <HeadlineUnderlined light variant={3} className="mt-8">Про нас</HeadlineUnderlined>
+      <div class="text-neutral-300 mt-8 lg:mt-6 mb-8 lg:mb-24 lg:w-3/5 custom-prose">Проєкт «Tolocar» виконується на замовлення Федерального міністерства економічного співробітництва та розвитку Німеччини (BMZ) компанією Deutsche Gesellschaft für Internationale Zusammenarbeit <a href="https://www.giz.de/de/weltweit/102083.html" target="_blank">(GIZ)</a> GmbH у тісній співпраці з українськими та міжнародними партнерами: Creative Rural Hub, <a href="https://www.metalab.space/metalab-en" target="_blank">МетаЛаб</a>, <a href="https://insha-osvita.org/en/" target="_blank">Інша Освіта</a>, <a href="http://ostrivplatform.com/">Платформа Острів</a>, <a href="https://bur.ukredu.org/en/" target="_blank">БУР</a>, <a href="https://makerhub.org/" target="_blank">Maker Hub</a> та <a href="https://www.cadus.org/de/blog/artikel/eine-mobile-werkstatt-fuer-die-ukraine" target="_blank">CADUS</a>. Управління проєктом здійснюється <a href="https://www.mitost.org/" target="_blank">MitOst e.V.</a> у пілотній фазі та Hamburger Institut für Wertschöpfungssystematik und Wissensmanagement <a href="https://www.hiww.de/" target="_blank">(HIWW)</a> у його основній фазі.</div>
+    </div>
+  </div>
+</ContentSection>
+
+<ContentSection variant="white" id="what-is-a-tolocar">
+  <HeadlineUnderlined large variant={5} className="container-width mt-8 sm:mt-20">Що таке Толокар?</HeadlineUnderlined>
+  <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-16">
+    <div class="flex flex-col lg:w-10/12 ">
+      <div class="flex flex-col lg:flex-row custom-prose text-lg leading-6 gap-8 mb-12 lg:mb-20">
+        <div class="flex-1">
+          <p class="text-2xl leading-7 font-bold text-tolo-black">Толокар — це переобладнаний фургон, який має можливості мейкерспейсу або фаблабу на колесах.</p>
+
+          Це означає, **що вони забезпечують потенціал високих технологій виробництва або діагностики там, де це необхідно.**  
+
+          Але найголовніше те, що вони залишаються на зв’язку зі світовою спільнотою експертів з різних галузей, які можуть використовувати свої колективні знання та розум у спосіб, що доповнює звичайні зусилля з надання допомоги чи відбудови.
+        </div>
+        <div class="flex-1">
+          Мета полягає в тому, щоб дати можливість громадам відтворити деякі з можливостей і таким чином каталізувати зусилля з відбудови та створити мережі підтримки.  
+
+          Окрім технічних можливостей, Толокари мають гнучкість, різноманіття поглядів і здатність сприймати зворотний зв'язок безпосередньо з контексту користувача.  
+
+          Все це уможливлює високореактивні проєкти, орієнтовані на користувача, короткі цикли зворотного зв'язку, дезінтермедіацію та адаптацію продуктів і послуг до складних і мінливих середовищ.
+        </div>
+      </div>
+        <ImageGrid images={["/images/roof.jpg", "/images/car.jpg"]}/>
+    </div>
+  </div>
+</ContentSection>
+
+<ContentSection variant="white" className="mb-16">
+  <div class="container-width flex flex-col lg:flex-row gap-4 overflow-hidden">
+    <div class="flex flex-col flex-1 basis-full min-w-0 gap-4 lg:order-1 order-2">
+      <CarCard img="/images/cars/image4.jpg" title="Crafter від Cadus" subtitle="ТОЛОКАР 01" tag="Реновація та ручна робота" date="Травень - серпень 2022 року" operator="cadus" tagIcon="hammer"/>
+      <CarCard img="/images/cars/image1.jpg" title="Sprinter II від MitOst" subtitle="ТОЛОКАР 03" tag="Конструювання" tagIcon="toolbox" date="З вересня 2022 року" operator="ostriv" />
+    </div>
+    <div class="flex flex-col flex-1 basis-full min-w-0 gap-4 items-center lg:order-2 order-1">
+      <h3 class="font-bold text-5xl">Наш автопарк</h3>
+      <p class="text-lg text-neutral-500 w-full text-center mb-16">Огляд всіх наших минулих, поточних і запланованих Толокарів</p>
+      <CarCard img="/images/cars/image2.jpg" title="Supporter від Cadus" subtitle="ТРАНСПОРТНИЙ АВТОМОБІЛЬ 01" tag="Перевезення персоналу та матеріалів" tagIcon="truck" date="Червень - листопад 2022" operator="mitost" tagIcon="truck"/>
+      <CarCard img="/images/cars/image5.jpg" title="Бус від HIWW" subtitle="ТОЛОКАР 04" tag="Конструювання та обладнання з відкритим вихідним кодом" date="З вересня 2022 року" tagIcon="cog" operator="hiww"/>
+    </div>
+    <div class="flex flex-col flex-1 basis-full min-w-0 gap-4 order-3">
+      <CarCard img="/images/cars/image3.jpg" title="Sprinter I від MitOst" subtitle="ТОЛОКАР 02" tag="Конструювання, цифрове виробництво" tagIcon="cog" date="З червня 2022 року" operator="ostriv"/>
+      <CarCard img="/images/cars/image7.jpg" title="Вантажівка від HIWW" subtitle="ТОЛОКАР 05" tag="Конструювання та обладнання з відкритим вихідним кодом" tagIcon="cog" date="З вересня 2022 року" operator="hiww"/>
+    </div>
+  </div>
+</ContentSection>
+
+<ContentSection className="bg-illustration-3-dark bg-no-repeat bg-left-bottom" id="what-is-a-tolocar" id="projects-community">
+  <HeadlineUnderlined large variant={4} className="container-width mt-8 sm:mt-20">Проєкти та спільнота</HeadlineUnderlined>
+  <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-16">
+    <div class="flex flex-col lg:w-10/12 ">
+      <div class="flex flex-col lg:flex-row custom-prose text-lg leading-6 gap-8 mb-12 lg:mb-20">
+        <div class="flex-1">
+          <p class="text-2xl leading-7 font-bold text-tolo-black">Як би не відрізнялися між собою фаблаби чи мейкерспейси, вони мають одну спільну рису: це керовані громадою місця виробництва.</p>
+
+          Ця спільнота, як правило, має широкі зв'язки і є дуже ефективною у підборі осіб, здатних зробити свій внесок у розв’язання конкретних проблем. Це особливо характерно для спільнот, що займаються розробкою апаратного та програмного забезпечення з відкритим вихідним кодом. 
+        </div>
+        <div class="flex-1">
+          Ці об'єднані в мережу спільноти іноді здатні зовсім по-іншому сформулювати особисту або загальну проблему і таким чином уникнути або вирішити її дуже ефективно з точки зору використання ресурсів.  
+
+          Такі інновації, орієнтовані на користувача, можуть призвести до появи вузькоспеціалізованих рішень, які не будуть надійно обслуговуватися масовим ринком. Однак сьогодні деяке обладнання з відкритим вихідним кодом конкурує з добре відомими продуктами мас-маркету.
+        </div>
+      </div>
+    </div>
+  </div>
+</ContentSection>
+<ContentSection variant="dark" className="z-10">
+  <div class="container-width flex flex-col lg:flex-row gap-6 -mt-20">
+    <ImageCard title="Майстер-класи від мейкерів" img="/images/arduino.jpg">Ми проводимо різні майстер-класи для різних груп, наприклад, шкіл, університетів, фаблабів тощо, на такі теми, як цифрове виробництво, кодування тощо.</ImageCard>
+    <ImageCard title="Replication workshops" img="/images/replication.jpg">На наших семінарах з реплікації ми навчаємо фаблаби та місцевий бізнес створювати/реплікувати певне обладнання з відкритим вихідним кодом, таке як 3D-принтери, фрезерні верстати з ЧПК та лазерні різаки.</ImageCard>
+    <ImageCard title="Проєкти підтримки" img="/images/support.jpg">Ми підтримуємо різних партнерів у їхніх проєктах за допомогою наших знань, інструментів та машин. У цих проєктах ми оновлюємо, ремонтуємо, будуємо та винаходимо спеціальні рішення.</ImageCard>
+  </div>
+</ContentSection>
+<ContentSection variant="white">
+  <div class="absolute w-full bg-neutral-800 h-40 top-0" />
+  <CardContainer className="lg:h-[408px]">
+    <Card title="Ви перебуваєте в Україні і вважаєте, що ми могли б Вам допомогти?" bg={4} target="mailto:info@tolocar.org">Школи, університети, громадські організації, стартапи та інші організації можуть звертатися до нас з проханням надати Толокари для проведення проєктів, семінарів та тренінгів.</Card>
+    <Card title="Ви — мейкер і хочете співпрацювати з нами?" bg={5} target="mailto:info@tolocar.org">Ми шукаємо окремих мейкерів, фаблаби, хакерспейси, мейкерспейси та інші спільноти, які хочуть співпрацювати з нами в Україні та онлайн на міжнародному рівні.</Card>
+  </CardContainer>
+</ContentSection>

@@ -35,7 +35,7 @@ const CarCard: React.FC<Props> = ({
   };
   return (
     <div className={`flex flex-col bg-neutral-800 w-full ${className || ""}`}>
-      <img src={img} className="w-full h-full object-cover max-h-72" />
+      <img src={img} className="w-full h-full object-cover aspect-[3/2]" />
       <div className="p-8 flex flex-col items-start text-white">
         <h3 className="font-bold text-2xl">
           <span className="text-neutral-300 text-base uppercase">
@@ -44,7 +44,7 @@ const CarCard: React.FC<Props> = ({
           <br />
           {title}
         </h3>
-        <div className="bg-tolo-green flex gap-2 justify-start items-center px-3 rounded-full w-auto text-lg mt-5 h-8 max-w-full truncate">
+        <div className="bg-tolo-green flex gap-2 justify-start items-center px-3 rounded-full text-lg mt-5 max-w-full truncate">
           {tagIcon && (
             <img src={iconMapping[tagIcon]} className="w-5 h-5 inline-block" />
           )}

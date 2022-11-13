@@ -2,6 +2,7 @@
 import type { MarkdownLayoutProps } from "astro";
 import { Navigation, Footer } from "@components";
 import TolocarFavicon from "../assets/favicon.png";
+import CommonUtils from "@util/CommonUtils";
 import "../../base.css";
 
 type Props = MarkdownLayoutProps<{
@@ -9,11 +10,24 @@ type Props = MarkdownLayoutProps<{
 }>;
 
 const { frontmatter, footerGrey = false } = Astro.props;
-const baseUrl = import.meta.env.BASE_URL;
+const path = Astro.url.pathname;
+const baseUrl = CommonUtils.getBaseUrl(false);
+
+const localeFromUrl = Astro?.url?.pathname
+  .replace(baseUrl, "")
+  .split("/")
+  .filter(Boolean)[0]
+  .toLowerCase();
+
+const rawMenu = await Astro.glob<any>("../pages/**/_menu.mdx");
+const menu = rawMenu.find(
+  (rawMenu) =>
+    rawMenu.url.split("/").filter(Boolean)[0].toLowerCase() === localeFromUrl
+).frontmatter?.menu;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth h-full">
+<html lang={localeFromUrl} class="scroll-smooth h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -35,9 +49,9 @@ const baseUrl = import.meta.env.BASE_URL;
   </head>
   <body class="w-full font-aktiv antialiased h-full">
     <main class="flex flex-col items-center h-full">
-      <Navigation logoTarget={baseUrl} client:load />
+      <Navigation path={path} menu={menu} client:load />
       <slot />
-      <Footer className={footerGrey ? "!bg-neutral-50" : ""} />
+      <Footer menu={menu} className={footerGrey ? "!bg-neutral-50" : ""} />
     </main>
   </body>
 </html>

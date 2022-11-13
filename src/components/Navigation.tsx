@@ -1,45 +1,54 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TolocarLogoSvg from "../assets/tolocar_logo.svg";
 import ArrowSvg from "@components/ArrowSvg";
+import LanguageUtils from "@util/LanguageUtils";
+import type { IMenuItem } from "@interfaces/IMenu";
 
 interface Props {
   className?: string;
   baseUrl?: string;
+  path?: string;
+  menu?: IMenuItem[];
 }
 
-const getMenu = (baseUrl: string): Array<{ title: string; target: string }> => [
-  {
-    title: "Home",
-    target: baseUrl + "#top",
-  },
-  {
-    title: "Motivation",
-    target: baseUrl + "#motivation",
-  },
-  {
-    title: "What is a Tolocar?",
-    target: baseUrl + "#what-is-a-tolocar",
-  },
-  {
-    title: "Community",
-    target: baseUrl + "#projects-community",
-  },
-  {
-    title: "Makerspace Academy",
-    target: baseUrl + "academy",
-  },
-];
-
-const Navigation: React.FC<Props> = ({ baseUrl = "/", className }: Props) => {
+const Navigation: React.FC<Props> = ({
+  menu,
+  baseUrl = "/",
+  className,
+  path,
+}: Props) => {
   const [showOverlayMenu, setShowOverlayMenu] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("");
 
   const toggleMenu = () => {
     setShowOverlayMenu(!showOverlayMenu);
   };
 
-  const Image = <img className={`h-8 sm:h-10`} src={TolocarLogoSvg} />;
+  useEffect(() => {
+    const localeFromUrl = path
+      .replace(baseUrl, "")
+      .split("/")
+      .filter(Boolean)[0]
+      .toLowerCase();
+    setSelectedLanguage(localeFromUrl);
+  }, []);
 
-  const menu = getMenu(baseUrl);
+  // Changing the language requires only to change the locale in the URL
+  // The rest (slug) will be handled by redirect logic
+  const changeLanguage = (newLanguage: string) => {
+    LanguageUtils.setLanguage(newLanguage);
+    const pathWithoutBaseUrl = path
+      ?.replace(baseUrl, "")
+      ?.split("/")
+      .filter(Boolean)
+      .slice(1)
+      .join("/");
+    const newLocation = `${baseUrl}${newLanguage}/${pathWithoutBaseUrl}`;
+
+    window.location.pathname = newLocation;
+  };
+
+  const Image = <img className={`h-8 sm:h-10`} src={TolocarLogoSvg} />;
 
   return (
     <div
@@ -57,11 +66,33 @@ const Navigation: React.FC<Props> = ({ baseUrl = "/", className }: Props) => {
         )}
         <nav className="hidden md:block">
           <ul className="flex gap-2 text-neutral-500 font-medium font-aktiv text-[15px]">
-            {menu.map((item) => (
-              <MenuListItem key={item.title} target={item.target}>
-                {item.title}
-              </MenuListItem>
-            ))}
+            {menu?.map(
+              (item) =>
+                !item.hideInHeader && (
+                  <MenuListItem key={item.title} target={item.target}>
+                    {item.title}
+                  </MenuListItem>
+                )
+            )}
+            <ul className="flex items-center">
+              <LanguageSwitcherItem
+                onClick={() => {
+                  changeLanguage("ua");
+                }}
+                isSelected={selectedLanguage === "ua"}
+              >
+                UA
+              </LanguageSwitcherItem>
+              <span className="text-base">/</span>
+              <LanguageSwitcherItem
+                onClick={() => {
+                  changeLanguage("en");
+                }}
+                isSelected={selectedLanguage === "en"}
+              >
+                EN
+              </LanguageSwitcherItem>
+            </ul>
           </ul>
         </nav>
         <div className="flex items-center md:hidden bg-white box-border z-20">
@@ -178,8 +209,8 @@ const OverlayMenu: React.FC<OverlayMenuProps> = ({
     >
       <div className="bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
         <div className="mt-16 py-10 px-5">
-          <ul className="flex flex-col gap-5">
-            {menu.map((item) => (
+          <ul className="flex flex-col gap-2 md:gap-5">
+            {menu?.map((item) => (
               <MenuListItem
                 key={item.title}
                 target={item.target}
@@ -192,6 +223,39 @@ const OverlayMenu: React.FC<OverlayMenuProps> = ({
         </div>
       </div>
     </div>
+  );
+};
+
+interface LanguageSwitcherItemProps {
+  className?: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+  isSelected?: boolean;
+}
+const LanguageSwitcherItem: React.FC<LanguageSwitcherItemProps> = ({
+  className,
+  onClick,
+  children,
+  isSelected,
+}) => {
+  return (
+    <li
+      className={`flex-shrink-0 md:rounded-md overflow-hidden ${
+        className || ""
+      }`}
+    >
+      <a
+        onClick={isSelected ? undefined : onClick}
+        className={`md:hover:text-neutral-800 ${
+          isSelected ? "text-neutral-800 " : "cursor-pointer "
+        }`}
+      >
+        <div className="flex items-center md:text-base md:font-medium md:px-1 lg:px-3 md:py-2 text-2xl font-bold">
+          {children}
+          <ArrowSvg className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
+        </div>
+      </a>
+    </li>
   );
 };
 

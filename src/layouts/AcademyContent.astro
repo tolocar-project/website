@@ -12,20 +12,21 @@ import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
 import { getParentPage } from "@util/ContentTransformer";
 import fs from "node:fs";
 import Giscus from "@components/Giscus.astro";
+import CommonUtils from "@util/CommonUtils";
 
 const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
   "../pages/academy/*/*.mdx"
 );
 
 
-const baseUrl = import.meta.env.BASE_URL;
+
+const baseUrl = CommonUtils.getBaseUrl(false);
 const { frontmatter, url, file, headings } = Astro.props;
 
 const statsMtime = fs.statSync(file).mtime;
 const editDate = new Date(statsMtime);
 
 const parentPage = getParentPage(rawAcademyContent, url);
-
 ---
 
 <BaseLayout frontmatter={frontmatter}>
