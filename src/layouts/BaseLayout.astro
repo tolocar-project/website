@@ -55,7 +55,7 @@ const menu = rawMenu.find((rawMenu) =>
   </head>
   <body class="w-full font-aktiv antialiased h-full">
     <main class="flex flex-col items-center h-full">
-      <Navigation path={path} menu={menu} locale={localeFromUrl} client:load />
+      <Navigation baseUrl={baseUrl} path={path} menu={menu} locale={localeFromUrl} client:load />
       <slot />
       <Footer menu={menu} className={footerGrey ? "!bg-neutral-50" : ""} />
     </main>
