@@ -22,10 +22,11 @@ const localeFromUrl = Astro?.url?.pathname
 
 const rawMenu = await Astro.glob<IMenuMarkdown>("../pages/**/_menu.mdx");
 console.log(JSON.stringify(rawMenu, null, 2));
-// const menu = rawMenu.find(
-//   (rawMenu) =>
-//     rawMenu.url.split("/").filter(Boolean)[0].toLowerCase() === localeFromUrl
-// ).frontmatter?.menu;
+console.log("Locale", localeFromUrl);
+const menu = rawMenu.find(
+  (rawMenu) =>
+    rawMenu.url.split("/").filter(Boolean)[0].toLowerCase() === localeFromUrl
+).frontmatter?.menu;
 ---
 
 <!DOCTYPE html>
@@ -51,9 +52,9 @@ console.log(JSON.stringify(rawMenu, null, 2));
   </head>
   <body class="w-full font-aktiv antialiased h-full">
     <main class="flex flex-col items-center h-full">
-      <Navigation path={path} locale={localeFromUrl} client:load />
+      <Navigation path={path} menu={menu} locale={localeFromUrl} client:load />
       <slot />
-      <Footer className={footerGrey ? "!bg-neutral-50" : ""} />
+      <Footer menu={menu} className={footerGrey ? "!bg-neutral-50" : ""} />
     </main>
   </body>
 </html>
