@@ -29,7 +29,7 @@ const Card: React.FC<Props> = ({
     <>
       {title && (
         <h2
-          className={`font-bold font-aktiv ${
+          className={`font-semibold font-aktiv ${
             small ? "text-lg md:text-2xl" : "text-4xl"
           } pr-10`}
         >

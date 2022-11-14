@@ -37,7 +37,7 @@ const CarCard: React.FC<Props> = ({
     <div className={`flex flex-col bg-neutral-800 w-full ${className || ""}`}>
       <img src={img} className="w-full h-full object-cover aspect-[3/2]" />
       <div className="p-8 flex flex-col items-start text-white">
-        <h3 className="font-bold text-2xl">
+        <h3 className="font-semibold text-2xl font-aktiv">
           <span className="text-neutral-300 text-base uppercase">
             {subtitle}
           </span>

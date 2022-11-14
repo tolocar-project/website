@@ -36,7 +36,7 @@ const HeadlineUnderlined: React.FC<Props> = ({
         id={id}
         className={`${
           light ? "text-white" : "text-tolo-black"
-        } relative z-10 font-bold leading-none ${large ? "text-5xl" : "text-2xl"}`}
+        } relative z-10 font-semibold leading-none font-aktiv ${large ? "text-5xl" : "text-2xl"}`}
       >
         <img
           className={`-z-10 absolute ${

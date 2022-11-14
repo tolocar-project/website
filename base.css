@@ -4,11 +4,34 @@
 
 @layer base {
   @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/inter-v12-latin_cyrillic-regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/fonts/inter-v12-latin_cyrillic-700.woff2") format("woff2");
+  }
+
+  @font-face {
     font-family: "aktiv-grotesk-extended";
     src: url("/fonts/aktiv_grotesk_ex_700.woff2") format("woff2");
     font-display: auto;
     font-style: normal;
     font-weight: 700;
+    font-stretch: normal;
+  }
+
+  @font-face {
+    font-family: "aktiv-grotesk-extended";
+    src: url("/fonts/aktiv_grotesk_ex_600.woff2") format("woff2");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 600;
     font-stretch: normal;
   }
 

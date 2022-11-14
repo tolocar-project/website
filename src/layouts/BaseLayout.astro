@@ -52,7 +52,7 @@ const menu = rawMenu.find((rawMenu) =>
     <base href={baseUrl} />
     <title>{frontmatter?.title} - Tolocar Project</title>
   </head>
-  <body class="w-full font-aktiv antialiased h-full">
+  <body class="w-full font-inter antialiased h-full">
     <main class="flex flex-col items-center h-full">
       <Navigation baseUrl={baseUrl} path={path} menu={menu} locale={localeFromUrl} client:load />
       <slot />
