@@ -17,7 +17,7 @@ const Navigation: React.FC<Props> = ({
   baseUrl = "/",
   className,
   path,
-  locale
+  locale,
 }: Props) => {
   const [showOverlayMenu, setShowOverlayMenu] = useState(false);
 
@@ -185,7 +185,7 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
 interface OverlayMenuProps {
   show: boolean;
   toggleMenu: () => void;
-  menu: any;
+  menu?: IMenuItem[];
 }
 
 const OverlayMenu: React.FC<OverlayMenuProps> = ({
