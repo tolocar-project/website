@@ -54,7 +54,7 @@ import {
         <TextBlock big className="mt-4 mb-12 lg:mt-16 lg:mb-20 lg:w-3/5">
           **Проєкт «Tolocar» слідує цьому духу, надаючи відкриті мобільні засоби виробництва та інновацій у кризових ситуаціях.**
         </TextBlock>
-        <ImageGrid images={["/images/group_session.jpg", "/images/saw.jpg", "/images/stands.jpg", "/images/drills.jpg"]} caption='Гуртожиток у Стрию. Команда платформи "Острів". Світлини Ніки Попової.'/>
+        <ImageGrid images={["images/group_session.jpg", "images/saw.jpg", "images/stands.jpg", "images/drills.jpg"]} caption='Гуртожиток у Стрию. Команда платформи "Острів". Світлини Ніки Попової.'/>
       </div>
     </div>
   </div>
@@ -90,7 +90,7 @@ import {
           Все це уможливлює високореактивні проєкти, орієнтовані на користувача, короткі цикли зворотного зв'язку, дезінтермедіацію та адаптацію продуктів і послуг до складних і мінливих середовищ.
         </div>
       </div>
-        <ImageGrid images={["/images/roof.jpg", "/images/car.jpg"]}/>
+        <ImageGrid images={["images/roof.jpg", "images/car.jpg"]}/>
     </div>
   </div>
 </ContentSection>
@@ -98,18 +98,18 @@ import {
 <ContentSection variant="white" className="mb-16">
   <div class="container-width flex flex-col lg:flex-row gap-4 overflow-hidden">
     <div class="flex flex-col flex-1 basis-full min-w-0 gap-4 lg:order-1 order-2">
-      <CarCard img="/images/cars/image4.jpg" title="Crafter від Cadus" subtitle="ТОЛОКАР 01" tag="Реновація та ручна робота" date="Травень - серпень 2022 року" operator="cadus" tagIcon="hammer"/>
-      <CarCard img="/images/cars/image1.jpg" title="Sprinter II від MitOst" subtitle="ТОЛОКАР 03" tag="Конструювання" tagIcon="toolbox" date="З вересня 2022 року" operator="ostriv" />
+      <CarCard img="images/cars/image4.jpg" title="Crafter від Cadus" subtitle="ТОЛОКАР 01" tag="Реновація та ручна робота" date="Травень - серпень 2022 року" operator="cadus" tagIcon="hammer"/>
+      <CarCard img="images/cars/image1.jpg" title="Sprinter II від MitOst" subtitle="ТОЛОКАР 03" tag="Конструювання" tagIcon="toolbox" date="З вересня 2022 року" operator="ostriv" />
     </div>
     <div class="flex flex-col flex-1 basis-full min-w-0 gap-4 items-center lg:order-2 order-1">
       <h3 class="font-bold text-5xl">Наш автопарк</h3>
       <p class="text-lg text-neutral-500 w-full text-center mb-16">Огляд всіх наших минулих, поточних і запланованих Толокарів</p>
-      <CarCard img="/images/cars/image2.jpg" title="Supporter від Cadus" subtitle="ТРАНСПОРТНИЙ АВТОМОБІЛЬ 01" tag="Перевезення персоналу та матеріалів" tagIcon="truck" date="Червень - листопад 2022" operator="mitost" tagIcon="truck"/>
-      <CarCard img="/images/cars/image5.jpg" title="Бус від HIWW" subtitle="ТОЛОКАР 04" tag="Конструювання та обладнання з відкритим вихідним кодом" date="З вересня 2022 року" tagIcon="cog" operator="hiww"/>
+      <CarCard img="images/cars/image2.jpg" title="Supporter від Cadus" subtitle="ТРАНСПОРТНИЙ АВТОМОБІЛЬ 01" tag="Перевезення персоналу та матеріалів" tagIcon="truck" date="Червень - листопад 2022" operator="mitost" tagIcon="truck"/>
+      <CarCard img="images/cars/image5.jpg" title="Бус від HIWW" subtitle="ТОЛОКАР 04" tag="Конструювання та обладнання з відкритим вихідним кодом" date="З вересня 2022 року" tagIcon="cog" operator="hiww"/>
     </div>
     <div class="flex flex-col flex-1 basis-full min-w-0 gap-4 order-3">
-      <CarCard img="/images/cars/image3.jpg" title="Sprinter I від MitOst" subtitle="ТОЛОКАР 02" tag="Конструювання, цифрове виробництво" tagIcon="cog" date="З червня 2022 року" operator="ostriv"/>
-      <CarCard img="/images/cars/image7.jpg" title="Вантажівка від HIWW" subtitle="ТОЛОКАР 05" tag="Конструювання та обладнання з відкритим вихідним кодом" tagIcon="cog" date="З вересня 2022 року" operator="hiww"/>
+      <CarCard img="images/cars/image3.jpg" title="Sprinter I від MitOst" subtitle="ТОЛОКАР 02" tag="Конструювання, цифрове виробництво" tagIcon="cog" date="З червня 2022 року" operator="ostriv"/>
+      <CarCard img="images/cars/image7.jpg" title="Вантажівка від HIWW" subtitle="ТОЛОКАР 05" tag="Конструювання та обладнання з відкритим вихідним кодом" tagIcon="cog" date="З вересня 2022 року" operator="hiww"/>
     </div>
   </div>
 </ContentSection>
@@ -135,9 +135,9 @@ import {
 </ContentSection>
 <ContentSection variant="dark" className="z-10">
   <div class="container-width flex flex-col lg:flex-row gap-6 -mt-20">
-    <ImageCard title="Майстер-класи від мейкерів" img="/images/arduino.jpg">Ми проводимо різні майстер-класи для різних груп, наприклад, шкіл, університетів, фаблабів тощо, на такі теми, як цифрове виробництво, кодування тощо.</ImageCard>
-    <ImageCard title="Replication workshops" img="/images/replication.jpg">На наших семінарах з реплікації ми навчаємо фаблаби та місцевий бізнес створювати/реплікувати певне обладнання з відкритим вихідним кодом, таке як 3D-принтери, фрезерні верстати з ЧПК та лазерні різаки.</ImageCard>
-    <ImageCard title="Проєкти підтримки" img="/images/support.jpg">Ми підтримуємо різних партнерів у їхніх проєктах за допомогою наших знань, інструментів та машин. У цих проєктах ми оновлюємо, ремонтуємо, будуємо та винаходимо спеціальні рішення.</ImageCard>
+    <ImageCard title="Майстер-класи від мейкерів" img="images/arduino.jpg">Ми проводимо різні майстер-класи для різних груп, наприклад, шкіл, університетів, фаблабів тощо, на такі теми, як цифрове виробництво, кодування тощо.</ImageCard>
+    <ImageCard title="Replication workshops" img="images/replication.jpg">На наших семінарах з реплікації ми навчаємо фаблаби та місцевий бізнес створювати/реплікувати певне обладнання з відкритим вихідним кодом, таке як 3D-принтери, фрезерні верстати з ЧПК та лазерні різаки.</ImageCard>
+    <ImageCard title="Проєкти підтримки" img="images/support.jpg">Ми підтримуємо різних партнерів у їхніх проєктах за допомогою наших знань, інструментів та машин. У цих проєктах ми оновлюємо, ремонтуємо, будуємо та винаходимо спеціальні рішення.</ImageCard>
   </div>
 </ContentSection>
 <ContentSection variant="white">
