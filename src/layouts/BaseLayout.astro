@@ -23,9 +23,12 @@ const localeFromUrl = Astro?.url?.pathname
 const rawMenu = await Astro.glob<IMenuMarkdown>("../pages/**/_menu.mdx");
 console.log(JSON.stringify(rawMenu, null, 2));
 console.log("Locale", localeFromUrl);
-const menu = rawMenu.find(
-  (rawMenu) =>
-    rawMenu.url.split("/").filter(Boolean)[0].toLowerCase() === localeFromUrl
+const menu = rawMenu.find((rawMenu) =>
+  rawMenu.url
+    .split("/")
+    .filter(Boolean)
+    .map((urlPart) => urlPart.toLowerCase())
+    .includes(localeFromUrl)
 ).frontmatter?.menu;
 ---
 
