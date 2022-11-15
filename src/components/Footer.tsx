@@ -61,11 +61,11 @@ const Footer: React.FC<Props> = ({ className, menu }: Props) => {
         </div>
         <div className="text-sm text-neutral-500 flex flex-col lg:flex-row gap-2 lg:gap-0 mt-8">
           <div>
-            <a href="/legal">Legal Notice</a>
+            <a href="en/legal">Legal Notice</a>
           </div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
           <div>
-            <a href="/privacy">Privacy Notice</a>
+            <a href="en/privacy">Privacy Notice</a>
           </div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
           <div>© 2022 Tolocar Project Operators</div>
