@@ -8,6 +8,7 @@ interface Props {
   target?: string;
   children: React.ReactNode;
   small?: boolean;
+  actionCaption?: string;
 }
 
 const Card: React.FC<Props> = ({
@@ -17,6 +18,7 @@ const Card: React.FC<Props> = ({
   bg,
   target,
   small,
+  actionCaption
 }: Props) => {
   const bgMapping = [
     "bg-illustration-1 bg-contain bg-[position:bottom_-40px_right] lg:bg-[position:left_-100px_bottom_-40px] bg-no-repeat",
@@ -42,7 +44,7 @@ const Card: React.FC<Props> = ({
             small ? "top-8" : "bottom-8 flex items-center gap-4"
           }`}
         >
-          {!small && <>Get in contact</>}
+          {!small && actionCaption}
           <img src={ArrowSvg} className="w-8 h-8" />
         </div>
       )}
