@@ -8,6 +8,7 @@ import "../../base.css";
 
 type Props = MarkdownLayoutProps<{
   title: string;
+  footerGrey: boolean;
 }>;
 
 const { frontmatter, footerGrey = false } = Astro.props;
@@ -29,6 +30,7 @@ const menu = rawMenu.find((rawMenu) =>
     .map((urlPart) => urlPart.toLowerCase())
     .includes(localeFromUrl)
 ).frontmatter?.menu;
+
 ---
 
 <!DOCTYPE html>
@@ -54,9 +56,18 @@ const menu = rawMenu.find((rawMenu) =>
   </head>
   <body class="w-full font-inter antialiased h-full">
     <main class="flex flex-col items-center h-full">
-      <Navigation baseUrl={baseUrl} path={path} menu={menu} locale={localeFromUrl} client:load />
+      <Navigation
+        baseUrl={baseUrl}
+        path={path}
+        menu={menu}
+        locale={localeFromUrl}
+        client:load
+      />
       <slot />
-      <Footer menu={menu} className={footerGrey ? "!bg-neutral-50" : ""} />
+      <Footer
+        menu={menu}
+        className={footerGrey || frontmatter?.footerGrey ? "!bg-neutral-50" : ""}
+      />
     </main>
   </body>
 </html>
