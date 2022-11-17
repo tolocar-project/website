@@ -16,7 +16,7 @@ module.exports = {
         "illustration-4-wide": "url('/tolocar_illustration_4_wide.svg')",
         "illustration-wide": "url('/tolocar_illustration_wide.svg')",
         "illustration-1-dark": "url('/tolocar_illustration_1_dark.svg')",
-        "link": "url('/link.svg')",
+        link: "url('/link.svg')",
       },
     },
     colors: {
@@ -41,6 +41,7 @@ module.exports = {
     },
     fontFamily: {
       aktiv: ["aktiv-grotesk-extended", "Arial", "sans-serif"],
+      inter: ["Inter", "sans-serif"],
     },
   },
   plugins: [require("@tailwindcss/typography")],

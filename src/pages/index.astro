@@ -1,0 +1,9 @@
+<script>
+  import LanguageUtils from "@util/LanguageUtils";
+  import CommonUtils from "@util/CommonUtils";
+  // Redirect user to previously set language preference (or get it from the browser)
+  const baseUrl = CommonUtils.getBaseUrl(true);
+  const preferredLanguage =
+    LanguageUtils.getOrGuessInitialLanguageFromBrowser();
+  window.location.pathname = `${baseUrl}/${preferredLanguage.toLowerCase()}`;
+</script>

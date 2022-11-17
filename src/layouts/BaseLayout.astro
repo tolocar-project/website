@@ -2,18 +2,39 @@
 import type { MarkdownLayoutProps } from "astro";
 import { Navigation, Footer } from "@components";
 import TolocarFavicon from "../assets/favicon.png";
+import CommonUtils from "@util/CommonUtils";
+import type { IMenuMarkdown } from "@interfaces/IMenu";
 import "../../base.css";
 
 type Props = MarkdownLayoutProps<{
   title: string;
+  footerGrey: boolean;
 }>;
 
 const { frontmatter, footerGrey = false } = Astro.props;
-const baseUrl = import.meta.env.BASE_URL;
+const path = Astro.url.pathname;
+const baseUrl = CommonUtils.getBaseUrl(false);
+
+const localeFromUrl = Astro?.url?.pathname
+  .replace(baseUrl, "")
+  .split("/")
+  .filter(Boolean)[0]
+  .toLowerCase();
+
+const rawMenu = await Astro.glob<IMenuMarkdown>("../pages/**/_menu.mdx");
+
+const menu = rawMenu.find((rawMenu) =>
+  rawMenu.url
+    .split("/")
+    .filter(Boolean)
+    .map((urlPart) => urlPart.toLowerCase())
+    .includes(localeFromUrl)
+).frontmatter?.menu;
+
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth h-full">
+<html lang={localeFromUrl} class="scroll-smooth h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -30,14 +51,23 @@ const baseUrl = import.meta.env.BASE_URL;
       data-website-id="7642c494-7e60-4564-952b-5d0d33e7c16b"
       src="https://analytics.fabcity.hamburg/umami.js"
     ></script>
-    {baseUrl !== "/" && <base href={baseUrl} />}
+    <base href={baseUrl} />
     <title>{frontmatter?.title} - Tolocar Project</title>
   </head>
-  <body class="w-full font-aktiv antialiased h-full">
+  <body class="w-full font-inter antialiased h-full">
     <main class="flex flex-col items-center h-full">
-      <Navigation logoTarget={baseUrl} client:load />
+      <Navigation
+        baseUrl={baseUrl}
+        path={path}
+        menu={menu}
+        locale={localeFromUrl}
+        client:load
+      />
       <slot />
-      <Footer className={footerGrey ? "!bg-neutral-50" : ""} />
+      <Footer
+        menu={menu}
+        className={footerGrey || frontmatter?.footerGrey ? "!bg-neutral-50" : ""}
+      />
     </main>
   </body>
 </html>

@@ -12,20 +12,21 @@ import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
 import { getParentPage } from "@util/ContentTransformer";
 import fs from "node:fs";
 import Giscus from "@components/Giscus.astro";
+import CommonUtils from "@util/CommonUtils";
 
 const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
-  "../pages/academy/*/*.mdx"
+  "../pages/en/academy/*/*.mdx"
 );
 
 
-const baseUrl = import.meta.env.BASE_URL;
+
+const baseUrl = CommonUtils.getBaseUrl(false);
 const { frontmatter, url, file, headings } = Astro.props;
 
 const statsMtime = fs.statSync(file).mtime;
 const editDate = new Date(statsMtime);
 
 const parentPage = getParentPage(rawAcademyContent, url);
-
 ---
 
 <BaseLayout frontmatter={frontmatter}>
@@ -64,7 +65,7 @@ const parentPage = getParentPage(rawAcademyContent, url);
       </div>
     </div>
     <div
-      class="col-span-7 prose prose-lg prose-p:text-neutral-500 prose-li:text-neutral-500 prose-ol:text-neutral-500 prose-p:leading-7"
+      class="col-span-7 prose prose-lg prose-p:text-neutral-500 prose-li:text-neutral-500 prose-ol:text-neutral-500 prose-p:leading-7 prose-headings:font-aktiv prose-headings:font-semibold"
     >
       <slot />
     </div>
@@ -83,6 +84,7 @@ const parentPage = getParentPage(rawAcademyContent, url);
         title="You are based in Ukraine and think we could help you?"
         bg={4}
         target="mailto:info@tolocar.org"
+        actionCaption="Get in contact"
         >Schools, universities, NGOs, Startups and other organizations can reach
         out to us to request the Tolocars for projects, workshops and trainings.</Card
       >
@@ -90,6 +92,7 @@ const parentPage = getParentPage(rawAcademyContent, url);
         title="You are a Maker and want to partner with us?"
         bg={5}
         target="mailto:info@tolocar.org"
+        actionCaption="Get in contact"
         >We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other
         Communities who wants to partner with us in the Ukraine and
         internationally over the internet.</Card

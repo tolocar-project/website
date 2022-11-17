@@ -3,31 +3,14 @@ import TolocarLogoSvg from "../assets/tolocar_logo.svg";
 import DeutscheZusammenArbeitImg from "../assets/deutsche_zusammenarbeit.png";
 import GizUkraineImg from "../assets/giz_ukraine.png";
 import HiwwLogoImg from "../assets/hiww_logo.svg";
+import type { IMenuItem } from "@interfaces/IMenu";
 
 interface Props {
   className?: string;
+  menu?: IMenuItem[];
 }
 
-const linkListItems = [
-  {
-    title: "Motivation",
-    target: "#motivation",
-  },
-  {
-    title: "What is a Tolocar",
-    target: "#what-is-a-tolocar",
-  },
-  {
-    title: "Projects & Community",
-    target: "#projects-community",
-  },
-  {
-    title: "Contact",
-    target: "mailto:info@tolocar.org",
-  },
-];
-
-const Footer: React.FC<Props> = ({ className }: Props) => {
+const Footer: React.FC<Props> = ({ className, menu }: Props) => {
   return (
     <div
       className={`w-full lg:h-[368px] flex bg-white py-16 ${className || ""}`}
@@ -41,14 +24,17 @@ const Footer: React.FC<Props> = ({ className }: Props) => {
             </div>
             <div className="mt-10 lg:mt-0 ">
               <ul>
-                {linkListItems.map((listItem) => (
-                  <FooterLinkListItem
-                    target={listItem.target}
-                    key={listItem.title}
-                  >
-                    {listItem.title}
-                  </FooterLinkListItem>
-                ))}
+                {menu?.map(
+                  (listItem) =>
+                    !listItem.hideInFooter && (
+                      <FooterLinkListItem
+                        target={listItem.target}
+                        key={listItem.title}
+                      >
+                        {listItem.title}
+                      </FooterLinkListItem>
+                    )
+                )}
               </ul>
             </div>
           </div>
@@ -60,7 +46,10 @@ const Footer: React.FC<Props> = ({ className }: Props) => {
             </div>
             <div className="flex-1 mt-10 lg:mt-0 flex items-center justify-center">
               <a className="w-full h-auto" href="https://www.bmz.de/">
-                <img className="max-w-xs w-full h-auto" src={DeutscheZusammenArbeitImg} />
+                <img
+                  className="max-w-xs w-full h-auto"
+                  src={DeutscheZusammenArbeitImg}
+                />
               </a>
             </div>
             <div className="flex-1 mt-10 lg:mt-0 flex items-center justify-center">
@@ -70,11 +59,13 @@ const Footer: React.FC<Props> = ({ className }: Props) => {
             </div>
           </div>
         </div>
-        <div className="text-sm text-neutral-500 flex flex-col lg:flex-row gap-2 lg:gap-0 mt-8 lg:mt-0">
-          <div><a href="/legal">Legal Notice</a></div>
+        <div className="text-sm text-neutral-500 flex flex-col lg:flex-row gap-2 lg:gap-0 mt-8">
+          <div>
+            <a href="en/legal">Legal Notice</a>
+          </div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
           <div>
-            <a href="/privacy">Privacy Notice</a>
+            <a href="en/privacy">Privacy Notice</a>
           </div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
           <div>© 2022 Tolocar Project Operators</div>
