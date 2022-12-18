@@ -17,6 +17,8 @@ import {
   IllustrationBgContainer,
   TextBlock,
   ContentSection,
+  NewsSlider,
+  NewsItem
 } from "@components";
 
 <HeroImage />
@@ -37,8 +39,13 @@ import {
     <Card small title="Projects & Community" bg={3} target="#projects-community">Explore our projects and community</Card>
   </CardContainer>
 </IllustrationBgContainer>
-
-<ContentSection id="motivation">
+<ContentSection id="news">
+  {/* Ich hatte erst alle Items hier drin als Children, 
+  das hat aber mit Astros island hydration nicht funktioniert,
+  daher gerne fixen @pReya  */}
+  <NewsSlider headline="News" client:idle /> 
+</ContentSection>
+<ContentSection variant="white" id="motivation">
   <div class="container-width">
     <HeadlineUnderlined large variant={2} className="mt-8 sm:mt-20">Motivation</HeadlineUnderlined>
     <div class="flex lg:justify-end mt-8 sm:mt-16 mb-8">
