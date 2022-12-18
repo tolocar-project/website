@@ -12,8 +12,8 @@ const rawNews = await Astro.glob<INewsItem>("../pages/en/news/*.mdx");
 const news = rawNews
   .map(({ frontmatter: { image, target, instagram, title, order = 999 } }) => {
     return {
-      image,
-      target: baseUrl + target,
+      image: baseUrl + target,
+      target,
       instagram,
       title,
       order,
