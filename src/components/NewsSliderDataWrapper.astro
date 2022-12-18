@@ -1,0 +1,25 @@
+---
+import { NewsSliderComponent } from "@components";
+import type { INewsItem } from "@interfaces/INews";
+import CommonUtils from "@util/CommonUtils";
+
+const { headline, id, ...rest } = Astro.props;
+
+const baseUrl = CommonUtils.getBaseUrl(true);
+
+const rawNews = await Astro.glob<INewsItem>("../pages/en/news/*.mdx");
+
+const news = rawNews
+  .map(({ frontmatter: { image, target, instagram, title, order = 999 } }) => {
+    return {
+      image: baseUrl + image,
+      target,
+      instagram,
+      title,
+      order,
+    };
+  })
+  .sort((a, b) => b.order - a.order);
+---
+
+<NewsSliderComponent {news} {headline} {id} {...rest} client:idle />
