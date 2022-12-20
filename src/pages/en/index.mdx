@@ -17,6 +17,8 @@ import {
   IllustrationBgContainer,
   TextBlock,
   ContentSection,
+  NewsSlider,
+  NewsItem
 } from "@components";
 
 <HeroImage />
@@ -37,8 +39,10 @@ import {
     <Card small title="Projects & Community" bg={3} target="#projects-community">Explore our projects and community</Card>
   </CardContainer>
 </IllustrationBgContainer>
-
-<ContentSection id="motivation">
+<ContentSection id="news">
+  <NewsSlider headline="News" /> 
+</ContentSection>
+<ContentSection variant="white" id="motivation">
   <div class="container-width">
     <HeadlineUnderlined large variant={2} className="mt-8 sm:mt-20">Motivation</HeadlineUnderlined>
     <div class="flex lg:justify-end mt-8 sm:mt-16 mb-8">
