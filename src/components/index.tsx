@@ -23,3 +23,4 @@ export { default as NewsSlider } from "@components/NewsSliderDataWrapper.astro";
 export { default as NewsItem } from "@components/NewsItem";
 export { default as InstagramIcon } from "@components/InstagramIcon";
 export { default as FacebookIcon } from "@components/FacebookIcon";
+export { default as CommunityCard } from "@components/CommunityCard";
