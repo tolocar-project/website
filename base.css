@@ -81,8 +81,12 @@
     @apply max-w-[1440px] w-full lg:w-[84.4%] px-0 mx-auto;
   }
 
-  .mask-illustration {
+  .mask-illustration-horizontal {
     mask-image: linear-gradient(to right, transparent 40%, black 70%);
+  }
+
+  .mask-illustration-vertical {
+    mask-image: linear-gradient(to bottom, transparent 40%, black 70%);
   }
 
   .icon {
