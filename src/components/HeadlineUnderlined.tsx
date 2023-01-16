@@ -1,9 +1,9 @@
 import React from "react";
-import Underline1Svg from "../assets/tolocar_underline_1.svg";
-import Underline2Svg from "../assets/tolocar_underline_2.svg";
-import Underline3Svg from "../assets/tolocar_underline_3.svg";
-import Underline4Svg from "../assets/tolocar_underline_4.svg";
-import Underline5Svg from "../assets/tolocar_underline_5.svg";
+import Underline1Svg from "@assets/tolocar_underline_1.svg";
+import Underline2Svg from "@assets/tolocar_underline_2.svg";
+import Underline3Svg from "@assets/tolocar_underline_3.svg";
+import Underline4Svg from "@assets/tolocar_underline_4.svg";
+import Underline5Svg from "@assets/tolocar_underline_5.svg";
 
 interface Props {
   children: React.ReactNode;

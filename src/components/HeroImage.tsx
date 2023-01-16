@@ -1,5 +1,5 @@
 import React from "react";
-import TolocarHero from "../assets/tolocar_hero.svg";
+import { ReactComponent as TolocarHero } from "@assets/tolocar_hero.svg";
 
 interface Props {
   className?: string;
@@ -13,7 +13,7 @@ const HeroImage: React.FC<Props> = ({ className }: Props) => {
           className || ""
         }`}
       >
-        <img className="h-[251px]" src={TolocarHero} />
+        <TolocarHero className="h-[251px]" />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import TolocarLogoSvg from "../assets/tolocar_logo.svg";
+import React, { useState } from "react";
+import { ReactComponent as TolocarLogoSvg } from "@assets/tolocar_logo.svg";
 import ArrowSvg from "@components/ArrowSvg";
 import LanguageUtils from "@util/LanguageUtils";
 import type { IMenuItem } from "@interfaces/IMenu";
@@ -40,7 +40,7 @@ const Navigation: React.FC<Props> = ({
     window.location.pathname = newLocation;
   };
 
-  const Image = <img className={`h-8 sm:h-10`} src={TolocarLogoSvg} />;
+  const Image = <TolocarLogoSvg className={`h-8 sm:h-10`} />;
 
   return (
     <div
