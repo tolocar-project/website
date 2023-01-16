@@ -90,13 +90,21 @@ const FourPictureGrid: React.FC<PictureGridProps> = ({
   );
 };
 
-const TwoPictureGrid: React.FC<PictureGridProps> = ({images}:PictureGridProps) => {
-  return(
-    <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
-      <img className="flex-1 w-full h-full object-cover" src={images[0]} />
-      <img className="flex-1 w-full h-full object-cover" src={images[1]} />
+const TwoPictureGrid: React.FC<PictureGridProps> = ({
+  images,
+}: PictureGridProps) => {
+  return (
+    <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 z-10">
+      <img
+        className="flex-1 lg:w-[525px] h-full object-cover"
+        src={images[0]}
+      />
+      <img
+        className="flex-1 lg:w-[525px] h-full object-cover"
+        src={images[1]}
+      />
     </div>
-  )
-}
+  );
+};
 
 export default ImageGrid;

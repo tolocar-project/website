@@ -18,7 +18,9 @@ import {
   TextBlock,
   ContentSection,
   NewsSlider,
-  NewsItem
+  NewsItem,
+  ImpactListItem,
+  ArrowSvg
 } from "@components";
 
 <HeroImage />
@@ -77,31 +79,50 @@ import {
 </ContentSection>
 
 <ContentSection variant="white" id="what-is-a-tolocar">
-  <HeadlineUnderlined large variant={5} className="container-width mt-8 sm:mt-20">What is a Tolocar?</HeadlineUnderlined>
-  <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-16">
-    <div class="flex flex-col lg:w-10/12 ">
-      <div class="flex flex-col lg:flex-row custom-prose text-lg leading-6 gap-8 mb-12 lg:mb-20">
-        <div class="flex-1">
+  <HeadlineUnderlined large variant={6} className="container-width mt-8 sm:mt-20">What is a Tolocar?</HeadlineUnderlined>
+  <div class="container-width flex lg:justify-start mt-8 sm:mt-16 mb-8">
+    <div class="flex flex-col">
+      <div class="flex flex-col lg:flex-row custom-prose text-lg leading-6 gap-8 mb-6 lg:mb-10">
+        <div class="flex-[40%]">
           <p class="text-2xl leading-7 font-bold text-tolo-black">A Tolocar is a converted van that offers the possibilities of a makerspace or fablab on wheels.</p>
-
-          This means **they bring the capacity of high end manufacturing or diagnosis technologies to the point of need.** 
-
-          But crucially they remain plugged into a world wide community of diverse domain experts who can bring their collective intelligence to bear in ways that complement conventional relief or rebuilding efforts.
         </div>
-        <div class="flex-1">
-          The aim is to enable communities to replicate some of the capabilities and so to catalyze rebuilding efforts and establish support networks.  
-
-          Beyond the technical capability this provides the Tolocars with the agility, diversity of perspective, and capacity to absorb feedback directly from the user's context. 
-
-          All this enables highly reactive user centered designs, short feedback loops, and disintermediation, and adapting products and services to complex and changing environments.
+        <div class="flex-[60%]">
+         This means they bring the capacity of **high end manufacturing or diagnosis technologies to the point of need**. But crucially they remain plugged into a world wide community of diverse domain experts who can bring their collective intelligence to bear in ways that complement conventional relief or rebuilding efforts.
+         
+         The aim is to enable communities to replicate some of the capabilities and so to catalyze rebuilding efforts and establish support networks.
+          {/* Waiting for Fleet Subpage */}
+          {/* <br/>
+          <div className="flex items-center gap-4 text-tolo-green">   
+            <a href="#" className="no-underline">Discover our fleet</a>
+            <ArrowSvg className="w-5 h-5" />
+          </div> */}
         </div>
       </div>
-        <ImageGrid images={["images/roof.jpg", "images/car.jpg"]}/>
     </div>
   </div>
 </ContentSection>
 
-<ContentSection variant="white" className="mb-16">
+<ContentSection variant="dark" className="bg-illustration-2-dark bg-no-repeat bg-[position:left_50px_top_135px]" id="who-we-are">
+  <div className="bg-white absolute w-full h-40 top-0"/> 
+  <div class="container-width flex lg:justify-end"> 
+      <div class="lg:w-10/12">
+      <ImageGrid images={["images/roof.jpg", "images/car.jpg"]} caption="Photos: @ Nika Popova."/>
+      <HeadlineUnderlined light variant={3} className="mt-8">Our Impact</HeadlineUnderlined>
+      </div>
+  </div>
+  <div className="container-width flex lg:justify-end">
+    <div className="lg:w-10/12 overflow-hidden lg:grid lg:grid-cols-2 lg:gap-px py-10"> 
+    <ImpactListItem tagIcon="bullseye" title="Be at the point of need" text="With the mobile makerspaces we can go to the point of need and deliver access to high tech production machines, tools, knowledge and man power." />
+    <ImpactListItem tagIcon="parachute" title="Solely humanitarian activities" text="Technology can be used for many things, but with our project we do focus on humanitarian use cases and refuse every involvement in war activities." />
+    <ImpactListItem tagIcon="microchip" title="Open hardware" text="We use and distribute as much open source hardware as possible to enable people to build hardware by themselves in an affordable way." />
+    <ImpactListItem tagIcon="book_open" title="Open knowledge" text="In our workshops and trainings we use a lot of existing open knowledge. We share this for free and invite everyone to contribute to it." />
+    <ImpactListItem tagIcon="hand_fist" title="Empowering people" text="Throughout our activities we aim to empower people to help themselves." />
+    <ImpactListItem tagIcon="chart_network" title="Connecting communities" text="One of our main goals is to connect the global maker community with local makers and initivatives in order to support and strengthen them." />
+    </div>
+  </div>  
+</ContentSection>
+
+<ContentSection variant="white" className="mb-16 mt-20">
   <div class="container-width flex flex-col lg:flex-row gap-4">
     <div class="flex flex-col flex-1 basis-full min-w-0 gap-4 lg:order-1 order-2">
       <CarCard img="images/cars/image4.jpg" title="The Cadus Crafter" subtitle="Tolocar 01" tag="Renovation & Handcraft" date="May - August 2022" operator="cadus" tagIcon="hammer"/>
