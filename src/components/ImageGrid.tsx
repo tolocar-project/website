@@ -95,14 +95,12 @@ const TwoPictureGrid: React.FC<PictureGridProps> = ({
 }: PictureGridProps) => {
   return (
     <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 z-10">
-      <img
-        className="flex-1 lg:w-[525px] h-full object-cover"
-        src={images[0]}
-      />
-      <img
-        className="flex-1 lg:w-[525px] h-full object-cover"
-        src={images[1]}
-      />
+      <div className="flex-1 overflow-hidden">
+        <img className="object-cover w-full h-auto object-[0_-50px]" src={images[0]} />
+      </div>
+      <div className="flex-1 overflow-hidden">
+        <img className="object-cover object-center w-full h-auto" src={images[1]} />
+      </div>
     </div>
   );
 };
