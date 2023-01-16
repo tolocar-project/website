@@ -3,7 +3,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import svgr from 'vite-plugin-svgr'
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   site: "https://www.tolocar.org",
@@ -18,5 +18,5 @@ export default defineConfig({
   ],
   vite: {
     plugins: [svgr()],
-  }
+  },
 });
