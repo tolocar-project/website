@@ -44,12 +44,7 @@ const ImpactListItem: React.FC<Props> = ({
   return (
     <div className={`flex ${className || ""}`}>
       <div className={"flex justify-start items-start h-5 w-5 mr-4 pt-1"}>
-        {tagIcon === "bullseye" && renderIcon(tagIcon)}
-        {tagIcon === "microchip" && renderIcon(tagIcon)}
-        {tagIcon === "hand_fist" && renderIcon(tagIcon)}
-        {tagIcon === "parachute" && renderIcon(tagIcon)}
-        {tagIcon === "book_open" && renderIcon(tagIcon)}
-        {tagIcon === "chart_network" && renderIcon(tagIcon)}
+        {tagIcon && renderIcon(tagIcon)}
       </div>
       <div className="pb-10 flex flex-col items-start text-white">
         <h4 className="font-medium text-lg font-aktiv text-tight pb-4">
