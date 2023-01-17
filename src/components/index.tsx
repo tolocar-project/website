@@ -20,3 +20,4 @@ export { default as TableOfContents } from "@components/TableOfContents";
 export { default as NewsSliderComponent } from "@components/NewsSlider";
 export { default as NewsSlider } from "@components/NewsSliderDataWrapper.astro";
 export { default as NewsItem } from "@components/NewsItem";
+export { default as ImpactListItem } from "@components/ImpactListItem";

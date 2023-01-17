@@ -1,12 +1,10 @@
 import React from "react";
-import {
-  BullseyeSvg,
-  HandFistSvg,
-  MicrochipSvg,
-  ParachuteSvg,
-  BookOpenSvg,
-  ChartNetworkSvg,
-} from "@components";
+import { ReactComponent as BullseyeIcon } from "@assets/bullseye.svg";
+import { ReactComponent as MicrochipIcon } from "@assets/microchip.svg";
+import { ReactComponent as HandFistIcon } from "@assets/hand-fist.svg";
+import { ReactComponent as ParachuteIcon } from "@assets/parachute.svg";
+import { ReactComponent as BookOpenIcon } from "@assets/book-open.svg";
+import { ReactComponent as ChartNetworkIcon } from "@assets/chart-network.svg";
 
 interface Props {
   className?: string;
@@ -27,23 +25,31 @@ const ImpactListItem: React.FC<Props> = ({
   text,
   tagIcon,
 }: Props) => {
-  const iconMapping = {
-    bullseye: BullseyeSvg,
-    microchip: MicrochipSvg,
-    hand_fist: HandFistSvg,
-    parachute: ParachuteSvg,
-    book_open: BookOpenSvg,
-    chart_network: ChartNetworkSvg,
+  const renderIcon = (icon) => {
+    const iconMapping = {
+      bullseye: BullseyeIcon,
+      microchip: MicrochipIcon,
+      hand_fist: HandFistIcon,
+      parachute: ParachuteIcon,
+      book_open: BookOpenIcon,
+      chart_network: ChartNetworkIcon,
+      default: null,
+    };
+
+    const IconComponent = iconMapping[icon || "default"];
+
+    return <IconComponent />;
   };
+
   return (
     <div className={`flex ${className || ""}`}>
       <div className={"flex justify-start items-start h-5 w-5 mr-4 pt-1"}>
-        {tagIcon === "bullseye" && <BullseyeSvg />}
-        {tagIcon === "microchip" && <MicrochipSvg />}
-        {tagIcon === "hand_fist" && <HandFistSvg />}
-        {tagIcon === "parachute" && <ParachuteSvg />}
-        {tagIcon === "book_open" && <BookOpenSvg />}
-        {tagIcon === "chart_network" && <ChartNetworkSvg />}
+        {tagIcon === "bullseye" && renderIcon(tagIcon)}
+        {tagIcon === "microchip" && renderIcon(tagIcon)}
+        {tagIcon === "hand_fist" && renderIcon(tagIcon)}
+        {tagIcon === "parachute" && renderIcon(tagIcon)}
+        {tagIcon === "book_open" && renderIcon(tagIcon)}
+        {tagIcon === "chart_network" && renderIcon(tagIcon)}
       </div>
       <div className="pb-10 flex flex-col items-start text-white">
         <h4 className="font-medium text-lg font-aktiv text-tight pb-4">

@@ -39,7 +39,7 @@ const HeadlineUnderlined: React.FC<Props> = ({
         className={`${
           light ? "text-white" : "text-tolo-black"
         } relative z-10 font-semibold leading-none font-aktiv ${
-          large ? "text-5xl" : "text-[28px]"
+          large ? "text-5xl" : "text-2xl"
         }`}
       >
         <img
