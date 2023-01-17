@@ -4,6 +4,7 @@ import Underline2Svg from "@assets/tolocar_underline_2.svg";
 import Underline3Svg from "@assets/tolocar_underline_3.svg";
 import Underline4Svg from "@assets/tolocar_underline_4.svg";
 import Underline5Svg from "@assets/tolocar_underline_5.svg";
+import Underline6Svg from "@assets/tolocar_underline_6.svg";
 
 interface Props {
   children: React.ReactNode;
@@ -37,7 +38,9 @@ const HeadlineUnderlined: React.FC<Props> = ({
         id={id}
         className={`${
           light ? "text-white" : "text-tolo-black"
-        } relative z-10 font-semibold leading-none font-aktiv ${large ? "text-5xl" : "text-2xl"}`}
+        } relative z-10 font-semibold leading-none font-aktiv ${
+          large ? "text-5xl" : "text-2xl"
+        }`}
       >
         <img
           className={`-z-10 absolute ${

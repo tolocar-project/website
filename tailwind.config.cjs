@@ -10,6 +10,7 @@ module.exports = {
         "illustration-1": "url('/tolocar_illustration_1.svg')",
         "illustration-2": "url('/tolocar_illustration_2.svg')",
         "illustration-2-alpha": "url('/tolocar_illustration_2_alpha.svg')",
+        "illustration-2-dark": "url('/tolocar_illustration_2_dark.svg')",
         "illustration-3": "url('/tolocar_illustration_3.svg')",
         "illustration-3-dark": "url('/tolocar_illustration_3_dark.svg')",
         "illustration-3-alpha": "url('/tolocar_illustration_3_alpha.svg')",
