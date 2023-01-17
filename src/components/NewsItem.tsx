@@ -1,6 +1,6 @@
 import React from "react";
-import ArrowSvg from "./ArrowSvg";
-import InstagramIcon from "./InstagramIcon";
+import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
+import { ReactComponent as InstagramIcon } from "@assets/instagram.svg";
 
 interface Props {
   children: React.ReactNode;
@@ -26,7 +26,7 @@ const NewsItem: React.FC<Props> = ({ children, href, image, isInstagram }) => (
           loading="lazy"
           className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform"
         />
-        <ArrowSvg className="absolute bottom-4 right-4 z-10 text-white h-6 w-6" />
+        <ArrowIcon className="absolute bottom-4 right-4 z-10 text-white h-6 w-6" />
       </div>
       <div className="bg-white py-6 px-5 grow">
         <p className="line-clamp-3 text-lg">{children}</p>

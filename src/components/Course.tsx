@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowSvg } from "@components";
+import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 import GithubSlugger from "github-slugger";
 
 interface Props {
@@ -36,7 +36,7 @@ const Course: React.FC<Props> = ({ className, course }) => {
             <a href={item.target} key={index}>
               <h3 className="flex items-center text-2xl font-semibold font-aktiv">
                 {item.title}
-                <ArrowSvg className="shrink-0 ml-4 text-tolo-green w-6 h-6" />
+                <ArrowIcon className="shrink-0 ml-4 text-tolo-green w-6 h-6" />
               </h3>
             </a>
           ))}
