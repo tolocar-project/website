@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import TolocarLogoSvg from "../assets/tolocar_logo.svg";
-import ArrowSvg from "@components/ArrowSvg";
+import React, { useState } from "react";
+import { ReactComponent as TolocarLogoSvg } from "@assets/tolocar_logo.svg";
+import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 import LanguageUtils from "@util/LanguageUtils";
 import type { IMenuItem } from "@interfaces/IMenu";
 
@@ -40,7 +40,7 @@ const Navigation: React.FC<Props> = ({
     window.location.pathname = newLocation;
   };
 
-  const Image = <img className={`h-8 sm:h-10`} src={TolocarLogoSvg} />;
+  const Image = <TolocarLogoSvg className={`h-8 sm:h-10`} />;
 
   return (
     <div
@@ -176,7 +176,7 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
     <a href={target} onClick={onClick} className="md:hover:text-neutral-800">
       <div className="flex items-center md:text-base md:font-medium md:px-1 lg:px-3 md:py-2 md:hover:bg-neutral-50 text-2xl font-bold">
         {children}
-        <ArrowSvg className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
+        <ArrowIcon className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
       </div>
     </a>
   </li>
@@ -244,7 +244,7 @@ const LanguageSwitcherItem: React.FC<LanguageSwitcherItemProps> = ({
       >
         <div className="flex items-center md:text-base md:font-medium md:px-1 lg:px-3 md:py-2 text-2xl font-bold">
           {children}
-          <ArrowSvg className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
+          <ArrowIcon className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
         </div>
       </a>
     </li>

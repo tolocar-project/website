@@ -1,8 +1,8 @@
 import React from "react";
-import TolocarLogoSvg from "../assets/tolocar_logo.svg";
-import DeutscheZusammenArbeitImg from "../assets/deutsche_zusammenarbeit.png";
-import GizUkraineImg from "../assets/giz_ukraine.png";
-import HiwwLogoImg from "../assets/hiww_logo.svg";
+import { ReactComponent as TolocarLogoSvg } from "@assets/tolocar_logo.svg";
+import DeutscheZusammenArbeitImg from "@assets/deutsche_zusammenarbeit.png";
+import GizUkraineImg from "@assets/giz_ukraine.png";
+import HiwwLogoImg from "@assets/hiww_logo.svg";
 import type { IMenuItem } from "@interfaces/IMenu";
 
 interface Props {
@@ -19,7 +19,7 @@ const Footer: React.FC<Props> = ({ className, menu }: Props) => {
         <div className="flex flex-col lg:flex-row">
           <div className="flex-1 flex flex-col gap-8 text-sm items-start">
             <div className="flex gap-4 items-center">
-              <img className="h-12" src={TolocarLogoSvg} />
+              <TolocarLogoSvg className="h-12"/>
               The Tolocar Project
             </div>
             <div className="mt-10 lg:mt-0 ">
