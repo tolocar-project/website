@@ -10,6 +10,7 @@ interface Props {
   path?: string;
   menu?: IMenuItem[];
   locale: string;
+  dark?: boolean;
 }
 
 const Navigation: React.FC<Props> = ({
@@ -18,6 +19,7 @@ const Navigation: React.FC<Props> = ({
   className,
   path,
   locale,
+  dark,
 }: Props) => {
   const [showOverlayMenu, setShowOverlayMenu] = useState(false);
 
@@ -44,7 +46,9 @@ const Navigation: React.FC<Props> = ({
 
   return (
     <div
-      className={`w-full bg-white h-20 fixed flex items-center justify-center top-0 z-20 ${
+      className={`w-full ${
+        dark ? "bg-neutral-50" : "bg-white"
+      }  h-20 fixed flex items-center justify-center top-0 z-20 ${
         className || ""
       }`}
     >
