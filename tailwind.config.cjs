@@ -19,17 +19,17 @@ module.exports = {
         "illustration-1-dark": "url('/tolocar_illustration_1_dark.svg')",
         link: "url('/link.svg')",
         community_multi_1_lg:
-          "linear-gradient(90.03deg, rgba(0, 0, 0, 0.5) 35.42%, rgba(0, 0, 0, 0) 56.02%), url(/images/metal-structure.jpeg)",
+          "linear-gradient(90.03deg, rgba(0, 0, 0, 0.5) 35.42%, rgba(0, 0, 0, 0) 56.02%), url(/images/metal-structure.jpg)",
         community_multi_2_lg:
-          "linear-gradient(90.03deg, rgba(0, 0, 0, 0.5) 35.42%, rgba(0, 0, 0, 0) 56.02%), url(/images/map-with-pins.jpeg)",
+          "linear-gradient(90.03deg, rgba(0, 0, 0, 0.5) 35.42%, rgba(0, 0, 0, 0) 56.02%), url(/images/map-with-pins.jpg)",
         community_multi_3_lg:
-          "linear-gradient(90.03deg, rgba(0, 0, 0, 0.5) 35.42%, rgba(0, 0, 0, 0) 56.02%), url(/images/classroom.jpeg)",
+          "linear-gradient(90.03deg, rgba(0, 0, 0, 0.5) 35.42%, rgba(0, 0, 0, 0) 56.02%), url(/images/classroom.jpg)",
         community_multi_1_sm:
-          "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.301) 30.5%, rgba(0, 0, 0, 0.7) 66.96%), url(/images/metal-structure.jpeg)",
+          "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.301) 30.5%, rgba(0, 0, 0, 0.7) 66.96%), url(/images/metal-structure.jpg)",
         community_multi_2_sm:
-          "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.301) 30.5%, rgba(0, 0, 0, 0.7) 66.96%), url(/images/map-with-pins.jpeg)",
+          "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.301) 30.5%, rgba(0, 0, 0, 0.7) 66.96%), url(/images/map-with-pins.jpg)",
         community_multi_3_sm:
-          "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.301) 30.5%, rgba(0, 0, 0, 0.7) 66.96%), url(/images/classroom.jpeg)",
+          "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.301) 30.5%, rgba(0, 0, 0, 0.7) 66.96%), url(/images/classroom.jpg)",
       },
     },
     colors: {
