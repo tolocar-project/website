@@ -22,3 +22,4 @@ export { default as NewsSlider } from "@components/NewsSliderDataWrapper.astro";
 export { default as NewsItem } from "@components/NewsItem";
 export { default as ImpactListItem } from "@components/ImpactListItem";
 export { default as CommunityBanner } from "@components/CommunityBanner";
+export { default as CommunityGridCard } from "@components/CommunityGridCard";
