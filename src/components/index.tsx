@@ -24,3 +24,4 @@ export { default as CommunityCard } from "@components/CommunityCard";
 export { default as ButtonLink } from "@components/ButtonLink";
 export { default as ImpactListItem } from "@components/ImpactListItem";
 export { default as CommunityCard } from "@components/CommunityCard";
+export { default as ButtonLink } from "@components/ButtonLink";
