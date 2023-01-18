@@ -1,0 +1,9 @@
+---
+import WideCardComponent from "./WideCard";
+import CommonUtils from "@util/CommonUtils";
+const { target, ...rest } = Astro.props;
+
+const baseUrl = CommonUtils.getBaseUrl(true);
+---
+
+<WideCardComponent {...rest} target={baseUrl + target} />

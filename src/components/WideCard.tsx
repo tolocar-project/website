@@ -1,22 +1,43 @@
 import React from "react";
-import ArrowSvg from "@components/ArrowSvg";
+import { ButtonLink } from "@components";
 
 interface Props {
   className?: string;
   title?: string;
-  children: React.ReactNode;
+  text?: string;
+  target?: string;
+  caption?: string;
+  linkButtonVariant?: "light" | "dark" | "search";
 }
 
-const WideCard: React.FC<Props> = ({ className, children, title }) => {
+const WideCard: React.FC<Props> = ({
+  className,
+  text,
+  title,
+  target,
+  caption,
+  linkButtonVariant,
+}) => {
   return (
-    <div className={`container-width-hero mt-20 h-full ${className || ""}`}>
-      <div className="bg-tolo-green relative overflow-hidden">
-        <div className="px-[4%] py-8 md:p-12 text-white absolute items-start md:w-[60%] h-full flex flex-col justify-between">
-          {title && <h1 className="font-semibold text-5xl font-aktiv">{title}</h1>}
-          {children && <p className="font-medium text-2xl mt-8">{children}</p>}
-          <a href="#" className="bg-black z-10 inline-flex items-center bg-opacity-20 opacity-90 rounded-full py-4 px-5 mt-8">Search for Resources<ArrowSvg className="h-5 w-5 ml-8 text-white"/></a>
+    <div className={"container-width lg:container-width-hero mt-20 h-full"}>
+      <div className="bg-tolo-green relative overflow-hidden z-10">
+        <div className="px-[4%] py-8 md:p-12 text-white absolute items-start md:w-[65%] h-full flex flex-col justify-start gap-6">
+          {title && (
+            <h1 className="font-semibold text-4xl lg:text-5xl font-aktiv">
+              {title}
+            </h1>
+          )}
+          {text && <p className="font-medium text-2xl">{text}</p>}
+          {target && (
+            <ButtonLink
+              target={target}
+              className={className}
+              caption={caption}
+              variant={linkButtonVariant}
+            />
+          )}
         </div>
-        <div className="bg-fill bg-illustration-4-wide mask-illustration bg-no-repeat bg-[position:right_-80px_top_-40px] h-[410px]" />
+        <div className="bg-fill bg-illustration-4-wide mask-illustration-vertical md:mask-illustration-horizontal bg-no-repeat bg-[position:right_-80px_top_-40px] h-[410px] mt-20 md:mt-0" />
       </div>
     </div>
   );
