@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowSvg } from "@components";
+import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 
 interface Props {
   title: string;
@@ -39,7 +39,7 @@ const CommunityCard: React.FC<Props> = ({
           }`}
         >
           {!small && actionCaption}
-          <ArrowSvg className="w-5 h-5" />
+          <ArrowIcon className="w-5 h-5" />
         </div>
       )}
     </>

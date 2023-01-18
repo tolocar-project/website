@@ -1,5 +1,5 @@
 import React from "react";
-import ArrowSvg from "@components/ArrowSvg";
+import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 
 interface Props {
   className?: string;
@@ -22,7 +22,7 @@ const ButtonLink: React.FC<Props> = ({
   return (
     <a href={target} className={`${classes[variant]} ${className || ""}`}>
       {caption}
-      {variant === "search" && <ArrowSvg className="h-5 w-5 ml-8 text-white" />}
+      {variant === "search" && <ArrowIcon className="h-5 w-5 ml-8 text-white" />}
     </a>
   );
 };
