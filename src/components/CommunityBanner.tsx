@@ -4,20 +4,20 @@ interface Props {
   className?: string;
   title?: string;
   text?: string;
-  bg?: "bg_community_1" | "bg_community_2" | "bg_community_3";
+  bg?: number;
 }
 
 const CommunityBanner: React.FC<Props> = ({ className, text, title, bg }) => {
-  const bgMapping = {
-    bg_community_1: "lg:bg-community_multi_1_lg bg-community_multi_1_sm",
-    bg_community_2: "lg:bg-community_multi_2_lg bg-community_multi_2_sm",
-    bg_community_3: "lg:bg-community_multi_3_lg bg-community_multi_3_sm",
-  };
+  const bgMapping = [
+    "lg:bg-community_multi_1_lg bg-community_multi_1_sm",
+    "lg:bg-community_multi_2_lg bg-community_multi_2_sm",
+    "lg:bg-community_multi_3_lg bg-community_multi_3_sm",
+  ];
 
   return (
     <div
       className={`container-width lg:container-width-hero h-auto m-10 bg-cover bg-center ${
-        bgMapping[bg]
+        bgMapping[bg - 1]
       } ${className || ""}`}
     >
       <div className="flex flex-col gap-3 md:w-[60%] h-full pl-4 pr-16 pb-10 pt-44 md:p-12 text-white items-start justify-end">
