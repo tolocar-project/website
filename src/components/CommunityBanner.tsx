@@ -9,9 +9,9 @@ interface Props {
 
 const CommunityBanner: React.FC<Props> = ({ className, text, title, bg }) => {
   const bgMapping = [
-    "lg:bg-community_multi_1_lg bg-community_multi_1_sm",
-    "lg:bg-community_multi_2_lg bg-community_multi_2_sm",
-    "lg:bg-community_multi_3_lg bg-community_multi_3_sm",
+    "lg:bg-community-banner-1-lg bg-community-banner-1-sm",
+    "lg:bg-community-banner-2-lg bg-community-banner-2-sm",
+    "lg:bg-community-banner-3-lg bg-community-banner-3-sm",
   ];
 
   return (
