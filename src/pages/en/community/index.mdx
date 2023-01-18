@@ -1,48 +1,48 @@
 ---
 layout: "@layouts/BaseLayout.astro"
 title: Community
+darkNavigation: true
 ---
 
-import { HeaderLogo, Footer, CommunityBanner, CommunityGridCard, ContentSection, HeroImage} from "@components";
+import { HeaderLogo, Footer, CommunityBanner, CommunityGridCard, ContentSection, CommunityHeader} from "@components";
 
-<HeroImage/>
+<CommunityHeader title="Community" text="We are a highly interactive group with diverse backgrounds driven by the desire to reduce suffering in Ukraine. We connect international makers and initiatives with local communities. You can join in this community effort in a variety of ways and be a part of the Tolocar project. Connect with us online or on the ground. This way we can jointly establish support networks and catalyze reconstruction efforts."/>
 
-<CommunityBanner className="mt-20" title="Project Partners" text="The Tolocar project is commissioned by the German Federal Ministry for Economic Cooperation and Development (BMZ) and implemented by the Deutsche Gesellschaft für internationale Zusammenarbeit (GIZ) GmbH in close collaboration with its Ukrainian and international partners." bg="bg_community_1"/>
+<CommunityBanner className="mt-20" title="Project Partners" text="The Tolocar project is commissioned by the German Federal Ministry for Economic Cooperation and Development (BMZ) and implemented by the Deutsche Gesellschaft für internationale Zusammenarbeit (GIZ) GmbH in close collaboration with its Ukrainian and international partners." bg={1}/>
 
 <ContentSection variant="white" id="partners">
     <div className="md:container-width grid grid-cols-1 gap-6 md:grid-cols-2  lg:grid-cols-3">
-        <CommunityGridCard title="BMZ" text="The German Federal Ministry for Economic Cooperation and Development (BMZ) is the donor of this project." target="https://www.bmz.de" url="www.bmz.de"/>
-        <CommunityGridCard title="GIZ" text="The Deutsche Gesellschaft für internationale Zusammenarbeit (GIZ) GmbH implemented the project." target="https://www.giz.de" url="www.giz.de"/>
-        <CommunityGridCard title="CADUS" text="CADUS is a non-profit and independent aid organisation. It provided the first Tolocar during the first project phase." target="https://www.cadus.org" url="www.cadus.org"/>
-        <CommunityGridCard title="MitOst" text="MitOst connects active citizens in an open and diverse networkin Europe and its neighbouring regions. It managed the project in it's first phase." target="https://www.mitost.org" url="www.mitost.org"/>
-        <CommunityGridCard title="HIWW" text="HIWW is German technology institute which focus on open production, innovation and knowlege. It manages  the project in it's current phase." target="https://www.hiww.de"
-        url="www.hiww.de"/>
-        <CommunityGridCard title="METALAB" text="Laboratory that supports a socially equal, spatially comfortable, culturally rich, environmentally responsible, economically balanced city (environment)." target="https://www.metalab.space" url="www.metalab.space"/>
+        <CommunityGridCard title="BMZ" text="The German Federal Ministry for Economic Cooperation and Development (BMZ) is the donor of this project." target="www.bmz.de"/>
+        <CommunityGridCard title="GIZ" text="The Deutsche Gesellschaft für internationale Zusammenarbeit (GIZ) GmbH implemented the project." target="www.giz.de"/>
+        <CommunityGridCard title="CADUS" text="CADUS is a non-profit and independent aid organisation. It provided the first Tolocar during the first project phase." target="www.cadus.org"/>
+        <CommunityGridCard title="MitOst" text="MitOst connects active citizens in an open and diverse networkin Europe and its neighbouring regions. It managed the project in it's first phase." target="www.mitost.org"/>
+        <CommunityGridCard title="HIWW" text="HIWW is German technology institute which focus on open production, innovation and knowlege. It manages  the project in it's current phase." target="www.hiww.de"/>
+        <CommunityGridCard title="METALAB" text="Laboratory that supports a socially equal, spatially comfortable, culturally rich, environmentally responsible, economically balanced city (environment)." target="www.metalab.space"/>
     </div>
 </ContentSection>
 
-<CommunityBanner title="Labs in Ukraine" text="We aim to build strong relationships to all exsisting makerspaces and FabLabs in Ukraine. Meanwhile our approach is to support initiatives by founding theirs labs or even plant completely new labs or small scale productions." bg="bg_community_2"/>
+<CommunityBanner title="Labs in Ukraine" text="We aim to build strong relationships to all exsisting makerspaces and FabLabs in Ukraine. Meanwhile our approach is to support initiatives by founding theirs labs or even plant completely new labs or small scale productions." bg={2}/>
 
 <ContentSection variant="white" id="labs">
     <div className="md:container-width grid grid-cols-1 gap-6 md:grid-cols-2  lg:grid-cols-3">
-        <CommunityGridCard title="Creative Rural Hub" text="A hub for makers, artists, architects, scientists and all creatives in Ivano-Frankivska." target="https://www.creativeruralhub.org" url="www.creativeruralhub.org"/>
-        <CommunityGridCard title="Hub Lab" text="Coworking for inventors, technical specialty students and other people who want to implement technological projects." target="https://www.impacthub.odessa.ua" url="www.impacthub.odessa.ua"/>
-        <CommunityGridCard title="Hack Lab" text="Oldest hackerspace/open lab in Ukraine (founded 2013). Has long been a center of a large maker community." target="https://www.hacklab.kyiv.ua" url="www.hacklab.kyiv.ua"/>
-        <CommunityGridCard title="Makerspace Lviv" text="Lab with STEAM workshops for children and teenagers in Lviv." target="https://www.makerspace.com.ua" url="www.makerspace.com.ua"/>
-        <CommunityGridCard title="Ksiprostir" text="An open art workshop where everyone can find a place to realize their own ideas." target="https://www.ksiprostir.org" url="www.ksiprostir.org"/>
-        <CommunityGridCard title="Makerhub" text="A makerspace in Kyiv which organised Kyiv Mini Maker Faire, Odesa Mini Maker Faire, Raspberry Jam's, Maker BBQ etc." target="https://www.makerhub.org" url="www.makerhub.org"/>
+        <CommunityGridCard title="Creative Rural Hub" text="A hub for makers, artists, architects, scientists and all creatives in Ivano-Frankivska." target="www.creativeruralhub.org"/>
+        <CommunityGridCard title="Hub Lab" text="Coworking for inventors, technical specialty students and other people who want to implement technological projects." target="www.impacthub.odessa.ua"/>
+        <CommunityGridCard title="Hack Lab" text="Oldest hackerspace/open lab in Ukraine (founded 2013). Has long been a center of a large maker community." target="www.hacklab.kyiv.ua" url="www.hacklab.kyiv.ua"/>
+        <CommunityGridCard title="Makerspace Lviv" text="Lab with STEAM workshops for children and teenagers in Lviv." target="www.makerspace.com.ua" url="www.makerspace.com.ua"/>
+        <CommunityGridCard title="Ksiprostir" text="An open art workshop where everyone can find a place to realize their own ideas." target="www.ksiprostir.org"/>
+        <CommunityGridCard title="Makerhub" text="A makerspace in Kyiv which organised Kyiv Mini Maker Faire, Odesa Mini Maker Faire, Raspberry Jam's, Maker BBQ etc." target="www.makerhub.org"/>
     </div>
 </ContentSection>
 
-<CommunityBanner title="Global maker initiatives" text="Throughout our network we are connected to several maker initiatives around the globe. We invite them to participate in the Tolocar project and connect them to Ukrainian communities." bg="bg_community_3"/>
+<CommunityBanner title="Global maker initiatives" text="Throughout our network we are connected to several maker initiatives around the globe. We invite them to participate in the Tolocar project and connect them to Ukrainian communities." bg={3}/>
 
-<ContentSection variant="white" id="maker initiatives">
+<ContentSection variant="white" id="maker_initiatives">
     <div className="md:container-width grid grid-cols-1 gap-6 md:grid-cols-2  lg:grid-cols-3">
-        <CommunityGridCard title="Appropedia" text="A sustainability wiki that you can edit! We share knowledge to build rich, sustainable lives." target="https://www.appropedia.org" url="www.appropedia.org"/>
-        <CommunityGridCard title="New Production Institute" text="A think tank for the future of value creation and production which deals with the transformation of value creation systems." target="https://www.newproductioninstitute.de" url="www.newproductioninstitute.de"/>
-        <CommunityGridCard title="Fab City Hamburg" text="Fab City Hamburg proposes a new urban, economic, social and industrial model that relocalises production to Hamburg and its bioregional context." target="https://www.fabcity.hamburg" url="www.fabcity.hamburg"/>
-        <CommunityGridCard title="Internet of Production" text="An initiative for sustainable, globally networked, local manufacturing." target="https://www.internetofproduction.org" url="www.internetofproduction.org"/>
-        <CommunityGridCard title="Field Ready" text="Field Ready manufacture supplies in the field so that people have what they need, where and when they need it." target="https://www.fieldready.org" url="www.fieldready.org"/>
-        <CommunityGridCard title="Interfacer" text="The Interfacer project is developing an open source software system called Fab City OS." target="https://www.interfacerproject.eu" url="www.interfacerproject.eu"/>
+        <CommunityGridCard title="Appropedia" text="A sustainability wiki that you can edit! We share knowledge to build rich, sustainable lives." target="www.appropedia.org"/>
+        <CommunityGridCard title="New Production Institute" text="A think tank for the future of value creation and production which deals with the transformation of value creation systems." target="www.newproductioninstitute.de"/>
+        <CommunityGridCard title="Fab City Hamburg" text="Fab City Hamburg proposes a new urban, economic, social and industrial model that relocalises production to Hamburg and its bioregional context." target="www.fabcity.hamburg"/>
+        <CommunityGridCard title="Internet of Production" text="An initiative for sustainable, globally networked, local manufacturing." target="www.internetofproduction.org" url="www.internetofproduction.org"/>
+        <CommunityGridCard title="Field Ready" text="Field Ready manufacture supplies in the field so that people have what they need, where and when they need it." target="www.fieldready.org"/>
+        <CommunityGridCard title="Interfacer" text="The Interfacer project is developing an open source software system called Fab City OS." target="www.interfacerproject.eu"/>
     </div>
 </ContentSection>

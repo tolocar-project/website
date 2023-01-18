@@ -5,7 +5,6 @@ interface Props {
   title?: string;
   text?: string;
   target?: string;
-  url?: string;
 }
 
 const CommunityGridCard: React.FC<Props> = ({
@@ -13,11 +12,10 @@ const CommunityGridCard: React.FC<Props> = ({
   title,
   text,
   target,
-  url,
 }: Props) => {
   return (
     <div className={`col-span-1 bg-neutral-50 ${className}`}>
-      <div className="flex w-full space-x-6 p-6">
+      <div className="flex w-full h-full space-x-6 p-6">
         <div className="flex-1">
           <div className="flex flex-col items-start gap-4">
             <h2 className="text-2xl font-medium text-neutral-900">{title}</h2>
@@ -25,11 +23,11 @@ const CommunityGridCard: React.FC<Props> = ({
           </div>
           {target && (
             <a
-              href={target}
+              href={"https://" + target}
               target={target && "_blank"}
               className="text-lg font-medium text-tolo-green"
             >
-              {url}
+              {target}
             </a>
           )}
         </div>
