@@ -16,7 +16,7 @@ const CommunityBanner: React.FC<Props> = ({ className, text, title, bg }) => {
 
   return (
     <div
-      className={`container-width lg:container-width-hero h-auto m-10 bg-cover bg-center ${
+      className={`container-width lg:container-width-hero h-auto mt-28 mb-10 lg:m-10 bg-cover bg-center ${
         bgMapping[bg - 1]
       } ${className || ""}`}
     >

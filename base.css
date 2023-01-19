@@ -101,4 +101,18 @@
   .prose h6:hover .icon {
     @apply inline-block;
   }
+
+  .background-community {
+    background-image: url("/tolocar_illustration_3_community.svg");
+    background-size: 433px 364px;
+    @apply bg-neutral-50 bg-no-repeat;
+  }
+}
+
+.background-position-1 {
+  background-position: right 120px bottom -80px;
+}
+
+.background-position-2 {
+  background-position: right -10px bottom -80px;
 }

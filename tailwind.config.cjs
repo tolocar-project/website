@@ -30,6 +30,8 @@ module.exports = {
           "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.301) 30.5%, rgba(0, 0, 0, 0.7) 66.96%), url(/images/map-with-pins.jpg)",
         "community-banner-3-sm":
           "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.301) 30.5%, rgba(0, 0, 0, 0.7) 66.96%), url(/images/classroom.jpg)",
+        "community-messages":
+          "linear-gradient(-6.5deg, rgba(0, 150, 100, 1) 0%, rgba(0, 150, 100, 0) 31.54%, rgba(0, 150, 100, 0) 66.78%, rgba(0, 150, 100, 1) 100%), url(/community_messages.svg)",
       },
     },
     colors: {
