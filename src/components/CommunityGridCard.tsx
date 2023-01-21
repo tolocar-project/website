@@ -18,7 +18,7 @@ const CommunityGridCard: React.FC<Props> = ({
       <div className="flex w-full h-full space-x-6 p-6">
         <div className="flex-1 flex flex-col justify-between">
           <div className="flex flex-col items-start gap-4">
-            <h2 className="text-2xl font-semibold text-neutral-900">{title}</h2>
+            <h2 className="text-2xl font-aktiv font-semibold text-neutral-900">{title}</h2>
             <p className="text-lg text-neutral-500 pb-3">{text}</p>
           </div>
           <div>
