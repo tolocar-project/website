@@ -55,7 +55,7 @@ const Card: React.FC<Props> = ({
     <div
       className={`flex-1 ${
         small ? "basis-[220px] lg:basis-0 h-auto lg:h-[360px] " : ""
-      }bg-tolo-green text-white p-5 lg:p-8 relative ${bgMapping[bg - 1]} ${
+      }bg-tolo-green text-white p-5 lg:p-8 relative z-20 ${bgMapping[bg - 1]} ${
         className || ""
       }`}
     >

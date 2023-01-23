@@ -81,8 +81,12 @@
     @apply max-w-[1440px] w-full lg:w-[84.4%] px-0 mx-auto;
   }
 
-  .mask-illustration {
+  .mask-illustration-horizontal {
     mask-image: linear-gradient(to right, transparent 40%, black 70%);
+  }
+
+  .mask-illustration-vertical {
+    mask-image: linear-gradient(to bottom, transparent 40%, black 70%);
   }
 
   .icon {
@@ -96,5 +100,19 @@
   .prose h5:hover .icon,
   .prose h6:hover .icon {
     @apply inline-block;
+  }
+
+  .background-community {
+    background-image: url("/tolocar_illustration_3_community.svg");
+    background-size: 433px 364px;
+    @apply bg-no-repeat;
+  }
+
+  .background-position-1 {
+    background-position: right 40px bottom -80px;
+  }
+
+  .background-position-2 {
+    background-position: right -10px bottom -80px;
   }
 }
