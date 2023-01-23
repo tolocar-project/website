@@ -14,7 +14,7 @@ const CommunityHeader: React.FC<Props> = ({
 }: Props) => {
   return (
     <div
-      className={`w-full p-10 lg:py-16 background-community background-position-2 lg:background-position-1 mt-8 sm:mt-20 ${
+      className={`w-full lg:py-16 background-community background-position-2 lg:background-position-1 mt-14 sm:mt-20 ${
         className || ""
       }`}
     >

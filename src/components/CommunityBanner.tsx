@@ -20,7 +20,7 @@ const CommunityBanner: React.FC<Props> = ({ className, text, title, bg }) => {
         bgMapping[bg - 1]
       } ${className || ""}`}
     >
-      <div className="flex flex-col gap-3 md:w-[60%] h-full pl-4 pr-16 pb-10 pt-44 md:p-12 text-white items-start justify-end">
+      <div className="flex flex-col gap-3 md:w-[60%] h-full pr-16 pb-10 pt-44 md:p-12 text-white items-start justify-end">
         {title && (
           <h1 className="font-semibold text-[32px] leading-10 font-aktiv">
             {title}
