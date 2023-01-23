@@ -48,7 +48,7 @@ const Navigation: React.FC<Props> = ({
     <div
       className={`w-full ${
         dark ? "bg-neutral-50" : "bg-white"
-      }  h-20 fixed flex items-center justify-center top-0 z-20 ${
+      }  h-20 fixed flex items-center justify-center top-0 z-30 ${
         className || ""
       }`}
     >
