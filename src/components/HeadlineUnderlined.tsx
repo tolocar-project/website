@@ -30,7 +30,7 @@ const underlineSvgAndClassesMapping = [
   {
     src: CircularUnderlineSvg,
     classes:
-      "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-x-125 scale-y-110  lg:scale-100",
+      "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-x-125 scale-y-105 lg:scale-100",
   },
 ];
 
