@@ -30,7 +30,7 @@ const WideCard: React.FC<Props> = ({
   return (
     <div className={"container-width lg:container-width-hero mt-20 h-full"}>
       <div className="bg-tolo-green relative overflow-hidden z-10">
-        <div className="px-[4%] py-8 lg:p-10 text-white absolute items-start md:w-[65%] h-full flex flex-col justify-start gap-4 lg::gap-6 z-20">
+        <div className="p-5 lg:p-10 text-white absolute items-start md:w-[65%] h-full flex flex-col justify-start gap-4 lg:gap-6 z-20">
           {title && (
             <h1 className="font-semibold text-2xl leading-7 md:text-[40px] md:leading-[48px] font-aktiv">
               {title}
