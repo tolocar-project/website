@@ -26,8 +26,12 @@ const underlineSvgAndClassesMapping = [
   { src: Underline5Svg, classes: "-bottom-1" },
   { src: Underline6Svg, classes: "-bottom-1" },
   { src: Underline7Svg, classes: "bottom-0" },
-  { src: Underline8Svg, classes: "bottom-0" },
-  { src: CircularUnderlineSvg, classes: "top-0" },
+  { src: Underline8Svg, classes: "-bottom-2" },
+  {
+    src: CircularUnderlineSvg,
+    classes:
+      "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-x-125 scale-y-110  lg:scale-100",
+  },
 ];
 
 const HeadlineUnderlined: React.FC<Props> = ({
@@ -44,8 +48,8 @@ const HeadlineUnderlined: React.FC<Props> = ({
         id={id}
         className={`${
           light ? "text-white" : "text-tolo-black"
-        } relative z-10 font-semibold leading-none font-aktiv ${
-          large ? "text-5xl" : "text-2xl"
+        } relative z-10 font-semibold leading-6 lg:leading-8 font-aktiv ${
+          large ? "text-5xl" : "sm:text-2xl text-lg"
         }`}
       >
         <img
