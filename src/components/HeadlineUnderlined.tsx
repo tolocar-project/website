@@ -26,7 +26,7 @@ const underlineSvgAndClassesMapping = [
   { src: Underline5Svg, classes: "-bottom-1" },
   { src: Underline6Svg, classes: "bottom-0" },
   { src: Underline7Svg, classes: "bottom-0" },
-  { src: Underline8Svg, classes: "-bottom-2" },
+  { src: Underline8Svg, classes: "bottom-0" },
   {
     src: CircularUnderlineSvg,
     classes:
