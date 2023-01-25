@@ -8,7 +8,7 @@ interface Props {
   tag: string;
   date: string;
   operator: string;
-  author: string;
+  location: string;
 }
 
 const InterventionSingleViewHeading: React.FC<Props> = ({
@@ -18,11 +18,11 @@ const InterventionSingleViewHeading: React.FC<Props> = ({
   tag,
   date,
   operator,
-  author,
+  location,
 }: Props) => {
   return (
     <div
-      className={`flex flex-col items-center justify-center w-full mt-24 pt-28 ${
+      className={`flex flex-col items-center justify-center w-full mt-12 pt-24 mb-10 ${
         className || ""
       }`}
     >
@@ -39,7 +39,7 @@ const InterventionSingleViewHeading: React.FC<Props> = ({
           <span>{date}</span>
           <span className="leading-[18px] flex gap-3">
             <LocationIcon className="h-5 w-[15px]" />
-            {author}
+            {location}
           </span>
         </div>
       </div>

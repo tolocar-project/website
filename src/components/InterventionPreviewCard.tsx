@@ -9,7 +9,7 @@ interface Props {
   title: string;
   date: string;
   tag: string;
-  author: string;
+  location: string;
 }
 
 const InterventionPreviewCard: React.FC<Props> = ({
@@ -19,7 +19,7 @@ const InterventionPreviewCard: React.FC<Props> = ({
   title,
   date,
   tag,
-  author,
+  location,
 }) => (
   <div className="max-w-sm overflow-hidden">
     <a href={href} className="relative">
@@ -42,7 +42,7 @@ const InterventionPreviewCard: React.FC<Props> = ({
         {title}
         <span className="text-lg leading-[18px] font-medium text-neutral-500 flex gap-3 capitalize">
           <LocationIcon className="h-5 w-[15px]" />
-          {author}
+          {location}
         </span>
       </h3>
     </div>

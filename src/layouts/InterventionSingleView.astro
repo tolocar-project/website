@@ -1,0 +1,41 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import {
+  ContentSection,
+  InterventionImageCarousel,
+  InterventionPreviewCard,
+  InterventionSingleViewHeading,
+} from "@components";
+import CommonUtils from "@util/CommonUtils";
+
+const { frontmatter, url, file, headings } = Astro.props;
+---
+
+<BaseLayout frontmatter={frontmatter}>
+  <div class="container-width">
+    <InterventionSingleViewHeading
+      title={frontmatter.title}
+      subtitle={frontmatter.subtitle}
+      tag="Replication"
+      date={frontmatter.date}
+      operator="TOLOCAR 4"
+      location={frontmatter.location}
+    />
+    <InterventionImageCarousel client:only="react" />
+  </div>
+  <ContentSection variant="white">
+    <div class="container-width my-10 lg:mt-14 lg:mb-[60px] prose">
+      <slot />
+    </div>
+  </ContentSection>
+  <div class="container-width">
+    <InterventionPreviewCard
+      href="#"
+      image="/images/car.jpg"
+      date="June 14th - July 7th, 2022"
+      title="Reconstruction of protection office building"
+      location="Ivano Frankivsk"
+      tag="Replication"
+    />
+  </div>
+</BaseLayout>

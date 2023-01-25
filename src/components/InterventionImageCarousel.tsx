@@ -53,8 +53,8 @@ const InterventionImageCarousel: React.FC<Props> = ({ news, ...props }) => {
   }, [emblaApi, setScrollSnaps, onSelect]);
 
   return (
-    <section className="mt-14 pt-28 md:pt-16 pb-16 md:pb-12" {...props}>
-      <div className="container-width mb-12 md:mb-16 flex flex-col justify-between items-center">
+    <section className="pt-8 md:pt-11 pb-7 md:pb-4" {...props}>
+      <div className="container-width flex flex-col justify-between items-center">
         <div className="overflow-hidden w-full" ref={emblaRef}>
           <div className="flex flex-row h-[600px]">
             {images.map((image, index) => (
