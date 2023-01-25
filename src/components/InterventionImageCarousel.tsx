@@ -9,13 +9,13 @@ interface Props {
 }
 
 const images = [
-  "https://picsum.photos/id/1047/1920/1080",
-  "https://picsum.photos/id/1048/1920/1080",
-  "https://picsum.photos/id/1045/1920/1080",
+  "https://picsum.photos/id/1047/1600/800",
+  "https://picsum.photos/id/1048/700/1000",
+  "https://picsum.photos/id/1045/100/100",
   "https://picsum.photos/id/1042/1920/1080",
 ];
 
-const InterventionsImageCarousel: React.FC<Props> = ({ news, ...props }) => {
+const InterventionImageCarousel: React.FC<Props> = ({ news, ...props }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
@@ -101,7 +101,7 @@ const InterventionsImageCarousel: React.FC<Props> = ({ news, ...props }) => {
   );
 };
 
-export default InterventionsImageCarousel;
+export default InterventionImageCarousel;
 
 const DotIndicator = ({
   isActive,

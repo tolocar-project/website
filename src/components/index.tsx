@@ -26,3 +26,6 @@ export { default as ImpactListItem } from "@components/ImpactListItem";
 export { default as CommunityBanner } from "@components/CommunityBanner";
 export { default as CommunityGridCard } from "@components/CommunityGridCard";
 export { default as CommunityHeader } from "@components/CommunityHeader";
+export { default as InterventionImageCarousel } from "@components/InterventionImageCarousel";
+export { default as InterventionPreviewCard } from "@components/InterventionPreviewCard";
+export { default as InterventionSingleViewHeading } from "@components/InterventionSingleViewHeading";

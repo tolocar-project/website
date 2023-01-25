@@ -1,0 +1,13 @@
+---
+layout: "@layouts/BaseLayout.astro"
+title: Interventions
+---
+
+import { HeaderLogo, Footer, InterventionImageCarousel, InterventionPreviewCard, InterventionSingleViewHeading } from "@components";
+
+<div class="container-width">
+<InterventionSingleViewHeading title="Renovating a hotel for IDPs" subtitle="An intervention by METALAB & cadus" tag="Replication" date="June 14th - July 7th, 2022" operator="TOLOCAR 4" author="Ivano Frankivsk"/>
+<InterventionImageCarousel client:only="react" />
+<InterventionPreviewCard href="#" image="/images/car.jpg" date="June 14th - July 7th, 2022" title="Reconstruction of protection office building" author="Ivano Frankivsk" tag="Replication" />
+
+</div>
