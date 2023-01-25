@@ -18,7 +18,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18.11.18",
     "astro": "^1.9.2",
-    "embla-carousel-react": "^7.0.5",
+    "embla-carousel-react": "^7.0.9",
     "github-slugger": "^2.0.0",
     "react-dom": "^18.2.0",
     "rehype-autolink-headings": "^6.1.1",
