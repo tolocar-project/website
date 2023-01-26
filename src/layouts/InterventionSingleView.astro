@@ -28,14 +28,43 @@ const { frontmatter, url, file, headings } = Astro.props;
       <slot />
     </div>
   </ContentSection>
-  <div class="container-width">
-    <InterventionPreviewCard
-      href="#"
-      image="/images/car.jpg"
-      date="June 14th - July 7th, 2022"
-      title="Reconstruction of protection office building"
-      location="Ivano Frankivsk"
-      tag="Replication"
-    />
+  <h1
+    class="container-width text-2xl font-semibold mt-10 md:mt-[60px] mb-3 md:mb-10"
+  >
+    Other interventions of interest
+  </h1>
+  <div class="relative w-full">
+    <div
+      class="container-width flex flex-col lg:flex-row lg:justify-between gap-8"
+    >
+      <InterventionPreviewCard
+        href="#"
+        image="/images/car.jpg"
+        date="June 14th - July 7th, 2022"
+        title="Reconstruction of protection office building"
+        location="Ivano Frankivsk"
+        tag="Replication"
+      />
+      <InterventionPreviewCard
+        href="#"
+        image="/images/car.jpg"
+        date="June 14th - July 7th, 2022"
+        title="Reconstruction of protection office building"
+        location="Ivano Frankivsk"
+        tag="Replication"
+      />
+      <InterventionPreviewCard
+        href="#"
+        image="/images/car.jpg"
+        date="June 14th - July 7th, 2022"
+        title="Reconstruction of protection office building"
+        location="Ivano Frankivsk"
+        tag="Replication"
+      />
+    </div>
+    <div
+      class="absolute z-0 w-full bg-neutral-50 h-[95%] lg:h-[432px] bottom-0"
+    >
+    </div>
   </div>
 </BaseLayout>

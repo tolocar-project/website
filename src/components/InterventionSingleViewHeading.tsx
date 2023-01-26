@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactComponent as LocationIcon } from "@assets/location-dot.svg";
+import { ReactComponent as DotIcon } from "@assets/dot-icon.svg";
 
 interface Props {
   className?: string;
@@ -22,7 +23,7 @@ const InterventionSingleViewHeading: React.FC<Props> = ({
 }: Props) => {
   return (
     <div
-      className={`flex flex-col items-center justify-center w-full mt-12 pt-24 mb-10 ${
+      className={`flex flex-col items-start md:items-center md:justify-center w-full mt-12 pt-24 mb-10 ${
         className || ""
       }`}
     >
@@ -32,15 +33,30 @@ const InterventionSingleViewHeading: React.FC<Props> = ({
       <h1 className="text-[32px] leading-10 md:text-5xl md:leading-[54px] font-semibold mb-5">
         {title}
       </h1>
-      <div className="text-lg leading-6 text-neutral-500 flex flex-col items-center gap-y-2 font-medium">
+      <div className="text-lg leading-6 text-neutral-500 flex flex-col items-start md:items-center gap-y-2 font-medium">
         <p>{subtitle}</p>
-        <div className="flex justify-evenly gap-5">
-          <span>{operator}</span>
-          <span>{date}</span>
-          <span className="leading-[18px] flex gap-3">
-            <LocationIcon className="h-5 w-[15px]" />
-            {location}
-          </span>
+        <div className="hidden md:block">
+          <div className="flex items-center gap-2 md:gap-3">
+            <span>{operator}</span>
+            <DotIcon className="h-1 w-1" />
+            <span>{date}</span>
+            <DotIcon className="h-1 w-1" />
+            <span className="leading-[18px] flex gap-2 md:gap-3">
+              <LocationIcon className="h-5 w-[15px]" />
+              {location}
+            </span>
+          </div>
+        </div>
+        <div className="md:hidden">
+          <div className="flex flex-col items-start gap-2 md:gap-3">
+            <span>{date}</span>
+            <span className="leading-[18px] flex items-center gap-2 md:gap-3">
+              <LocationIcon className="h-5 w-[15px]" />
+              {location}
+              <DotIcon className="h-1 w-1" />
+              <span>{operator}</span>
+            </span>
+          </div>
         </div>
       </div>
     </div>

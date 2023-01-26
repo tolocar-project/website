@@ -21,11 +21,17 @@ const InterventionPreviewCard: React.FC<Props> = ({
   tag,
   location,
 }) => (
-  <div className="max-w-sm overflow-hidden">
-    <a href={href} className="relative">
-      <img className="w-full" src={image} alt="Intervention Photo" />
-      <ArrowIcon className="absolute bottom-4 right-4 z-10 text-white h-6 w-6" />
-    </a>
+  <div className={`flex-1 lg:max-w-sm overflow-hidden z-10 ${className || ""}`}>
+    <div className="lg:h-64">
+      <a href={href} className="relative">
+        <img
+          className="w-full h-full object-cover"
+          src={image}
+          alt="Intervention Photo"
+        />
+        <ArrowIcon className="absolute bottom-4 right-4 z-10 text-white h-6 w-6" />
+      </a>
+    </div>
     <div className="flex flex-col gap-5">
       <div className="text-neutral-500 font-semibold text-base leading-6 tracking-wide mt-6 flex justify-start items-center uppercase">
         {date}
@@ -40,7 +46,7 @@ const InterventionPreviewCard: React.FC<Props> = ({
       </div>
       <h3 className="font-semibold text-2xl leading-7 uppercase">
         {title}
-        <span className="text-lg leading-[18px] font-medium text-neutral-500 flex gap-3 capitalize">
+        <span className="text-lg leading-[18px] font-medium text-neutral-500 inline-flex px-3 gap-3 capitalize">
           <LocationIcon className="h-5 w-[15px]" />
           {location}
         </span>
