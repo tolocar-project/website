@@ -42,7 +42,7 @@ const Navigation: React.FC<Props> = ({
     window.location.pathname = newLocation;
   };
 
-  const Image = <TolocarLogoSvg className={`h-8 sm:h-10`} />;
+  const Image = <div className={`h-8 sm:h-10`}><TolocarLogoSvg className="h-full w-auto"/></div>;
 
   return (
     <div
