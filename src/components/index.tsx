@@ -29,3 +29,4 @@ export { default as CommunityHeader } from "@components/CommunityHeader";
 export { default as InterventionImageCarousel } from "@components/InterventionImageCarousel";
 export { default as InterventionPreviewCard } from "@components/InterventionPreviewCard";
 export { default as InterventionSingleViewHeading } from "@components/InterventionSingleViewHeading";
+export { default as Tag } from "@components/Tag";

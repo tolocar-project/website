@@ -1,15 +1,13 @@
 import React from "react";
 import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 import { ReactComponent as LocationIcon } from "@assets/location-dot.svg";
+import type { IInterventionFrontmatter } from "@interfaces/IIntervention";
+import { Tag } from "@components";
 
-interface Props {
+interface Props extends IInterventionFrontmatter {
   href: string;
-  image: string;
   className?: string;
-  title: string;
-  date: string;
-  tag: string;
-  location: string;
+  image: string;
 }
 
 const InterventionPreviewCard: React.FC<Props> = ({
@@ -18,39 +16,46 @@ const InterventionPreviewCard: React.FC<Props> = ({
   className,
   title,
   date,
-  tag,
+  tags,
   location,
 }) => (
-  <div className={`flex-1 lg:max-w-sm overflow-hidden z-10 ${className || ""}`}>
-    <div className="lg:h-64">
-      <a href={href} className="relative">
-        <img
-          className="w-full h-full object-cover"
-          src={image}
-          alt="Intervention Photo"
-        />
-        <ArrowIcon className="absolute bottom-4 right-4 z-10 text-white h-6 w-6" />
-      </a>
-    </div>
+  <div className={`flex-1 overflow-hidden z-10 pb-10 ${className || ""}`}>
+    {href && (
+      <div className="h-64 relative">
+        <a href={href}>
+          <img
+            className="w-full h-full object-cover"
+            src={image}
+            alt="Intervention Photo"
+          />
+          <ArrowIcon className="absolute bottom-4 right-4 z-10 text-white h-6 w-6" />
+        </a>
+      </div>
+    )}
     <div className="flex flex-col gap-5">
-      <div className="text-neutral-500 font-semibold text-base leading-6 tracking-wide mt-6 flex justify-start items-center uppercase">
-        {date}
-      </div>
-      <div className="flex justify-start">
-        <span className="inline-block bg-tolo-green rounded-full px-4 py-1 text-lg leading-6 font-medium text-white mr-2 mb-2">
-          {tag}
-        </span>
-        <span className="inline-block bg-tolo-green rounded-full px-4 py-1 text-lg leading-6 font-medium text-white mr-2 mb-2">
-          {tag}
-        </span>
-      </div>
-      <h3 className="font-semibold text-2xl leading-7 uppercase">
-        {title}
-        <span className="text-lg leading-[18px] font-medium text-neutral-500 inline-flex px-3 gap-3 capitalize">
-          <LocationIcon className="h-5 w-[15px]" />
-          {location}
-        </span>
-      </h3>
+      {date && (
+        <div className="text-neutral-500 font-semibold text-base leading-6 tracking-wide mt-6 flex justify-start items-center uppercase">
+          {date}
+        </div>
+      )}
+      {tags.length && (
+        <div className="flex justify-start">
+          {tags.map((tag, index) => (
+            <Tag key={index} title={tag} />
+          ))}
+        </div>
+      )}
+      {title && (
+        <h3 className="font-semibold text-2xl leading-7 uppercase">
+          <span className="pr-3 font-aktiv">{title}</span>
+          {location && (
+            <span className="text-lg leading-[18px] font-medium text-neutral-500 inline-flex items-center gap-3 capitalize">
+              <LocationIcon className="h-5 w-[15px]" />
+              {location}
+            </span>
+          )}
+        </h3>
+      )}
     </div>
   </div>
 );

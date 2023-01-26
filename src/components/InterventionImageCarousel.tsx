@@ -4,18 +4,10 @@ import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 import { ReactComponent as DotIcon } from "@assets/dot-icon.svg";
 
 interface Props {
-  news: Array<string>;
-  id?: string;
+  images: Array<string>;
 }
 
-const images = [
-  "https://picsum.photos/id/1047/1600/800",
-  "https://picsum.photos/id/1048/700/1000",
-  "https://picsum.photos/id/1045/100/100",
-  "https://picsum.photos/id/1042/1920/1080",
-];
-
-const InterventionImageCarousel: React.FC<Props> = ({ news, ...props }) => {
+const InterventionImageCarousel: React.FC<Props> = ({ images }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
@@ -53,50 +45,52 @@ const InterventionImageCarousel: React.FC<Props> = ({ news, ...props }) => {
   }, [emblaApi, setScrollSnaps, onSelect]);
 
   return (
-    <section className="pt-8 md:pt-11 pb-7 md:pb-4" {...props}>
-      <div className="md:container-width flex flex-col justify-between items-center">
-        <div className="overflow-hidden w-full" ref={emblaRef}>
-          <div className="flex flex-row h-[600px]">
-            {images.map((image, index) => (
-              <div className="h-full w-full flex-[0_0_100%]" key={index}>
-                <img
-                  src={image}
-                  className="h-full w-full object-cover"
-                  alt="Photos"
+    <section className="pt-8 md:pt-11 pb-7 md:pb-4">
+      {images.length && (
+        <div className="md:container-width flex flex-col justify-between items-center">
+          <div className="overflow-hidden w-full" ref={emblaRef}>
+            <div className="flex flex-row h-[177px] sm:h-[300px] lg:h-[527px]">
+              {images.map((image, index) => (
+                <div className="h-full w-full flex-[0_0_100%]" key={index}>
+                  <img
+                    src={image}
+                    className="h-full w-full object-cover"
+                    alt="Photos"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex w-full justify-between items-center">
+            <div className="flex">
+              {scrollSnaps.map((_, index) => (
+                <DotIndicator
+                  key={index}
+                  isActive={index === selectedIndex}
+                  onClick={() => scrollTo(index)}
                 />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="flex w-full justify-between items-center">
-          <div className="flex">
-            {scrollSnaps.map((_, index) => (
-              <DotIndicator
-                key={index}
-                isActive={index === selectedIndex}
-                onClick={() => scrollTo(index)}
-              />
-            ))}
-          </div>
-          <div className="flex gap-4">
-            <button
-              className={`py-3 rotate-180 transition-colors hover:text-tolo-green disabled:text-neutral-300
+              ))}
+            </div>
+            <div className="flex gap-4">
+              <button
+                className={`py-3 rotate-180 transition-colors hover:text-tolo-green disabled:text-neutral-300
               `}
-              disabled={!prevBtnEnabled}
-              onClick={scrollPrev}
-            >
-              <ArrowIcon className="w-4 h-4" />
-            </button>
-            <button
-              className={`py-3 transition-colors hover:text-tolo-green disabled:text-neutral-300`}
-              disabled={!nextBtnEnabled}
-              onClick={scrollNext}
-            >
-              <ArrowIcon className="w-4 h-4" />
-            </button>
+                disabled={!prevBtnEnabled}
+                onClick={scrollPrev}
+              >
+                <ArrowIcon className="w-4 h-4" />
+              </button>
+              <button
+                className={`py-3 transition-colors hover:text-tolo-green disabled:text-neutral-300`}
+                disabled={!nextBtnEnabled}
+                onClick={scrollNext}
+              >
+                <ArrowIcon className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };
