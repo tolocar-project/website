@@ -51,6 +51,7 @@ const NewsSlider: React.FC<Props> = ({ news, headline, ...props }) => {
             }`}
             disabled={!prevBtnEnabled}
             onClick={() => emblaApi.scrollPrev()}
+            type="button"
           >
             <ArrowIcon className="w-4 h-4" />
           </button>
@@ -60,6 +61,7 @@ const NewsSlider: React.FC<Props> = ({ news, headline, ...props }) => {
             }`}
             disabled={!nextBtnEnabled}
             onClick={() => emblaApi.scrollNext()}
+            type="button"
           >
             <ArrowIcon className="w-4 h-4" />
           </button>
