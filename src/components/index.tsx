@@ -30,3 +30,5 @@ export { default as InterventionImageCarousel } from "@components/InterventionIm
 export { default as InterventionPreviewCard } from "@components/InterventionPreviewCard";
 export { default as InterventionSingleViewHeading } from "@components/InterventionSingleViewHeading";
 export { default as Tag } from "@components/Tag";
+export { default as InterventionsHeader } from "@components/InterventionsHeader";
+export { default as InterventionsListItem } from "@components/InterventionsListItem";
