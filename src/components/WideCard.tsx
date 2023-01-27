@@ -10,6 +10,7 @@ interface Props {
   linkButtonVariant?: "light" | "dark" | "search";
   bg?: number;
   newTab?: boolean;
+  buttonClasses?: string;
 }
 
 const WideCard: React.FC<Props> = ({
@@ -21,6 +22,7 @@ const WideCard: React.FC<Props> = ({
   linkButtonVariant,
   bg,
   newTab,
+  buttonClasses,
 }) => {
   const bgMapping = [
     "bg-illustration-4-wide mask-illustration-vertical md:mask-illustration-horizontal bg-no-repeat bg-[position:right_-80px_top_-40px]",
@@ -28,7 +30,11 @@ const WideCard: React.FC<Props> = ({
   ];
 
   return (
-    <div className={"container-width lg:container-width-hero mt-20 h-full"}>
+    <div
+      className={`container-width lg:container-width-hero h-full ${
+        className || ""
+      }`}
+    >
       <div className="bg-tolo-green relative overflow-hidden z-10">
         <div className="p-5 lg:p-10 text-white absolute items-start md:w-[65%] h-full flex flex-col justify-start gap-4 lg:gap-6 z-20">
           {title && (
@@ -40,7 +46,7 @@ const WideCard: React.FC<Props> = ({
           {target && (
             <ButtonLink
               target={target}
-              className={className}
+              className={buttonClasses}
               caption={caption}
               variant={linkButtonVariant}
               newTab={newTab}
