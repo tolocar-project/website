@@ -7,6 +7,7 @@ export interface IInterventionFrontmatter {
   tags?: Array<string>;
   images?: Array<string>;
   car?: string;
+  locationLngLat?: [number, number];
 }
 
 export interface IIntervention {

@@ -1,10 +1,37 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import { ContentSection, Card, CardContainer } from "@components";
+import { IInterventionFrontmatter } from "@interfaces/IIntervention";
+import {
+  ContentSection,
+  Card,
+  CardContainer,
+  InterventionsHeader,
+  InterventionMap,
+} from "@components";
+import "mapbox-gl/dist/mapbox-gl.css";
 const { frontmatter } = Astro.props;
+
+const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
+  "../pages/en/interventions/*.mdx"
+);
+
+const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(
+  (intervention) => !intervention.file.includes("index.mdx")
+);
 ---
 
 <BaseLayout footerGrey={true} frontmatter={frontmatter}>
+  <InterventionsHeader
+    title="Interventions"
+    text="When we go to a place to support a project, build a makerspace or perform a workshop, we call that an intervention. Every intervention has its unique partners, goals and outcomes, but every intervention aims to strengthen the ecosystem of Ukraine."
+  />
+  <div class="container-width">
+    <InterventionMap
+      client:only="react"
+      token={import.meta.env.PUBLIC_MAPBOX_TOKEN}
+      interventions={rawInterventionsContentWithoutIndex}
+    />
+  </div>
   <slot />
   <ContentSection>
     <div class="absolute w-full bg-white h-64 top-0"></div>

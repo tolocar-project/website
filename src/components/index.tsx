@@ -32,3 +32,4 @@ export { default as InterventionSingleViewHeading } from "@components/Interventi
 export { default as Tag } from "@components/Tag";
 export { default as InterventionsHeader } from "@components/InterventionsHeader";
 export { default as InterventionsListItem } from "@components/InterventionsListItem";
+export { default as InterventionMap } from "@components/InterventionMap";
