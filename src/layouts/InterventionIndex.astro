@@ -8,9 +8,11 @@ import {
   InterventionsHeader,
   InterventionMap,
   Tag,
+  InterventionsListItem,
 } from "@components";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapbox from "mapbox-gl";
+import { ReactComponent as BorderDashedSvg } from "@assets/border_dashed.svg";
 
 const { frontmatter } = Astro.props;
 
@@ -49,7 +51,30 @@ const poiData = rawInterventionsContentWithoutIndex
       interventions={poiData}
     />
   </div>
-  <slot />
+  <div class="container-width">
+    {
+      rawInterventionsContentWithoutIndex.map((intervention) => (
+        <InterventionsListItem
+          image={intervention.frontmatter?.images?.[0]}
+          title={intervention.frontmatter?.title}
+          subtitle={intervention.frontmatter?.subtitle}
+          tags={[
+            intervention.frontmatter?.tags?.[0],
+            intervention.frontmatter?.tags?.[1],
+          ]}
+          date={intervention.frontmatter?.date}
+          location={intervention.frontmatter?.location}
+          href={intervention.url}
+        />
+      ))
+    }
+  </div>
+  <ContentSection variant="white">
+    <div class="container-width h-[108px]">
+      <BorderDashedSvg />
+    </div>
+  </ContentSection>
+
   <div class="container-width pl-16 md:pl-20">
     <a href="/en/interventions">
       <Tag title="Load more" />

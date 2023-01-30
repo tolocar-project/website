@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Map, { Marker, NavigationControl, useMap } from "react-map-gl";
+import Map, { Marker, NavigationControl, useMap, Popup } from "react-map-gl";
 import mapbox from "mapbox-gl";
 import type { LngLat, LngLatBounds } from "react-map-gl";
 
@@ -13,7 +13,8 @@ const InterventionMap = ({
   token: string;
 }) => {
   const [bounds, setBounds] = useState<LngLatBounds>(null);
-  // const [selectedPoi, setSelectedPoi] = useState<LngLat>(null);
+  const [selectedPoi, setSelectedPoi] = useState<LngLat>(null);
+  const [showPopup, setShowPopup] = useState(true);
 
   useEffect(() => {
     const finalBounds = interventions.reduce((bounds, poi) => {
@@ -41,9 +42,30 @@ const InterventionMap = ({
             latitude={intervention.lat}
             longitude={intervention.lng}
             anchor="bottom"
-            color="#009664"
+            color={
+              JSON.stringify(selectedPoi) === JSON.stringify(intervention)
+                ? "red"
+                : "#009664"
+            }
+            onClick={() => {
+              console.log("Intervention", JSON.stringify(intervention));
+              console.log("Selected Poi", JSON.stringify(selectedPoi));
+              setSelectedPoi(intervention);
+            }}
           />
         ))}
+
+      {showPopup && (
+        <Popup
+          longitude={-100}
+          latitude={40}
+          anchor="bottom"
+          onClose={() => setShowPopup(false)}
+        >
+          You are here
+        </Popup>
+      )}
+
       <NavigationControl
         style={{
           borderRadius: "0px",
