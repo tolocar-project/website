@@ -10,7 +10,7 @@ import {
   Tag,
 } from "@components";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { LngLat } from "mapbox-gl";
+import mapbox from "mapbox-gl";
 
 const { frontmatter } = Astro.props;
 
@@ -29,7 +29,7 @@ const poiData = rawInterventionsContentWithoutIndex
     } = intervention;
 
     if (locationLngLat.length == 2) {
-      return new LngLat(locationLngLat[0], locationLngLat[1]);
+      return new mapbox.LngLat(locationLngLat[0], locationLngLat[1]);
     } else {
       return null;
     }

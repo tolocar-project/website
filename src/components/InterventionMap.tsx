@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import Map, { Marker, NavigationControl, useMap } from "react-map-gl";
-import { LngLatBounds, LngLat } from "mapbox-gl";
+import mapbox from "mapbox-gl";
+import type { LngLat, LngLatBounds } from "react-map-gl";
 
-const KIEV_CENTER = new LngLat(30.4908226, 50.4178674);
+const KIEV_CENTER = new mapbox.LngLat(30.4908226, 50.4178674);
 
 const InterventionMap = ({
   interventions,
@@ -17,7 +18,7 @@ const InterventionMap = ({
   useEffect(() => {
     const finalBounds = interventions.reduce((bounds, poi) => {
       return bounds.extend([poi.lng, poi.lat]);
-    }, new LngLatBounds(interventions[0], interventions[0]));
+    }, new mapbox.LngLatBounds(interventions[0], interventions[0]));
     setBounds(finalBounds);
   }, [interventions]);
 
