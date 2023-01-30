@@ -48,7 +48,6 @@ const InterventionMap = ({
         style={{
           borderRadius: "0px",
           backgroundColor: "#FFFFFF",
-          color: "#131313",
         }}
         position="top-right"
         showCompass={false}
