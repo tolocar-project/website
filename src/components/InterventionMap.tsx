@@ -1,44 +1,70 @@
-import { IInterventionFrontmatter } from "@interfaces/IIntervention";
-import { MDXInstance } from "astro";
-import React from "react";
-import Map, { Marker, NavigationControl } from "react-map-gl";
+import { useState, useEffect } from "react";
+import Map, { Marker, NavigationControl, useMap } from "react-map-gl";
+import { LngLatBounds, LngLat } from "mapbox-gl";
+
+const KIEV_CENTER = new LngLat(30.4908226, 50.4178674);
 
 const InterventionMap = ({
   interventions,
   token,
 }: {
-  interventions: MDXInstance<IInterventionFrontmatter>[];
+  interventions: LngLat[];
   token: string;
 }) => {
+  const [bounds, setBounds] = useState<LngLatBounds>(null);
+  // const [selectedPoi, setSelectedPoi] = useState<LngLat>(null);
+
+  useEffect(() => {
+    const finalBounds = interventions.reduce((bounds, poi) => {
+      return bounds.extend([poi.lng, poi.lat]);
+    }, new LngLatBounds(interventions[0], interventions[0]));
+    setBounds(finalBounds);
+  }, [interventions]);
+
   return (
     <Map
       initialViewState={{
-        longitude: 9.99368,
-        latitude: 53.55108,
+        longitude: KIEV_CENTER.lng,
+        latitude: KIEV_CENTER.lat,
         zoom: 10,
       }}
       style={{ width: "100%", height: 400 }}
       mapStyle="mapbox://styles/mapbox/streets-v12"
       mapboxAccessToken={token}
+      maxPitch={0}
     >
-      {interventions.map((intervention, index) => {
-        return intervention?.frontmatter?.locationLngLat?.length ? (
+      {Boolean(interventions.length) &&
+        interventions.map((intervention, index) => (
           <Marker
             key={index}
-            latitude={intervention.frontmatter?.locationLngLat[1]}
-            longitude={intervention.frontmatter?.locationLngLat[0]}
+            latitude={intervention.lat}
+            longitude={intervention.lng}
             anchor="bottom"
             color="#009664"
           />
-        ) : null;
-      })}
+        ))}
       <NavigationControl
-        style={{ borderRadius: "0px", backgroundColor: "#FFFFFF", color:"#131313" }}
+        style={{
+          borderRadius: "0px",
+          backgroundColor: "#FFFFFF",
+          color: "#131313",
+        }}
         position="top-right"
         showCompass={false}
       />
+      <MapBoundsController bounds={bounds} />
     </Map>
   );
+};
+
+const MapBoundsController = ({ bounds }) => {
+  const { current: map } = useMap();
+
+  useEffect(() => {
+    map.fitBounds(bounds, { padding: 100, linear: true });
+  }, []);
+
+  return null;
 };
 
 export default InterventionMap;
