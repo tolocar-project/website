@@ -7,6 +7,7 @@ import {
   CardContainer,
   InterventionsHeader,
   InterventionMap,
+  Tag,
 } from "@components";
 import "mapbox-gl/dist/mapbox-gl.css";
 const { frontmatter } = Astro.props;
@@ -25,7 +26,7 @@ const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(
     title="Interventions"
     text="When we go to a place to support a project, build a makerspace or perform a workshop, we call that an intervention. Every intervention has its unique partners, goals and outcomes, but every intervention aims to strengthen the ecosystem of Ukraine."
   />
-  <div class="container-width">
+  <div class="container-width-hero">
     <InterventionMap
       client:only="react"
       token={import.meta.env.PUBLIC_MAPBOX_TOKEN}
@@ -33,6 +34,11 @@ const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(
     />
   </div>
   <slot />
+  <div class="container-width pl-16 md:pl-20">
+    <a href="/en/interventions">
+      <Tag title="Load more" />
+    </a>
+  </div>
   <ContentSection>
     <div class="absolute w-full bg-white h-64 top-0"></div>
     <CardContainer className="lg:h-[408px]">
