@@ -10,6 +10,8 @@ import {
   Tag,
 } from "@components";
 import "mapbox-gl/dist/mapbox-gl.css";
+import mapbox from "mapbox-gl";
+
 const { frontmatter } = Astro.props;
 
 const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
@@ -19,6 +21,20 @@ const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
 const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(
   (intervention) => !intervention.file.includes("index.mdx")
 );
+
+const poiData = rawInterventionsContentWithoutIndex
+  .map((intervention) => {
+    const {
+      frontmatter: { locationLngLat },
+    } = intervention;
+
+    if (locationLngLat.length == 2) {
+      return new mapbox.LngLat(locationLngLat[0], locationLngLat[1]);
+    } else {
+      return null;
+    }
+  })
+  .filter(Boolean);
 ---
 
 <BaseLayout footerGrey={true} frontmatter={frontmatter}>
@@ -26,11 +42,11 @@ const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(
     title="Interventions"
     text="When we go to a place to support a project, build a makerspace or perform a workshop, we call that an intervention. Every intervention has its unique partners, goals and outcomes, but every intervention aims to strengthen the ecosystem of Ukraine."
   />
-  <div class="container-width-hero">
+  <div class="container-width-hero my-map-control">
     <InterventionMap
       client:only="react"
       token={import.meta.env.PUBLIC_MAPBOX_TOKEN}
-      interventions={rawInterventionsContentWithoutIndex}
+      interventions={poiData}
     />
   </div>
   <slot />

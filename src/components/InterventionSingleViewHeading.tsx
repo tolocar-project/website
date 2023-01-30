@@ -23,7 +23,7 @@ const InterventionSingleViewHeading: React.FC<Props> = ({
         className || ""
       }`}
     >
-      {tags.length && (
+      {Boolean(tags.length) && (
         <div className="flex">
           {tags.map((tag, index) => (
             <Tag key={index} title={tag} />

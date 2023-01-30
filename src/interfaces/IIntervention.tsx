@@ -9,9 +9,3 @@ export interface IInterventionFrontmatter {
   car?: string;
   locationLngLat?: [number, number];
 }
-
-export interface IIntervention {
-  frontmatter: IInterventionFrontmatter;
-  url: string;
-  file: string;
-}

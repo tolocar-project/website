@@ -38,7 +38,7 @@ const InterventionPreviewCard: React.FC<Props> = ({
           {date}
         </div>
       )}
-      {tags.length && (
+      {Boolean(tags.length) && (
         <div className="flex justify-start">
           {tags.map((tag, index) => (
             <Tag key={index} title={tag} />
