@@ -27,11 +27,16 @@ const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(
 const poiData = rawInterventionsContentWithoutIndex
   .map((intervention) => {
     const {
-      frontmatter: { locationLngLat },
+      frontmatter: { locationLngLat, title },
+      url,
     } = intervention;
 
     if (locationLngLat.length == 2) {
-      return new mapbox.LngLat(locationLngLat[0], locationLngLat[1]);
+      return {
+        location: new mapbox.LngLat(locationLngLat[0], locationLngLat[1]),
+        title,
+        url,
+      };
     } else {
       return null;
     }
