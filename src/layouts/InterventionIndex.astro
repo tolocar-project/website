@@ -61,7 +61,7 @@ const bounds = poiData.reduce((bounds, poi) => {
   />
   <div class="container-width-hero my-map-control basis-[400px] shrink-0">
     <InterventionMap
-      client:load
+      client:only="react"
       token={import.meta.env.PUBLIC_MAPBOX_TOKEN}
       interventions={poiData}
       bounds={bounds.toArray() as [[number, number], [number, number]]}
