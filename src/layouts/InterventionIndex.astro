@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import { IInterventionFrontmatter } from "@interfaces/IIntervention";
+import {
+  IInterventionFrontmatter,
+  IInterventionPoi,
+} from "@interfaces/IIntervention";
 import {
   ContentSection,
   Card,
@@ -24,18 +27,21 @@ const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(
   (intervention) => !intervention.file.includes("index.mdx")
 );
 
-const poiData = rawInterventionsContentWithoutIndex
+const poiData: IInterventionPoi[] = rawInterventionsContentWithoutIndex
   .map((intervention) => {
     const {
-      frontmatter: { locationLngLat, title },
+      frontmatter: { locationLngLat, title, date, images, location },
       url,
     } = intervention;
 
     if (locationLngLat.length == 2) {
       return {
-        location: new mapbox.LngLat(locationLngLat[0], locationLngLat[1]),
+        locationLngLat: new mapbox.LngLat(locationLngLat[0], locationLngLat[1]),
         title,
         url,
+        date,
+        image: images?.[0],
+        location,
       };
     } else {
       return null;

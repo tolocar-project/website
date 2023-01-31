@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Map, { Marker, NavigationControl, useMap, Popup } from "react-map-gl";
 import mapbox from "mapbox-gl";
 import type { LngLat, LngLatBounds } from "react-map-gl";
+import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
+import { IInterventionPoi } from "@interfaces/IIntervention";
 
 const KIEV_CENTER = new mapbox.LngLat(30.4908226, 50.4178674);
 
@@ -9,7 +11,7 @@ const InterventionMap = ({
   interventions,
   token,
 }: {
-  interventions: Array<{ location: LngLat; title: string, url: string; }>;
+  interventions: IInterventionPoi[];
   token: string;
 }) => {
   const [bounds, setBounds] = useState<LngLatBounds>(null);
@@ -19,8 +21,8 @@ const InterventionMap = ({
 
   useEffect(() => {
     const finalBounds = interventions.reduce((bounds, poi) => {
-      return bounds.extend([poi.location.lng, poi.location.lat]);
-    }, new mapbox.LngLatBounds(interventions[0].location, interventions[0].location));
+      return bounds.extend([poi.locationLngLat.lng, poi.locationLngLat.lat]);
+    }, new mapbox.LngLatBounds(interventions[0].locationLngLat, interventions[0].locationLngLat));
     setBounds(finalBounds);
   }, [interventions]);
 
@@ -40,8 +42,8 @@ const InterventionMap = ({
         interventions.map((intervention, index) => (
           <Marker
             key={index}
-            latitude={intervention.location.lat}
-            longitude={intervention.location.lng}
+            latitude={intervention.locationLngLat.lat}
+            longitude={intervention.locationLngLat.lng}
             onClick={(e) => {
               e.originalEvent.stopPropagation();
               setSelectedPoi(index);
@@ -56,12 +58,34 @@ const InterventionMap = ({
 
       {selectedPoi !== null && (
         <Popup
-          longitude={interventions[selectedPoi].location.lng}
-          latitude={interventions[selectedPoi].location.lat}
-          anchor="bottom"
+          longitude={interventions[selectedPoi].locationLngLat.lng}
+          latitude={interventions[selectedPoi].locationLngLat.lat}
           onClose={() => setSelectedPoi(null)}
+          closeButton={false}
+          className="my-map-popup"
         >
-          <a href={interventions[selectedPoi].url}>{interventions[selectedPoi].title}</a>
+          <div className={`w-full h-[171px] justify-end relative`}>
+            <img
+              src={interventions[selectedPoi].image}
+              alt="Interventions"
+              className="h-[171px] w-full object-cover"
+            />
+            <div className="h-full w-full absolute top-0 bg-gradient-to-b from-transparent to-black opacity-80" />
+
+            <a href={interventions[selectedPoi].url}>
+              <ArrowIcon className="absolute top-4 right-4 z-10 text-white h-6 w-6" />
+            </a>
+            <div className="absolute bottom-0 flex flex-col gap-1.5 p-4">
+              <a href={interventions[selectedPoi].url}>
+                <span className="text-sm leading-[14px] opacity-70">
+                  {interventions[selectedPoi].date}
+                </span>
+                <h3 className="text-base font-semibold leading-4">
+                  {interventions[selectedPoi].title}
+                </h3>
+              </a>
+            </div>
+          </div>
         </Popup>
       )}
 
