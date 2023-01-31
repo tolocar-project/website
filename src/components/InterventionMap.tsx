@@ -12,7 +12,7 @@ const InterventionMap = ({
   token: string;
   bounds: [[number, number], [number, number]];
 }) => {
-  const [hoveredPoi, setHoveredPoi] = useState<number>(null);
+  const [selectedPoi, setSelectedPoi] = useState<number>(null);
 
   return (
     <Map
@@ -32,7 +32,7 @@ const InterventionMap = ({
             <CustomMarker
               className="transition duration-200 ease-in-out hover:scale-125 cursor-pointer"
               onMouseEnter={() => {
-                if (hoveredPoi !== index) setHoveredPoi(index);
+                if (selectedPoi !== index) setSelectedPoi(index);
               }}
               onMouseLeave={(e) => {
                 const movedToPopup =
@@ -43,17 +43,17 @@ const InterventionMap = ({
                 if (movedToPopup) {
                   e.stopPropagation();
                 } else {
-                  setHoveredPoi(null);
+                  setSelectedPoi(null);
                 }
               }}
             />
           </Marker>
         ))}
 
-      {(hoveredPoi !== null) && (
+      {selectedPoi !== null && (
         <Popup
-          longitude={interventions[hoveredPoi].locationLngLat.lng}
-          latitude={interventions[hoveredPoi].locationLngLat.lat}
+          longitude={interventions[selectedPoi].locationLngLat.lng}
+          latitude={interventions[selectedPoi].locationLngLat.lat}
           closeButton={false}
           className="my-map-popup"
           maxWidth="none"
@@ -62,26 +62,26 @@ const InterventionMap = ({
           <div
             className={`w-full h-[171px] justify-end relative`}
             onMouseLeave={() => {
-              if (hoveredPoi !== null) setHoveredPoi(null);
+              if (selectedPoi !== null) setSelectedPoi(null);
             }}
           >
             <img
-              src={interventions[hoveredPoi].image}
+              src={interventions[selectedPoi].image}
               alt="Interventions"
               className="h-[171px] w-full object-cover"
             />
             <div className="h-full w-full absolute top-0 bg-gradient-to-b from-transparent to-black opacity-80" />
 
-            <a href={interventions[hoveredPoi].url}>
+            <a href={interventions[selectedPoi].url}>
               <ArrowIcon className="absolute top-4 right-4 z-10 text-white h-6 w-6" />
             </a>
             <div className="absolute bottom-0 flex flex-col gap-1.5 p-4">
-              <a href={interventions[hoveredPoi].url}>
+              <a href={interventions[selectedPoi].url}>
                 <span className="text-sm leading-[14px] opacity-70">
-                  {interventions[hoveredPoi].date}
+                  {interventions[selectedPoi].date}
                 </span>
                 <h3 className="text-base font-semibold leading-4">
-                  {interventions[hoveredPoi].title}
+                  {interventions[selectedPoi].title}
                 </h3>
               </a>
             </div>
