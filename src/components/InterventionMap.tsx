@@ -1,39 +1,23 @@
-import { useState, useEffect } from "react";
-import Map, { Marker, NavigationControl, useMap, Popup } from "react-map-gl";
-import mapbox from "mapbox-gl";
-import type { LngLat, LngLatBounds } from "react-map-gl";
+import { useState } from "react";
+import Map, { Marker, NavigationControl, Popup } from "react-map-gl";
 import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 import { IInterventionPoi } from "@interfaces/IIntervention";
-
-const KIEV_CENTER = new mapbox.LngLat(30.4908226, 50.4178674);
 
 const InterventionMap = ({
   interventions,
   token,
+  bounds,
 }: {
   interventions: IInterventionPoi[];
   token: string;
+  bounds: [[number, number], [number, number]];
 }) => {
-  const [bounds, setBounds] = useState<LngLatBounds>(null);
   const [selectedPoi, setSelectedPoi] = useState<number>(null);
-
-  console.log(interventions);
-
-  useEffect(() => {
-    const finalBounds = interventions.reduce((bounds, poi) => {
-      return bounds.extend([poi.locationLngLat.lng, poi.locationLngLat.lat]);
-    }, new mapbox.LngLatBounds(interventions[0].locationLngLat, interventions[0].locationLngLat));
-    setBounds(finalBounds);
-  }, [interventions]);
 
   return (
     <Map
-      initialViewState={{
-        longitude: KIEV_CENTER.lng,
-        latitude: KIEV_CENTER.lat,
-        zoom: 10,
-      }}
-      style={{ width: "100%", height: 400 }}
+      initialViewState={{ bounds, fitBoundsOptions: { padding: 50 } }}
+      style={{ width: "100%", height: "100%" }}
       mapStyle="mapbox://styles/mapbox/streets-v12"
       mapboxAccessToken={token}
       maxPitch={0}
@@ -97,19 +81,8 @@ const InterventionMap = ({
         position="top-right"
         showCompass={false}
       />
-      <MapBoundsController bounds={bounds} />
     </Map>
   );
-};
-
-const MapBoundsController = ({ bounds }) => {
-  const { current: map } = useMap();
-
-  useEffect(() => {
-    map.fitBounds(bounds, { padding: 100, linear: true });
-  }, []);
-
-  return null;
 };
 
 const CustomMarker = ({
