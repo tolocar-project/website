@@ -27,7 +27,7 @@ const Navigation: React.FC<Props> = ({
   const scrollThreshold = 10;
 
   useEffect(() => {
-    const handleScroll = (event) => {
+    const handleScroll = () => {
       setScrollTop(window.scrollY);
     };
 
