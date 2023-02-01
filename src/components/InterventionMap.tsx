@@ -64,11 +64,16 @@ const InterventionMap = ({
           className="my-map-popup"
           maxWidth="none"
           offset={25}
+          onClose={() => {
+            setSelectedPoi(null);
+            setIsMarkerClicked(false);
+          }}
+          closeOnClick
         >
           <div
             className={`w-full h-[171px] justify-end relative`}
             onMouseLeave={() => {
-              if (selectedPoi !== null && isMarkerClicked == false)
+              if (selectedPoi !== null && !isMarkerClicked)
                 setSelectedPoi(null);
             }}
           >
