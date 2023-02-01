@@ -6,15 +6,11 @@ import {
   Card,
   CardContainer,
   InterventionsHeader,
-  Tag,
   InterventionsListItem,
   InterventionsMapDataWrapper,
 } from "@components";
 import { ReactComponent as BorderDashedSvg } from "@assets/border_dashed.svg";
-import {
-  trimAndSortInterventions,
-  transformInterventionsToPoiData,
-} from "@util/ContentTransformer";
+import { trimAndSortInterventions } from "@util/ContentTransformer";
 
 const { frontmatter } = Astro.props;
 
@@ -57,11 +53,11 @@ const trimmedAndSorted = trimAndSortInterventions(rawInterventionsContent);
     </div>
   </ContentSection>
 
-  <div class="container-width pl-16 md:pl-20">
+  <!-- <div class="container-width pl-16 md:pl-20">
     <a href="/en/interventions">
       <Tag title="Load more" />
     </a>
-  </div>
+  </div> -->
   <ContentSection>
     <div class="absolute w-full bg-white h-64 top-0"></div>
     <CardContainer className="lg:h-[408px]">

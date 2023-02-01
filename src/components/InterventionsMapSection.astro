@@ -5,17 +5,17 @@ import {
   ButtonLink,
   InterventionsMapDataWrapper,
 } from "@components";
-import {trimAndSortInterventions, transformInterventionsToPoiData} from "@util/ContentTransformer"
-
-const { frontmatter } = Astro.props;
+import { trimAndSortInterventions } from "@util/ContentTransformer";
 
 const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
   "../pages/en/interventions/*.mdx"
 );
 
 const interventionCount = 3;
-const trimmedAndSorted = trimAndSortInterventions(rawInterventionsContent, interventionCount);
-
+const trimmedAndSorted = trimAndSortInterventions(
+  rawInterventionsContent,
+  interventionCount
+);
 ---
 
 <div class="relative flex flex-col h-full">
@@ -28,12 +28,7 @@ const trimmedAndSorted = trimAndSortInterventions(rawInterventionsContent, inter
       Latest Interventions
     </div>
     <div class="text-base md:hidden">
-      When we go to place to <b
-        >support a project, build a maker space or perform a workshop, we call
-        that an intervention.</b
-      > Every intervention has its unique partners, goals and outcomes, but every
-      intervention
-      <b>helps to strengthen the ecosystem of the Ukraine.</b>
+      When we go to place to <strong>support a project, build a maker space or perform a workshop, we call that an intervention.</strong> Every intervention has its unique partners, goals and outcomes, but every intervention <strong>helps to strengthen the ecosystem of the Ukraine.</strong>
     </div>
   </div>
   <div
