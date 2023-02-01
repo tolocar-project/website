@@ -11,6 +11,7 @@ export interface IInterventionFrontmatter {
   car?: string;
   locationLngLat?: [number, number];
   order?: number;
+  teaser?: string;
 }
 type IInterventionFrontmatterNoLocation = Omit<
   IInterventionFrontmatter,

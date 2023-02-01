@@ -15,19 +15,19 @@ const InterventionsListItem: React.FC<Props> = ({
   className,
   image,
   title,
-  subtitle,
   tags,
   date,
   location,
   href,
+  teaser,
 }: Props) => {
   return (
     <div className={`flex gap-[42px] ${className || ""}`}>
       <div className="border-l-2 border-neutral-200 relative">
         <div className="absolute rounded-full bg-tolo-green left-1/2 -translate-x-[calc(50%+1px)] top-20 h-5 w-5" />
       </div>
-      <div className="flex flex-col mt-20 lg:flex-row flex-1 overflow-hidden z-10 gap-8">
-        <div className="w-full lg:w-96 h-64 relative">
+      <div className="flex flex-col mt-20 lg:flex-row overflow-hidden z-10 gap-8">
+        <div className="flex-none w-full lg:w-96 h-64 relative">
           <a href={href}>
             <img
               className="w-full h-full object-cover"
@@ -37,7 +37,7 @@ const InterventionsListItem: React.FC<Props> = ({
             <ArrowIcon className="absolute bottom-4 right-4 z-10 text-white h-6 w-6" />
           </a>
         </div>
-        <div className="flex flex-col gap-y-6">
+        <div className="flex flex-col gap-y-6 flex-1">
           {tags.length && (
             <div className="flex justify-start">
               {tags.map((tag, index) => (
@@ -50,7 +50,7 @@ const InterventionsListItem: React.FC<Props> = ({
               <span className="pr-3 font-aktiv">{title}</span>
             </h3>
             <p className="text-neutral-500 text-base lg:text-lg leading-6 font-medium">
-              {subtitle}...
+              {teaser}...
               <span className="text-tolo-green font-normal pl-2">
                 <a href={href}>Read more</a>
               </span>

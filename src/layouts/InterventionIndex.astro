@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import {
-  IInterventionFrontmatter
-} from "@interfaces/IIntervention";
+import { IInterventionFrontmatter } from "@interfaces/IIntervention";
 import {
   ContentSection,
   Card,
@@ -24,9 +22,7 @@ const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
   "../pages/en/interventions/*.mdx"
 );
 
-const trimmedAndSorted = trimAndSortInterventions(
-  rawInterventionsContent
-);
+const trimmedAndSorted = trimAndSortInterventions(rawInterventionsContent);
 ---
 
 <BaseLayout footerGrey={true} frontmatter={frontmatter}>
@@ -43,7 +39,7 @@ const trimmedAndSorted = trimAndSortInterventions(
         <InterventionsListItem
           image={intervention.frontmatter?.images?.[0]}
           title={intervention.frontmatter?.title}
-          subtitle={intervention.frontmatter?.subtitle}
+          teaser={intervention.frontmatter?.teaser}
           tags={[
             intervention.frontmatter?.tags?.[0],
             intervention.frontmatter?.tags?.[1],
