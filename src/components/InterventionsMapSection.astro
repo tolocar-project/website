@@ -1,0 +1,104 @@
+---
+import {
+  IInterventionFrontmatter,
+  IInterventionPoi,
+} from "@interfaces/IIntervention";
+import {
+  InterventionMap,
+  InterventionPreviewCard,
+  ButtonLink,
+} from "@components";
+import "mapbox-gl/dist/mapbox-gl.css";
+import mapbox from "mapbox-gl";
+
+const { frontmatter } = Astro.props;
+
+const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
+  "../pages/en/interventions/*.mdx"
+);
+
+const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(
+  (intervention) => !intervention.file.includes("index.mdx")
+);
+
+const poiData: IInterventionPoi[] = rawInterventionsContentWithoutIndex
+  .map((intervention) => {
+    const {
+      frontmatter: { locationLngLat, title, date, images, location },
+      url,
+    } = intervention;
+
+    if (locationLngLat.length == 2) {
+      return {
+        locationLngLat: new mapbox.LngLat(locationLngLat[0], locationLngLat[1]),
+        title,
+        url,
+        date,
+        image: images?.[0],
+        location,
+      };
+    } else {
+      return null;
+    }
+  })
+  .filter(Boolean);
+
+const bounds = poiData.reduce((bounds, poi) => {
+  return bounds.extend([poi.locationLngLat.lng, poi.locationLngLat.lat]);
+}, new mapbox.LngLatBounds(poiData[0].locationLngLat, poiData[0].locationLngLat));
+---
+
+<div class="relative flex flex-col h-full">
+  <div
+    class="container-width mt-[51px] md:mt-[113px] mb-6 md:mb-12 flex flex-col gap-6"
+  >
+    <div
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >
+      Latest Interventions
+    </div>
+    <div class="text-base md:hidden">
+      When we go to place to <b
+        >support a project, build a maker space or perform a workshop, we call
+        that an intervention.</b
+      > Every intervention has its unique partners, goals and outcomes, but every
+      intervention
+      <b>helps to strengthen the ecosystem of the Ukraine.</b>
+    </div>
+  </div>
+  <div
+    class="container-width-hero my-map-control basis-[400px] shrink-0 h-[448px] mb-10"
+  >
+    <InterventionMap
+      client:only="react"
+      token={import.meta.env.PUBLIC_MAPBOX_TOKEN}
+      interventions={poiData}
+      bounds={bounds.toArray() as [[number, number], [number, number]]}
+    />
+  </div>
+  <div
+    class="container-width flex flex-col lg:flex-row lg:justify-between gap-8"
+  >
+    {
+      rawInterventionsContentWithoutIndex.map((intervention) => (
+        <InterventionPreviewCard
+          href={intervention.url}
+          image={intervention.frontmatter.images[0]}
+          date={intervention.frontmatter.date}
+          title={intervention.frontmatter.title}
+          location={intervention.frontmatter.location}
+          tags={intervention.frontmatter.tags}
+        />
+      ))
+    }
+  </div>
+  <div
+    class="pt-5 pb-[66px] lg:pb-16 lg:pt-2 text-white items-center w-full h-full flex justify-center z-20"
+  >
+    <ButtonLink
+      target="en/interventions"
+      caption="See all interventions"
+      variant="dark"
+    />
+  </div>
+</div>
