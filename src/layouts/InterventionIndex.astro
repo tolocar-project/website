@@ -1,21 +1,22 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import {
-  IInterventionFrontmatter,
-  IInterventionPoi,
+  IInterventionFrontmatter
 } from "@interfaces/IIntervention";
 import {
   ContentSection,
   Card,
   CardContainer,
   InterventionsHeader,
-  InterventionMap,
   Tag,
   InterventionsListItem,
+  InterventionsMapDataWrapper,
 } from "@components";
-import "mapbox-gl/dist/mapbox-gl.css";
-import mapbox from "mapbox-gl";
 import { ReactComponent as BorderDashedSvg } from "@assets/border_dashed.svg";
+import {
+  trimAndSortInterventions,
+  transformInterventionsToPoiData,
+} from "@util/ContentTransformer";
 
 const { frontmatter } = Astro.props;
 
@@ -23,35 +24,9 @@ const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
   "../pages/en/interventions/*.mdx"
 );
 
-const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(
-  (intervention) => !intervention.file.includes("index.mdx")
+const trimmedAndSorted = trimAndSortInterventions(
+  rawInterventionsContent
 );
-
-const poiData: IInterventionPoi[] = rawInterventionsContentWithoutIndex
-  .map((intervention) => {
-    const {
-      frontmatter: { locationLngLat, title, date, images, location },
-      url,
-    } = intervention;
-
-    if (locationLngLat.length == 2) {
-      return {
-        locationLngLat: new mapbox.LngLat(locationLngLat[0], locationLngLat[1]),
-        title,
-        url,
-        date,
-        image: images?.[0],
-        location,
-      };
-    } else {
-      return null;
-    }
-  })
-  .filter(Boolean);
-
-const bounds = poiData.reduce((bounds, poi) => {
-  return bounds.extend([poi.locationLngLat.lng, poi.locationLngLat.lat]);
-}, new mapbox.LngLatBounds(poiData[0].locationLngLat, poiData[0].locationLngLat));
 ---
 
 <BaseLayout footerGrey={true} frontmatter={frontmatter}>
@@ -60,16 +35,11 @@ const bounds = poiData.reduce((bounds, poi) => {
     text="When we go to a place to support a project, build a makerspace or perform a workshop, we call that an intervention. Every intervention has its unique partners, goals and outcomes, but every intervention aims to strengthen the ecosystem of Ukraine."
   />
   <div class="container-width-hero my-map-control basis-[400px] shrink-0">
-    <InterventionMap
-      client:only="react"
-      token={import.meta.env.PUBLIC_MAPBOX_TOKEN}
-      interventions={poiData}
-      bounds={bounds.toArray() as [[number, number], [number, number]]}
-    />
+    <InterventionsMapDataWrapper />
   </div>
   <div class="container-width">
     {
-      rawInterventionsContentWithoutIndex.map((intervention) => (
+      trimmedAndSorted.map((intervention) => (
         <InterventionsListItem
           image={intervention.frontmatter?.images?.[0]}
           title={intervention.frontmatter?.title}

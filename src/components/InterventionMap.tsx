@@ -13,6 +13,7 @@ const InterventionMap = ({
   bounds: [[number, number], [number, number]];
 }) => {
   const [selectedPoi, setSelectedPoi] = useState<number>(null);
+  const [isMarkerClicked, setIsMarkerClicked] = useState(false);
 
   return (
     <Map
@@ -31,6 +32,11 @@ const InterventionMap = ({
           >
             <CustomMarker
               className="transition duration-200 ease-in-out hover:scale-125 cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsMarkerClicked(true);
+                setSelectedPoi(index);
+              }}
               onMouseEnter={() => {
                 if (selectedPoi !== index) setSelectedPoi(index);
               }}
@@ -62,7 +68,8 @@ const InterventionMap = ({
           <div
             className={`w-full h-[171px] justify-end relative`}
             onMouseLeave={() => {
-              if (selectedPoi !== null) setSelectedPoi(null);
+              if (selectedPoi !== null && isMarkerClicked == false)
+                setSelectedPoi(null);
             }}
           >
             <img

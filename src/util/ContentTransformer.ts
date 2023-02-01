@@ -3,6 +3,11 @@ import type {
   AcademyPageFrontmatter,
 } from "@interfaces/IAcademy";
 import type { MDXInstance } from "astro";
+import {
+  IInterventionFrontmatter,
+  IInterventionPoi,
+} from "@interfaces/IIntervention";
+import mapbox from "mapbox-gl";
 
 export function flatAcademyContentMap(
   rawAcademyContent: MDXInstance<AcademyPageFrontmatter>[]
@@ -65,4 +70,50 @@ export function transformAcademy(rawAcademyContent) {
   });
 
   return coursesAndLessons;
+}
+
+export function trimAndSortInterventions(
+  rawInterventionsContent: MDXInstance<IInterventionFrontmatter>[],
+  count?: number
+) {
+  const rawSortedInterventionsContentWithoutIndex = rawInterventionsContent
+    .filter((intervention) => !intervention.file.includes("index.mdx"))
+    .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
+
+  const trimmedInterventions = count
+    ? rawSortedInterventionsContentWithoutIndex.slice(0, count)
+    : rawSortedInterventionsContentWithoutIndex;
+
+  return trimmedInterventions;
+}
+
+export function transformInterventionsToPoiData(
+  rawInterventionsContent: MDXInstance<IInterventionFrontmatter>[]
+) {
+  const poiData: IInterventionPoi[] = rawInterventionsContent
+    .map((intervention) => {
+      const {
+        frontmatter: { locationLngLat, title, date, images, location },
+        url,
+      } = intervention;
+
+      if (locationLngLat.length == 2) {
+        return {
+          locationLngLat: new mapbox.LngLat(
+            locationLngLat[0],
+            locationLngLat[1]
+          ),
+          title,
+          url,
+          date,
+          image: images?.[0],
+          location,
+        };
+      } else {
+        return null;
+      }
+    })
+    .filter(Boolean);
+
+  return poiData;
 }

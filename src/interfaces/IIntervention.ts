@@ -10,6 +10,7 @@ export interface IInterventionFrontmatter {
   images?: Array<string>;
   car?: string;
   locationLngLat?: [number, number];
+  order?: number;
 }
 type IInterventionFrontmatterNoLocation = Omit<
   IInterventionFrontmatter,
