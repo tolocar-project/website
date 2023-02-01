@@ -126,4 +126,20 @@
   .default-prose {
     @apply prose prose-lg prose-p:text-neutral-500 prose-li:text-neutral-500 prose-ol:text-neutral-500 prose-p:leading-7 prose-headings:font-aktiv prose-headings:font-semibold prose-strong:text-neutral-900;
   }
+
+  .my-map-control .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='29' height='29' viewBox='0 0 29 29' xmlns='http://www.w3.org/2000/svg' fill='%23131313'%3E%3Cpath d='M14.5 8.5c-.75 0-1.5.75-1.5 1.5v3h-3c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h3v3c0 .75.75 1.5 1.5 1.5S16 19.75 16 19v-3h3c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13h-3v-3c0-.75-.75-1.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  }
+
+  .my-map-control .mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='29' height='29' viewBox='0 0 29 29' xmlns='http://www.w3.org/2000/svg' fill='%23131313'%3E%3Cpath d='M10 13c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h9c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13h-9z'/%3E%3C/svg%3E") !important;
+  }
+
+  .my-map-popup .mapboxgl-popup-content {
+    @apply !p-0 !w-[312px] !h-[171px] !text-white;
+  }
+
+  .my-map-popup .mapboxgl-popup-tip {
+    @apply !hidden;
+  }
 }

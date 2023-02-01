@@ -46,10 +46,10 @@ const InterventionImageCarousel: React.FC<Props> = ({ images }) => {
 
   return (
     <section className="pt-8 md:pt-11 pb-7 md:pb-4">
-      {images.length && (
+      {Boolean(images.length) && (
         <div className="md:container-width flex flex-col justify-between items-center">
           <div className="overflow-hidden w-full" ref={emblaRef}>
-            <div className="flex flex-row h-[177px] sm:h-[300px] lg:h-[527px]">
+            <div className="flex flex-row h-[177px] sm:h-[300px] lg:h-[527px] shrink-0">
               {images.map((image, index) => (
                 <div className="h-full w-full flex-[0_0_100%]" key={index}>
                   <img
