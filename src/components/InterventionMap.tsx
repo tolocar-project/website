@@ -28,14 +28,24 @@ const InterventionMap = ({
             key={index}
             latitude={intervention.locationLngLat.lat}
             longitude={intervention.locationLngLat.lng}
-            onClick={(e) => {
-              e.originalEvent.stopPropagation();
-              setSelectedPoi(index);
-            }}
           >
             <CustomMarker
-              selected={selectedPoi === index}
               className="transition duration-200 ease-in-out hover:scale-125 cursor-pointer"
+              onMouseEnter={() => {
+                if (selectedPoi !== index) setSelectedPoi(index);
+              }}
+              onMouseLeave={(e) => {
+                const movedToPopup =
+                  Boolean((e.relatedTarget as HTMLElement).closest) &&
+                  Boolean(
+                    (e.relatedTarget as HTMLElement).closest(".my-map-popup")
+                  );
+                if (movedToPopup) {
+                  e.stopPropagation();
+                } else {
+                  setSelectedPoi(null);
+                }
+              }}
             />
           </Marker>
         ))}
@@ -44,11 +54,17 @@ const InterventionMap = ({
         <Popup
           longitude={interventions[selectedPoi].locationLngLat.lng}
           latitude={interventions[selectedPoi].locationLngLat.lat}
-          onClose={() => setSelectedPoi(null)}
           closeButton={false}
           className="my-map-popup"
+          maxWidth="none"
+          offset={25}
         >
-          <div className={`w-full h-[171px] justify-end relative`}>
+          <div
+            className={`w-full h-[171px] justify-end relative`}
+            onMouseLeave={() => {
+              if (selectedPoi !== null) setSelectedPoi(null);
+            }}
+          >
             <img
               src={interventions[selectedPoi].image}
               alt="Interventions"
@@ -85,13 +101,11 @@ const InterventionMap = ({
   );
 };
 
-const CustomMarker = ({
-  selected,
-  className,
-}: {
-  selected?: boolean;
+interface CustomMarkerProps extends React.SVGAttributes<SVGElement> {
   className?: string;
-}) => {
+}
+
+const CustomMarker = ({ className, ...props }: CustomMarkerProps) => {
   return (
     <svg
       display="block"
@@ -99,6 +113,7 @@ const CustomMarker = ({
       width="27px"
       viewBox="0 0 27 41"
       className={className}
+      {...props}
     >
       <defs>
         <radialGradient id="shadowGradient">
@@ -114,7 +129,7 @@ const CustomMarker = ({
         fill="url(#shadowGradient)"
       ></ellipse>
       <path
-        fill={selected ? "#009664" : "#707070"}
+        fill={"#009664"}
         d="M27,13.5C27,19.07 20.25,27 14.75,34.5C14.02,35.5 12.98,35.5 12.25,34.5C6.75,27 0,19.22 0,13.5C0,6.04 6.04,0 13.5,0C20.96,0 27,6.04 27,13.5Z"
       ></path>
       <path
