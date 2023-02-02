@@ -122,4 +122,9 @@
   .background-position-2 {
     background-position: right -10px bottom -80px;
   }
+
+  .background-fleet {
+    background-image: url("/truck.svg");
+    background-size: 94.87px 75.38px;
+  }
 }
