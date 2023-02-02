@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import TolocarLogoSvg from "../assets/tolocar_logo.svg";
-import ArrowSvg from "@components/ArrowSvg";
+import React, { useState, useEffect } from "react";
+import { ReactComponent as TolocarLogoSvg } from "@assets/tolocar_logo.svg";
+import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 import LanguageUtils from "@util/LanguageUtils";
 import type { IMenuItem } from "@interfaces/IMenu";
 
@@ -10,6 +10,7 @@ interface Props {
   path?: string;
   menu?: IMenuItem[];
   locale: string;
+  dark?: boolean;
 }
 
 const Navigation: React.FC<Props> = ({
@@ -18,8 +19,24 @@ const Navigation: React.FC<Props> = ({
   className,
   path,
   locale,
+  dark,
 }: Props) => {
   const [showOverlayMenu, setShowOverlayMenu] = useState(false);
+
+  const [scrollTop, setScrollTop] = useState(0);
+  const scrollThreshold = 10;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollTop(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setShowOverlayMenu(!showOverlayMenu);
@@ -40,13 +57,23 @@ const Navigation: React.FC<Props> = ({
     window.location.pathname = newLocation;
   };
 
-  const Image = <img className={`h-8 sm:h-10`} src={TolocarLogoSvg} />;
+  const Image = (
+    <div
+      className={`transition-height duration-500 ease-in-out ${
+        scrollTop < scrollThreshold ? "h-8 md:h-12" : "h-8"
+      }`}
+    >
+      <TolocarLogoSvg className="h-full w-auto" />
+    </div>
+  );
 
   return (
     <div
-      className={`w-full bg-white h-20 fixed flex items-center justify-center top-0 z-20 ${
-        className || ""
-      }`}
+      className={`transition-height duration-500 ease-in-out w-full ${
+        dark ? "bg-neutral-50" : "bg-white"
+      } ${
+        scrollTop < scrollThreshold ? "h-20 md:h-32" : "h-20"
+      } fixed flex items-center justify-center top-0 z-30 ${className || ""}`}
     >
       <div className="container-width justify-between flex">
         {baseUrl ? (
@@ -56,8 +83,8 @@ const Navigation: React.FC<Props> = ({
         ) : (
           Image
         )}
-        <nav className="hidden md:block">
-          <ul className="flex gap-2 text-neutral-500 font-medium font-aktiv text-[15px]">
+        <nav className="hidden md:flex">
+          <ul className="items-center flex gap-2 text-neutral-500 font-medium font-aktiv text-[15px]">
             {menu?.map(
               (item) =>
                 !item.hideInHeader && (
@@ -174,9 +201,9 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
     className={`flex-shrink-0 md:rounded-md overflow-hidden ${className || ""}`}
   >
     <a href={target} onClick={onClick} className="md:hover:text-neutral-800">
-      <div className="flex items-center md:text-base md:font-medium md:px-1 lg:px-3 md:py-2 md:hover:bg-neutral-50 text-2xl font-bold">
+      <div className="font-inter text-[15px] flex items-center md:text-base md:font-medium px-0 md:px-3 py-2 md:hover:bg-neutral-50 text-2xl font-bold">
         {children}
-        <ArrowSvg className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
+        <ArrowIcon className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
       </div>
     </a>
   </li>
@@ -242,9 +269,9 @@ const LanguageSwitcherItem: React.FC<LanguageSwitcherItemProps> = ({
           isSelected ? "text-neutral-800 " : "cursor-pointer "
         }`}
       >
-        <div className="flex items-center md:text-base md:font-medium md:px-1 lg:px-3 md:py-2 text-2xl font-bold">
+        <div className="flex text-[15px] font-inter items-center md:text-base md:font-medium md:px-1 lg:px-3 md:py-2 text-2xl font-bold">
           {children}
-          <ArrowSvg className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
+          <ArrowIcon className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
         </div>
       </a>
     </li>

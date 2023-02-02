@@ -1,5 +1,5 @@
 import React from "react";
-import ArrowSvg from "@assets/arrow.svg";
+import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 
 interface Props {
   title: string;
@@ -45,7 +45,7 @@ const Card: React.FC<Props> = ({
           }`}
         >
           {!small && actionCaption}
-          <img src={ArrowSvg} className="w-8 h-8" />
+          <ArrowIcon className="w-8 h-8" />
         </div>
       )}
       <p className="mt-3 text-lg leading-6 mb-24 md:mb-12">{children}</p>
@@ -55,7 +55,7 @@ const Card: React.FC<Props> = ({
     <div
       className={`flex-1 ${
         small ? "basis-[220px] lg:basis-0 h-auto lg:h-[360px] " : ""
-      }bg-tolo-green text-white p-5 lg:p-8 relative ${bgMapping[bg - 1]} ${
+      }bg-tolo-green text-white p-5 lg:p-8 relative z-20 ${bgMapping[bg - 1]} ${
         className || ""
       }`}
     >

@@ -8,7 +8,8 @@ import "../../base.css";
 
 type Props = MarkdownLayoutProps<{
   title: string;
-  footerGrey: boolean;
+  footerGrey?: boolean;
+  darkNavigation?: boolean;
 }>;
 
 const { frontmatter, footerGrey = false } = Astro.props;
@@ -31,6 +32,8 @@ const menu = rawMenu.find((rawMenu) =>
     .includes(localeFromUrl)
 ).frontmatter?.menu;
 
+const isProduction = import.meta.env.MODE === "production";
+
 ---
 
 <!DOCTYPE html>
@@ -45,22 +48,23 @@ const menu = rawMenu.find((rawMenu) =>
       content="The Tolocar project sends mobile makerspaces into Ukraine to help, empower, equip and train local communities through open technology, knowledge and innovation."
     />
     <meta name="keywords" content="tolocar, makerspaces, ukraine" />
-    <script
+    {isProduction && <script
       async
       defer
       data-website-id="7642c494-7e60-4564-952b-5d0d33e7c16b"
       src="https://analytics.fabcity.hamburg/umami.js"
-    ></script>
+    ></script>}
     <base href={baseUrl} />
     <title>{frontmatter?.title} - Tolocar Project</title>
   </head>
-  <body class="w-full font-inter antialiased h-full">
+  <body class="w-full font-inter antialiased h-full tracking-[-0.02em]">
     <main class="flex flex-col items-center h-full">
       <Navigation
         baseUrl={baseUrl}
         path={path}
         menu={menu}
         locale={localeFromUrl}
+        dark={frontmatter?.darkNavigation || false}
         client:load
       />
       <slot />

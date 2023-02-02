@@ -6,7 +6,7 @@ import {
   ContentSection,
   Card,
   CardContainer,
-  TableOfContents
+  TableOfContents,
 } from "@components";
 import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
 import { getParentPage } from "@util/ContentTransformer";
@@ -17,8 +17,6 @@ import CommonUtils from "@util/CommonUtils";
 const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
   "../pages/en/academy/*/*.mdx"
 );
-
-
 
 const baseUrl = CommonUtils.getBaseUrl(false);
 const { frontmatter, url, file, headings } = Astro.props;
@@ -31,7 +29,7 @@ const parentPage = getParentPage(rawAcademyContent, url);
 
 <BaseLayout frontmatter={frontmatter}>
   <div class="mt-20 container-width">
-    <BackButton target={`${baseUrl}academy`}
+    <BackButton target={`${baseUrl}en/academy`}
       >Back to Academy Overview</BackButton
     >
   </div>
@@ -47,7 +45,7 @@ const parentPage = getParentPage(rawAcademyContent, url);
     class="container-width mt-8 mb-24 flex flex-col md:grid grid-cols-12 gap-8"
   >
     <div class="col-span-4">
-      <TableOfContents title={frontmatter?.title} headlines={headings}/>
+      <TableOfContents title={frontmatter?.title} headlines={headings} />
       <div class="mt-16">
         <span class="font-bold uppercase text-neutral-400 text-[15px]"
           >Last updated</span
@@ -65,7 +63,7 @@ const parentPage = getParentPage(rawAcademyContent, url);
       </div>
     </div>
     <div
-      class="col-span-7 prose prose-lg prose-p:text-neutral-500 prose-li:text-neutral-500 prose-ol:text-neutral-500 prose-p:leading-7 prose-headings:font-aktiv prose-headings:font-semibold"
+      class="col-span-7 default-prose"
     >
       <slot />
     </div>

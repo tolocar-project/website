@@ -2,7 +2,10 @@ import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 
 import HeadlineUnderlined from "./HeadlineUnderlined";
-import { ArrowSvg, FacebookIcon, InstagramIcon, NewsItem } from "@components";
+import { NewsItem } from "@components";
+import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
+import { ReactComponent as InstagramIcon } from "@assets/instagram.svg";
+import { ReactComponent as FacebookIcon } from "@assets/facebook.svg";
 import { INewsItem } from "@interfaces/INews";
 
 interface Props {
@@ -48,8 +51,9 @@ const NewsSlider: React.FC<Props> = ({ news, headline, ...props }) => {
             }`}
             disabled={!prevBtnEnabled}
             onClick={() => emblaApi.scrollPrev()}
+            type="button"
           >
-            <ArrowSvg className="w-4 h-4" />
+            <ArrowIcon className="w-4 h-4" />
           </button>
           <button
             className={`p-3 transition-colors ${
@@ -57,8 +61,9 @@ const NewsSlider: React.FC<Props> = ({ news, headline, ...props }) => {
             }`}
             disabled={!nextBtnEnabled}
             onClick={() => emblaApi.scrollNext()}
+            type="button"
           >
-            <ArrowSvg className="w-4 h-4" />
+            <ArrowIcon className="w-4 h-4" />
           </button>
         </div>
       </div>
