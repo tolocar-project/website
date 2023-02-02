@@ -142,4 +142,9 @@
   .my-map-popup .mapboxgl-popup-tip {
     @apply !hidden;
   }
+  
+  body :is(h1,h2,h3,h4,h5,h5) {
+    @apply tracking-[-0.03em];
+  }
+
 }
