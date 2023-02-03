@@ -1,25 +1,14 @@
 import React from "react";
 import { ReactComponent as CalendarIcon } from "@assets/fa-calendar.svg";
-import { ReactComponent as TruckIcon } from "@assets/fa-truck.svg";
-import { ReactComponent as CogIcon } from "@assets/fa-cog.svg";
-import { ReactComponent as HammerIcon } from "@assets/fa-hammer.svg";
-import { ReactComponent as ToolboxIcon } from "@assets/fa-toolbox.svg";
-import { ReactComponent as ScrewdriverIcon } from "@assets/fa-screwdriver.svg";
 import { ReactComponent as MitOstIcon } from "@assets/MitOst.svg";
 import { ReactComponent as CadusIcon } from "@assets/Cadus.svg";
 import { ReactComponent as HIWWIcon } from "@assets/HIWW.svg";
 import { ReactComponent as OstrivIcon } from "@assets/Ostriv.svg";
+import type { ITolocarsFrontmatter } from "@interfaces/ITolocars";
+import { Tag } from "@components";
 
-interface Props {
+interface Props extends ITolocarsFrontmatter {
   className?: string;
-  title: string;
-  subtitle: string;
-  tag: string;
-  date: string;
-  operator: string;
-  img: string;
-  tagIcon?: "truck" | "hammer" | "cog" | "toolbox" | "screwdriver";
-  operatorIcon?: "mitost" | "cadus" | "hiww" | "ostriv";
 }
 
 const CarCard: React.FC<Props> = ({
@@ -27,26 +16,10 @@ const CarCard: React.FC<Props> = ({
   img,
   title,
   subtitle,
-  tag,
+  tags,
   date,
-  tagIcon,
   operatorIcon,
 }: Props) => {
-  const renderIcon = (icon) => {
-    const iconMapping = {
-      truck: TruckIcon,
-      cog: CogIcon,
-      hammer: HammerIcon,
-      toolbox: ToolboxIcon,
-      screwdriver: ScrewdriverIcon,
-      default: null,
-    };
-
-    const IconComponent = iconMapping[icon || "default"];
-
-    return <IconComponent className="w-5 h-5 inline-block" />;
-  };
-
   const renderOperatorIcon = (icon) => {
     const operatorIconMapping = {
       mitost: MitOstIcon,
@@ -69,10 +42,13 @@ const CarCard: React.FC<Props> = ({
         <h3 className="font-semibold text-2xl font-aktiv line-clamp-1">
           {title}
         </h3>
-        <div className="bg-tolo-green flex gap-2 justify-start items-center px-3 rounded-full text-lg mt-5 h-8 max-w-full line-clamp-1">
-          {tagIcon && renderIcon(tagIcon)}
-          {tag}
-        </div>
+        {Boolean(tags.length) && (
+          <div className="mt-5 max-w-full flex">
+            {tags.map((tag, index) => (
+              <Tag key={index} title={tag}/>
+            ))}
+          </div>
+        )}
         <div className="text-neutral-300 mt-6 flex gap-2 justify-center items-center">
           <CalendarIcon className="w-5 h-5 inline-block" />
           {date}
