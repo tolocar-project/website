@@ -25,18 +25,19 @@ const trimmedAndSorted = trimAndSortTolocars(rawTolocarsContent);
     title="Our Fleet"
     text="Overview of our past, current and planned Tolocars"
   />
-  <div class="container-width mb-8 mt-44 md:mt-14 lg:-mt-32 lg:mb-24">
+  <div class="container-width mb-8 mt-28 md:-mt-12 lg:-mt-36 lg:mb-24">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {
         trimmedAndSorted.map((tolocar) => (
           <CarCard
-            href={tolocar.url}
+            {
+            /* href={tolocar.url} */ }
             title={tolocar.frontmatter?.title}
             car={tolocar.frontmatter?.car}
             date={tolocar.frontmatter?.date}
             tags={tolocar.frontmatter?.tags?.slice(0, 2)}
             img={tolocar.frontmatter?.img}
-            operatorIcon={tolocar.frontmatter?.operatorIcon}
+            operators={tolocar.frontmatter?.operators?.slice(0, 2)}
           />
         ))
       }

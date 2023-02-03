@@ -29,3 +29,4 @@ export { default as CommunityHeader } from "@components/CommunityHeader";
 export { default as TolocarsHeader } from "@components/TolocarsHeader";
 export { default as Tag } from "@components/Tag";
 export { default as TolocarsSingleViewHeading } from "@components/TolocarsSingleViewHeading";
+export { default as LinkWrapper } from "@components/LinkWrapper";

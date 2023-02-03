@@ -23,11 +23,11 @@ const TolocarsHeader: React.FC<Props> = ({ className, title, text }: Props) => {
             {text}
           </div>
         </div>
-        <div className="flex-1 flex flex-col gap-4 p-8 bg-tolo-green background-fleet bg-no-repeat bg-right-top text-white h-full w-full lg:mb-[126px]">
-          <h3 className="font-semibold text-2xl font-aktiv">
+        <div className="flex-1 flex flex-col gap-4 p-8 bg-tolo-green bg-[size:94.87px_75.38px] bg-[url('truck.svg')] bg-no-repeat bg-[right_top_-20px] text-white h-full w-full mb-44 lg:mb-32 font-aktiv">
+          <h3 className="font-semibold text-xl leading-6 lg:text-2xl">
             What is a Tolocar?
           </h3>
-          <span className="text-lg font-normal tracking-tight">
+          <span className="text-base lg:text-lg font-normal tracking-tight">
             <strong>
               A Tolocar is a converted van that offers the possibilities of a
               makerspace or fablab on wheels.

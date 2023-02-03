@@ -1,4 +1,5 @@
 import React from "react";
+import { LinkWrapper } from "@components";
 
 interface Props {
   className?: string;
@@ -42,8 +43,5 @@ const CommunityGridCard: React.FC<Props> = ({
     </div>
   );
 };
-
-const LinkWrapper = ({ condition, wrapper, children }) =>
-  condition ? wrapper(children) : children;
 
 export default CommunityGridCard;

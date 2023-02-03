@@ -123,11 +123,6 @@
     background-position: right -10px bottom -80px;
   }
 
-  .background-fleet {
-    background-image: url("/truck.svg");
-    background-size: 94.87px 75.38px;
-  }
-
   .default-prose {
     @apply prose prose-lg prose-p:text-neutral-500 prose-li:text-neutral-500 prose-ol:text-neutral-500 prose-p:leading-7 prose-headings:font-aktiv prose-headings:font-semibold prose-strong:text-neutral-900;
   }
