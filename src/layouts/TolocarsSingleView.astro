@@ -2,13 +2,11 @@
 import BaseLayout from "./BaseLayout.astro";
 import { ITolocarsFrontmatter } from "@interfaces/ITolocars";
 import {
-  TolocarsHeader,
-  CarCard,
+  TolocarsSingleViewHeading,
   ContentSection,
-  Card,
   CardContainer,
+  Card,
 } from "@components";
-import { trimAndSortTolocars } from "@util/ContentTransformer";
 
 const { frontmatter, url, file, headings } = Astro.props;
 
@@ -16,32 +14,24 @@ const rawTolocarsContent = await Astro.glob<ITolocarsFrontmatter>(
   "../pages/en/tolocars/*.mdx"
 );
 
-const trimmedAndSorted = trimAndSortTolocars(rawTolocarsContent);
+const rawTolocarsContentWithoutIndex = rawTolocarsContent.filter(
+  (tolocar) => !tolocar.file.includes("index.mdx")
+);
 ---
 
 <BaseLayout footerGrey={true} frontmatter={frontmatter}>
-  <TolocarsHeader
-    className="-z-10"
-    title="Our Fleet"
-    text="Overview of our past, current and planned Tolocars"
-  />
-  <div class="container-width mb-8 mt-44 md:mt-14 lg:-mt-32 lg:mb-24">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {
-        trimmedAndSorted.map((tolocar) => (
-          <CarCard
-            href={tolocar.url}
-            title={tolocar.frontmatter?.title}
-            car={tolocar.frontmatter?.car}
-            date={tolocar.frontmatter?.date}
-            tags={tolocar.frontmatter?.tags?.slice(0, 2)}
-            img={tolocar.frontmatter?.img}
-            operatorIcon={tolocar.frontmatter?.operatorIcon}
-          />
-        ))
-      }
-    </div>
+  <div class="container-width-hero">
+    <TolocarsSingleViewHeading
+      title={frontmatter.title}
+      subtitle={frontmatter.subtitle}
+      img={frontmatter.img}
+    />
   </div>
+  <ContentSection variant="white">
+    <div class="container-width my-10 lg:mt-14 lg:mb-[60px] default-prose">
+      <slot />
+    </div>
+  </ContentSection>
   <ContentSection>
     <div class="absolute w-full bg-white h-64 top-0"></div>
     <CardContainer className="lg:h-[408px]">

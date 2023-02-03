@@ -26,7 +26,7 @@ const Tag: React.FC<Props> = ({ className, title, tagIcon }: Props) => {
   };
   return (
     <span
-      className={`flex gap-2 justify-start items-center bg-tolo-green rounded-full px-4 py-1 text-lg leading-6 font-medium text-white mr-2 mb-2 line-clamp-1 ${
+      className={`flex gap-2 justify-start items-center bg-tolo-green rounded-full px-4 py-1 text-lg leading-6 font-medium text-white mr-2 mb-1 ${
         className || ""
       }`}
     >
