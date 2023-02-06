@@ -31,11 +31,11 @@ const InterventionSingleViewHeading: React.FC<Props> = ({
         </div>
       )}
       {title && (
-        <h1 className="text-[32px] leading-10 md:text-5xl md:leading-[54px] font-semibold mb-5">
+        <h1 className="text-[32px] leading-10 md:text-5xl md:leading-[52px] font-semibold mb-5 font-aktiv">
           {title}
         </h1>
       )}
-      <div className="text-lg leading-6 text-neutral-500 flex flex-col items-start md:items-center gap-y-2 font-medium">
+      <div className="text-base leading-5 md:text-lg md:leading-6 text-neutral-500 flex flex-col items-start md:items-center gap-y-2 font-medium">
         {subtitle && <p>{subtitle}</p>}
         <div className="hidden md:block">
           <div className="flex items-center gap-2 md:gap-3">
@@ -60,9 +60,9 @@ const InterventionSingleViewHeading: React.FC<Props> = ({
           </div>
         </div>
         <div className="md:hidden">
-          <div className="flex flex-col items-start gap-2 md:gap-3">
+          <div className="flex flex-col items-start gap-2 md:gap-3 leading-4">
             {date && <span>{date}</span>}
-            <span className="leading-[18px] flex items-center gap-2 md:gap-3">
+            <span className="flex items-center gap-2 md:gap-3">
               {location && (
                 <>
                   <LocationIcon className="h-5 w-[15px]" />

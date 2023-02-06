@@ -60,7 +60,7 @@ const Navigation: React.FC<Props> = ({
   const Image = (
     <div
       className={`transition-height duration-500 ease-in-out ${
-        scrollTop < scrollThreshold ? "h-8 md:h-12" : "h-8"
+        scrollTop < scrollThreshold ? "h-8 lg:h-12" : "h-8"
       }`}
     >
       <TolocarLogoSvg className="h-full w-auto" />
@@ -72,7 +72,7 @@ const Navigation: React.FC<Props> = ({
       className={`transition-height duration-500 ease-in-out w-full ${
         dark ? "bg-neutral-50" : "bg-white"
       } ${
-        scrollTop < scrollThreshold ? "h-20 md:h-32" : "h-20"
+        scrollTop < scrollThreshold ? "h-20 lg:h-32" : "h-20"
       } fixed flex items-center justify-center top-0 z-30 ${className || ""}`}
     >
       <div className="container-width justify-between flex">
@@ -83,7 +83,7 @@ const Navigation: React.FC<Props> = ({
         ) : (
           Image
         )}
-        <nav className="hidden md:flex">
+        <nav className="hidden lg:flex">
           <ul className="items-center flex gap-2 text-neutral-500 font-medium font-aktiv text-[15px]">
             {menu?.map(
               (item) =>
@@ -114,7 +114,7 @@ const Navigation: React.FC<Props> = ({
             </ul>
           </ul>
         </nav>
-        <div className="flex items-center md:hidden bg-white box-border z-20">
+        <div className="flex items-center lg:hidden bg-white box-border z-20">
           <HamburgerButton onClick={toggleMenu} isOpen={showOverlayMenu} />
         </div>
         <OverlayMenu

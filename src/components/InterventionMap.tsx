@@ -13,7 +13,7 @@ const InterventionMap = ({
   token: string;
   bounds: [[number, number], [number, number]];
 }) => {
-  const [selectedPoi, setSelectedPoi] = useState<number>(1);
+  const [selectedPoi, setSelectedPoi] = useState<number>(null);
   const [isMarkerClicked, setIsMarkerClicked] = useState(false);
 
   const { width } = useWindowSize();

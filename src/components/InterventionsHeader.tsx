@@ -13,9 +13,9 @@ const InterventionsHeader: React.FC<Props> = ({
   text,
 }: Props) => {
   return (
-    <div className={`w-full lg:pt-16  mt-14 sm:mt-20 ${className || ""}`}>
+    <div className={`w-full lg:pt-16 mt-32 ${className || ""}`}>
       <div className="container-width">
-        <HeadlineUnderlined large variant={10} className="mt-8">
+        <HeadlineUnderlined large variant={10}>
           {title}
         </HeadlineUnderlined>
         <div className="flex justify-center pt-8 pb-16 lg:pb-24 lg:w-[696px] h-full items-start text-lg text-neutral-400">

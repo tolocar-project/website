@@ -14,7 +14,9 @@ const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
   "../pages/en/interventions/*.mdx"
 );
 
-const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(intervention => !intervention.file.includes("index.mdx"))
+const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(
+  (intervention) => !intervention.file.includes("index.mdx")
+);
 
 const relatedInterventions = rawInterventionsContentWithoutIndex.filter(
   (interventionFromFilesystem) =>
@@ -34,10 +36,7 @@ const relatedInterventions = rawInterventionsContentWithoutIndex.filter(
       car={frontmatter.car}
       location={frontmatter.location}
     />
-    <InterventionImageCarousel
-      images={frontmatter.images}
-      client:load
-    />
+    <InterventionImageCarousel images={frontmatter.images} client:load />
   </div>
   <ContentSection variant="white">
     <div class="container-width my-10 lg:mt-14 lg:mb-[60px] default-prose">
