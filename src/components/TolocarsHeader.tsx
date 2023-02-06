@@ -23,19 +23,19 @@ const TolocarsHeader: React.FC<Props> = ({ className, title, text }: Props) => {
             {text}
           </div>
         </div>
-        <div className="flex-1 flex flex-col gap-4 p-8 bg-tolo-green bg-[size:94.87px_75.38px] bg-[url('truck.svg')] bg-no-repeat bg-[right_top_-20px] text-white h-full w-full mb-44 lg:mb-32 font-aktiv">
-          <h3 className="font-semibold text-xl leading-6 lg:text-2xl">
+        <div className="flex-1 flex flex-col gap-4 p-8 bg-tolo-green bg-[size:94.87px_75.38px] bg-[url('truck.svg')] bg-no-repeat bg-[right_top_-20px] text-white h-full w-full mb-44 lg:mb-32 ">
+          <h3 className="font-semibold text-xl leading-6 lg:text-2xl font-aktiv">
             What is a Tolocar?
           </h3>
-          <span className="text-base lg:text-lg font-normal tracking-tight">
-            <strong>
-              A Tolocar is a converted van that offers the possibilities of a
-              makerspace or fablab on wheels.
-            </strong>{" "}
-            This means they bring the capacity of high end manufacturing or
-            diagnosis technologies to the point of need to enable communities to
-            replicate some of the capabilities and so to catalyze rebuilding
-            efforts and establish support networks.
+          <span className="text-base lg:text-lg font-medium tracking-tight">
+            A Tolocar is a converted van that offers the possibilities of a
+            makerspace or fablab on wheels.
+            <span className="font-normal opacity-70">
+              This means they bring the capacity of high end manufacturing or
+              diagnosis technologies to the point of need to enable communities
+              to replicate some of the capabilities and so to catalyze
+              rebuilding efforts and establish support networks.
+            </span>
           </span>
         </div>
       </div>
