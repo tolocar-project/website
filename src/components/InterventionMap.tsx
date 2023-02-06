@@ -2,6 +2,7 @@ import { useState } from "react";
 import Map, { Marker, NavigationControl, Popup } from "react-map-gl";
 import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 import { IInterventionPoi } from "@interfaces/IIntervention";
+import useWindowSize from "../util/useWindowSize";
 
 const InterventionMap = ({
   interventions,
@@ -12,8 +13,10 @@ const InterventionMap = ({
   token: string;
   bounds: [[number, number], [number, number]];
 }) => {
-  const [selectedPoi, setSelectedPoi] = useState<number>(null);
+  const [selectedPoi, setSelectedPoi] = useState<number>(1);
   const [isMarkerClicked, setIsMarkerClicked] = useState(false);
+
+  const { width } = useWindowSize();
 
   return (
     <Map
@@ -34,22 +37,30 @@ const InterventionMap = ({
               className="transition duration-200 ease-in-out hover:scale-125 cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation();
-                setIsMarkerClicked(true);
-                setSelectedPoi(index);
+                if (width > 1024) {
+                  window.location.href = interventions[selectedPoi].url;
+                } else {
+                  setIsMarkerClicked(true);
+                  setSelectedPoi(index);
+                }
               }}
               onMouseEnter={() => {
-                if (selectedPoi !== index) setSelectedPoi(index);
+                if (!isMarkerClicked) {
+                  if (selectedPoi !== index) setSelectedPoi(index);
+                }
               }}
               onMouseLeave={(e) => {
-                const movedToPopup =
-                  Boolean((e.relatedTarget as HTMLElement).closest) &&
-                  Boolean(
-                    (e.relatedTarget as HTMLElement).closest(".my-map-popup")
-                  );
-                if (movedToPopup) {
-                  e.stopPropagation();
-                } else {
-                  setSelectedPoi(null);
+                if (!isMarkerClicked) {
+                  const movedToPopup =
+                    Boolean((e.relatedTarget as HTMLElement).closest) &&
+                    Boolean(
+                      (e.relatedTarget as HTMLElement).closest(".my-map-popup")
+                    );
+                  if (movedToPopup) {
+                    e.stopPropagation();
+                  } else {
+                    setSelectedPoi(null);
+                  }
                 }
               }}
             />
@@ -63,41 +74,40 @@ const InterventionMap = ({
           closeButton={false}
           className="my-map-popup"
           maxWidth="none"
-          offset={25}
+          offset={30}
           onClose={() => {
             setSelectedPoi(null);
             setIsMarkerClicked(false);
           }}
           closeOnClick
         >
-          <div
-            className={`w-full h-[171px] justify-end relative`}
-            onMouseLeave={() => {
-              if (selectedPoi !== null && !isMarkerClicked)
-                setSelectedPoi(null);
-            }}
-          >
-            <img
-              src={interventions[selectedPoi].image}
-              alt="Interventions"
-              className="h-[171px] w-full object-cover"
-            />
-            <div className="h-full w-full absolute top-0 bg-gradient-to-b from-transparent to-black opacity-80" />
+          <a className="outline-none" href={interventions[selectedPoi].url}>
+            <div
+              className={`w-full h-[171px] justify-end relative`}
+              onMouseLeave={() => {
+                if (selectedPoi !== null && !isMarkerClicked)
+                  setSelectedPoi(null);
+              }}
+            >
+              <img
+                src={interventions[selectedPoi].image}
+                alt="Interventions"
+                className="h-[171px] w-full object-cover"
+              />
+              <div className="h-full w-full absolute top-0 bg-gradient-to-b from-transparent to-black opacity-80" />
 
-            <a href={interventions[selectedPoi].url}>
               <ArrowIcon className="absolute top-4 right-4 z-10 text-white h-6 w-6" />
-            </a>
-            <div className="absolute bottom-0 flex flex-col gap-1.5 p-4">
-              <a href={interventions[selectedPoi].url}>
+
+              <div className="absolute bottom-0 flex flex-col gap-1.5 p-4">
                 <span className="text-sm leading-[14px] opacity-70">
                   {interventions[selectedPoi].date}
                 </span>
                 <h3 className="text-base font-semibold leading-4">
                   {interventions[selectedPoi].title}
                 </h3>
-              </a>
+              </div>
             </div>
-          </div>
+          </a>
         </Popup>
       )}
 
