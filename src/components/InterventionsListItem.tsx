@@ -28,9 +28,9 @@ const InterventionsListItem: React.FC<Props> = ({
       </div>
       <a
         href={href}
-        className="group hover:-translate-y-4 transition-transform"
+        className="group hover:translate-x-4 transition-transform mt-20"
       >
-        <div className="flex flex-col mt-20 lg:flex-row overflow-hidden z-10 gap-8">
+        <div className="flex flex-col lg:flex-row overflow-hidden z-10 gap-8">
           {image && (
             <div className="flex-none w-full lg:w-96 h-64 relative overflow-hidden">
               <img
