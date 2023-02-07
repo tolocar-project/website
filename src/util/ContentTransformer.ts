@@ -3,6 +3,7 @@ import type {
   AcademyPageFrontmatter,
 } from "@interfaces/IAcademy";
 import type { MDXInstance } from "astro";
+import type { IProjectsFrontmatter } from "@interfaces/IProjects";
 
 export function flatAcademyContentMap(
   rawAcademyContent: MDXInstance<AcademyPageFrontmatter>[]
@@ -65,4 +66,19 @@ export function transformAcademy(rawAcademyContent) {
   });
 
   return coursesAndLessons;
+}
+
+export function trimAndSortProjects(
+  rawProjectsContent: MDXInstance<IProjectsFrontmatter>[],
+  count?: number
+) {
+  const rawSortedProjectsContentWithoutIndex = rawProjectsContent
+    .filter((project) => !project.file.includes("index.mdx"))
+    .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
+
+  const trimmedProjects = count
+    ? rawSortedProjectsContentWithoutIndex.slice(0, count)
+    : rawSortedProjectsContentWithoutIndex;
+
+  return trimmedProjects;
 }

@@ -127,8 +127,16 @@
     @apply prose prose-lg prose-p:text-neutral-500 prose-li:text-neutral-500 prose-ol:text-neutral-500 prose-p:leading-7 prose-headings:font-aktiv prose-headings:font-semibold prose-strong:text-neutral-900;
   }
 
-  body :is(h1,h2,h3,h4,h5,h5) {
+  body :is(h1, h2, h3, h4, h5, h5) {
     @apply tracking-[-0.03em];
   }
 
+  .projects-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.217) 40.39%,
+      rgba(0, 0, 0, 0.7) 74.77%
+    );
+  }
 }
