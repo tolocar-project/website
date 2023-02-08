@@ -8,7 +8,7 @@ interface Props {
 const SideBySide: React.FC<Props> = ({ children, className }: Props) => {
   return (
     <div
-      className={`container-width flex flex-col sm:flex-row gap-6 sm:gap-16 sm:pr-16 ${
+      className={`container-width flex flex-col sm:flex-row sm:gap-16 sm:pr-16 ${
         className || ""
       }`}
     >
