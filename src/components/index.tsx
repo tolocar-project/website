@@ -29,3 +29,4 @@ export { default as CommunityHeader } from "@components/CommunityHeader";
 export { default as ProjectsHeader } from "@components/ProjectsHeader";
 export { default as ProjectCard } from "@components/ProjectCard";
 export { default as LinkWrapper } from "@components/LinkWrapper";
+export { default as ProjectsHeroImage } from "@components/ProjectsHeroImage";

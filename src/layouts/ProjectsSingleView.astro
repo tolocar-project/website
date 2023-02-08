@@ -1,0 +1,99 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import {
+  ProjectsHeroImage,
+  BackButton,
+  ContentSection,
+  Card,
+  CardContainer,
+  TableOfContents,
+} from "@components";
+import type { IProjectsFrontmatter } from "@interfaces/IProjects";
+import { getParentPage } from "@util/ContentTransformer";
+import fs from "node:fs";
+import Giscus from "@components/Giscus.astro";
+import CommonUtils from "@util/CommonUtils";
+
+const rawProjectsContent = await Astro.glob<IProjectsFrontmatter>(
+  "../pages/en/projects/*.mdx"
+);
+
+const baseUrl = CommonUtils.getBaseUrl(false);
+const { frontmatter, url, file, headings } = Astro.props;
+
+const statsMtime = fs.statSync(file).mtime;
+const editDate = new Date(statsMtime);
+
+const parentPage = getParentPage(rawProjectsContent, url);
+---
+
+<BaseLayout frontmatter={frontmatter}>
+  <div class="mt-20 container-width">
+    <BackButton target={`${baseUrl}en/projects`}
+      >Back to Project Overview</BackButton
+    >
+  </div>
+  <div class="container-width-hero">
+    <ProjectsHeroImage
+      title={frontmatter?.title}
+      teaser={frontmatter?.teaser}
+      img={frontmatter?.img || parentPage.frontmatter?.img}
+    />
+  </div>
+  <div
+    class="container-width mt-8 mb-24 flex flex-col md:grid grid-cols-12 gap-8"
+  >
+    <div class="col-span-4">
+      <TableOfContents title={frontmatter?.title} headlines={headings} />
+      <div class="mt-16">
+        <span class="font-bold uppercase text-neutral-400 text-[15px]"
+          >Last updated</span
+        ><br />
+        <span class="font-medium text-lg text-neutral-900"
+          >{
+            editDate.toLocaleDateString("en", {
+              timeZone: "Europe/Berlin",
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })
+          }
+        </span>
+      </div>
+    </div>
+    <div
+      class="col-span-7 default-prose"
+    >
+      <slot />
+    </div>
+  </div>
+  {!frontmatter.disableComments && <Giscus />}
+
+  <ContentSection variant="white">
+    <div
+      class:list={`absolute w-full h-64 top-0 ${
+        frontmatter.disableComments ? "bg-white" : "bg-neutral-50"
+      }`}
+    >
+    </div>
+    <CardContainer className="lg:h-[408px]">
+      <Card
+        title="You are based in Ukraine and think we could help you?"
+        bg={4}
+        target="mailto:info@tolocar.org"
+        actionCaption="Get in contact"
+        >Schools, universities, NGOs, Startups and other organizations can reach
+        out to us to request the Tolocars for projects, workshops and trainings.</Card
+      >
+      <Card
+        title="You are a Maker and want to partner with us?"
+        bg={5}
+        target="mailto:info@tolocar.org"
+        actionCaption="Get in contact"
+        >We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other
+        Communities who wants to partner with us in the Ukraine and
+        internationally over the internet.</Card
+      >
+    </CardContainer>
+  </ContentSection>
+</BaseLayout>

@@ -27,8 +27,7 @@ const trimmedAndSorted = trimAndSortProjects(rawProjectsContent);
       {
         trimmedAndSorted.map((project) => (
           <ProjectCard
-            {
-            /* href={project.url} */ }
+            href={project.url}
             title={project.frontmatter?.title}
             teaser={project.frontmatter?.teaser}
             img={project.frontmatter?.img}
