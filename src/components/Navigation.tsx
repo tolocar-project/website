@@ -26,6 +26,24 @@ const Navigation: React.FC<Props> = ({
   const [scrollTop, setScrollTop] = useState(0);
   const scrollThreshold = 10;
 
+  const [navBarBgColor, setNavBarBgColor] = useState(false);
+
+  useEffect(() => {
+    const changeBackgroundColor = (e) => {
+      if (e.target.scrollTop > scrollThreshold) {
+        setNavBarBgColor(true);
+      } else {
+        setNavBarBgColor(false);
+      }
+    };
+
+    window.addEventListener("scroll", changeBackgroundColor, true);
+
+    return () => {
+      window.removeEventListener("scroll", changeBackgroundColor);
+    };
+  }, [scrollTop]);
+
   useEffect(() => {
     const handleScroll = (e) => {
       setScrollTop(e.target.scrollTop);
@@ -70,7 +88,7 @@ const Navigation: React.FC<Props> = ({
   return (
     <div
       className={`transition-height duration-500 ease-in-out w-full ${
-        dark ? "bg-neutral-50" : "bg-white"
+        dark ? (navBarBgColor ? "bg-white" : "bg-neutral-50") : "bg-white"
       } ${
         scrollTop < scrollThreshold ? "h-20 md:h-32" : "h-20"
       } fixed flex items-center justify-center top-0 z-30 ${className || ""}`}
@@ -114,7 +132,11 @@ const Navigation: React.FC<Props> = ({
             </ul>
           </ul>
         </nav>
-        <div className="flex items-center md:hidden bg-white box-border z-20">
+        <div
+          className={`flex items-center md:hidden ${
+            dark ? (navBarBgColor ? "bg-white" : "bg-neutral-50") : "bg-white"
+          } box-border z-20`}
+        >
           <HamburgerButton onClick={toggleMenu} isOpen={showOverlayMenu} />
         </div>
         <OverlayMenu
