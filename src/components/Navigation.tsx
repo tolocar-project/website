@@ -30,11 +30,7 @@ const Navigation: React.FC<Props> = ({
 
   useEffect(() => {
     const changeBackgroundColor = (e) => {
-      if (e.target.scrollTop > scrollThreshold) {
-        setHasWhiteBackground(true);
-      } else {
-        setHasWhiteBackground(false);
-      }
+      setHasWhiteBackground(e.target.scrollTop > scrollThreshold);
     };
 
     window.addEventListener("scroll", changeBackgroundColor, true);
@@ -134,7 +130,11 @@ const Navigation: React.FC<Props> = ({
         </nav>
         <div
           className={`flex items-center md:hidden ${
-            dark ? (hasWhiteBackground ? "bg-white" : "bg-neutral-50") : "bg-white"
+            dark
+              ? hasWhiteBackground
+                ? "bg-white"
+                : "bg-neutral-50"
+              : "bg-white"
           } box-border z-20`}
         >
           <HamburgerButton onClick={toggleMenu} isOpen={showOverlayMenu} />
