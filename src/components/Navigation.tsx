@@ -27,16 +27,16 @@ const Navigation: React.FC<Props> = ({
   const scrollThreshold = 10;
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollTop(window.scrollY);
+    const handleScroll = (e) => {
+      setScrollTop(e.target.scrollTop);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, true);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [scrollTop]);
 
   const toggleMenu = () => {
     setShowOverlayMenu(!showOverlayMenu);
