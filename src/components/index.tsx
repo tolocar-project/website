@@ -26,3 +26,4 @@ export { default as ImpactListItem } from "@components/ImpactListItem";
 export { default as CommunityBanner } from "@components/CommunityBanner";
 export { default as CommunityGridCard } from "@components/CommunityGridCard";
 export { default as CommunityHeader } from "@components/CommunityHeader";
+export { default as LanguageSwitcher } from "@components/LanguageSwitcher";
