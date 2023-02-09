@@ -26,17 +26,31 @@ const Navigation: React.FC<Props> = ({
   const [scrollTop, setScrollTop] = useState(0);
   const scrollThreshold = 10;
 
+  const [hasWhiteBackground, setHasWhiteBackground] = useState(false);
+
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollTop(window.scrollY);
+    const changeBackgroundColor = (e) => {
+      setHasWhiteBackground(e.target.scrollTop > scrollThreshold);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", changeBackgroundColor, true);
+
+    return () => {
+      window.removeEventListener("scroll", changeBackgroundColor);
+    };
+  }, [scrollTop]);
+
+  useEffect(() => {
+    const handleScroll = (e) => {
+      setScrollTop(e.target.scrollTop);
+    };
+
+    window.addEventListener("scroll", handleScroll, true);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [scrollTop]);
 
   const toggleMenu = () => {
     setShowOverlayMenu(!showOverlayMenu);
@@ -55,7 +69,7 @@ const Navigation: React.FC<Props> = ({
   return (
     <div
       className={`transition-height duration-500 ease-in-out w-full ${
-        dark ? "bg-neutral-50" : "bg-white"
+        dark ? (hasWhiteBackground ? "bg-white" : "bg-neutral-50") : "bg-white"
       } ${
         scrollTop < scrollThreshold ? "h-20 md:h-32" : "h-20"
       } fixed flex items-center justify-center top-0 z-30 ${className || ""}`}
