@@ -33,7 +33,6 @@ const Navigation: React.FC<Props> = ({
 
   useEffect(() => {
     if (width > 768) {
-      console.log("Closing Menu", width);
       setShowOverlayMenu(false);
     }
   }, [width]);
