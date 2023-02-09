@@ -84,7 +84,7 @@ const Navigation: React.FC<Props> = ({
           Image
         )}
         <nav className="hidden md:flex">
-          <ul className="items-center flex gap-2 text-neutral-500 font-medium font-aktiv text-[15px]">
+          <ul className="items-center flex gap-2 text-neutral-500 font-medium text-[15px]">
             {menu?.map(
               (item) =>
                 !item.hideInHeader && (
@@ -93,7 +93,7 @@ const Navigation: React.FC<Props> = ({
                   </MenuListItem>
                 )
             )}
-            <ul className="flex items-center">
+            <ul className="flex items-center gap-2 lg:pl-[38px]">
               <LanguageSwitcherItem
                 onClick={() => {
                   changeLanguage("ua");
@@ -115,6 +115,28 @@ const Navigation: React.FC<Props> = ({
           </ul>
         </nav>
         <div className="flex items-center md:hidden bg-white box-border z-20">
+          {showOverlayMenu && (
+            <ul className="flex items-center gap-3 text-neutral-500 font-medium mr-4">
+              <LanguageSwitcherItem
+                onClick={() => {
+                  changeLanguage("ua");
+                }}
+                isSelected={locale === "ua"}
+              >
+                UA
+              </LanguageSwitcherItem>
+              <span className="text-base">/</span>
+              <LanguageSwitcherItem
+                onClick={() => {
+                  changeLanguage("en");
+                }}
+                isSelected={locale === "en"}
+              >
+                EN
+              </LanguageSwitcherItem>
+            </ul>
+          )}
+
           <HamburgerButton onClick={toggleMenu} isOpen={showOverlayMenu} />
         </div>
         <OverlayMenu
@@ -142,7 +164,7 @@ const HamburgerButton: React.FC<HamburgerButtonProps> = ({
   return (
     <button
       type="button"
-      className="p-2 inline-flex items-center justify-center text-neutral-400"
+      className="inline-flex items-center justify-center text-neutral-400"
       aria-expanded="false"
       onClick={onClick}
     >
@@ -201,7 +223,7 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
     className={`flex-shrink-0 md:rounded-md overflow-hidden ${className || ""}`}
   >
     <a href={target} onClick={onClick} className="md:hover:text-neutral-800">
-      <div className="font-inter text-[15px] flex items-center md:text-base md:font-medium px-0 md:px-3 py-2 md:hover:bg-neutral-50 text-2xl font-bold">
+      <div className="font-aktiv md:font-inter text-[15px] flex items-center md:text-base md:font-medium px-0 md:px-3 py-2 md:hover:bg-neutral-50 text-2xl font-bold">
         {children}
         <ArrowIcon className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
       </div>
@@ -269,9 +291,8 @@ const LanguageSwitcherItem: React.FC<LanguageSwitcherItemProps> = ({
           isSelected ? "text-neutral-800 " : "cursor-pointer "
         }`}
       >
-        <div className="flex text-[15px] font-inter items-center md:text-base md:font-medium md:px-1 lg:px-3 md:py-2 text-2xl font-bold">
+        <div className="flex text-lg lg:text-[15px] font-inter items-center md:text-base md:font-medium">
           {children}
-          <ArrowIcon className="md:hidden shrink-0 ml-4 text-tolo-green w-6 h-6" />
         </div>
       </a>
     </li>
