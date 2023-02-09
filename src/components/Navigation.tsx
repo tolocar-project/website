@@ -3,6 +3,7 @@ import { ReactComponent as TolocarLogoSvg } from "@assets/tolocar_logo.svg";
 import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 import type { IMenuItem } from "@interfaces/IMenu";
 import { LanguageSwitcher } from "@components";
+import useCurrentWidth from "@util/useCurrentWidth";
 
 interface Props {
   className?: string;
@@ -27,6 +28,15 @@ const Navigation: React.FC<Props> = ({
   const scrollThreshold = 10;
 
   const [hasWhiteBackground, setHasWhiteBackground] = useState(false);
+
+  const width = useCurrentWidth();
+
+  useEffect(() => {
+    if (width > 768) {
+      console.log("Closing Menu", width);
+      setShowOverlayMenu(false);
+    }
+  }, [width]);
 
   useEffect(() => {
     const changeBackgroundColor = (e) => {
@@ -118,7 +128,12 @@ const Navigation: React.FC<Props> = ({
           menu={menu}
         />
         {showOverlayMenu && (
-          <div className="fixed top-0 left-0 w-full h-full bg-black/60" />
+          <div
+            onClick={() => {
+              setShowOverlayMenu(false);
+            }}
+            className="fixed top-0 left-0 w-full h-full md:hidden bg-black/60"
+          />
         )}
       </div>
     </div>
@@ -218,7 +233,7 @@ const OverlayMenu: React.FC<OverlayMenuProps> = ({
   return (
     <div
       className={`fixed z-10 top-0 inset-x-0 transition transform origin-top-right${
-        show ? "" : " hidden"
+        show ? " md:hidden" : " hidden"
       }`}
     >
       <div className="bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
