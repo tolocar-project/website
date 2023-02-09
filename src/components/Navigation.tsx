@@ -96,6 +96,7 @@ const Navigation: React.FC<Props> = ({
               path={path}
               locale={locale}
               className="gap-2 lg:pl-[38px]"
+              baseUrl={baseUrl}
             />
           </ul>
         </nav>
@@ -104,6 +105,7 @@ const Navigation: React.FC<Props> = ({
             <LanguageSwitcher
               path={path}
               locale={locale}
+              baseUrl={baseUrl}
               className="gap-3 text-neutral-500 font-medium mr-4"
             />
           )}
