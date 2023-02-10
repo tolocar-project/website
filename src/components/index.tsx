@@ -35,3 +35,4 @@ export { default as InterventionsListItem } from "@components/InterventionsListI
 export { default as InterventionMap } from "@components/InterventionMap";
 export { default as InterventionsMapSection } from "@components/InterventionsMapSection.astro";
 export { default as InterventionsMapDataWrapper } from "@components/InterventionsMapDataWrapper.astro";
+export { default as LanguageSwitcher } from "@components/LanguageSwitcher";
