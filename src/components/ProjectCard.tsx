@@ -1,7 +1,7 @@
 import React from "react";
 import type { IProjectsFrontmatter } from "@interfaces/IProjects";
 import { ReactComponent as ArrowUpIcon } from "@assets/arrow-up.svg";
-import { LinkWrapper } from "@components";
+import { ConditionalLinkWrapper } from "@components";
 
 interface Props extends IProjectsFrontmatter {
   className?: string;
@@ -16,7 +16,7 @@ const ProjectCard: React.FC<Props> = ({
   href,
 }) => {
   return (
-    <LinkWrapper
+    <ConditionalLinkWrapper
       condition={Boolean(href)}
       wrapper={(children) => <a href={href}>{children}</a>}
     >
@@ -37,7 +37,7 @@ const ProjectCard: React.FC<Props> = ({
           {teaser && <p className="font-medium text-lg leading-7">{teaser}</p>}
         </div>
       </div>
-    </LinkWrapper>
+    </ConditionalLinkWrapper>
   );
 };
 

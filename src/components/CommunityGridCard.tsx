@@ -1,4 +1,5 @@
 import React from "react";
+import { ConditionalLinkWrapper } from "@components";
 
 interface Props {
   className?: string;
@@ -15,7 +16,7 @@ const CommunityGridCard: React.FC<Props> = ({
 }: Props) => {
   return (
     <div className={`col-span-1 bg-neutral-50 ${className}`}>
-      <LinkWrapper
+      <ConditionalLinkWrapper
         condition={Boolean(target)}
         wrapper={(children) => (
           <a
@@ -38,12 +39,9 @@ const CommunityGridCard: React.FC<Props> = ({
             {target && <div>{target}</div>}
           </div>
         </div>
-      </LinkWrapper>
+      </ConditionalLinkWrapper>
     </div>
   );
 };
-
-const LinkWrapper = ({ condition, wrapper, children }) =>
-  condition ? wrapper(children) : children;
 
 export default CommunityGridCard;
