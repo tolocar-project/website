@@ -31,3 +31,4 @@ export { default as ProjectCard } from "@components/ProjectCard";
 export { default as ConditionalLinkWrapper } from "@components/ConditionalLinkWrapper";
 export { default as ProjectsHeroImage } from "@components/ProjectsHeroImage";
 export { default as LanguageSwitcher } from "@components/LanguageSwitcher";
+export { default as ProjectsSection } from "@components/ProjectsSection.astro";

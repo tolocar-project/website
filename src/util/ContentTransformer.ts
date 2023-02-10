@@ -74,7 +74,7 @@ export function trimAndSortProjects(
 ) {
   const rawSortedProjectsContentWithoutIndex = rawProjectsContent
     .filter((project) => !project.file.includes("index.mdx"))
-    .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
+    .sort((a, b) => b.frontmatter.order - a.frontmatter.order);
 
   const trimmedProjects = count
     ? rawSortedProjectsContentWithoutIndex.slice(0, count)
