@@ -25,8 +25,8 @@ import {
 import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 
 <HeroImage />
-<SideBySide className="mt-8 mb-20 sm:mt-20">
-  <HeadlineUnderlined variant={9} className="flex-[2]">The Tolocar project sends mobile makerspaces into Ukraine to help, train and equip local communities.</HeadlineUnderlined>
+<SideBySide className="mt-2 mb-20 sm:mt-20">
+  <HeadlineUnderlined variant={9} className="flex-[2] pt-10 pb-8 sm:py-0">The Tolocar project sends mobile makerspaces into Ukraine to help, train and equip local communities.</HeadlineUnderlined>
   <TextBlock className="flex-[3]">The word "Toloka" stands for a traditional form of solidarity support in Ukraine. 
     With that in mind, the Tolocar project uses mobile makerspaces equipped with tools, open source hardware machines and consumables to support humanitarian activities in Ukraine.
     Various partners work together in different projects like **reconstruction & renovation, open production, knowledge transfer and innovation** to strenghten the eco-system of Ukraine.</TextBlock>
@@ -103,13 +103,11 @@ import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
   <div class="absolute w-full bg-neutral-50 h-52 bottom-0" />
 </ContentSection>
 
-<ContentSection variant="default" className="lg:min-h-fit pb-20">
-  <div className="container-width relative h-full">
+<ContentSection variant="default" className="lg:min-h-fit pb-5">
+  <div className="container-width relative h-full overflow-hidden mt-6">
     <img className="absolute scale-125 -right-20 lg:top-10 lg:right-28 opacity-25" alt="Hand drawn illustration of tools" src="/tolocar_illustration_3_dark.svg"/>
-    <img className="absolute z-10 -bottom-32 left-0 opacity-25" src="/tolocar_illustration_1_dark.svg"/>
-    <HeadlineUnderlined large variant={6} className="flex justify-center mt-8 sm:mt-20">Community</HeadlineUnderlined>
-  <div class="absolute w-full h-40 top-0" />
-    <div class="flex flex-col lg:flex-row lg:justify-center gap-16 mt-20 mb-24">
+    <HeadlineUnderlined large variant={6} className="flex justify-center mt-8 lg:mt-[78px]">Community</HeadlineUnderlined>
+    <div class="flex flex-col lg:flex-row lg:justify-center gap-16 mt-20 mb-8 lg:mb-40">
       <CommunityCard className="self-start lg:-mt-40" img="images/news/heating-mats.jpeg" title="Who we are"
       target="/en/community#partners" actionCaption="See more">The Tolocar project is commissioned by the German Federal Ministry for Economic Cooperation and Development (BMZ) and implemented by the Deutsche Gesellschaft für internationale Zusammenarbeit (GIZ) GmbH.</CommunityCard>
       <CommunityCard className="self-center" img="images/group_session.jpg" title="Labs in Ukraine"
