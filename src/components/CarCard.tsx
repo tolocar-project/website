@@ -46,7 +46,7 @@ const CarCard: React.FC<Props> = ({
           <h3 className="font-semibold text-2xl font-aktiv line-clamp-1">
             {title}
           </h3>
-          {Boolean(tags.length) && (
+          {Boolean(tags?.length) && (
             <div className="mt-5 max-w-full flex flex-wrap gap-x-2 gap-y-1">
               {tags.map((tag, index) => (
                 <Tag key={index} title={tag} />
@@ -59,7 +59,7 @@ const CarCard: React.FC<Props> = ({
               {date}
             </div>
           )}
-          {operators.length && (
+          {Boolean(operators?.length) && (
             <div className="text-neutral-300 mt-4 flex gap-x-1.5 gap-y-2 justify-start items-center flex-wrap">
               <span className="text-lg leading-6">Operated by</span>
               {operators.map((operator, index) => {
