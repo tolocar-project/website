@@ -40,9 +40,11 @@ const CarCard: React.FC<Props> = ({
       wrapper={(children) => <a href={href}>{children}</a>}
     >
       <div className={`flex flex-col bg-neutral-800 w-full ${className || ""}`}>
-        <img src={img} className="w-full h-full object-cover aspect-[3/2]" />
+        <img src={img} className="object-cover aspect-[3/2]" />
         <div className="p-6 flex flex-col items-start text-white">
-          <span className="text-neutral-300 text-base uppercase">{car}</span>
+          <span className="text-neutral-300 text-base uppercase tracking-[0.08em] font-semibold">
+            {car}
+          </span>
           <h3 className="font-semibold text-2xl font-aktiv line-clamp-1">
             {title}
           </h3>
