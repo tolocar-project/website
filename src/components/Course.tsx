@@ -26,9 +26,9 @@ const Course: React.FC<Props> = ({ className, course }) => {
           className="w-full h-full object-cover outline outline-offset-[-2px] outline-2 outline-black/15 aspect-[12/5]"
         />
 
-        <h2 className="absolute bottom-6 left-6 bg-black/80 leading-none text-white rounded-md px-2 py-[6px] text-[15px] font-semibold uppercase font-aktiv">
+        <p className="absolute bottom-6 left-6 bg-black/80 leading-none text-white rounded-md px-2 py-[6px] text-[15px] font-semibold uppercase">
           {course.title}
-        </h2>
+        </p>
       </div>
       {course?.items && (
         <div className="flex flex-col gap-8 mt-8 mb-16">
