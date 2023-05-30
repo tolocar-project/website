@@ -52,16 +52,12 @@ const isProduction = import.meta.env.MODE === "production";
       content="The Tolocar project sends mobile makerspaces into Ukraine to help, empower, equip and train local communities through open technology, knowledge and innovation."
     />
     <meta name="keywords" content="tolocar, makerspaces, ukraine" />
-    {
-      isProduction && (
-        <script
-          async
-          defer
-          data-website-id="7642c494-7e60-4564-952b-5d0d33e7c16b"
-          src="https://analytics.fabcity.hamburg/umami.js"
-        />
-      )
-    }
+    {isProduction && <script
+      async
+      defer
+      data-website-id="7642c494-7e60-4564-952b-5d0d33e7c16b"
+      src="https://analytics.fabcity.hamburg/script.js"
+    ></script>}
     <base href={baseUrl} />
     <title>{frontmatter?.title} - Tolocar Project</title>
   </head>
