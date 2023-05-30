@@ -73,7 +73,7 @@ const isProduction = import.meta.env.MODE === "production";
         menu={translatedAndRebasedMenu}
         locale={localeFromUrl}
         dark={frontmatter?.darkNavigation || false}
-        client:load
+        client:only="react"
       />
       <slot />
       <Footer
