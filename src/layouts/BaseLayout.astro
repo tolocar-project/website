@@ -22,15 +22,20 @@ const localeFromUrl = Astro?.url?.pathname
   .filter(Boolean)[0]
   .toLowerCase();
 
-const rawMenu = await Astro.glob<IMenuMarkdown>("../pages/**/_menu.mdx");
+const rawMenus = await Astro.glob<IMenuMarkdown>("../pages/**/_menu.mdx");
 
-const menu = rawMenu.find((rawMenu) =>
+const translatedMenu = rawMenus.find((rawMenu) =>
   rawMenu.url
     .split("/")
     .filter(Boolean)
     .map((urlPart) => urlPart.toLowerCase())
     .includes(localeFromUrl)
 ).frontmatter?.menu;
+
+const translatedAndRebasedMenu = translatedMenu.map((menuItem) => ({
+  ...menuItem,
+  target: baseUrl + menuItem.target,
+}));
 
 const isProduction = import.meta.env.MODE === "production";
 
@@ -52,7 +57,7 @@ const isProduction = import.meta.env.MODE === "production";
       async
       defer
       data-website-id="7642c494-7e60-4564-952b-5d0d33e7c16b"
-      src="https://analytics.fabcity.hamburg/umami.js"
+      src="https://analytics.fabcity.hamburg/script.js"
     ></script>}
     <base href={baseUrl} />
     <title>{frontmatter?.title} - Tolocar Project</title>
@@ -62,14 +67,14 @@ const isProduction = import.meta.env.MODE === "production";
       <Navigation
         baseUrl={baseUrl}
         path={path}
-        menu={menu}
+        menu={translatedAndRebasedMenu}
         locale={localeFromUrl}
         dark={frontmatter?.darkNavigation || false}
-        client:load
+        client:only="react"
       />
       <slot />
       <Footer
-        menu={menu}
+        menu={translatedAndRebasedMenu}
         className={footerGrey || frontmatter?.footerGrey ? "!bg-neutral-50" : ""}
       />
     </main>
