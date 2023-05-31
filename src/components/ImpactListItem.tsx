@@ -47,9 +47,9 @@ const ImpactListItem: React.FC<Props> = ({
         {tagIcon && renderIcon(tagIcon)}
       </div>
       <div className="pb-10 flex flex-col items-start text-white">
-        <h4 className="font-medium text-lg font-aktiv text-tight pb-4">
+        <p className="font-medium text-lg text-tight pb-4">
           {title}
-        </h4>
+        </p>
         <span className="text-neutral-300 text-lg text-tight">{text}</span>
       </div>
     </div>

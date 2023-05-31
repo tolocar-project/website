@@ -34,11 +34,10 @@ const translatedMenu = rawMenus.find((rawMenu) =>
 
 const translatedAndRebasedMenu = translatedMenu.map((menuItem) => ({
   ...menuItem,
-  target: baseUrl + menuItem.target,
+  target: baseUrl === "/" ? menuItem.target : baseUrl + menuItem.target,
 }));
 
 const isProduction = import.meta.env.MODE === "production";
-
 ---
 
 <!DOCTYPE html>
@@ -53,12 +52,16 @@ const isProduction = import.meta.env.MODE === "production";
       content="The Tolocar project sends mobile makerspaces into Ukraine to help, empower, equip and train local communities through open technology, knowledge and innovation."
     />
     <meta name="keywords" content="tolocar, makerspaces, ukraine" />
-    {isProduction && <script
-      async
-      defer
-      data-website-id="7642c494-7e60-4564-952b-5d0d33e7c16b"
-      src="https://analytics.fabcity.hamburg/script.js"
-    ></script>}
+    {
+      isProduction && (
+        <script
+          async
+          defer
+          data-website-id="7642c494-7e60-4564-952b-5d0d33e7c16b"
+          src="https://analytics.fabcity.hamburg/script.js"
+        />
+      )
+    }
     <base href={baseUrl} />
     <title>{frontmatter?.title} - Tolocar Project</title>
   </head>
@@ -75,7 +78,9 @@ const isProduction = import.meta.env.MODE === "production";
       <slot />
       <Footer
         menu={translatedAndRebasedMenu}
-        className={footerGrey || frontmatter?.footerGrey ? "!bg-neutral-50" : ""}
+        className={footerGrey || frontmatter?.footerGrey
+          ? "!bg-neutral-50"
+          : ""}
       />
     </main>
   </body>
