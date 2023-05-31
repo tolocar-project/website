@@ -13,7 +13,7 @@ const CommunityHeader: React.FC<Props> = ({
   text,
 }: Props) => {
   return (
-    <div className={`w-full bg-neutral-50 lg:pt-16  mt-14 sm:mt-20 ${className || ""}`}>
+    <div className={`w-full bg-neutral-50 md:pt-16 mt-14 sm:mt-20 ${className || ""}`}>
       <div className="container-width background-community background-position-2 lg:background-position-1">
         <HeadlineUnderlined large variant={7} className="mt-8">
           {title}
