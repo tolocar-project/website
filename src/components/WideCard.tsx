@@ -26,7 +26,7 @@ const WideCard: React.FC<Props> = ({
 }) => {
   const bgMapping = [
     "bg-illustration-4-wide mask-illustration-vertical md:mask-illustration-horizontal bg-no-repeat bg-[position:right_-80px_top_-40px]",
-    "bg-community-messages bg-no-repeat md:bg-[position:right_-20px_top_50px] bg-[position:left_-25px_bottom_-50px] scale-110 md:scale-125 mt-36",
+    "bg-community-messages bg-no-repeat md:bg-[position:right_-60px_top_0px] bg-[position:left_-25px_bottom_-50px] scale-110 md:scale-100",
   ];
 
   return (
@@ -42,7 +42,9 @@ const WideCard: React.FC<Props> = ({
               {title}
             </h1>
           )}
-          {text && <p className="font-medium text-lg md:text-xl">{text}</p>}
+          {text && (
+            <p className="md:w-[75%] font-medium text-lg md:text-xl">{text}</p>
+          )}
           {target && (
             <ButtonLink
               target={target}
