@@ -1,0 +1,52 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { IProjectsFrontmatter } from "@interfaces/IProjects";
+import {
+  ProjectsHeader,
+  ProjectCard,
+  ContentSection,
+  WideCard,
+} from "@components";
+import { trimAndSortProjects } from "@util/ContentTransformer";
+
+const { frontmatter, url, file, headings } = Astro.props;
+const rawProjectsContent = await Astro.glob<IProjectsFrontmatter>(
+  "../pages/en/projects/*.mdx"
+);
+const trimmedAndSorted = trimAndSortProjects(rawProjectsContent);
+---
+
+<BaseLayout footerGrey={true} frontmatter={frontmatter}>
+  <ProjectsHeader
+    className="-z-10"
+    title="Projects"
+    text="Within the Tolocar project we support different projects with our equipment, knowledge and capacities. Within these projects we want to meet urgent needs in areas like rebuilding, insulation, energy supply, connectivity, waste water and much more."
+  />
+  <div class="container-width -mt-48 sm:-mt-20 lg:-mt-36">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+      {
+        trimmedAndSorted.map((project) => (
+          <ProjectCard
+            href={project.url}
+            title={project.frontmatter?.title}
+            teaser={project.frontmatter?.teaser}
+            img={project.frontmatter?.img}
+          />
+        ))
+      }
+    </div>
+  </div>
+  <ContentSection variant="white">
+    <WideCard
+      className="mt-28 lg:mt-16"
+      title="Participate in the development of our projects!"
+      text="We're using GitHub to collaboratively develop our projects."
+      target="https://www.github.com/tolocar-project/community"
+      newTab={true}
+      caption="Open GitHub"
+      linkButtonVariant="github"
+      bg={2}
+    />
+    <div class="absolute w-full bg-neutral-50 h-52 bottom-0"></div>
+  </ContentSection>
+</BaseLayout>

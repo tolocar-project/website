@@ -1,0 +1,55 @@
+---
+import { IProjectsFrontmatter } from "@interfaces/IProjects";
+import { ProjectCard, ButtonLink } from "@components";
+import { trimAndSortProjects } from "@util/ContentTransformer";
+const rawProjectsContent = await Astro.glob<IProjectsFrontmatter>(
+  "../pages/en/projects/*.mdx"
+);
+const projectCount = 3;
+const trimmedAndSorted = trimAndSortProjects(rawProjectsContent, projectCount);
+---
+
+<div class="relative flex flex-col h-full gap-8">
+  <div
+    class="container-width mt-[51px] md:mt-[113px] md:mb-4 flex flex-col gap-6"
+  >
+    <div
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >
+      Latest projects
+    </div>
+    <div class="text-base md:hidden">
+      Within the Tolocar Project <strong>
+        we support different projects with our equipment, knowledge and
+        capacities.</strong
+      >
+      <br />
+      <br />
+      The projects are in areas like insulation, energy supply, connectivity and
+      sewage water.
+    </div>
+  </div>
+  <div
+    class="container-width flex flex-col lg:flex-row lg:justify-between gap-2"
+  >
+    {
+      trimmedAndSorted.map((project) => (
+        <ProjectCard
+          href={project.url}
+          img={project.frontmatter.img}
+          title={project.frontmatter.title}
+          teaser={project.frontmatter.teaser}
+        />
+      ))
+    }
+  </div>
+  <div
+    class="pb-2 lg:pb-[18px] text-white items-center w-full h-full flex justify-center z-20"
+  >
+    <ButtonLink
+      target="en/projects"
+      caption="See all projects"
+      variant="dark"
+    />
+  </div>
+</div>
