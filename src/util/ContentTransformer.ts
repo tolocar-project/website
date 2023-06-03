@@ -2,6 +2,7 @@ import type {
   AcademyPageParent,
   AcademyPageFrontmatter,
 } from "@interfaces/IAcademy";
+import type { ITolocarsFrontmatter } from "@interfaces/ITolocars";
 import type { MDXInstance } from "astro";
 
 export function flatAcademyContentMap(
@@ -65,4 +66,19 @@ export function transformAcademy(rawAcademyContent) {
   });
 
   return coursesAndLessons;
+}
+
+export function trimAndSortTolocars(
+  rawTolocarsContent: MDXInstance<ITolocarsFrontmatter>[],
+  count?: number
+) {
+  const rawSortedTolocarsContentWithoutIndex = rawTolocarsContent
+    .filter((tolocar) => !tolocar.file.includes("index.mdx"))
+    .sort((a, b) => b.frontmatter.order - a.frontmatter.order);
+
+  const trimmedTolocars = count
+    ? rawSortedTolocarsContentWithoutIndex.slice(0, count)
+    : rawSortedTolocarsContentWithoutIndex;
+
+  return trimmedTolocars;
 }

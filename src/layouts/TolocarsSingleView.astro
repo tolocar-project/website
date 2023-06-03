@@ -1,0 +1,57 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { ITolocarsFrontmatter } from "@interfaces/ITolocars";
+import {
+  TolocarsSingleViewHeading,
+  ContentSection,
+  CardContainer,
+  Card,
+} from "@components";
+
+const { frontmatter, url, file, headings } = Astro.props;
+
+const rawTolocarsContent = await Astro.glob<ITolocarsFrontmatter>(
+  "../pages/en/tolocars/*.mdx"
+);
+
+const rawTolocarsContentWithoutIndex = rawTolocarsContent.filter(
+  (tolocar) => !tolocar.file.includes("index.mdx")
+);
+---
+
+<BaseLayout footerGrey={true} frontmatter={frontmatter}>
+  <div class="container-width-hero">
+    <TolocarsSingleViewHeading
+      title={frontmatter.title}
+      subtitle={frontmatter.subtitle}
+      img={frontmatter.img}
+    />
+  </div>
+  <ContentSection variant="white">
+    <div class="container-width my-10 lg:mt-14 lg:mb-[60px] default-prose">
+      <slot />
+    </div>
+  </ContentSection>
+  <ContentSection>
+    <div class="absolute w-full bg-white h-64 top-0"></div>
+    <CardContainer className="lg:h-[408px]">
+      <Card
+        title="You are based in Ukraine and think we could help you?"
+        bg={4}
+        target="mailto:info@tolocar.org"
+        actionCaption="Get in contact"
+        >Schools, universities, NGOs, Startups and other organizations can reach
+        out to us to request the Tolocars for projects, workshops and trainings.</Card
+      >
+      <Card
+        title="You are a Maker and want to partner with us?"
+        bg={5}
+        target="mailto:info@tolocar.org"
+        actionCaption="Get in contact"
+        >We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other
+        Communities who wants to partner with us in the Ukraine and
+        internationally over the internet.</Card
+      >
+    </CardContainer>
+  </ContentSection>
+</BaseLayout>

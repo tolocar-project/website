@@ -1,67 +1,89 @@
 import React from "react";
 import { ReactComponent as CalendarIcon } from "@assets/fa-calendar.svg";
-import { ReactComponent as TruckIcon } from "@assets/fa-truck.svg";
-import { ReactComponent as CogIcon } from "@assets/fa-cog.svg";
-import { ReactComponent as HammerIcon } from "@assets/fa-hammer.svg";
-import { ReactComponent as ToolboxIcon } from "@assets/fa-toolbox.svg";
-import { ReactComponent as ScrewdriverIcon } from "@assets/fa-screwdriver.svg";
+import { ReactComponent as MitOstLogo } from "@assets/MitOst.svg";
+import { ReactComponent as CadusLogo } from "@assets/Cadus.svg";
+import { ReactComponent as HIWWLogo } from "@assets/HIWW.svg";
+import { ReactComponent as OstrivLogo } from "@assets/Ostriv.svg";
+import type { ITolocarsFrontmatter } from "@interfaces/ITolocars";
+import { Tag, LinkWrapper } from "@components";
 
-interface Props {
+interface Props extends ITolocarsFrontmatter {
   className?: string;
-  title: string;
-  subtitle: string;
-  tag: string;
-  date: string;
-  operator: string;
-  img: string;
-  tagIcon?: "truck" | "hammer" | "cog" | "toolbox" | "screwdriver";
+  href?: string;
 }
 
 const CarCard: React.FC<Props> = ({
   className,
+  href,
   img,
   title,
-  subtitle,
-  tag,
+  tags,
   date,
-  tagIcon,
+  operators,
+  car,
 }: Props) => {
-  const renderIcon = (icon) => {
-    const iconMapping = {
-      truck: TruckIcon,
-      cog: CogIcon,
-      hammer: HammerIcon,
-      toolbox: ToolboxIcon,
-      screwdriver: ScrewdriverIcon,
-      default: null,
+  const renderOperator = (logo) => {
+    const operatorsMapping = {
+      mitost: MitOstLogo,
+      cadus: CadusLogo,
+      hiww: HIWWLogo,
+      ostriv: OstrivLogo,
     };
-
-    const IconComponent = iconMapping[icon || "default"];
-
-    return <IconComponent className="w-5 h-5 inline-block" />;
+    const OperatorComponent = operatorsMapping?.[logo];
+    return OperatorComponent ? (
+      <OperatorComponent className="w-full h-4 inline-block" />
+    ) : null;
   };
-
   return (
-    <div className={`flex flex-col bg-neutral-800 w-full ${className || ""}`}>
-      <img src={img} className="w-full h-full object-cover aspect-[3/2]" />
-      <div className="p-8 flex flex-col items-start text-white">
-        <h3 className="font-semibold text-2xl font-aktiv">
-          <span className="text-neutral-300 text-base uppercase">
-            {subtitle}
+    <LinkWrapper
+      condition={Boolean(href)}
+      wrapper={(children) => <a href={href}>{children}</a>}
+    >
+      <div className={`flex flex-col bg-neutral-800 w-full ${className || ""}`}>
+        <img src={img} className="object-cover aspect-[3/2]" />
+        <div className="p-6 flex flex-col items-start text-white">
+          <span className="text-neutral-300 text-base uppercase tracking-[0.08em] font-semibold">
+            {car}
           </span>
-          <br />
-          {title}
-        </h3>
-        <div className="bg-tolo-green flex gap-2 justify-start items-center px-3 rounded-full text-lg mt-5 h-8 max-w-full truncate">
-          {tagIcon && renderIcon(tagIcon)}
-          {tag}
-        </div>
-        <div className="text-neutral-300 mt-6 flex gap-2 justify-center items-center">
-          <CalendarIcon className="w-5 h-5 inline-block" />
-          {date}
+          <h3 className="font-semibold text-2xl font-aktiv line-clamp-1">
+            {title}
+          </h3>
+          {Boolean(tags?.length) && (
+            <div className="mt-5 max-w-full flex flex-wrap gap-x-2 gap-y-1">
+              {tags.map((tag, index) => (
+                <Tag key={index} title={tag} />
+              ))}
+            </div>
+          )}
+          {date && (
+            <div className="text-neutral-300 mt-5 flex gap-2 justify-center items-center">
+              <CalendarIcon className="w-5 h-5 inline-block" />
+              {date}
+            </div>
+          )}
+          {Boolean(operators?.length) && (
+            <div className="text-neutral-300 mt-4 flex gap-x-1.5 gap-y-2 justify-start items-center flex-wrap">
+              <span className="text-lg leading-6">Operated by</span>
+              {operators.map((operator, index) => {
+                const isLastOfMultiple =
+                  operators.length > 1 && index === operators.length - 1;
+                return (
+                  <React.Fragment key={index}>
+                    {isLastOfMultiple && "&"}
+                    <div
+                      key={index}
+                      className="inline-flex justify-center items-center"
+                    >
+                      {renderOperator(operator)}
+                    </div>
+                  </React.Fragment>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </LinkWrapper>
   );
 };
 
