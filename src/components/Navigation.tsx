@@ -68,7 +68,7 @@ const Navigation: React.FC<Props> = ({
   const Image = (
     <div
       className={`transition-height duration-500 ease-in-out ${
-        scrollTop < scrollThreshold ? "h-8 md:h-12" : "h-8"
+        scrollTop < scrollThreshold ? "h-8 lg:h-12" : "h-8"
       }`}
     >
       <TolocarLogoSvg className="h-full w-auto" />
@@ -80,7 +80,7 @@ const Navigation: React.FC<Props> = ({
       className={`transition-height duration-500 ease-in-out w-full ${
         dark ? (hasWhiteBackground ? "bg-white" : "bg-neutral-50") : "bg-white"
       } ${
-        scrollTop < scrollThreshold ? "h-20 md:h-32" : "h-20"
+        scrollTop < scrollThreshold ? "h-20 lg:h-32" : "h-20"
       } fixed flex items-center justify-center top-0 z-30 ${className || ""}`}
     >
       <div className="container-width justify-between flex">

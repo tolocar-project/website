@@ -1,0 +1,83 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { IInterventionFrontmatter } from "@interfaces/IIntervention";
+import {
+  ContentSection,
+  Card,
+  CardContainer,
+  InterventionsHeader,
+  InterventionsListItem,
+  InterventionsMapDataWrapper,
+} from "@components";
+import { ReactComponent as BorderDashedSvg } from "@assets/border_dashed.svg";
+import { trimAndSortInterventions } from "@util/ContentTransformer";
+
+const { frontmatter } = Astro.props;
+
+const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
+  "../pages/en/interventions/*.mdx"
+);
+
+const trimmedAndSorted = trimAndSortInterventions(rawInterventionsContent);
+---
+
+<BaseLayout footerGrey={true} frontmatter={frontmatter}>
+  <InterventionsHeader
+    title="Interventions"
+    text="When we go to a place to support a project, build a makerspace or perform a workshop, we call that an intervention. Every intervention has its unique partners, goals and outcomes, but every intervention aims to strengthen the ecosystem of Ukraine."
+  />
+  <div class="container-width-hero my-map-control basis-[400px] shrink-0">
+    <InterventionsMapDataWrapper />
+  </div>
+  <div class="container-width">
+    {
+      trimmedAndSorted.map((intervention) => (
+        <InterventionsListItem
+          image={intervention.frontmatter?.images?.[0]}
+          title={intervention.frontmatter?.title}
+          teaser={intervention.frontmatter?.teaser}
+          tags={[
+            intervention.frontmatter?.tags?.[0],
+            intervention.frontmatter?.tags?.[1],
+          ]}
+          date={intervention.frontmatter?.date}
+          location={intervention.frontmatter?.location}
+          href={intervention.url}
+        />
+      ))
+    }
+  </div>
+  <ContentSection variant="white">
+    <div class="container-width h-[108px]">
+      <BorderDashedSvg />
+    </div>
+  </ContentSection>
+
+  <!-- <div class="container-width pl-16 md:pl-20">
+    <a href="/en/interventions">
+      <Tag title="Load more" />
+    </a>
+  </div> -->
+  <ContentSection>
+    <div class="absolute w-full bg-white h-64 top-0"></div>
+    <CardContainer className="lg:h-[408px]">
+      <Card
+        title="You are based in Ukraine and think we could help you?"
+        bg={4}
+        target="mailto:info@tolocar.org"
+        actionCaption="Get in contact"
+        >Schools, universities, NGOs, Startups and other organizations can reach
+        out to us to request the Tolocars for projects, workshops and trainings.</Card
+      >
+      <Card
+        title="You are a Maker and want to partner with us?"
+        bg={5}
+        target="mailto:info@tolocar.org"
+        actionCaption="Get in contact"
+        >We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other
+        Communities who wants to partner with us in the Ukraine and
+        internationally over the internet.</Card
+      >
+    </CardContainer>
+  </ContentSection>
+</BaseLayout>
