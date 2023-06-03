@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env: 
-      PUBLIC_MAPBOX_TOKEN: ${{ secrets.PUBLIC_MAPBOX_TOKEN }}
+      PUBLIC_MAPBOX_TOKEN: "pk.eyJ1IjoicHJleWEyayIsImEiOiJjbGRlc3Y0NWMwZ3NkM3JxcGM1MTY2dTd3In0.nr8qVhhvTHxytqbR-0KFLA"
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v2
