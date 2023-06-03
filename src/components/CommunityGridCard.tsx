@@ -5,6 +5,7 @@ interface Props {
   title?: string;
   text?: string;
   target?: string;
+  img?: string;
 }
 
 const CommunityGridCard: React.FC<Props> = ({
@@ -12,6 +13,7 @@ const CommunityGridCard: React.FC<Props> = ({
   title,
   text,
   target,
+  img,
 }: Props) => {
   return (
     <div className={`col-span-1 bg-neutral-50 ${className}`}>
@@ -33,8 +35,17 @@ const CommunityGridCard: React.FC<Props> = ({
               <h2 className="text-2xl font-aktiv font-semibold text-neutral-900">
                 {title}
               </h2>
-              <p className="text-lg text-neutral-500 pb-3">{text}</p>
+              <p
+                className={`text-lg text-neutral-500 ${img ? "mb-12" : "mb-3"}`}
+              >
+                {text}
+              </p>
             </div>
+            {img && (
+              <div className="mb-3 max-w-[50%]">
+                <img src={img} alt={title} />
+              </div>
+            )}
             {target && <div>{target}</div>}
           </div>
         </div>
