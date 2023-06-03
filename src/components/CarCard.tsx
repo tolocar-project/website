@@ -68,7 +68,7 @@ const CarCard: React.FC<Props> = ({
                 const isLastOfMultiple =
                   operators.length > 1 && index === operators.length - 1;
                 return (
-                  <>
+                  <React.Fragment key={index}>
                     {isLastOfMultiple && "&"}
                     <div
                       key={index}
@@ -76,7 +76,7 @@ const CarCard: React.FC<Props> = ({
                     >
                       {renderOperator(operator)}
                     </div>
-                  </>
+                  </React.Fragment>
                 );
               })}
             </div>
