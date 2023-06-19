@@ -7,19 +7,40 @@ const { headline, id, ...rest } = Astro.props;
 
 const baseUrl = CommonUtils.getBaseUrl(true);
 
-const rawNews = await Astro.glob<INewsItem>("../pages/en/news/*.mdx");
+const token = import.meta.env.PUBLIC_AIRTABLE_TOKEN;
 
-const news = rawNews
-  .map(({ frontmatter: { image, target, instagram, title, order = 999 } }) => {
-    return {
-      image: baseUrl + image,
-      target,
-      instagram,
-      title,
-      order,
-    };
-  })
-  .sort((a, b) => b.order - a.order);
+const options = {
+  method: "GET",
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+};
+
+const response = await fetch(
+  "https://api.airtable.com/v0/appXVxxSLF51bHZPf/tbl0L4qXFrr4xop8V",
+  options
+);
+
+const data = await response.json();
+
+let news = [];
+
+if (data.records && data.records.length > 0) {
+  news = data.records
+    .filter((record) => record.fields?.["Instagram URL"])
+    .map((record) => {
+      return {
+        title: record.fields.Name,
+        target: record.fields?.["Instagram URL"],
+        instagram: true,
+        // image: record.fields?.["Selected Photos (from Event)"]
+      };
+    });
+  console.log(news);
+} else {
+  console.log("Error");
+}
+
 ---
 
 <NewsSliderComponent {news} {headline} {id} {...rest} client:idle />

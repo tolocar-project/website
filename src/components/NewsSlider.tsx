@@ -69,7 +69,7 @@ const NewsSlider: React.FC<Props> = ({ news, headline, ...props }) => {
       </div>
       <div className="overflow-hidden -mt-4" ref={emblaRef}>
         <div className="grid cursor-grab pt-4 active:cursor-grabbing grid-flow-col auto-cols-[80%] xl:auto-cols-[25%] md:auto-cols-[33%] sm:auto-cols-[40%] container-width">
-          {news.map((item, index) => (
+          {news && news.map((item, index) => (
             <NewsItem
               key={index}
               image={item.image}
