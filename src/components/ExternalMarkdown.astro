@@ -1,0 +1,22 @@
+---
+import Markdown from '@astrojs/markdown-component';
+const { src } = Astro.props;
+
+
+let apiResponse
+if (src) {
+  apiResponse = await fetch(src)
+    .then((r) => {
+      if (!r.ok) {
+        return Promise.reject(r)
+      }
+      return r.text()
+    })
+    .catch((e) => {
+      console.error('Error while fetching External Markdown from ' + src, e)
+    })
+}
+console.log("Response", apiResponse);
+---
+
+<Markdown>{apiResponse}</Markdown>
