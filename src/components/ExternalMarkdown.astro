@@ -1,22 +1,37 @@
 ---
-import Markdown from '@astrojs/markdown-component';
 const { src } = Astro.props;
 
+const GITHUB_MD_API = "https://api.github.com/markdown";
 
-let apiResponse
+let getMarkdownApiResponse, parseMarkdownApiResponse;
 if (src) {
-  apiResponse = await fetch(src)
+  getMarkdownApiResponse = await fetch(src)
     .then((r) => {
       if (!r.ok) {
-        return Promise.reject(r)
+        return Promise.reject(r);
       }
-      return r.text()
+      return r.text();
     })
     .catch((e) => {
-      console.error('Error while fetching External Markdown from ' + src, e)
-    })
+      console.error("Error while fetching External Markdown from " + src, e);
+    });
 }
-console.log("Response", apiResponse);
+// console.log("Get MD Response", getMarkdownApiResponse);
+if (getMarkdownApiResponse) {
+  parseMarkdownApiResponse = await fetch(GITHUB_MD_API, {
+    method: "POST",
+    body: JSON.stringify({ text: getMarkdownApiResponse }),
+  })
+    .then((r) => {
+      if (!r.ok) {
+        return Promise.reject(r);
+      }
+      return r.text();
+    })
+    .catch((e) => {
+      console.error("Error while parsing Markdown via GitHub API from " + GITHUB_MD_API, e);
+    });
+}
+// console.log("Get MD Response", parseMarkdownApiResponse);
 ---
-
-<Markdown>{apiResponse}</Markdown>
+<Fragment set:html={parseMarkdownApiResponse} />

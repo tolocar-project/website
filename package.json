@@ -6,12 +6,11 @@
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev",
-    "build": "astro build --experimental-static-build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "devDependencies": {
-    "@astrojs/markdown-component": "^1.0.5",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/react": "^2.2.1",
     "@astrojs/tailwind": "^4.0.0",
