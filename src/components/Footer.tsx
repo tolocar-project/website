@@ -54,7 +54,7 @@ const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
               </a>
             </div>
             <div className="flex-1 mt-10 lg:mt-0 flex items-center justify-center">
-              <a className="w-full h-auto px-4" href="https://www.hiww.de/">
+              <a className="w-full h-auto px-6 md:mt-8" href="https://www.hiww.de/">
                 <img className="max-w-xs w-full h-auto" src={HiwwLogoImg} />
               </a>
             </div>
