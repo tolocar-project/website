@@ -1,16 +1,17 @@
 import React from "react";
 import { ReactComponent as TolocarLogoSvg } from "@assets/tolocar_logo.svg";
-import DeutscheZusammenArbeitImg from "@assets/deutsche_zusammenarbeit.png";
-import GizUkraineImg from "@assets/giz_ukraine.png";
+import { ReactComponent as GizZusammenarbeitSvgUA } from "@assets/giz_zusammenarbeit_ua.svg";
+import { ReactComponent as GizZusammenarbeitSvgEN } from "@assets/giz_zusammenarbeit_en.svg";
 import HiwwLogoImg from "@assets/hiww_logo.svg";
 import type { IMenuItem } from "@interfaces/IMenu";
 
 interface Props {
   className?: string;
   menu?: IMenuItem[];
+  locale?: string;
 }
 
-const Footer: React.FC<Props> = ({ className, menu }: Props) => {
+const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
   return (
     <div
       className={`w-full lg:h-[368px] flex bg-white py-16 ${className || ""}`}
@@ -19,7 +20,7 @@ const Footer: React.FC<Props> = ({ className, menu }: Props) => {
         <div className="flex flex-col lg:flex-row">
           <div className="flex-1 flex flex-col gap-8 text-sm items-start">
             <div className="flex gap-4 items-center">
-              <TolocarLogoSvg className="h-12"/>
+              <TolocarLogoSvg className="h-12" />
               The Tolocar Project
             </div>
             <div className="mt-10 lg:mt-0 ">
@@ -38,23 +39,22 @@ const Footer: React.FC<Props> = ({ className, menu }: Props) => {
               </ul>
             </div>
           </div>
-          <div className="flex-1 flex flex-col gap-8 lg:flex-row text-sm mt-8">
-
-            <div className="flex-1 mt-10 lg:mt-0 flex items-center justify-center">
+          <div className="flex-1 flex flex-col gap-8 md:flex-row text-sm">
+            <div className="flex-[2] mt-10 lg:mt-0 flex items-center justify-center">
               <a className="w-full h-auto" href="https://www.bmz.de/">
-                <img
+                {locale === "ua" ? (
+                  <GizZusammenarbeitSvgUA />
+                ) : (
+                  <GizZusammenarbeitSvgEN />
+                )}
+                {/* <img
                   className="max-w-xs w-full h-auto"
                   src={DeutscheZusammenArbeitImg}
-                />
+                /> */}
               </a>
             </div>
             <div className="flex-1 mt-10 lg:mt-0 flex items-center justify-center">
-              <a className="w-full h-auto" href="https://www.giz.de/">
-                <img className="max-w-xs w-full h-auto" src={GizUkraineImg} />
-              </a>
-            </div>
-            <div className="flex-1 mt-10 lg:mt-0 flex items-center justify-center">
-              <a className="w-full h-auto" href="https://www.hiww.de/">
+              <a className="w-full h-auto px-4" href="https://www.hiww.de/">
                 <img className="max-w-xs w-full h-auto" src={HiwwLogoImg} />
               </a>
             </div>
