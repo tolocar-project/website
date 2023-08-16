@@ -47,10 +47,6 @@ const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
                 ) : (
                   <GizZusammenarbeitSvgEN />
                 )}
-                {/* <img
-                  className="max-w-xs w-full h-auto"
-                  src={DeutscheZusammenArbeitImg}
-                /> */}
               </a>
             </div>
             <div className="flex-1 mt-10 lg:mt-0 flex items-center justify-center">
