@@ -1,8 +1,9 @@
 import React from "react";
 import { ReactComponent as TolocarLogoSvg } from "@assets/tolocar_logo.svg";
-import { ReactComponent as GizZusammenarbeitSvgUA } from "@assets/giz_zusammenarbeit_ua.svg";
-import { ReactComponent as GizZusammenarbeitSvgEN } from "@assets/giz_zusammenarbeit_en.svg";
-import HiwwLogoImg from "@assets/hiww_logo.svg";
+import { ReactComponent as GizLogoSvgEN } from "@assets/giz_logo_en.svg";
+import { ReactComponent as GizLogoSvgUA } from "@assets/giz_logo_ua.svg";
+import { ReactComponent as GizZusammenarbeitSvg } from "@assets/giz_zusammenarbeit.svg";
+import { ReactComponent as HiwwLogoSvg } from "@assets/hiww_logo.svg";
 import type { IMenuItem } from "@interfaces/IMenu";
 
 interface Props {
@@ -39,21 +40,28 @@ const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
               </ul>
             </div>
           </div>
-          <div className="flex-1 flex flex-col gap-8 md:flex-row text-sm">
-            <div className="flex-[2] mt-10 lg:mt-0 flex items-center justify-center">
-              <a className="w-full h-auto" href="https://www.giz.de/">
-                {locale === "ua" ? (
-                  <GizZusammenarbeitSvgUA />
-                ) : (
-                  <GizZusammenarbeitSvgEN />
-                )}
-              </a>
-            </div>
-            <div className="flex-1 mt-10 lg:mt-0 flex items-center justify-center">
-              <a className="w-full h-auto px-6 md:mt-8" href="https://www.hiww.de/">
-                <img className="max-w-xs w-full h-auto" src={HiwwLogoImg} />
-              </a>
-            </div>
+          <div className="flex-1 flex flex-col sm:gap-[10%] sm:flex-row gap-0 text-sm">
+            <a
+              className="mt-10 sm:mt-0 flex items-center justify-center"
+              href="https://www.giz.de"
+              target="_blank"
+            >
+              <GizZusammenarbeitSvg />
+            </a>
+            <a
+              className="-mt-12 sm:mt-0 flex items-center justify-center"
+              href="https://www.giz.de"
+              target="_blank"
+            >
+              {locale === "ua" ? <GizLogoSvgUA /> : <GizLogoSvgEN />}
+            </a>
+            <a
+              className="-mt-60 sm:mt-0 flex items-center justify-center"
+              href="https://www.hiww.de"
+              target="_blank"
+            >
+              <HiwwLogoSvg />
+            </a>
           </div>
         </div>
         <div className="text-sm text-neutral-500 flex flex-col lg:flex-row gap-2 lg:gap-0 mt-8">
