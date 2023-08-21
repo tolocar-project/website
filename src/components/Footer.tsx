@@ -4,6 +4,8 @@ import { ReactComponent as GizLogoSvgEN } from "@assets/giz_logo_en.svg";
 import { ReactComponent as GizLogoSvgUA } from "@assets/giz_logo_ua.svg";
 import { ReactComponent as GizZusammenarbeitSvg } from "@assets/giz_zusammenarbeit.svg";
 import { ReactComponent as HiwwLogoSvg } from "@assets/hiww_logo.svg";
+import { ReactComponent as InstagramIcon } from "@assets/instagram.svg";
+import { ReactComponent as FacebookIcon } from "@assets/facebook.svg";
 import type { IMenuItem } from "@interfaces/IMenu";
 
 interface Props {
@@ -15,7 +17,7 @@ interface Props {
 const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
   return (
     <div
-      className={`w-full lg:h-[368px] flex bg-white py-16 ${className || ""}`}
+      className={`w-full flex bg-white py-16 ${className || ""}`}
     >
       <div className="container-width flex flex-col justify-between text-black">
         <div className="flex flex-col lg:flex-row">
@@ -38,6 +40,24 @@ const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
                     )
                 )}
               </ul>
+              <div className="mt-8 flex items-center gap-5">
+                <a
+                  href="https://www.instagram.com/tolocar.ua/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-500 hover:text-tolo-green transition-colors"
+                >
+                  <InstagramIcon className="h-6 w-6" />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100085541444754"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-500 hover:text-tolo-green transition-colors"
+                >
+                  <FacebookIcon className="h-6 w-6" />
+                </a>
+              </div>
             </div>
           </div>
           <div className="flex-1 flex flex-col sm:gap-[10%] sm:flex-row gap-0 text-sm">
