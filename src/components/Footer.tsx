@@ -60,27 +60,24 @@ const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
               </div>
             </div>
           </div>
-          <div className="flex-1 flex flex-col sm:gap-[10%] sm:flex-row gap-0 text-sm">
+          <div className="flex-1 flex flex-col sm:gap-[10%] sm:flex-row gap-0 text-sm sm:h-64">
             <a
-              className="mt-10 sm:mt-0 flex items-center justify-center"
-              href="https://www.giz.de"
-              target="_blank"
-            >
-              <GizZusammenarbeitSvg />
+                className={'mt-10 sm:mt-0 h-full flex-shrink'}
+                href="https://www.giz.de"
+                target="_blank">
+              <GizZusammenarbeitSvg className={'h-full w-full'} />
             </a>
             <a
-              className="-mt-12 sm:mt-0 flex items-center justify-center"
-              href="https://www.giz.de"
-              target="_blank"
-            >
-              {locale === "ua" ? <GizLogoSvgUA /> : <GizLogoSvgEN />}
+                className={'-mt-12 sm:mt-0 h-full flex-shrink'}
+                href="https://www.giz.de"
+                target="_blank">
+              {locale === "ua" ? <GizLogoSvgUA className={'h-full'} /> : <GizLogoSvgEN className={'h-full w-full'} />}
             </a>
             <a
-              className="-mt-60 sm:mt-0 flex items-center justify-center"
-              href="https://www.hiww.de"
-              target="_blank"
-            >
-              <HiwwLogoSvg />
+                className={'-mt-60 sm:mt-0 h-full flex-shrink'}
+                href="https://www.hiww.de"
+                target="_blank">
+              <HiwwLogoSvg className={'h-full w-full'}/>
             </a>
           </div>
         </div>
