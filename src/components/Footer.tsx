@@ -60,7 +60,7 @@ const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
               </div>
             </div>
           </div>
-          <div className="flex-1 flex flex-col sm:gap-[10%] sm:flex-row gap-0 text-sm sm:h-64">
+          <div className="flex-1 flex flex-col sm:gap-[10%] sm:flex-row mt-10 lg:mt-0 gap-0 text-sm sm:h-64">
             <a
                 className={'mt-10 sm:mt-0 h-full flex-shrink'}
                 href="https://www.giz.de"
