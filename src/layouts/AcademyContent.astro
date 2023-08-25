@@ -7,12 +7,16 @@ import {
   Card,
   CardContainer,
   TableOfContents,
+ExternalMarkdown,
 } from "@components";
 import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
 import { getParentPage } from "@util/ContentTransformer";
 import fs from "node:fs";
 import Giscus from "@components/Giscus.astro";
 import CommonUtils from "@util/CommonUtils";
+import type { LayoutProps } from "@interfaces/ILayout";
+
+type Props = LayoutProps;
 
 const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
   "../pages/en/academy/*/*.mdx"
@@ -25,13 +29,18 @@ const statsMtime = fs.statSync(file).mtime;
 const editDate = new Date(statsMtime);
 
 const parentPage = getParentPage(rawAcademyContent, url);
+
 ---
 
-<BaseLayout frontmatter={frontmatter}>
+<BaseLayout
+  darkNavigation={frontmatter.darkNavigation}
+  title={frontmatter.title}
+  footerGrey={frontmatter.footerGrey}
+>
   <div class="mt-20 container-width">
-    <BackButton target={`${baseUrl}en/academy`}
-      >Back to Academy Overview</BackButton
-    >
+    <BackButton target={`${baseUrl}en/academy`}>
+      Back to Academy Overview
+    </BackButton>
   </div>
   <div class="container-width-hero">
     <AcademyHeroImage
@@ -46,7 +55,7 @@ const parentPage = getParentPage(rawAcademyContent, url);
   >
     <div class="col-span-4">
       <TableOfContents title={frontmatter?.title} headlines={headings} />
-      <div class="mt-16">
+      <div class=`${Boolean(headings.length) ? 'mt-16':'mt-8'}`>
         <span class="font-bold uppercase text-neutral-400 text-[15px]"
           >Last updated</span
         ><br />
@@ -63,6 +72,7 @@ const parentPage = getParentPage(rawAcademyContent, url);
       </div>
     </div>
     <div class="col-span-7 default-prose">
+      {frontmatter.external && <ExternalMarkdown src={frontmatter.external} />}
       <slot />
     </div>
   </div>
@@ -81,18 +91,20 @@ const parentPage = getParentPage(rawAcademyContent, url);
         bg={4}
         target="mailto:info@tolocar.org"
         actionCaption="Get in contact"
-        >Schools, universities, NGOs, Startups and other organizations can reach
-        out to us to request the Tolocars for projects, workshops and trainings.</Card
       >
+        Schools, universities, NGOs, Startups and other organizations can reach
+        out to us to request the Tolocars for projects, workshops and trainings.
+      </Card>
       <Card
         title="You are a Maker and want to partner with us?"
         bg={5}
         target="mailto:info@tolocar.org"
         actionCaption="Get in contact"
-        >We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other
-        Communities who wants to partner with us in the Ukraine and
-        internationally over the internet.</Card
       >
+        We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other
+        Communities who wants to partner with us in the Ukraine and
+        internationally over the internet.
+      </Card>
     </CardContainer>
   </ContentSection>
 </BaseLayout>

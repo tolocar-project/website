@@ -1,18 +1,14 @@
 ---
-import type { MarkdownLayoutProps } from "astro";
 import { Navigation, Footer } from "@components";
 import TolocarFavicon from "../assets/favicon.png";
 import CommonUtils from "@util/CommonUtils";
 import type { IMenuMarkdown } from "@interfaces/IMenu";
 import "../../base.css";
+import type { RawLayoutProps } from "@interfaces/ILayout";
 
-type Props = MarkdownLayoutProps<{
-  title: string;
-  footerGrey?: boolean;
-  darkNavigation?: boolean;
-}>;
+type Props = RawLayoutProps;
 
-const { frontmatter } = Astro.props;
+const { title, footerGrey, darkNavigation } = Astro.props;
 const path = Astro.url.pathname;
 const baseUrl = CommonUtils.getBaseUrl(false);
 
@@ -63,7 +59,7 @@ const isProduction = import.meta.env.MODE === "production";
       )
     }
     <base href={baseUrl} />
-    <title>{frontmatter?.title} - Tolocar Project</title>
+    <title>{title} - Tolocar Project</title>
   </head>
   <body class="w-full font-inter antialiased h-full tracking-[-0.02em]">
     <main class="flex flex-col items-center h-full overflow-x-hidden">
@@ -72,14 +68,14 @@ const isProduction = import.meta.env.MODE === "production";
         path={path}
         menu={translatedAndRebasedMenu}
         locale={localeFromUrl}
-        dark={frontmatter?.darkNavigation || false}
+        dark={darkNavigation || false}
         client:only="react"
       />
       <slot />
       <Footer
         locale={localeFromUrl}
         menu={translatedAndRebasedMenu}
-        className={frontmatter?.footerGrey
+        className={footerGrey
           ? "!bg-neutral-50"
           : ""}
       />

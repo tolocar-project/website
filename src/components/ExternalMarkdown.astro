@@ -1,9 +1,13 @@
 ---
+import { marked } from "marked";
+import { gfmHeadingId } from "marked-gfm-heading-id";
+import { baseUrl } from "marked-base-url";
+import { transform } from "ultrahtml";
+import sanitize from "ultrahtml/transformers/sanitize";
+
 const { src } = Astro.props;
 
-const GITHUB_MD_API = "https://api.github.com/markdown";
-
-let getMarkdownApiResponse, parseMarkdownApiResponse;
+let getMarkdownApiResponse;
 if (src) {
   getMarkdownApiResponse = await fetch(src)
     .then((r) => {
@@ -16,22 +20,25 @@ if (src) {
       console.error("Error while fetching External Markdown from " + src, e);
     });
 }
-// console.log("Get MD Response", getMarkdownApiResponse);
-if (getMarkdownApiResponse) {
-  parseMarkdownApiResponse = await fetch(GITHUB_MD_API, {
-    method: "POST",
-    body: JSON.stringify({ text: getMarkdownApiResponse }),
-  })
-    .then((r) => {
-      if (!r.ok) {
-        return Promise.reject(r);
-      }
-      return r.text();
-    })
-    .catch((e) => {
-      console.error("Error while parsing Markdown via GitHub API from " + GITHUB_MD_API, e);
-    });
-}
-// console.log("Get MD Response", parseMarkdownApiResponse);
+
+
+
+marked.use({
+  gfm: true,
+  smartypants: true,
+});
+
+marked.use(gfmHeadingId());
+marked.use(baseUrl("https://example.com/folder/"));
+
+const content = await marked.parse(getMarkdownApiResponse);
+
+// @ts-expect-error
+const sanitizedAndTransformed = await transform("<h1>Hello world!</h1><h5>BLA</h5>", [
+  sanitize({ allowElements: ["h1", "h2", "h3", "h4"] }),
+]);
+
+console.log("Sanitized", sanitizedAndTransformed);
 ---
-<Fragment set:html={parseMarkdownApiResponse} />
+
+<Fragment set:html={content} />
