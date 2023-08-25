@@ -17,6 +17,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^20.4.9",
     "astro": "^2.10.5",
+    "astro-remote": "^0.2.4",
     "embla-carousel-react": "^7.0.9",
     "github-slugger": "^2.0.0",
     "mapbox-gl": "^2.15.0",
