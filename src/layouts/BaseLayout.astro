@@ -12,7 +12,7 @@ type Props = MarkdownLayoutProps<{
   darkNavigation?: boolean;
 }>;
 
-const { frontmatter, footerGrey = false } = Astro.props;
+const { frontmatter } = Astro.props;
 const path = Astro.url.pathname;
 const baseUrl = CommonUtils.getBaseUrl(false);
 
@@ -77,8 +77,9 @@ const isProduction = import.meta.env.MODE === "production";
       />
       <slot />
       <Footer
+        locale={localeFromUrl}
         menu={translatedAndRebasedMenu}
-        className={footerGrey || frontmatter?.footerGrey
+        className={frontmatter?.footerGrey
           ? "!bg-neutral-50"
           : ""}
       />
