@@ -1,0 +1,575 @@
+---
+title: 3D-друк
+img: https://images.unsplash.com/photo-1633899306328-c5e70574aaa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80
+order: 1
+layout: "@layouts/AcademyContent.astro"
+teaser: In this module you will find helpful information about 3D Printing.
+---
+
+## Вступ
+
+3D-друк — це термін, який використовується для опису багатьох різноманітних процесів, під час яких 3D-принтер створює матеріальні тривимірні об’єкти. Зазвичай об’єкти спочатку проектуються програмним забезпеченням як 3D-модель, а потім надсилаються на 3D-принтер.
+
+Існують невеликі, відносно недорогі 3D-принтери для дому або для фаблабів, які здебільшого друкують предмети із пластику, а також є більші принтери та великі 3D друкарські системи, які можуть друкувати цілі будівлі з бетону, принаймні основні стіни будівлі. Деякі 3D-принтери також можуть друкувати метал або їжу, наприклад шоколад, тож діапазон можливостей 3D-друку дуже широкий.
+
+
+<p align="center">
+       <img height="400" src="images/academy/digitalproduction/3dprinting/1_3D_Printer_Open_Source_Hardware.png" />
+       <img height="400" src="images/academy/digitalproduction/3dprinting/2_Prusa_3D_Printer.png" />
+</p>
+
+<p align="center">
+       <a href="#s1">[1]</a> <i> 3D-принтер, побудований власноруч, руками з відкритою ліцензією на обладнання – </i>
+       <a href="#s2">[2]</a> <i> 3D-принтер від Prusa </i>
+</p>
+
+
+<p align="center">
+       <img height="300" src="images/academy/digitalproduction/3dprinting/3_BigFDM_3D_Printer.png" />
+       <img height="300" src="images/academy/digitalproduction/3dprinting/4_3D_printing_buildings.png" />
+</p>
+
+<p align="center">
+       <a href="#s3">[3]</a> <i> Великий 3D-принтер FDM для великих моделей розміром до 80 x 80 x 90 см – </i>
+       <a href="#s4">[4]</a> <i> 3D-друк будинків </i>
+</p>
+
+Найбільш поширеними і популярними є 3D-принтери, які працюють за технологією FDM. Тому цей основний навчальний модуль спочатку стосується лише принтерів, які працюють за даною технологією.
+
+Другим найпоширенішим типом 3D-принтерів у фаблабах після технології FDM є принтери SLA. Однак ними важче користуватися, і тому вони менш підходять для початківців, ніж принтери FDM, тому бажано почати саме з FDM.
+
+Технологія FDM («Fused Deposition Modeling») означає, що наявний матеріал (зазвичай це пластик) нагрівається 3D-принтером, розплавляється, а потім наноситься шарами. Потім шари охолоджуються і створюють твердий об’єкт. Об’єкти, надруковані за допомогою технології FDM, можна легко розпізнати за типовими шарами, які зазвичай мають товщину лише частки міліметра.
+
+
+<p align="center">
+       <img height="400" src="images/academy/digitalproduction/3dprinting/5_3D_printing.png" />
+       <img height="400" src="images/academy/digitalproduction/3dprinting/6_Visible_layers_on_3D_printed_object.png" />
+</p>
+
+<p align="center">
+       <a href="#s5">[5]</a> <i> 3D-друк – </i>
+       <a href="#s6">[6]</a> <i> Об'єкт, надрукований у 3D, із видимими шарами </i>
+</p>
+
+
+Тому 3D-друк відноситься до так званих «адитивних процесів», оскільки об’єкти створюються шляхом додавання нового матеріалу. На противагу цьому існують також «субтрактивні процеси», тобто процеси виробництва, під час яких існуючий матеріал відокремлюється або щось «забирається», наприклад, за допомогою [лазерного різання](/ua/academy/digitalproduction/lasercutting) або [фрезерування з ЧПК](/ua/academy/digitalproduction/cncmilling).
+
+За допомогою 3D-принтерів FDM можна надрукувати декоративні предмети, такі як статуетки або вази, невеликі іграшки, персоналізовані ярлики з іменами та брелки, різні моделі для демонстраційних цілей (наприклад, машин або будівель), запасні частини для існуючих предметів (наприклад, ручки ящиків або поворотні ручки для музичних систем), різні речі для побуту, такі як гачки для рушників, або ж функціональні деталі як, наприклад, корпус для електронних пристроїв, відкривачки для пляшок або навіть компоненти для 3D-принтерів.
+
+<p align="center">
+<img height="300" src="images/academy/digitalproduction/3dprinting/7_3D_printed_speaker_casing.png" />
+<img height="300" src="images/academy/digitalproduction/3dprinting/8_3D_printed_jet_engine_turbine_model.png" />
+</p>
+
+<p align="center">
+<a href="#s7">[7]</a> <i> Корпус гучномовця, надрукований у 3D – </i>
+<a href="#s8">[8]</a> <i> Модель турбіни, надрукована у 3D</i>
+</p>
+
+<p align="center">
+<img height="300" src="images/academy/digitalproduction/3dprinting/9_3D_printing_a_yarn_bowl.png" />
+<img height="300" src="images/academy/digitalproduction/3dprinting/10_3D_printed_objects.png" />
+</p>
+
+<p align="center">
+<a href="#s9">[9]</a> <i> Ваза, надрукована у 3D – </i>
+<a href="#s10">[10]</a> <i> Різні предмети, надруковані у 3D</i>
+</p>
+
+<p align="center">
+<img height="230" src="images/academy/digitalproduction/3dprinting/11_3D_printed_object.png" />
+<img height="230" src="images/academy/digitalproduction/3dprinting/12_3D_printed_object.png" />
+<img height="230" src="images/academy/digitalproduction/3dprinting/13_3D_printed_object.png" />
+</p>
+
+<p align="center">
+<a href="#s11">[11]</a> <i>  - </i>
+<a href="#s12">[12]</a> <i>  - </i>
+<a href="#s13">[13]</a> <i> Різні предмети, надруковані у 3D</i>
+</p>
+
+
+
+
+## Базові поняття
+### Філамент
+
+Основний матеріал, що необхідний для друку на 3D-принтері FDM – це філамент. Це тонка пластикова нитка, яка намотана на котушку.
+
+<p align="center">
+<img height="300" src="images/academy/digitalproduction/3dprinting/14_Filament_for_3D_printing.png" />
+<img height="300" src="images/academy/digitalproduction/3dprinting/15_Filament_for_3D_printing.png" />
+</p>
+
+<p align="center">
+<a href="#s14">[14]</a> <i> Різні котушки з філаментом – </i>
+<a href="#s15">[15]</a> <i> Котушка з філаментом</i>
+</p>
+
+Філаменти бувають різних кольорів та з різних матеріалів. Найпоширенішим матеріалом для 3D-друку є пластик PLA. 
+
+Він дешевий, ним легко друкувати, він підходить для більшості виробів, і тому пасує для початківців. PLA є різновидом пластику і розшифровується як «полімолочна кислота».
+
+Нижче короткий огляд найпоширеніших матеріалів для 3D-принтерів FDM, а також їхні основні переваги та недоліки:
+
+- **PLA:** недорогий матеріал, можна легко друкувати, підходить для початківців, ідеально підходить для друку декоративних об'єктів або деталей з низьким навантаженням; легко переробляється
+- **PETG / PET-G:** міцніший, ніж PLA, підходить для функціональних деталей, які мають витримувати високі навантаження; легше друкувати ніж ABS та трохи міцніше, ніж ABS
+- **PET:** рідко зустрічається як філамент для 3D-друку, менш підходить, ніж PET-G; дуже легко переробляти; можна виробити нитку PET, наприклад, з ПЕТ-пляшок
+- **ABS:** такий же пружний, як PETG, aле має більш високу термостійкість, ніж PETG; під час друку виділяє шкідливі для здоров’я пари, тому необхідно гарно провітрювати приміщення; важко друкувати, рекомендовано мати закритий корпус та дотримуватись високої температури нагрівальної поверхні
+- **ASA:** вважається «наступником» ABS; менше деформується та випускає менше шкідливих парів ніж ABS
+- **Нейлон:** має надзвичайно високу механічну та термічну стійкість; важко друкувати, більше підходить для досвідчених користувачів; дорожче інших видів нитки; чутливий до вологи
+- **ТПУ:** гнучкий подібний до ґуми матеріал; може легко деформуватися після друку; ідеально підходить для невеликих шин, штампів тощо; відносно важко друкувати; дорожче, ніж інші типи ниток
+
+Оскільки кожен матеріал має різну температуру плавлення, важливо правильно встановити її в процесі друку. 3D-принтер нагріває в екструдері нитку до температури, за якої її можна легко розрідити та використовувати для друку, тоді як для нагрівальної поверхні встановлюється така температуру, щоб філамент добре до неї прилягав. Наприклад, для PLA зазвичай використовується температура екструдера 200-230 °C, а температура нагрівальної поверхні становить 60 °C. Однак ці рекомендації щодо температури можуть відрізнятися залежно від виробника матеріалу. Слід перевірити інформацію на рулоні філамента або в доданих таблицях даних і порівняти їх із налаштуваннями програмного забезпечення для слайсингу [докладніше про слайсинг див. нижче](#Програмне-забезпечення-для-слайсингу).
+
+Філамент в основному продається у діаметрі 1,75 мм та 2,85 мм, причому 1,75 мм є найбільш поширеним. Товстіший філамент діаметром 2,85 мм використовується на більших 3D-принтерах або на тих, у яких сопло було відповідним чином замінено.
+
+Звичайні 3D-принтери можуть друкувати лише з одним філаментом за раз, тобто якщо ви хочете друкувати іншим кольором або використовуючи інший матеріал, вам доведеться щоразу змінювати котушку. Але є також 3D-принтери, які можуть друкувати за допомогою двох або більше ниток одночасно. Таким чином, різнокольорові об’єкти або об’єкти з різних матеріалів можна друкувати наступним чином: підтримуючий матеріал (докладніше про це нижче, див. розділ [Підтримуючий матеріал](#Матеріал-підтримки-та-мости), друкується з матеріалу, який легко знімається, а фактичний об’єкт – з більш стійкого матеріалу. 
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/3dprinting/16_3D_printing_color_mixing.png" />
+</p>
+
+<p align="center">
+<a href="#s16">[16]</a> <i> Багатокольоровий 3D-друк</i>
+</p>
+
+### Складові 3D-принтера
+
+Спочатку вам слід ознайомитися з базовою структурою 3D-принтера FDM. Тут як приклад описано типовий 3D-принтер FDM. Більшість принтерів FDM побудовані таким або схожим чином. Залежно від виробника та моделі ця структура може відрізнятися, але основні принципи залишаються незмінними.
+
+<p align="center">
+       <img height="500" src="images/academy/digitalproduction/3dprinting/17_Die_wichtigsten_Komponenten_eines_3D-Druckers.png" />
+</p>
+
+<p align="center">
+       <a href="#s17">[17]</a> <i> Найвіажливіші складові 3D-принтера </i>
+</p>
+
+Найважливішим компонентом є екструдер, його можна уявити собі як друкуючу головку у струменевому принтері.
+
+<p align="center">
+<img height="300" src="images/academy/digitalproduction/3dprinting/18_Extruder.png" />
+<img height="300" src="images/academy/digitalproduction/3dprinting/19_Extruder.png" />
+</p>
+
+<p align="center">
+<a href="#s18">[18]</a> <i> Спрощений розріз екструдера: (1) філамент, (2) екструдер із шестернями для подачі філамента, (3) насадка з підігрівом – </i>
+<a href="#s19">[19]</a> <i> фото екструдера </i>
+</p>
+
+У верхній частині екструдера є отвір, у який вставляється філамент. Всередині екструдера є дві шестерні, які "проштовхують" філамент вниз та контролюють його подачу.
+Після цього філамент проходить через секцію охолодження. За допомогою вентилятора філамент охолоджується. Це убезпечує від проведення тепла вверх, що могло б призвести до плавлення філамента ще в області шестерень. Якби він почав полавитися вище, шестерні не могли б проштовхувати рідкий філамент. У процесі 3D-друку вентилятор може самостійно вмикатися та вимикатися.
+
+Після охолоджувальної частини екструдера філамент просувається далі вниз через так званий «гарячий кінець» ("Hotend"). Там філамент нагрівається до температури плавлення. Врешті-решт в’язкий філамент продавлюється через сопло. Наприклад, філамент товщиною 1,75 мм продавлюється через сопло значно меншого діаметру, зазвичай приблизно 0,4 мм. Оцей тонкий філамент тепер можна використовувати для пошарового нанесення, тобто для 3D-друку.
+
+Щоб екструдер міг створювати об’єкти в тривимірному просторі, він повинен рухатися в усіх напрямках. Для цього 3D-принтери мають три керовані двигуном осі: X, Y і Z.
+
+Осі X і Y зазвичай відповідають за рухи у горизонтальній поверхні:
+- Вісь X: «ліворуч і праворуч»
+- Вісь Y: «спереду і ззаду»
+
+<p align="center">
+       <img height="400" src="images/academy/digitalproduction/3dprinting/20_X-_Y-_and_Z-axis_3D_printer.png" />
+       <img height="400" src="images/academy/digitalproduction/3dprinting/21_Top_view_3D_printer_with_X-_and_Y-axis.png" />
+</p>
+
+<p align="center">
+       <a href="#s20">[20]</a> <i> Осі X, Y і Z 3D-принтера - </i>
+       <a href="#s21">[21]</a> <i> Вид згори на 3D-принтер з осями X і Y </i>
+</p>
+
+<br/>
+
+Натомість вісь Z відноситься до вертикального (перпендикулярного) руху:
+- Вісь Z: «вгору і вниз»
+
+<br/>
+
+<p align="center">
+       <img height="400" src="images/academy/digitalproduction/3dprinting/22_Front_view_3D_printer_with_X-_and_Z-axis.png" />
+</p>
+
+<p align="center">
+       <a href="#s22">[22]</a> <i> Фронтальний вид на 3D-принтер з осями X та Z </i>
+</p>
+
+Екструдер часто фіксується на стрижні, на якому він може рухатися вліво і вправо (тобто в напрямку X). Рух відбувається за допомогою двигуна та ремінної передачі. Для руху по осі Y найчастіше переміщується не сам екструдер, а горизонтальна нагрівальна плита, також за домогою двигуна та ременя.
+
+Для осі Z як правило використовуються шпинделі з моторним керуванням, які переміщують увесь стрижень осі X вгору та вниз. У деяких 3D-принтерах переміщується вгору або вниз не екструдер (тобто вісь Х), а нагрівальна поверхня.
+
+Процес друку можна уявити таким чином: 3D-принтер спочатку працює як 2D-принтер. Розплавлений філамент проштовхується через сопло екструдера, а осі X і Y рухаються одночасно. Таким чином, принтер «малює» перший, найнижчий шар на нагрівальній поверхні, тобто, як під час 2D друку. Як тільки перший шар закінчено, екструдер переміщується на невелику відстань (йдеться про частки міліметра) у напрямку осі Z, а потім «малює» другий шар поверх першого. Це продовжується допоки не буде створено найвищий шар запланованого виробу, тобто поки не буде створено весь тривимірний об'єкт.
+
+
+### Калібрування
+
+Щойно придбаний або щойно зібраний 3D-принтер спочатку потрібно відкалібрувати. Більшість 3D-принтерів мають для цього програму, яку можна запустити через налаштування. При калібруванні екструдер рухається в різні точки, в т.ч. рухається по осях X, Y і Z один раз по всій їхній довжині і «сканує» нагрівальну плиту поля задруку. 3D-принтер запам'ятовує всі виміри та координати, тож, таким чином, гарантується правильне калібрування. 
+
+Щоправда, іноді може знадобитися повторно відкалібрувати 3D-принтер, наприклад, після транспортування або якщо в результаті друку помічено помилки.
+
+
+
+## Підготовка до 3D друку
+### Цифрова 3D модель
+
+Для 3D друку спочатку необхідна цифрова 3D модель об’єкта. Можна змоделювати або спроектувати такі 3D-моделі самостійно (наприклад, за допомогою програмного забезпечення CAD) або завантажити готову модель з Інтернету. Більшість файлів моделей мають доволі малий об'єм, тож їх можна надсилати в т.ч. електронною поштою. Ще один спосіб створення 3D-моделі — це 3D-сканування реального об’єкта або людини.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/3dprinting/23_3D_CAD_model_part_FreeCAD.png" />
+</p>
+
+<p align="center">
+<a href="#s23">[23]</a> <i> 3D модель деталі, створена у FreeCAD </i>
+</p>
+
+Інші базові навчальні модулі стосуються [3D-моделювання CAD](/ua/academy/3dmodels/3ddesign), [3D-сканування](/ua/academy/3dmodels/3dscanning) та [завантаження моделей з веб-сайтів](/ua/academy/3dmodels/3dmodelsinternet).
+
+Для більшості 3D-принтерів потрібні файли у форматі STL (або іноді у форматі OBJ), тобто файл повинен мати розширення .stl або .obj. STL є більш поширеним форматом. Майже кожна програма САD може експортувати 3D-моделі у формат STL. Завантажуючи файли з Інтернету, спочатку слід перевірити, чи вони мають формат STL.
+
+Перш ніж друкувати файл STL, його слід відредагувати у так званому програмному забезпеченні для слайсингу, яке на основі 3D-моделі створює багато маленьких шарів або зрізів, що накладаються одне на одного, та обчислює команди керування для 3D-принтера, який потім друкуватиме модель шар за шаром [докладний опис процесу слайсингу наведено нижче](#Слайсинг,-тестування-та-експорт). 
+
+
+### Програмне забезпечення для слайсингу
+
+Існує багато різних програм для слайсингу. Багато відомих виробників 3D-принтерів мають власне програмне забезпечення для слайсерів і зазвичай пропонують його для безкоштовного завантаження на своєму веб-сайті. Ось два приклади, з посиланнями для завантаження:
+
+- PrusaSlicer		https://www.prusa3d.com/de/page/prusaslicer_424/ 
+- UltiMaker Cura 	https://ultimaker.com/de/software/ultimaker-cura 
+
+Багато програм для слайсерів базуються на програмному забезпеченні з відкритим вихідним кодом, наприклад, PrusaSlicer було розроблено на основі програмного забезпечення з відкритим кодом "Slic3r", тому сам PrusaSlicer також є відкритим кодом.
+
+Деякі менші виробники 3D-принтерів також використовують програми для слайсингу від великих виробників і надають лише файл конфігурації, який адаптує програмне забезпечення для слайсингу до конкретного 3D-принтера.
+
+Програмне забезпечення слайсера надає можливість попереднього перегляду поля задруку та імпортованих 3D об’єктів. За допомогою програмного забезпечення 3D об’єкти, які потрібно надрукувати, можна розмножувати (у разі якщо треба кілька разів надрукувати однаковий об’єкт), переміщувати віртуально в просторі, обертати, масштабувати (збільшувати/зменшувати) та розміщувати в бажаних положеннях на полі для друку.
+
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/3dprinting/24_Slicing_in_PrusaSlicer.png" />
+</p>
+
+<p align="center">
+<a href="#s24">[24]</a> <i> Підготовка кількох об’єктів до 3D-друку в програмному забезпеченні для слайсингу (PrusaSlicer) </i>
+</p>
+
+
+
+### Слайсинг, тестування та експорт
+
+Слайсер має багато параметрів, хоча не всі параметри будуть детально розглянуті в цьому базовому навчальному модулі. Для перших кроків у 3D-друці зазвичай достатньо стандартних налаштувань.
+
+Найважливішим параметром є матеріал. Наприклад, якщо ви хочете друкувати за допомогою PLA, виберіть «PLA» у налаштуваннях матеріалу або введіть температуру згідно рекомендацій виробника філаменту.
+
+Для початку процесу слайсингу необхідно імпортувати файл (або файли) STL у програмне забезпечення, правильно повернути та вирівняти деталь, а також встановити [параметри матеріалу](#Матеріал-підтримки-та-мости) підтримки.
+Слайсинг — це програмний процес, який ділить 3D-об’єкт на багато тонких шарів, що накладаються одне на одного. Ці шари мають однакову встановлену вами висоту або товщину, наприклад 0,15 мм; цей параметр зазвичай називають «висотою шару». Загалом кожен шар – це лише 2D, тоді як накладені одне на одного шари створюють тривимірний об’єкт.
+  
+<p align="center">
+<img height="340" src="images/academy/digitalproduction/3dprinting/25_Slicing_in_PrusaSlicer.png" />
+<img height="340" src="images/academy/digitalproduction/3dprinting/26_Slicing_in_PrusaSlicer_visible_layers.png" />
+</p>
+
+<p align="center">
+<a href="#s25">[25]</a> <i> Слайсинг 3D-об’єкта для 3D-друку (програмне забезпечення: PrusaSlicer) - </i>
+<a href="#s26">[26]</a> <i> Зрізи (шари), вигляд збоку </i>
+   <br/> <i> (натисніть на зображення для збільшення) </i>
+</p>
+
+Але програмне забезпечення для слайсингу має набагато більше можливостей. Воно розраховує точний хід екструдера, тобто шлях, який екструдер проходить у кожному шарі в осях X та Y, а потім також у осі Z. Крім того, під час слайсингу створюється матеріал підтримки, якщо були відповідні попередні налаштування (докладніше про це див. розділ "Матеріали підтримки".)
+
+Після виконання слайсингу бажано перевірити перебіг друку. Більшість слайсерів мають функцію моделювання або симуляції. Це дозволяє переглядати різні шари (від першого нижнього до останньої верхнього) окремо, а також відображати шлях екструдера у кожному шарі.
+
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/3dprinting/27_Slicing_simulation_infill_in_PrusaSlicer.png" />
+<img height="350" src="images/academy/digitalproduction/3dprinting/28_Slicing_simulation_infill_in_PrusaSlicer.png" />
+</p>
+
+<p align="center">
+<a href="#s27">[27]</a> <i>  - </i>
+<a href="#s28">[28]</a> <i> Моделювання процесу 3D-друку з видимою структурою заповнення (програмне забезпечення: PrusaSlicer) </i>
+</p>
+
+
+Після перевірки слайсингу можна експортувати файл як так званий файл „G-code".
+
+### G-Code
+
+G-код — це стандартизований формат файлу, який використовується не лише у 3D-друці, але й в інших виробничих процесах [наприклад, фрезерування з ЧПК](/ua/academy/digitalproduction/cncmilling) або [лазерне різання](/ua/academy/digitalproduction/lasercutting)). По суті, G-код використовується для того, щоб маючи численні окремі кроки та багато значень, точно «вказувати» машині, що робити. Наприклад, у G-коді зазначено: температуру, до якої повинні нагріватися сопло та нагрівальна поверхня; положення, у яке має рухатися екструдер 3D-принтера (що зазначено у координатах X, Y і Z); момент, коли саме шестерні повинні просувати філамент та виштовхувати його із сопла.
+
+G-код, згенерований програмним забезпеченням слайсингу, має бути передано на 3D-принтер. В залежності від моделі 3D-принтера існують різні можливості його передачі. Багато 3D-принтерів мають слот для SD-карти або USB-вхід. Тож G-код потрібно скопіювати на SD-карту або USB-накопичувач, після чого носій даних вставляється в 3D-принтер. Але є також 3D-принтери, які можна підключити безпосередньо до ПК за допомогою кабелю. У такому разі процес друку запускається безпосередньо з ПК.
+
+### Матеріал підтримки та мости
+Оскільки під час 3D-друку матеріал завжди потрібно накладати одне на одного, то можуть виникнути проблеми, якщо об’єкт матиме так звані від’ємні ухили. 3D-принтер не може друкувати «в повітрі». Тому, наприклад, стінка, яку слід надрукувати, в ідеалі повинна йти вверх під кутом 90°, хоча в залежності від матеріалу можна робити стіну нахиленою, зазвичай під кутом до 45°. У такому разі край різних шарів трохи перекриватиметься. 
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/3dprinting/29_Layer_angle_minimum_45_degrees_3D_printing.png" />
+</p>
+
+<p align="center">
+<a href="#s29">[29]</a> <i> Кут нахилу повинен бути не менше 45° </i>
+</p>
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/3dprinting/30_3D_printing_object_45_degree_angle_PrusaSlicer.png" />
+<img height="350" src="images/academy/digitalproduction/3dprinting/31_3D_printing_object_45_degree_angle_PrusaSlicer.png" />
+</p>
+
+<p align="center">
+<a href="#s30">[30]</a> <i>  - </i>
+<a href="#s31">[31]</a> <i> Об’єкт із нахилом 45° у PrusaSlicer </i>
+</p>
+
+
+
+Більш гострі звисання неможливі. Ця проблема часто вирішується повертанням об’єкта у програмному забезпеченні слайсингу в більш вигідне положення. Багато слайсерів мають функцію, коли вам потрібно клацнути лише на тій поверхні об’єкта, на яку його потрібно, так би мовити, «покласти».
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/3dprinting/32_Flipping_object_in_PrusaSlicer_for_better_3D_printing.png" />
+</p>
+
+<p align="center">
+<a href="#s32">[32]</a> <i> Верхня картинка: можна надрукувати лише ніжки столу, але стільницю потрібно було б «надрукувати в повітрі» (так не вийде). Нижня картинка: просте рішення: переверніть стіл, щоб на ньому не було звисань, і щоб можна було здійснити 3D-друк </i>
+</p>
+
+
+Для об’єктів складнішої форми може не бути положення обертання без звисань; у такому випадку у програмному забезпеченні слайсера можна створити опорний матеріал підтримки. Він здебільшого порожнистий, і зазвичай його можна відносно легко видалити після 3D-друку.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/3dprinting/33_Support_material_3D_printing.png" />
+</p>
+
+<p align="center">
+<a href="#s33">[33]</a> <i> Предмет, надрукований у 3D, зі знімним опорним матеріалом: Ця статуетка динозавра є гарним прикладом моделі, яку, незалежно від того, як ви її обертаєте, не можна надрукувати без звисань, тому потрібен додатковий опорний матеріал. </i>
+</p>
+
+
+Крім того, деякі 3D-принтери та слайсери також можуть друкувати так звані мости, якщо є відповідні для цього умови. Для створення моста экструдер протягує філамент з однієї основи до іншої. Неможливо створити міст, якщо його закріплено лише з одного боку, а з іншого боку він звисатиме у повітрі. 
+Міст не повинен бути задовгим або відстань між основами не повинна бути надто великою, інакше філамент під час друку не матиме натяжіння та звисатиме. Однак для короткої відстані мости є підходящою можливістю, щоб друкувати «в повітрі» без опорного матеріалу.
+
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/3dprinting/34_Bridging_3D_printing_PrusaSlicer.png" />
+</p>
+
+<p align="center">
+<a href="#s34">[34]</a> <i> Міст у програмному забезпеченні для слайсингу (ПЗ: PrusaSlicer) </i>
+</p>
+
+
+
+### Заповнення
+
+У більшості випадків не потрібно друкувати повністю тверду пластикову деталь. Лише зовнішня оболонка тривимірного надрукованого об’єкта має бути твердим, а всередині об’єкт частково порожнистий, а частково заповнений решітчастою структурою. Відсоток внутрішньої частини об'єкта, який заповнюється матеріалом, можна встановити в слайсерах за допомогою параметра «Заповнення» («Infill»).
+
+Наприклад, заповнення 15% (звичайне значення за замовчуванням) означає, що об’єкт на 15% заповнений матеріалом, тоді як решта 85% порожниста, тобто заповнена повітрям. Цього цілком достатньо для більшості предметів, що надруковані у 3D. Тобто, предмет важить менше, він друкується за менший час і витрачається менше матеріалу, ніж коли він на 100% заповнений. За потреби можна встановити нижчі або вищі значення заповнення, наприклад, у разі, якщо об’єкт має витримувати великі навантаження.
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/3dprinting/35_Infill_3D_printing_UltiMaker_Cura_slicer.png" />
+<img height="350" src="images/academy/digitalproduction/3dprinting/36_Infill_3D_printing.png" />
+</p>
+
+<p align="center">
+<a href="#s35">[35]</a> <i> Видиме заповнення (жовте) при різних рівнях заповнення (програмне забезпечення для слайсингу: UltiMaker Cura) – </i> <br/>
+<a href="#s36">[36]</a> <i> Напівготова друкована фігура з видимою структурою заповнення </i>
+</p>
+
+
+## Перебіг 3D-друку
+### Перед друком
+
+Перед початком 3D-друку треба перевірити, чи обрано правильний філамент та чи достатньо нитки на котушці. До того ж рекомендується очистити нагрівальну поверхню, напр. ізопропіловим спиртом або засобом для очищення скла. Це усуває невидимі залишки жиру, які можуть з’явитися, наприклад, через торкання поверхні для друку пальцями. Через рештки жиру філамент може некоректно лягати на поверхню. 
+
+Після перенесення готового G-коду на 3D-принтер і запуску принтера варто поспостерігати певний час за процесом друку і в разі виникнення проблем призупинити або відмінити його.
+
+
+### Левелінг, рамка та край 
+На початку 3D-друку зазвичай 3D-принтер спочатку сканує нагрівальну поверхню в різних місцях, щоб ще раз відкалібрувати Z-позиції (т. зв. «левелінг»).
+
+Після цього на краю нагрівальної поверхні друкується смужка довжиною в кілька сантиметрів, т. зв. «пробна лінія» або «очисна лінія». Це необхідно для «очищення» сопла та щоб переконатися, що сопло повністю заповнене в’язким філаментом, добре пропускає матеріал і готове до друку. Якщо 3D-принтер пропускає очисну лінію та відразу починає друкувати об’єкт, може бути, що на початку нитка не виходить або виходить нерівномірно.
+
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/3dprinting/37_Purge_line_3D_printing.png" />
+</p>
+
+<p align="center">
+<a href="#s37">[37]</a> <i> Очисна лінія на краю нагрівальної поверхні: ця лінія наноситься перед початком 3D-друку, щоб прочистити сопло та забезпечити рівномірний витік філаменту. </i>
+</p>
+
+
+
+Потім зазвичай друкується зовнішня лінія навколо площини, на якій мають з’явитися об’єкти. Ця так звана «рамка» , яка вже на початку друку дає уявлення про розмір об’єкта. До того ж по рамці можна відразу зрозуміти, чи добре лягає матеріал і чи не має проблем з його якістю — у разі сумнівів ще можна відмінити процес друку. 
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/3dprinting/38_Skirt_3D_printing.png" />
+</p>
+
+<p align="center">
+<a href="#s38">[38]</a> <i> Рамка об’єкта, роздрукованого в 3D об’єкта: це допомагає упізнати обриси об’єкта ще до початку самого друку, до того ж стабілізує подачу матеріалу в форсунці. </i>
+</p>
+
+
+
+При роботі з деякими матеріалами може бути корисним додатково ще роздрукувати т. зв. "край" (Brim), щоб стабілізувати об’єкт під час друку. За потреби функцію друку краю можна активувати та встановити в налаштуваннях слайсера.
+
+### Перший шар
+
+Після друку рамки та краю друкується перший шар об’єкта. За цим треба пильно спостерігати. Якщо виявиться, що перший шар виходить нечистим, напр. якщо нитка некоректно лягає в певних місцях (це можна визначити за невеличкими виступами на шарі), слід відмінити на цьому етапі друк, видалити вже роздрукований матеріал, очистити нагрівальну поверхню, заново відкалібрувати Z-вісь і перезапустити друк.
+
+<p align="center">
+<img height="300" src="images/academy/digitalproduction/3dprinting/39_First_layer_3D_printing.png" />
+<img height="300" src="images/academy/digitalproduction/3dprinting/40_First_layer_3D_printing.png" />
+</p>
+
+<p align="center">
+<a href="#s39">[39]</a> <i>  - </i>
+<a href="#s40">[40]</a> <i> Вдалий перший шар 3D-друку: треба пильно спостерігати за друкуванням першого шару та в разі незадовільної якості перезапустити процес. </i>
+</p>
+
+Якщо перший шар роздрукується погано, весь об’єкт у подальшому може вийти неточним або взагалі бракованим. Оскільки 3D-друк триває багато хвилин або часто навіть годин, є сенс переконатися в гарній якості першого шару, перш ніж марно витрачати час і матеріал.
+
+### Наступні шари
+
+У процесі 3D-друку можна спостерігати, як накладаються подальші шари. При цьому можна також побачити середину об’єкта з його сітчастою структурою. 
+
+Якщо перший шар добре вдався, можна лишити 3D-принтер без нагляду. У разі сумнівів щодо того, чи можна вийти з приміщення або залишити процес друку на ніч, необхідно це обговорити з власником принтера або представником фаблаба. 
+
+
+### Після друку
+
+Після завершення процесу 3D-друку екструдер переходить у положення, що дозволяє безпроблемно вийняти об’єкт. Багато 3D-принтерів мають знімну панель (напр., з ресорно-пружинної сталі) на поверхні для друку. Це полегшує діставання об’єкта, бо спочатку можна вийняти всю панель, потім злегка її зігнути та зняти об’єкти з панелі.
+
+Насамкінець слід за потреби видалити наявний допоміжний матеріал підтримки. Крім того, об’єкт можна по-різному доопрацьовувати, наприклад, зашліфувати або обробити епоксидною смолою щоб покращити зовнішній вигляд поверхні.  
+
+
+# Інформація про ліцензію
+
+**Автор:** Оскар Лідтке (Oskar Lidtke), https://github.com/orcular-org/
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Якщо не зазначено інакше, цей твір ліцензовано в рамках міжнародної <a rel="ліцензії" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)</a>.
+
+Див. кращі приклади [зазначення Авторства](https://wiki.creativecommons.org/wiki/Best_practices_for_attribution) та [створення власного твору](https://wiki.creativecommons.org/wiki/Marking_your_work_with_a_CC_license) з ліцензією Creative Commons.
+
+Щодо зазначення Авторства та ліцензії використаних зображень, див. розділ нижче.
+
+
+# Джерела ілюстрацій
+
+<a id="s1"></a>
+**[1]** DIY-3D-Drucker mit Open-Hardware-Lizenz [(Repository)](https://gitlab.fabcity.hamburg/hardware/interfacer-osh-build-workshops/3-d-printer-hypercuboid) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s2"></a>
+**[2]** Prusa i3 metal frame - **Image license:** [GNU Free Documentation License, Version 1.2](https://commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2) - **Source:** https://commons.wikimedia.org/wiki/File:Prusa_i3_metal_frame.jpg
+
+<a id="s3"></a>
+**[3]** BigFDM 3D-Drucker [(Repository)](https://github.com/fab-machines/BigFDM) - **Image Source:** https://openlab-hamburg.de/
+
+<a id="s4"></a>
+**[4]** Eco-sustainable 3D printed house - **Image license:** [CC BY 2.5](https://creativecommons.org/licenses/by/2.5/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Eco-sustainable_3D_printed_house_%22Tecla%22.jpg
+
+<a id="s5"></a>
+**[5]** A photo of the printing head of a FELIX 3D Printer in action - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Felix_3D_Printer_-_Printing_Head_Cropped.JPG
+
+<a id="s6"></a>
+**[6]** 3DBenchy - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) - **Source:** https://flic.kr/p/rVrSsc
+
+<a id="s7"></a>
+**[7]** Lautsprecher aus 3D Drucker - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:Mg_4327-20171101-3d-lautsprecher.jpg
+
+<a id="s8"></a>
+**[8]** A Jet Engine turbine printed from the Howard Community College Makerbot - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:HCC_3D_printed_turbine_view_1.jpg
+
+<a id="s9"></a>
+**[9]** 3D printing a yarn bowl - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) - **Source:** https://www.flickr.com/photos/ruthanddave/49896309407
+
+<a id="s10"></a>
+**[10]** Verschiedene 3D-gedruckte Objekte - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s11"></a>
+**[11]** 3D-gedrucktes Objekt - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s12"></a>
+**[12]** 3D-gedrucktes Objekt - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s13"></a>
+**[13]** 3D-gedrucktes Objekt - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s14"></a>
+**[14]** Makerbot Store, Manhattan (NY, USA) - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Makerbot_Store,_Manhattan_(NY,_USA)_(8764959982).jpg
+
+<a id="s15"></a>
+**[15]** ABS filament spool - **Image license:** [GNU Free Documentation License, Version 1.2](https://commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2) - **Source:** https://commons.wikimedia.org/wiki/File:ABS_filament_spool.jpg
+
+<a id="s16"></a>
+**[16]** 3DBenchy created using color mixing on an FDM printer - **Image license:** [GNU Free Documentation License, Version 1.2](https://commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2) - **Source:** https://commons.wikimedia.org/wiki/File:3DBenchy_created_using_color_mixing_on_an_FDM_printer.jpg
+
+<a id="s17"></a>
+**[17]** Die wichtigsten Komponenten eines 3D-Druckers (3D-Modell erstellt in FreeCAD) - [3DBenchy attribution](https://www.3dbenchy.com/license/) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s18"></a>
+**[18]** Filament Driver diagram of a 3D printer (FDM). 1 Filament. 2 Filament Driver (Extruder). 3 Heated Nozzle. 4 Print. 5 Build Platform. (cropped) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://en.wikibooks.org/wiki/File:Filament_Driver_diagram.svg
+
+<a id="s19"></a>
+**[19]** Taz 5 3D Printer (16721682637).jpg - https://www.sparkfun.com/products/retired/13300 - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Taz_5_3D_Printer_%2816721682637%29.jpg
+
+<a id="s20"></a>
+**[20]** X-, Y- und Z-Achse eines 3D-Druckers - [3DBenchy attribution](https://www.3dbenchy.com/license/) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s21"></a>
+**[21]** Draufsicht eines 3D-Druckers mit X- und Y-Achse - [3DBenchy attribution](https://www.3dbenchy.com/license/) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s22"></a>
+**[22]** Frontansicht eines 3D-Druckers mit X- und Z-Achse - [3DBenchy attribution](https://www.3dbenchy.com/license/) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s23"></a>
+**[23]** 3D-Modell eines Bauteils, erstellt in FreeCAD - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s24"></a>
+**[24]** Vorbereitung mehrerer Objekte für den 3D-Druck in einer Slicer-Software (PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s25"></a>
+**[25]** Slicing eines 3D-Objekts für den 3D-Druck (Software: PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s26"></a>
+**[26]** Schichten (slices) in Seitenansicht (Software: PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s27"></a>
+**[27]** Simulation des 3D-Druckablaufs mit sichtbarer Infill-Struktur (Software: PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s28"></a>
+**[28]** Simulation des 3D-Druckablaufs mit sichtbarer Infill-Struktur (Software: PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s29"></a>
+**[29]** Schichtwinkel beim 3D-Druck mindestens 45° - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org) - **Adapted from:** An illustration demonstrating the effect of using a part-cooling fan 3D printing on a filament-based 3D printer. - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:3D_printing_calibration_part-cooling_fan_airflow.svg
+
+<a id="s30"></a>
+**[30]** Objekt mit 45°-Schräge im PrusaSlicer - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s31"></a>
+**[31]** Objekt mit 45°-Schräge im PrusaSlicer - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s32"></a>
+**[32]** Objekt nicht 3D-druckbar, gedrehtes Objekt druckbar - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s33"></a>
+**[33]** Kunststoffdino mit Stützstruktur Rapid Prototyping /Kunststoff schichtweise aufgetragen - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Rapid-dino.jpg
+
+<a id="s34"></a>
+**[34]** Brücke in einer Slicer-Software (PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s35"></a>
+**[35]** Different levels of infill denisity, as generated by Cura software (cropped, rearranged)- **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:Infill_density.jpg
+
+<a id="s36"></a>
+**[36]** 3D printed HULK (40% only power) (cropped) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:HULK_(40%25).jpg
+
+<a id="s37"></a>
+**[37]** Purge line 3D-Druck - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s38"></a>
+**[38]** Schürze (skirt) im 3D-Druck - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s39"></a>
+**[39]** Erste Schicht 3D-Druck - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s40"></a>
+**[40]** Erste Schicht 3D-Druck - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)

@@ -1,0 +1,185 @@
+---
+title: 3D-сканування
+img: https://images.unsplash.com/photo-1633899306328-c5e70574aaa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80
+order: 2
+layout: "@layouts/AcademyContent.astro"
+teaser: In this module you will find helpful information about 3D Scanning.
+---
+
+## Вступ
+
+Під 3D-скануванням розуміють такий процес отримання інформації про поверхні реальних об’єктів, осіб або середовищ за допомогою спеціальних приладів, при якому створюється їх 3D-модель. 3D-сканування використовується в багатьох сферах, напр. у кіноіндустрії, при вимірюванні ділянок і будівель або у зворотній інженерії, тобто відтворенні наявних технічних деталей.
+
+У контексті майстерень фаблаб і мейкерських спільнот методи 3D-сканування застосовуються насамперед для виготовлення тривимірних моделей осіб (т. зв. «3D-селфі»), для відтворення фігур, іграшок тощо, а також для репродукції запчастин. З відсканованих тривимірних моделей у фаблабах виготовляють нові реальні об’єкти, наприклад за допомогою 3D-друку.
+
+Залежно від налаштувань процесу 3D-сканування створюються або безколірні, точніше одноколірні 3D-моделі — це означає, що охоплюється лише поверхня об’єкта, — або кольорові моделі, які охоплюють також кольори та структуру об’єкта чи особи та передають через 3D-модель текстуру, завдяки чому ми отримуємо досить реалістичне відображення реального об’єкта.
+
+
+<p align="center">
+<img height="300" src="images/academy/3dmodels/3dscanning/1_3D_selfie.png" />
+<img height="300" src="images/academy/3dmodels/3dscanning/2_3D_scanning_MeshLab_example.png" />
+</p>
+
+<p align="center">
+<a href="#s1">[1]</a> <i> 3D-селфі: модель особи, створена за допомогою 3D-сканування та 3D-друку - </i>
+<a href="#s2">[2]</a> <i> Відсканована у 3D модель статуї, представлена у програмі MeshLab </i>
+</p>
+
+<p align="center">
+<img height="300" src="images/academy/3dmodels/3dscanning/3_Photogrammetry_with_camera.png" />
+</p>
+
+<p align="center">
+<a href="#s3">[3]</a> <i> Фотограмметрія: Метод 3D-сканування з використанням фотокамери </i>
+</p>
+
+
+
+
+## Методи і технології
+
+Існують різні методи 3D-сканування, серед яких для хобі та фаблабів відзначають насамперед такі дві:
+- лазерне сканування
+- фотограмметрія
+
+До того ж існують прилади, які поєднують лазерне сканування та фотограмметрію або ще й інші методи.
+
+### Лазерне сканування
+
+При лазерному скануванні поверхні зчитуються лазерним променем у вигляді ліній або сітки. Лазерне випромінювання, що відбивається від поверхні, потрапляє на сенсори, після чого з отриманих даних обраховується відстань і позиція відсканованих точок. На основі цих даних програмне забезпечення створює тривимірну модель поверхні.
+
+### Фотограмметрія
+
+Під час фотограмметрії об’єкт спочатку фотографується з багатьох різних кутів — або однією камерою, або кількома камерами одночасно.
+
+Якщо використовується одна камера, її треба обертати навколо об’єкта — вручну або механічно за допомогою роботизованої руки — та робити якомога більше світлин з багатьох різних перспектив. При цьому бажано, щоб об’єкт або особа не рухались. Можливо також використовувати основу, яка обертається, на якій розміщується та повертається об’єкт, а камеру при цьому переміщують лише по вертикалі. 
+
+При використанні кількох камер їх можна розмістити під різними кутами навколо об’єкта або особи. Камери працюють тоді одночасно.
+
+Програмне забезпечення розпізнає спільні та відмінні риси на зображеннях, знаходить однакові точки на різних зображеннях та обраховує відповідне положення кожної точки у тривимірному просторі. На основі цих положень генерується 3D-модель поверхні, до того ж можна накласти кольорові елементи (пікселі) окремих фотографій як текстуру на 3D-модель.
+
+<p align="center">
+<img height="300" src="images/academy/3dmodels/3dscanning/4_Photogrammetry_Meshroom.png" />
+<img height="300" src="images/academy/3dmodels/3dscanning/5_Photogrammetry_Meshroom2Blender.png" />
+</p>
+
+<p align="center">
+<a href="#s4">[4]</a> <i> Фотограмметрія у програмі Meshroom - </i>
+<a href="#s5">[5]</a> <i> Meshroom2Blender – розширення для тривимірного графічного редактора Blender </i>
+</p>
+
+
+### Типи приладів
+
+Прилади для 3D-сканування бувають різних видів, напр. прилади з ручним управлінням, які обертають навколо об’єкта, щоб охопити його з різних боків. Існують також застосунки для смартфонів, з допомогою яких можна використовувати камеру телефона для 3D-сканування-фотограмметрії. Більшість хороших застосунків є платними, а безкоштовні версії мають обмежені можливості.
+
+Насамперед для 3D-селфі окремих осіб або груп осіб є кабіни, обладнані численними камерами, що знімають осіб з різних боків. Оскільки всі камери працюють одночасно, цей метод зйомки дуже швидкий, і зображувані особи мають стояти непорушно лише дуже коротко.
+
+<p align="center">
+<img height="400" src="images/academy/3dmodels/3dscanning/6_Handheld_3D_Scanner.png" />
+<img height="400" src="images/academy/3dmodels/3dscanning/7_3D_selfie_cabin.png" />
+</p>
+
+<p align="center">
+<a href="#s6">[6]</a> <i> 3D-сканер з ручним управлінням та інтегрованою камерою для текстурування  - </i>
+<a href="#s7">[7]</a> <i> Кабіна для 3D-селфі: у стіні знаходиться багато камер, які спрацьовують одночасно і з різних кутів фотографують людей, що стоять посередині.</i>
+</p>
+
+
+
+## Обробка відсканованої 3D-моделі
+
+### Постобробка
+
+При використанні багатьох методів 3D-сканування 3D-модель потребує подальшої обробки в програмному забезпеченні, перед тим як, наприклад, здійснити її 3D-друк.
+
+Залежно від методу спочатку модель зображується у вигляді полігональної сітки або хмари точок, і за допомогою ПЗ її збирають, очищають і розгладжують.
+
+<p align="center">
+<img height="250" src="images/academy/3dmodels/3dscanning/8_Polygon_Mesh_Dolphin_example.png" />
+<img height="250" src="images/academy/3dmodels/3dscanning/9_Point_Cloud_Tux_example.png" />
+</p>
+
+<p align="center">
+<a href="#s8">[8]</a> <i> Приклад полігональної сітки - </i>
+<a href="#s9">[9]</a> <i> Приклад хмари точок (створеної шляхом фотограмметрії) </i>
+</p>
+
+
+### Програмне забезпечення
+
+У сфері 3D-сканування існує, зокрема, таке **програмне забезпечення**:
+
+- [Meshroom](https://alicevision.org/#meshroom): Безкоштовне відкрите програмне забезпечення для 3D-реконструкції, на основі  [AliceVision Framework](https://alicevision.org/), програмного пакету для фотограмметрії.
+- [MeshLab](https://www.meshlab.net/): Безкоштовне відкрите програмне забезпечення для обробки, очищення, рендерингу, текстурування та конвертації відсканованих у 3D моделей у вигляді полігональної сітки.
+- [3DF Zephyr](https://www.3dflow.net): Програма з [безкоштовною](https://www.3dflow.net/3df-zephyr-free/) та низкою платних версій для фотограмметрії, тобто генерування 3D-моделей із багатьох окремих 2D-зображень.
+- [ReconstructMe](https://www.reconstructme.net): Програмне забезпечення для створення 3D-селфі за допомогою власної камери — доступні як безкоштовна, так і платні версії.
+
+### Апаратне забезпечення
+
+Для фаблабів і мейкерів існують, зокрема, такі **прилади й апаратне забезпечення** (частково відкрите апаратне забезпечення):
+- [OpenScan](https://www.openscan.eu/) - ([сторінка](https://openscan-org.github.io/OpenScan-Doc/))
+- [FabScan](https://fabscan.org)
+- [MakerScanner](http://www.makerscanner.com/)
+
+До того ж існують і професійні прилади, але вони дуже дорогі та зазвичай використовуються лише підприємствами, проте деякі фаблаби теж мають такі прилади.
+
+### 3D-друк моделей, відсканованих у 3D
+
+Після очищення відсканованої у 3D моделі та переведення її у формат, придатний для 3D-друку, напр. STL [більше про це у базовому навчальному модулі про 3D-друк](/ua/academy/digitalproduction/3dprinting), цю модель можна легко роздрукувати на FDM 3D-принтері як одноколірний об’єкт. При використанні багатоколірного 3D-принтера можна роздрукувати також багатоколірну фігуру — з невеликою кількістю кольорів і обмеженою точністю.
+
+Якщо ви бажаєте отримати дуже детальну фігуру для 3D-друку з багатьма кольорами та високою точністю зовнішнього вигляду поверхні, звичайного 3D-принтера (англ. FDM — Fused Deposition Modeling, більше про це [тут](/ua/academy/digitalproduction/3dprinting) буде недостатньо. Комерційні надавачі послуг 3D-селфі використовують здебільшого іншу технологію 3D-друку — Binder Jetting, або струменевий тривимірний друк. У цій технології 3D-друку використовується порошок, який з’єднується із рідкою сполучною рідиною. Поверхня фігур, які створюються у такий спосіб, часто нагадує піщаник, до того ж може мати велике різноманіття кольорів, і точно передаються деталі.
+
+<p align="center">
+<img height="300" src="images/academy/3dmodels/3dscanning/10_3D_printed_3D_selfie.png" />
+</p>
+
+<p align="center">
+<a href="#s10">[10]</a> <i> Модель 3D-селфі, роздрукована на 3D-принтері </i>
+</p>
+
+
+Зрештою існує також можливість додатково обробити та розмалювати одноколірну (бажано білу) фігуру, роздруковану на FDM 3D-принтері.
+
+# Інформація про ліцензію
+
+**Автор:** Оскар Лідтке (Oskar Lidtke), https://github.com/orcular-org/
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Якщо не зазначено інакше, цей твір ліцензовано в рамках міжнародної <a rel="ліцензії" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)</a>.
+
+Див. кращі приклади [зазначення Авторства](https://wiki.creativecommons.org/wiki/Best_practices_for_attribution) та [створення власного твору](https://wiki.creativecommons.org/wiki/Marking_your_work_with_a_CC_license) з ліцензією Creative Commons.
+
+Щодо зазначення Авторства та ліцензії використаних зображень, див. розділ нижче.
+
+# Джерела ілюстрацій
+
+<a id="s1"></a>
+**[1]** 3D selfie in 1-20 scale as received from Shapeways, the printer company for Madurodam's Fantasitron IMG 4557 FRD.jpg - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:3D_selfie_in_1-20_scale_as_received_from_Shapeways,_the_printer_company_for_Madurodam%27s_Fantasitron_IMG_4557_FRD.jpg
+
+<a id="s2"></a>
+**[2]** MeshLabv121 david.png - **Image license:** [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.html.en) - **Source:** https://commons.wikimedia.org/wiki/File:MeshLabv121_david.png
+
+<a id="s3"></a>
+**[3]** Balkan Heritage Field School (photogrammetry course) at Stobi, Republic of Macedonia (cropped) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:Balkan_Heritage_Field_School-5.jpg
+
+<a id="s4"></a>
+**[4]** buddha_dataset.png - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://alicevision.org (home page)
+
+<a id="s5"></a>
+**[5]** meshroom2blender.jpg - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://alicevision.org (home page)
+
+<a id="s6"></a>
+**[6]** VIUscan handheld 3D scanner in use.jpg - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:VIUscan_handheld_3D_scanner_in_use.jpg
+
+<a id="s7"></a>
+**[7]** 3D-scanning photo booth for 3D selfies at the Doob NY SOHO store. - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Doob_NY_SOHO_3D_selfie_photo_booth_IMG_4939_FRD.jpg
+
+<a id="s8"></a>
+**[8]** An example of a polygon mesh. - **Image license:** [Public domain](https://en.wikipedia.org/wiki/Public_domain) - **Source:** https://commons.wikimedia.org/wiki/File:Dolphin_triangle_mesh.svg
+
+<a id="s9"></a>
+**[9]** TuxaufRasen-Photogrammetriepunktwolke.png - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:TuxaufRasen-Photogrammetriepunktwolke.png
+
+<a id="s10"></a>
+**[10]** Madurodam Shapeways 3D selfie in 1 20 scale after a second spray of varnish FRD.jpg - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Madurodam_Shapeways_3D_selfie_in_1_20_scale_after_a_second_spray_of_varnish_FRD.jpg
+
