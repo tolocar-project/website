@@ -25,11 +25,14 @@ const statsMtime = fs.statSync(file).mtime;
 const editDate = new Date(statsMtime);
 
 const parentPage = getParentPage(rawAcademyContent, url);
+
+const localeFromUrl =
+  Astro?.url?.pathname.replace(baseUrl, "").split("/").filter(Boolean)[0] || "en";
 ---
 
 <BaseLayout frontmatter={frontmatter}>
   <div class="mt-20 container-width">
-    <BackButton target={`${baseUrl}en/academy`}
+    <BackButton target={`${baseUrl}${localeFromUrl}/academy`}
       >Back to Academy Overview</BackButton
     >
   </div>
