@@ -84,7 +84,7 @@ export function trimAndSortInterventions(
     ? rawSortedInterventionsContentWithoutIndex.slice(0, count)
     : rawSortedInterventionsContentWithoutIndex;
 
-  return trimmedInterventions;
+  return trimmedInterventions.filter(Boolean);
 }
 
 export function transformInterventionsToPoiData(
