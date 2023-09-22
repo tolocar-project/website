@@ -4,8 +4,6 @@ import {
   AcademyHeroImage,
   BackButton,
   ContentSection,
-  Card,
-  CardContainer,
   TableOfContents,
 } from "@components";
 import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
@@ -35,7 +33,11 @@ const localeFromUrl =
 <BaseLayout frontmatter={frontmatter}>
   <div class="mt-20 container-width">
     <BackButton target={`${baseUrl}${localeFromUrl}/academy`}>
-      Back to Academy Overview
+      {
+        localeFromUrl === "ua"
+          ? "Повернутися до огляду Makerspace Academy"
+          : "Back to Academy Overview"
+      }
     </BackButton>
   </div>
   <div class="container-width-hero">
