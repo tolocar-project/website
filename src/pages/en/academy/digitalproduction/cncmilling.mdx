@@ -1,0 +1,460 @@
+---
+title: CNC Milling
+img: https://images.unsplash.com/photo-1633899306328-c5e70574aaa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80
+order: 3
+layout: "@layouts/AcademyContent.astro"
+teaser: In this module you will find helpful information about CNC Milling.
+---
+
+## Introduction
+
+Milling is a manufacturing process in which a rapidly rotating milling tool (also called a milling cutter) moves through a workpiece - e.g. a wooden board or a metal block - and removes material in the form of swarf (or chips). In this way, different shapes and components can be manufactured.
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/cncmilling/1_Milling_cutter.png" />
+<img height="350" src="images/academy/digitalproduction/cncmilling/2_CNC_milling.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s1">[1]</a> <i> Milling tools - </i>
+<a href="en/academy/digitalproduction/cncmilling#s2">[2]</a> <i> A milling machine in use - chips removed can be seen on the right of the picture </i>
+</p>
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/cncmilling/3_CNC_milling_aluminium.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s3">[3]</a> <i> CNC milling of aluminum </i>
+</p>
+
+
+
+The classic application is with milling machines, where the axis of rotation of the milling tool is rotated by an electric motor, while the movement of the cutter in space is performed by manual control with cranks or electrically controlled at the touch of buttons.
+
+When a milling machine is combined with a CNC (Computerized Numerical Control, sometimes just called "NC"), it is called a CNC milling machine - or often simply a "CNC mill" or CNC router. In this process, CNC code is first generated on the computer, either through human-written code or with the help of 3D CAD models and CAD/CAM software (more on this below). This NC code is then transferred to the machine, which executes all movements fully automatically according to the instructions in the program and produces the part.
+
+<p align="center">
+<img height="250" src="images/academy/digitalproduction/cncmilling/4_CNC_milling_machine.png" />
+<img height="250" src="images/academy/digitalproduction/cncmilling/5_Open_Source_Hardware_CNC_milling_machine.png" />
+<img height="250" src="images/academy/digitalproduction/cncmilling/6_CNC_milling_machine_fab_lab.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s4">[4]</a> <i> CNC milling machine (open-source hardware) - </i>
+<a href="en/academy/digitalproduction/cncmilling#s5">[5]</a> <i> Small desktop CNC milling machine (open-source hardware) - </i>
+<a href="en/academy/digitalproduction/cncmilling#s6">[6]</a> <i> CNC milling machine in a fab lab (click images to enlarge)</i>
+</p>
+
+
+In addition to CNC mills, there are also other CNC machines, e.g. CNC lathes (for CNC turning). In these basic learning modules, however, the focus is on machines that are typically used in fab labs, these include CNC milling machines in particular.
+
+Compared to other typical digital manufacturing methods in fab labs, such as 3D printing or laser cutting, CNC milling is significantly more demanding and challenging. This is primarily due to the fact that a lot of preparation is required, especially on the software side, since a complex CAM program (more on this [below](#cam)) must first be modeled, in which all CNC operations and steps are defined individually. This requires some prior knowledge and is usually a bit more time-consuming than the preparation of 3D printing or laser cutting. In addition, you have to define parameters such as spindle speed and feed rate, for this you have to be familiar with materials and milling tools and often you have to calculate something. There is a lot to learn about CNC milling. In this basic learning module, however, only the most important basics are dealt with, which are important for the beginning in the hobby and fab lab area.
+
+The advantage of CNC milling over 3D printing and lasercutting is that you can also machine metals, such as aluminum or, depending on the machine, even steel. In addition, significantly thicker wood boards can be machined than with lasercutting. In contrast to lasercutting, not only flat, plate-shaped objects are possible, but also three-dimensional shapes.
+
+## Basics
+
+### Materials
+
+CNC milling machines in fab labs are mainly used to machine wood. Depending on the machine, aluminum or steel are also possible. Plastics offer another possibility, e.g. sheets of recycled plastic.
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/cncmilling/7_CNC_milled_wood_parts_box.png" />
+<img height="350" src="images/academy/digitalproduction/cncmilling/8_CNC_milling_metal.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s7">[7]</a> <i> Wood can be well processed with CNC milling, for example, for parts of boxes or furniture. - </i>
+<a href="en/academy/digitalproduction/cncmilling#s8">[8]</a> <i> Some CNC milling machines can also machine aluminum or even steel. </i>
+</p>
+
+<p align="center">
+<img height="300" src="images/academy/digitalproduction/cncmilling/9_CNC_milling_recycled_plastic_Precious_Plastic.png" />
+<img height="300" src="images/academy/digitalproduction/cncmilling/10_CNC_milling_recycled_plastic_Precious_Plastic.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s9">[9]</a> <i>  - </i>
+<a href="en/academy/digitalproduction/cncmilling#s10">[10]</a> <i> Many plastics can be CNC milled - here, for example, a "Precious Plastic" sheet made from recycled HDPE </i>
+</p>
+
+
+
+### Types of CNC milling machines
+
+The most common CNC milling machine variant in fab labs is the 3-axis portal milling machine. In portal milling machines, the milling head is guided on a crossbeam between two uprights. The workpiece, e.g. a plate, lies on a horizontal surface and is screwed or clamped there. The milling tool always points vertically downwards and can be moved in three spatial axes: X-, Y- and Z-axis - hence the name "3-axis milling machine". The Z-axis usually refers to the vertical axis, i.e. the movement up and down.
+
+CNC milling machines were originally developed for industry and craft businesses and are relatively expensive. Some fab labs nevertheless have such expensive industrial machines, while others tend to use inexpensive hobby machines, of which there are now also many. There are also kits and instructions for building your own CNC milling machines. This often involves using a hand-held router and adding moving axes and a CNC control.
+
+In addition to 3-axis milling machines, there are also 4- and 5-axis milling machines. In addition to the three linear movement axes, one or two rotary axes are added. This is realized either by allowing the milling tool to rotate around the workpiece or by rotating the clamped workpiece - depending on the design of the machine. In this way, the milling machine can also work from the side or at an angle into the workpiece - making significantly more complex shapes possible. However, 4- and 5-axis milling machines of this type are more likely to be found in industry than in fab labs.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/cncmilling/11_5-axis_CNC_machine.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s11">[11]</a> <i> A 5-axis CNC milling machine - The milling tool can move in three linear axes and additionally rotate around two axes - thus it is also possible to mill from the side and at an angle into the workpiece, making it possible to produce much more complex shapes than with 3-axis machines. </i>
+</p>
+
+
+A special project in the area of fab lab and maker communities is the Maslow CNC milling machine. The Maslow CNC is a project based on open-source hardware and software. Its unique feature is its design: The plate to be machined is not flat and horizontal, but almost vertical, slightly angled. This makes the machine particularly space-saving. A manually operated router is used as the centerpiece. This sits in a housing that hangs on two chains that are lengthened and shortened under motor control, allowing the router to move left, right, up and down across the slab. In addition, the Z-direction of the router is controlled, i.e. the vertical plunge into the slab.
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/cncmilling/12_Maslow_CNC_machine.png" />
+<img height="350" src="images/academy/digitalproduction/cncmilling/13_CNC_milling_recycled_plastic_Precious_Plastic_Maslow_CNC.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s12">[12]</a> <i> The Maslow CNC machine stands slightly inclined, almost vertically, which makes it very space-saving. A router, which can actually be used for manual operation, hangs on two chains that are lengthened and shortened via motors - this controls the movement of the router. - </i>
+<a href="en/academy/digitalproduction/cncmilling#s13">[13]</a> <i> In addition to wood, it is also possible to process plastic, for example (here: a "Precious Plastic" recycled plastic sheet). </i>
+</p>
+
+
+
+
+### Components of a CNC milling machine
+
+The most important components are the milling tool with motor-driven spindle, the guided and motor-controlled axes and the CNC control, whose functions have already been explained above.
+
+A so-called sacrificial plate made of wood or plastic is often attached as a base on the milling table for CNC milling. The reason is that the milling cutter often has to mill a little deeper than the lower edge of the workpiece in order to mill the part out of the workpiece block. In doing so, the tool mills a little bit into the sacrificial plate. The sacrificial plate has to be replaced after some time, since the workpieces eventually no longer lie completely flat but crooked due to the many grooves and can therefore no longer be machined accurately.
+
+Some CNC milling machines have an extraction system. Here, the chips are extracted directly at the workpiece and transported via a hose into a container. If such an extraction system is missing, the work surface must be regularly cleaned of chips, e.g. with a vacuum cleaner.
+
+More professional CNC milling machines have a device that sprays lubricant and coolant onto the milling tool. This is especially important when milling metals.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/cncmilling/14_Cutting_fluid_CNC_milling.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s14">[14]</a> <i> Supply of cooling lubricant during milling through a ball joint hose  </i>
+</p>
+
+
+### CAM
+
+Before the actual CNC milling, a digital control code must first be created that "tells" the machine what to do.
+The beginning of this takes place in CAD/CAM software. CAD stands for Computer Aided Design. CAD software can therefore be used to design 3D models of components or objects (more on this in the [3D design and CAD basic learning module](/en/academy/3dmodels/3ddesign)).
+
+Next, CAM is carried out on the basis of a 3D CAD model. CAM stands for "Computer Aided Manufacturing". CAM software exists as stand-alone programs, but is often integrated as a module in a CAD program - this is then referred to as CAD/CAM software.
+
+In CAM, various CNC operations are defined on the basis of a CAD model, e.g. pockets, profiles or bores (drilled holes). In addition, important parameters such as spindle speed and feed rate are entered. Details on all these terms can be found in the next sections.
+
+In the [3D design and CAD basic learning module](/en/academy/3dmodels/3ddesign), the two software solutions FreeCAD and Autodesk Fusion 360 are presented - both programs are CAD/CAM software, so they can be used both to model parts and to prepare CNC milling of these parts.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/cncmilling/15_CAM_in_FreeCAD_Path_workbench.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s15">[15]</a> <i> CAM in FreeCAD software: The red and green lines show the paths that the milling tool is to take - this is how the component shown here is created from a solid block of material. </i>
+</p>
+
+
+
+
+## Parameters and settings
+
+
+### Milling tool shapes
+Milling tools come in many different shapes, for different applications. The most common form, and the one most often used in the fab lab sector, is the end mill. The shank is the part of the tool that has no cutting edges and is clamped into the machine.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/cncmilling/16_Milling_cutter.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s16">[16]</a> <i> Different milling tools: On the bottom right, a radius end mill with rounding at the tip. The top view on the left clearly shows the number of teeth or cutting edges: a double-edged milling tool at the top and a four-edged milling tool at the bottom. </i>
+</p>
+
+
+### Main parameters
+
+The most important characteristic values and parameters in CNC milling are:
+
+- **Milling diameter (in millimeters, mm):** the diameter of the milling tool.
+- **Speed (in revolutions per minute, rpm):** the speed at which the milling tool rotates (spindle speed).
+- **Feed rate (in millimeters per minute, mm/min):** the speed at which the milling tool moves in the horizontal direction.
+- **Depth of cut (in millimeters, mm):** As a rule, this describes the depth to which the milling tool plunges into the material per pass.
+
+There are many other adjustable parameters, but these four are the most important and decisive ones. The individual parameters will be discussed in more detail in the following sections.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/cncmilling/17_EN_CNC_milling_parameters.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s17">[17]</a> <i> The most important parameters in milling. </i>
+</p>
+
+<p align="center">
+<img height="250" src="images/academy/digitalproduction/cncmilling/18_CAM_in_FreeCAD_Path_workbench.png" />
+<img height="250" src="images/academy/digitalproduction/cncmilling/19_CAM_in_FreeCAD_Path_workbench.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s18">[18]</a> <i> Path (green) for milling a pocket in the FreeCAD CAD/CAM software. - </i>
+<a href="en/academy/digitalproduction/cncmilling#s19">[19]</a> <i> The same model in side view: Based on the green path lines, you can see the depth of cut - here it is 0.3 mm, the depth of the pocket is 2 mm. </i>
+</p>
+
+
+
+### Milling tool diameter
+Milling tools come in different diameters - usually between three and ten millimeters for fab lab machines. For each milling project, one must either decide on a milling diameter or divide the CNC project into several sections with different diameters. In this case, the milling tool must be changed during the process, usually by hand. Some professional machines can also change tools autonomously without the need for a person to intervene.
+
+The larger the milling diameter, the more material is removed per time, thus the faster the production runs. At the same time, a milling diameter cannot be larger than the smallest pocket (a depression in the material) to be milled. It is therefore necessary to select the milling cutter as large as possible, but as small as necessary.
+
+### Determination of spindle speed, feed rate and cutting depth
+
+The parameter settings are very important, as too high or too low speeds or feed rates can lead to unclean results or, in the worst case, damage to the machine.
+
+Once you have selected your milling diameter and know the material of the workpiece to be milled, you can calculate the other parameters. Tables and formulas can be found in reference books and on the Internet (for example [here](https://www.sorotec.de/webshop/Datenblaetter/fraeser/schnittwerte.pdf) - only available in German), and they are also usually found on site in the workshop or fab lab. The calculated values for speed and feed can be entered into the CAM program. To a certain extent, it is also possible to deviate from the values, i.e. the calculated values are only used as a guide value, but you should be well versed in this.
+
+For the cutting depth, it is often assumed as a guideline that it should be no more than the milling diameter. To be on the safe side, cutting depths smaller than the milling diameter are recommended, e.g. half the diameter. This is especially important when milling metals. The reason for this is that the milling tool cuts more material per time at a greater plunge depth, which puts a lot of stress on the tool and workpiece and can lead to unclean results or damage. In addition, milling tools are optimized by their shape for milling, i.e. cutting across the tool axis. They can also drill a bit, meaning they can work in the direction of the axis, but their shape makes them less suitable for this. Therefore, plunging should rather be done in small steps and the entire surface to be removed should be milled first after each plunge.
+
+
+### Safety height
+
+There are certain areas in which the milling tool travels at a different speed than in others. Above the safety height, the milling cutter travels relatively fast; as soon as it arrives at the point to be milled on the workpiece, it lowers slowly and from then on travels only at reduced speed. While milling in the workpiece, it moves at the feed rate. The reason for this is that a milling tool that plunges into the material at very high speed can be damaged or even break off, so the movements below the safety height must be much slower than above it.
+
+The height at which the safety height starts and the speed at which the cutter should move above this height can be set in the CAM software.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/cncmilling/20_FreeCAD_Path_workbench_Visual_reference_for_Depth_properties.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s20">[20]</a> <i> Safety height and some other parameters as used in the CAD/CAM software FreeCAD. Above the safety height the milling tool ("tool" in the picture) moves with increased speed. "Step down" here means the depth of cut (more about CAM in FreeCAD: https://wiki.freecad.org/Path_Workbench ). </i>
+</p>
+
+
+
+### Operation types
+
+There are many different types of machining that can be created in CAM systems as a so-called operation. The most important are:
+
+- **Profile:** The milling tool traces the outer contour of the part to be produced, starting on the surface of the workpiece. It then enters the material step by step - each time by the depth of cut - and traverses the profile again. At the end, the part is almost completely separated from the workpiece block and can be removed. It is important here to include holding bars - more on this in the next section.
+- **Pocket:** A pocket represents a depression in the material. Similar to profile milling, the milling process starts at the surface and then gradually goes down, by the depth of cut per pass.
+- **Drilling:** Bores, circular holes, can be made with drilling or milling tools. If you clamp a drilling tool and set the CAM operation as drilling accordingly, the drilling operation is performed vertically, as with a drilling machine. If, on the other hand, one uses a milling tool, it is important that the milling tool diameter is smaller than the drilling diameter and that the milling tool does not go completely into the material in one pass - a milling cutter should not be used for drilling. Instead, it is recommended to use a helix shape as a path. Alternatively, a "pocket" type operation can be created so that circular surfaces are milled in steps - one cutting depth further per step - and thus a hole is practically milled.
+
+Operations are created and visualized as paths in the CAD/CAM software. Based on the visualized paths, it is already possible to see which path the milling tool will take.
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/cncmilling/21_FreeCAD_Path_workbench_Profile_operation.png" />
+<img height="350" src="images/academy/digitalproduction/cncmilling/22_FreeCAD_Path_workbench_Pocket_operation.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s21">[21]</a> <i> CAM operation "Profile": the outer contour of the part is milled along the green path. - </i>
+<a href="en/academy/digitalproduction/cncmilling#s22">[22]</a> <i> CAM operation "Pocket": A depression in the material whose cavity is completely removed by the cutter until the bottom of the pocket (green) is reached. </i>
+</p>
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/cncmilling/23_FreeCAD_Path_workbench_with_holding_tags.png" />
+<img height="350" src="images/academy/digitalproduction/cncmilling/24_FreeCAD_Path_workbench_Helix_operation.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s23">[23]</a> <i> Component in FreeCAD software with several CAM operations (green and red paths): Outer contour and inner circular contour as "profile" with holding tags, the four small holes as "pockets". - </i>
+<a href="en/academy/digitalproduction/cncmilling#s24">[24]</a> <i> Close-up view of a hole in the component: Here, the hole is not a drilling operation, but a milled pocket. The path has a helical shape (helix) in order to machine the material slowly and thus gently for the milling tool. (Click on images to enlarge) </i>
+</p>
+
+
+
+### Holding tags
+
+If a part is completely separated from the workpiece, that is, a profile or an outer contour is milled, so-called holding tags should also be planned. Otherwise, the manufactured part could twist, tilt and wedge with the milling tool in the final milling process. The consequences would be that the part would not be manufactured correctly, and in the worst case, there would be a risk of damage to the machine.
+
+Holding tags can be set in the CAM system. In the end result, the holding tags are located at the lowest end of the workpiece and are relatively narrow and flat so that they can be easily cut through.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/cncmilling/25_FreeCAD_Path_workbench_simulation_with_holding_tags.png" />
+<img height="400" src="images/academy/digitalproduction/cncmilling/26_FreeCAD_Path_workbench_simulation_with_holding_tags.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s25">[25]</a> <i>  - </i>
+<a href="en/academy/digitalproduction/cncmilling#s26">[26]</a> <i> Holding tags (yellow) in the CAM simulation view of FreeCAD </i>
+</p>
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/cncmilling/27_Holding_tags_CNC_milled_aluminium.png" />
+<img height="350" src="images/academy/digitalproduction/cncmilling/28_Holding_tags_CNC_milled_wood.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s27">[27]</a> <i> Holding tags in a CNC-milled aluminum part. In the left area, a holding tag is clearly visible; on the right, there are some chip residues because the milling cutter did not go deep enough in the last step. - </i>
+<a href="en/academy/digitalproduction/cncmilling#s28">[28]</a> <i> Holding tags in a wooden board, milled with a Maslow CNC. (Click images to enlarge)</i>
+</p>
+
+
+
+The milling tool takes a path in the lowest part of the profile to be milled, in which it moves up a bit in front of the places where the holding tags are provided and cuts out this part, leaving the holding tags.
+
+The size and number of holding tags should be chosen so that they can hold the part securely, apart from that, they should be designed to be as small as possible so that you can cut them easily.
+
+After the milling process is complete, the holding tags can be cut using different methods depending on the material. For wood, for example, a saw can be used, for aluminum it works well with a metal saw or even with a hammer and chisel. After cutting, the sawed or broken areas should be reworked with a file.
+
+
+
+## Preparation and procedure of a CNC milling job
+
+### Safety
+
+CNC machines are potentially dangerous machines and should never be used without instruction and clearance. Fab labs usually offer a mandatory safety briefing. The details of this are different for each machine, so a more detailed description is not provided in this basic learning module.
+
+### CAM, simulation, G-code file
+
+A relatively large effort in CNC milling is in the preparation with the CAM software. Once you have defined all the operations and CAM paths, you should run a simulation. Most CAM programs have a simulation function in which the complete milling process is displayed, similar to a video, whereby one can freely rotate the 3D view during the simulation.
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/cncmilling/29_FreeCAD_Path_workbench_CAM_simulation.png" />
+</p>
+
+
+<p align="center">
+<a href="en/academy/digitalproduction/cncmilling#s29">[29]</a> <i> CAM simulation mode in FreeCAD: The green and red paths show the path of the milling tool (gray). At the beginning of the simulation, a solid, dark red block can be seen; during the simulation, you can observe how the milling cutter (gray) removes material, creating the yellow areas. In this snapshot, the outer profile is already finished, and the pocket is in the middle of machining. </i>
+</p>
+
+
+The simulation can also be played back at increased speed. During the simulation, it becomes visible when and where material is removed and what the finished part will look like in the end. If errors are still detected, the CAM program can still be reworked and expensive errors in production can be avoided.
+
+Finally, the CAM program must be exported as a G-code file using a post-processor (usually built into the software). G-codes in CNC milling are based on the same principle as G-codes in 3D printing - more about this in the [3D printing basic learning module](/en/academy/digitalproduction/3dprinting), in the section [G-code](/en/academy/digitalproduction/3dprinting).
+
+### Workpiece
+
+The workpiece, for example a wooden plate or a metal block, must be securely fastened to the milling table. In most cases, the workpiece can simply be screwed to the sacrificial plate with a few screws, preferably countersunk screws to reduce the risk of collisions with the milling tool. Nevertheless, one should always be careful that the machine does not mill into the screw.
+
+Another option is to clamp the workpiece if the CNC milling machine has a clamping device.
+
+### Set zero point
+
+CNC machines can be controlled via arrow keys - depending on the model on the machine itself or via the keyboard of a connected computer. This can be used, for example, to approach the zero point (origin).
+
+The machine must be told where to start the milling job, so you have to define the so-called zero point. There are different methods for this, e.g. by approaching the zero point on the workpiece surface while the spindle is rotating (scratching the material, so to speak). At this point, the zero point is set via the operation of the CNC milling machine. The machine thus stores the X, Y and Z coordinates of this point and will start the CNC program at this point.
+
+### CNC milling process
+
+Once the zero point has been set, the G-code file must be transferred to the CNC control of the machine via control software at the start of a CNC job and operation must be started. During milling, one should always stay close by and stop the milling process in case of unusual behavior or imminent damage - via the control software or via the emergency stop switch.
+
+### Post-processing
+
+Once production is complete, the workpiece or the finished part can be removed. Particular care should be taken with metal parts, as there is a risk of injury due to the sharp edges. The edges should be deburred and filed, and surfaces can also be ground.
+
+# License information
+
+**Author:** Oskar Lidtke, https://github.com/orcular-org/
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)</a>.
+
+See best practices for [attribution](https://wiki.creativecommons.org/wiki/Best_practices_for_attribution) and [marking your own work](https://wiki.creativecommons.org/wiki/Marking_your_work_with_a_CC_license) with a CC license.
+
+For attribution and licenses of the images used, see the section below.
+
+# Image references
+
+<a id="s1"></a>
+**[1]** fräser-schaftfräser-fräsen-3203969 (cropped) - **Image license:** [Pixabay Inhaltslizenz](https://pixabay.com/de/service/terms/) - **Source:** https://pixabay.com/de/photos/fr%C3%A4ser-schaftfr%C3%A4ser-fr%C3%A4sen-3203969/
+
+<a id="s2"></a>
+**[2]** Milling Cutter Engaged (cropped) - **Image license:** [CC0 Public Domain](https://creativecommons.org/publicdomain/zero/1.0/) - **Source:** https://www.publicdomainpictures.net/en/view-image.php?image=146351&picture=milling-cutter-engaged
+
+<a id="s3"></a>
+**[3]** CNC-Fräsen von Aluminium - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s4"></a>
+**[4]** Open Source CNC Milling machine - Large version - Open Lab Starter Kit - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://github.com/Open-Lab-Starter-Kit/OLSK-Large-CNC
+
+<a id="s5"></a>
+**[5]** Open Source CNC Milling machine - Small version - Open Lab Starter Kit - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://github.com/Open-Lab-Starter-Kit/OLSK-Small-CNC
+
+<a id="s6"></a>
+**[6]** CNC-Fräsmaschine in einem Fab Lab - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s7"></a>
+**[7]** Plywood CNC Box (cropped) - **Image license:** [CC BY-NC-SA 2.0](https://creativecommons.org/licenses/by-nc-sa/2.0/) - **Source:** https://www.flickr.com/photos/phidauex/4480597010
+
+<a id="s8"></a>
+**[8]** CNC Machining aluminum billet with Tormach (cropped) - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) - **Source:** https://www.flickr.com/photos/zombieite/10339203625
+
+<a id="s9"></a>
+**[9]** CNC milling Precious Plastic (recycled HDPE) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s10"></a>
+**[10]** CNC milling Precious Plastic (recycled HDPE) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s11"></a>
+**[11]**  5 Achs Bearbeitung (Attribution: HELLER) - **Image license:** [CC BY-SA 3.0 DE](https://creativecommons.org/licenses/by-sa/3.0/de/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Machining_5-axis.jpg
+
+<a id="s12"></a>
+**[12]** Bar and Maslow CNC - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:Bar_and_Maslow_CNC.jpg
+
+<a id="s13"></a>
+**[13]** Maslow CNC + Precious Plastic sheet - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s14"></a>
+**[14]** Kühlschmiermittel beim Fräsen - **Image license:** [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/deed.de) - **Source:** https://commons.wikimedia.org/wiki/File:Makino-S33-MachiningCenter-example.jpg?uselang=de
+
+<a id="s15"></a>
+**[15]** Pathwb.png - **Image license:** [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) - **Source:** https://wiki.freecad.org/File:Pathwb.png
+
+<a id="s16"></a>
+**[16]** MillingCutterSlotEndMillBallnose.jpg (cropped) - **Image license:** [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:MillingCutterSlotEndMillBallnose.jpg
+
+<a id="s17"></a>
+**[17]** Die wichtigsten Parameter beim Fräsen (modelliert in FreeCAD, Bildbearbeitung mit Krita) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s18"></a>
+**[18]** CNC milling pocket in FreeCAD Path Workbench - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s19"></a>
+**[19]** CNC milling pocket in FreeCAD Path Workbench - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s20"></a>
+**[20]** Path-DepthsAndHeights.gif - **Image license:** [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) - **Source:** https://wiki.freecad.org/File:Path-DepthsAndHeights.gif
+
+<a id="s21"></a>
+**[21]** Path profile example.jpg (cropped) - **Image license:** [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) - **Source:** https://wiki.freecad.org/File:Path_profile_example.jpg
+
+<a id="s22"></a>
+**[22]** Path Pocket Shape example.png (cropped) - **Image license:** [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) - **Source:** https://wiki.freecad.org/File:Path_Pocket_Shape_example.png
+
+<a id="s23"></a>
+**[23]** CNC milling in FreeCAD (profiles, holding tags, pockets in helix shape) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s24"></a>
+**[24]** CNC milling in FreeCAD (pocket in helix shape) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s25"></a>
+**[25]** Haltestege (gelb) in der CAM-Simulationsansicht von FreeCAD - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s26"></a>
+**[26]** Haltestege (gelb) in der CAM-Simulationsansicht von FreeCAD - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s27"></a>
+**[27]** Haltestege CNC-gefrästes Aluminiumteil - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s28"></a>
+**[28]** Haltestege CNC-gefrästes Holzbrett - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s29"></a>
+**[29]** G-Code path simulation on FreeCAD's Path workbench - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:FreeCAD-path-simulation.png
+
+

@@ -1,0 +1,38 @@
+---
+import { Card, CardContainer } from "@components";
+
+interface Props {
+  language?: string;
+}
+
+const { language = "en" } = Astro.props;
+---
+
+<CardContainer className="lg:h-[408px]">
+  <Card
+    title={language === "ua"
+      ? "Ти знаходишся в Україні і думаєш, що ми можемо бути тобі корисними?"
+      : "You are based in Ukraine and think we could help you?"}
+    bg={4}
+    target="mailto:info@tolocar.org"
+    actionCaption={language === "ua" ? "Контактуй з нами" : "Get in contact"}
+  >
+    {
+      language === "ua"
+        ? "Школи, університети, громадські організації, стартапи та інші організації можуть звернутись до нас з запитом на спільний з Толокаром проект, воркшоп або тренінг."
+        : "Schools, universities, NGOs, Startups and other organizations can reach out to us to request the Tolocars for projects, workshops and trainings."
+    }
+  </Card>
+  <Card
+    title={language === "ua"
+      ? "Ти мейкер і хочеш налагодити партнерство з нами?"
+      : "You are a Maker and want to partner with us?"}
+    bg={5}
+    target="mailto:info@tolocar.org"
+    actionCaption={language === "ua" ? "Контактуй з нами" : "Get in contact"}
+  >
+    Ми шукаємо мейкерів, фаблаби, хакерспейси, мейкерспейси та інші спільноти,
+    які мають бажання налагодити партнерство з нами в Україні або в інших
+    країнах.
+  </Card>
+</CardContainer>

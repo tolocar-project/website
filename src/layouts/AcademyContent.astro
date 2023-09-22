@@ -4,8 +4,6 @@ import {
   AcademyHeroImage,
   BackButton,
   ContentSection,
-  Card,
-  CardContainer,
   TableOfContents,
 } from "@components";
 import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
@@ -13,6 +11,7 @@ import { getParentPage } from "@util/ContentTransformer";
 import fs from "node:fs";
 import Giscus from "@components/Giscus.astro";
 import CommonUtils from "@util/CommonUtils";
+import FooterCards from "@components/FooterCards.astro";
 
 const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
   "../pages/en/academy/*/*.mdx"
@@ -25,13 +24,21 @@ const statsMtime = fs.statSync(file).mtime;
 const editDate = new Date(statsMtime);
 
 const parentPage = getParentPage(rawAcademyContent, url);
+
+const localeFromUrl =
+  Astro?.url?.pathname.replace(baseUrl, "").split("/").filter(Boolean)[0] ||
+  "en";
 ---
 
 <BaseLayout frontmatter={frontmatter}>
   <div class="mt-20 container-width">
-    <BackButton target={`${baseUrl}en/academy`}
-      >Back to Academy Overview</BackButton
-    >
+    <BackButton target={`${baseUrl}${localeFromUrl}/academy`}>
+      {
+        localeFromUrl === "ua"
+          ? "Повернутися до огляду Makerspace Academy"
+          : "Back to Academy Overview"
+      }
+    </BackButton>
   </div>
   <div class="container-width-hero">
     <AcademyHeroImage
@@ -75,24 +82,6 @@ const parentPage = getParentPage(rawAcademyContent, url);
       }`}
     >
     </div>
-    <CardContainer className="lg:h-[408px]">
-      <Card
-        title="You are based in Ukraine and think we could help you?"
-        bg={4}
-        target="mailto:info@tolocar.org"
-        actionCaption="Get in contact"
-        >Schools, universities, NGOs, Startups and other organizations can reach
-        out to us to request the Tolocars for projects, workshops and trainings.</Card
-      >
-      <Card
-        title="You are a Maker and want to partner with us?"
-        bg={5}
-        target="mailto:info@tolocar.org"
-        actionCaption="Get in contact"
-        >We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other
-        Communities who wants to partner with us in the Ukraine and
-        internationally over the internet.</Card
-      >
-    </CardContainer>
+    <FooterCards language={localeFromUrl} />
   </ContentSection>
 </BaseLayout>

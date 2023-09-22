@@ -1,0 +1,420 @@
+---
+title: Lasercutting
+img: https://images.unsplash.com/photo-1633899306328-c5e70574aaa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80
+order: 2
+layout: "@layouts/AcademyContent.astro"
+teaser: In this module you will find helpful information about Lasercutting.
+---
+
+## Introduction
+
+Lasercutting is a process in which a laser beam heats a material, melting or burning it in the process and thus separating it. The corresponding machines are called laser cutters. In addition to cutting, laser cutters are also capable of engraving, which means that the material is not cut through completely, but only processed on the surface, so that, for example, lettering or images can be added to the workpiece.
+
+Workpieces to be cut must not be too thick, usually plates a few millimeters thick are used. Engravings can also be lasered on thicker objects as long as they fit within the height limits of the machine. For example, furniture, kitchen boards or pens with wooden handles can be engraved.
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/lasercutting/1_Laser_cutting_wood.png" />
+<img height="350" src="images/academy/digitalproduction/lasercutting/2_Laser_engraving_wood.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s1">[1]</a> <i> A laser cutter cuts shapes from a wooden sheet (MDF) - </i>
+<a href="en/academy/digitalproduction/lasercutting#s2">[2]</a> <i> Laser engraving in a wooden sheet </i>
+</p>
+
+
+There are a variety of different laser cutters, which differ mainly in size and laser power.
+
+Laser cutters typically found in a fab lab usually have a processing space of about 30 x 20 cm to 70 x 40 cm. For comparison, a DIN A3 (ISO 216) format (typical size of a wood panel for laser cutting) measures approx. 42 x 30 cm, so it fits well in most laser cutters. The power of the laser is usually between 30 and 60 watts. Such laser cutters can be used to cut and engrave, for example, thin sheets of wood, plastic, transparent acrylic, textile, leather or cardboard. For cutting metals (e.g. aluminum or steel), the power of these mid-range devices is usually not enough, but engravings on metal can still be realized with them.
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/lasercutting/3_Fabulaser_Open_Source_Hardware_Laser_cutter.png" />
+<img height="350" src="images/academy/digitalproduction/lasercutting/4_Laser_cutter_fab_lab.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s3">[3]</a> <i> Fabulaser Mini - an open source hardware laser cutter - </i>
+<a href="en/academy/digitalproduction/lasercutting#s4">[4]</a> <i> Laser cutter in a fab lab </i>
+</p>
+
+
+There are also powerful industrial machines capable of cutting metals. However, since these machines are very expensive, you will hardly find them in Fab Labs, but rather in larger companies.
+
+A laser cutter usually requires a digital graphic file as input, which contains all cutting lines and images to be engraved. Cutting lines must be available as vector graphics (more on this below).
+
+Lasercutting can be used, for example, to produce nameplates, pictures, display stands, decorative items or jewelry (e.g. made of wood or plastic). Multi-part products such as storage boxes, small drawers, donation or savings boxes, toys, board games, puzzles or housings for electronic products can also be realized with lasercutting. The particular strength of laser engraving lies in the production of personalized or individual products, e.g. with names, portraits or logos.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/lasercutting/5_Laser_cut_and_engraved_objects.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s5">[5]</a> <i> Various laser cut and engraved objects </i>
+</p>
+
+
+## Basics
+
+### Materials
+
+Basically, it is very important to clarify before laser cutting whether the material may be processed, as there are substances that can produce life-threatening fumes during laser cutting. More info can be found in the material list below and in the [safety section](#safety).
+
+Here is an overview of some popular and well-suited materials for laser cutting and engraving:
+
+- **Plywood sheet:** Plywood is a cheap and very easy to laser-cut material and well suited for beginners. Panels with thicknesses around 4 millimeters are good to use. When engraving, the inner structure of the wood becomes visible, which often leads to an interesting look. Craft plywood is also popular for sawing and can be purchased at many hardware stores or online. Disadvantages are: It is very light and therefore not very stable and breaks quickly. In addition, the boards are often somewhat uneven. In projects where precision is important (e.g. [push-fit systems](#push-fit-systems)), this can lead to problems - in which case it is advisable to switch to MDF.
+- **MDF:** MDF stands for "medium-density fiberboard". MDF consists of fine wood fibers (usually about 80%) plus glue, water and other additives; this mixture is pressed into dense boards. Due to this manufacturing method, MDF boards are heavier and more stable than plywood boards, and they are also very flat and have a uniform thickness. MDF sheets with a thickness of 2 to 5 millimeters can be laser cut and engraved very well. MDF is available in online stores, for example, and is a bit more expensive than plywood.
+- **Acrylic glass:** Acrylic glass is a transparent plastic that can be laser cut very well. There are both colorless (fully transparent) and colored (semi-transparent) acrylic glass. This makes it very suitable for viewing windows, decoration, lamps, LED-lit displays and the like. In terms of sustainability, it can be noted that acrylic glass is not well recyclable - unlike some other plastics.
+- **Cardboard:** Not all cardboard can be processed equally well with the laser cutter, so you should look for material that is well suited for lasercutting when buying it. Since cardboard is very light and unstable, it is more suitable for decorative products. In addition, cardboard is highly flammable, which is why you should ensure a good ventilation system in the laser cutter, supervise the laser cutting process particularly well and stop it if flames form.
+- **Textiles** 
+- **Leather** 
+- **Cork**
+- **Plastics:** Special care is required with plastics, as there are many types of plastic that can generate health- and life-threatening fumes during laser cutting, e.g. PVC. However, there are plastics that can be cut and engraved relatively safely, e.g. polypropylene (PP). But here, too, care should be taken and the project should be discussed with the fab lab or the owner of the machine. Some plastics, e.g. HDPE, tend to melt back together quickly after cutting - so laser cutting of plastic is challenging, but not impossible.
+- **Metals:** In industrial and craft companies there are machines that can laser cut metal sheets. Since laser cutters of this type are very expensive, they are rarely found in fab labs. However, a typical fab lab laser cutter can quite possibly engrave metal (e.g. aluminum or steel).
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/lasercutting/6_Laser_cut_and_engraved_acrylic_and_wood.png" />
+<img height="350" src="images/academy/digitalproduction/lasercutting/7_Laser_cut_and_engraved_plywood.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s6">[6]</a> <i> Laser cutting and engraving of acrylic glass and MDF wood sheet - </i>
+<a href="en/academy/digitalproduction/lasercutting#s7">[7]</a> <i> Laser engraving in plywood sheet; different engraving depths make the inner wood structure visible </i>
+</p>
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/lasercutting/8_Laser_cutting_metal.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s8">[8]</a> <i> Laser cutting of sheet metal - typical mid-range laser cutters in fab labs can often only engrave metals, but cutting metals requires expensive industrial laser cutters. </i>
+</p>
+
+
+
+
+### Components of a laser cutter
+Good laser cutters have a closed housing and an ventilation system. There are also inexpensive laser cutters or laser engravers with an open structure. However, special care must be taken with these, as accidents can easily occur. In fab labs, closed laser cutters with an exhaust air system are usually found.
+
+The upper, hinged cover is usually transparent so that you can observe the laser cutting process. Inside is the grid-shaped work surface, on which you place the plate to be cut. The working surface can be adjusted in height, which is very important for the so-called focusing of the laser (setting the focal point). The laser is calibrated so that it must be at a very specific distance from the workpiece in order to cut ideally. Each time you insert a sheet that is a different thickness than the previous sheet, you should refocus the laser cutter. Some laser cutters can do this automatically via an auto-focus function, others require you to use a supplied or built-in focusing aid as a distance gauge to manually adjust the laser cutter.
+
+The laser beam itself is often generated inside the device, redirected via several mirrors and focused via lenses, similar to glasses. The laser exit is built in such a way that it can move in two axes: in the X direction (to the left and right) and in the Y direction (to the front and back).
+
+Some laser cutters have a compressor-driven system that blows air onto the laser cutting point. This reduces the risk of flame formation.
+
+During laser cutting, a ventilation system extracts air from the working area of the unit and leads the exhaust air outside via a filter system and a hose. This prevents unpleasant odors, and filters and discharges harmful vapors.
+
+### Parameters: Power and speed
+In laser cutting, there are two parameters in particular that are crucial to the process and must be set correctly before each operation:
+
+- **Power (in watts or %):** In simple terms, power represents the energy or strength of the laser beam.
+- **Speed (in millimeters per second):** Indicates how fast the laser moves over the workpiece.
+
+If the laser moves slowly, it has more time to affect the material - it thus cuts deeper into the plate. If it moves quickly, it may only burn off the surface of the workpiece. At the same time, of course, this also depends on the power of the laser. The interaction of power and speed can therefore produce different results.
+
+Depending on what and how you want to laser, you have to set these two parameters differently. So the first thing to do is to clarify the conditions:
+- **Material:** Materials such as cardboard require less laser power than wood or plastics, for example.
+- **Plate Thickness:** Thicker plates need more laser power to be cut, thinner plates need less power.
+- **Cutting vs. engraving and engraving depth**: At high power or low speed, the laser beam passes through the entire material, i.e., it is cut. At low power and high speed, only the surface is processed, resulting in engraving. The depth (and thus visibility or clarity) of the engraving can also be varied via the parameter setting. A kind of grayscale effect can be achieved by deeper and shallower engraving areas.
+
+Often you will find preset profiles in the laser cutter software where you only have to select which material and plate thickness you are using and whether you want to cut or engrave - the ideal values for power and speed are stored in the profiles and are set correctly when selected. In some workshops or operating manuals you can also find tables with recommended values for power and speed.
+
+However, if you want to deviate from this or try out a previously untried material (for which no profile has yet been created), you usually have to carry out several tests, varying the values of power and speed, and thus approaching the ideal result.
+
+Test cards developed for such material tests can also be found on the internet. The laser cutter tests different settings in a single run. The finished lasered test card can then be used to examine the result and read off the ideal values.
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/lasercutting/9_Laser_cutting_test_card.png" />
+<img height="350" src="images/academy/digitalproduction/lasercutting/10_Laser_engraving_test_card.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s9">[9]</a> <i>  - </i>
+<a href="en/academy/digitalproduction/lasercutting#s10">[10]</a> <i> Test cards for determining the correct parameter values for power and speed - for laser cutting and engraving </i>
+</p>
+
+
+### Kerf
+
+When cutting by laser, a small amount of material is burned, vaporized or melted along the cutting line. As a result, cut lines are not "infinitely thin" but have a certain width - the so-called kerf. A cut line can therefore be thought of more like a cutting channel - there is a tiny gap between the two parts.
+
+Even though the cutting width is hardly visible to the naked eye - it is often only a fraction of a millimeter wide - it is important to keep it in mind for some applications. This applies, for example, to push-fit systems (more on this below in the [push-fit systems section](#push-fit-systems)), where a good fit of the pushed-in parts is important.  
+
+To get an idea of the cutting width (kerf), you can measure a laser-cut part or hole with a caliper and compare the measured value with the value in the vector graphic - you will notice that there are slight deviations. Using the difference between the drawn length and the measured length, you can determine the width of the cut (kerf). This value can then be taken into account as the cutting line offset when drawing the vector graphic.
+
+<p align="center">
+<img height="300" src="images/academy/digitalproduction/lasercutting/11_Laser_cut_designed_vs_measured_length.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s11">[11]</a> <i> In this example, a laser-cut part that was drawn 40 mm wide measures only 39.75 mm - the difference of 0.25 mm results from the cutting width (kerf). Per cut edge it is therefore 0.25 mm : 2 = 0.125 mm here </i>
+</p>
+
+
+### Vector graphic
+For lasercutting, it is important to become familiar with the concept of vector graphics.
+
+A vector graphic is a computer graphic that is constructed from basic shapes such as lines, circles, polygons (multiangular shapes) and curves (splines). The digital file of a vector graphic contains all the necessary information to clearly represent the graphic, e.g. position and length of lines or diameter of circles. In addition, line width and color of lines or fill color of shapes can be stored, among other things.
+In this way, vector graphics differ fundamentally from so-called raster graphics, which are constructed using colored image points (pixels) arranged in a grid-like manner.
+
+Raster and vector graphics can be easily distinguished mainly by two methods:
+- **Quality loss when scaling (zooming):**
+  - A **raster graphic** becomes more and more unclear when zooming in, at some point you can recognize single pixels
+  - A **vector graphic**, on the other hand, always remains sharp when zoomed in, because the lines and areas are not defined as pixels but by the method described above
+- **File Format:**
+  - **Raster graphics** have file formats like JPG/JPEG, PNG, GIF or TIFF.
+  - **Vector graphics** have file formats like SVG, DXF, AI or under certain conditions PDF.
+
+<p align="center">
+<img height="300" src="images/academy/digitalproduction/lasercutting/12_EN_Vector_graphics_vs_Raster_graphics.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s12">[12]</a> <i> Vector graphics can be scaled as desired without loss of quality - raster graphics, on the other hand, become blurred and pixelated when scaled. </i>
+</p>
+
+
+To use a graphic file for lasercutting, it must be in a vector format. The reason for this is that the lines and curves of a vector graphic are converted via software into control signals for the laser cutter, whereby the laser traces and laser-cuts each line and curve. The laser thus "knows" the start and end points of each line and curve and traces them in one pass. This would not be possible with pixel-based raster graphics, since the software cannot recognize which pixels belong to a line.
+
+For engravings, on the other hand, raster graphics can also be used. The laser then traces the graphic - line by line, so to speak - from top to bottom; each line from left to right. Darker pixels are engraved deeper, lighter pixels less deeply, and empty or white pixels are left out, i.e. not engraved. Colored graphics can also be used, in which case the software automatically converts them to grayscale.
+
+File formats like SVG can also contain a combination of vector graphics and raster graphics, where vector lines are cut and raster graphics are engraved - unless you set something else.
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/lasercutting/13_Example_svg_file_vector_graphics_for_laser_cutting_and_engraving.png" />
+<img height="350" src="images/academy/digitalproduction/lasercutting/14_Laser_cut_and_engraved_plywood.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s13">[13]</a> <i> Example of SVG graphic file - the black contour lines are vector lines and are cut by the laser, the cat image is a PNG raster graphic and is engraved - </i>
+<a href="en/academy/digitalproduction/lasercutting#s14">[14]</a> <i> Finished result - created with laser cutting and engraving from 4 mm thick plywood sheets </i>
+</p>
+
+
+In some programs it is also possible to specify the order of the laser cuts by giving the vector lines different colors or placing them on different layers. This can be useful if, for example, you want to achieve that the inner lines are cut first and the outermost lines at the end. If you were to start with the outermost outline, the plate might tilt slightly after cutting. The inner lines and shapes cut later could then be cut distorted or the laser might not cut through the entire plate at all. Therefore, it is recommended to always cut cutting lines in the order from the inside to the outside.
+
+<a id="abb15"></a>
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/lasercutting/15_Example_svg_file_vector_graphics_for_laser_cutting.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s15">[15]</a> <i> In this SVG vector graphic, the cutting lines have been created in different colors so that the cuts can be made in a certain order - from the inside to the outside. The order provided here is: cut red lines first, then blue, black and finally green. </i>
+</p>
+
+
+### Software
+There are many different software for drawing vector graphics. Mostly such software is used in the professional field, which makes the licenses relatively expensive. But there are also good free alternatives:
+
+A popular and free open source software for **vector graphics editing** is **Inkscape**.
+
+- **Inkscape:** https://inkscape.org
+
+For drawing and creating **raster graphics** there are also many programs, some of them expensive.
+As free and open source based alternatives there are:
+
+- **Krita:** https://krita.org
+- **GIMP:** https://www.gimp.org
+
+Depending on the laser cutter manufacturer and model, special software is often required to convert the vector and raster graphics into control signals and send them to the laser cutter. This software is usually supplied with the laser cutter.
+
+Many laser cutters use the free open-source software Visicut (https://visicut.org). Also popular, although not free, is the Lightburn software (https://lightburnsoftware.com/). With Lightburn, vector graphics can be drawn and also sent directly from the software to the laser cutter, and the program also has numerous convenience functions specifically for laser cutting and engraving.
+
+### Differences to other digital manufacturing methods
+The most important difference between **lasercutting and 3D printing** is that lasercutting is usually much faster than 3D printing. 3D printing can often take several hours, while lasercut parts are often finished in a few minutes. Of course, depending on the shape and complexity, this can be quite different in individual cases. So before you 3D print a part, it's worth considering whether you can also do it with lasercutting, if the shape and material allow it (more on this topic in the [3D printing basic learning module](/en/academy/digitalproduction/3dprinting)).
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/lasercutting/16_3D_printing_and_laser_cutting_orcuCar_Orcular.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s16">[16]</a> <i> Example of differences in speed for 3D printing vs. laser cutting: 3D printing the parts (top two images) took a total of about 2.5 hours - laser cutting (bottom left image) took only about 12 minutes. </i>
+</p>
+
+
+There are also typical differences between **Lasercutting and CNC milling**. While laser cutting can only produce flat parts of uniform thickness (so to speak "2D parts"), CNC milling can also produce three-dimensional shapes. In addition, laser cutters can only cut plates of limited thickness - only a few millimeters to about 1-2 centimeters thick, depending on the material - while CNC milling machines can cut through much thicker plates. In addition, many CNC mills can also handle aluminum or similarly hard materials, which is often not possible with laser cutters (more on this topic in the [CNC milling basic learning module](/en/academy/digitalproduction/cncmilling)).
+
+## Design tips
+
+### Push-fit systems
+A popular application of lasercutting is in push-fit systems - especially for wooden sheets. In this process, several parts are shaped so that they can be plugged at right angles to each other. One way is to insert a tenon into a square hole. Another method is to use merlon-like edges, which can be used to plug together entire boxes or similar structures (often called "tabbed box").
+
+<p align="center">
+<img height="300" src="images/academy/digitalproduction/lasercutting/17_Laser_cut_box_push-fit_system.png" />
+<img height="300" src="images/academy/digitalproduction/lasercutting/18_Vector_graphics_for_laser_cut_box_push-fit_system.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s17">[17]</a> <i> Example of a box with drawers as a push-fit system made of 3 mm thick laser-cut wooden sheets - </i>
+<a href="en/academy/digitalproduction/lasercutting#s18">[18]</a> <i> A corresponding vector graphic </i>
+</p>
+
+
+It must be ensured that the tenons are not too loosely inserted, but have a tight fit. On the other hand, the gap must not be too narrow either, otherwise the tenon cannot be pressed in. The cutting width (kerf) must also be taken into account here.
+
+A rule of thumb that often works well is that gap and tenon are drawn in the same dimensions - i.e. the same width for gap and tenon. The height of the tenon, on the other hand, is determined by the plate thickness, so the height of the gap is drawn equal to the plate thickness. Due to the cutting width (kerf) of the laser, gaps will be a little wider and tenons a little narrower than in the drawing anyway, so the fit is often relatively good, but sometimes a little too loose. You can also make the connection a little tighter and carefully tap the plug-in connections with a rubber mallet. Connections can usually be loosened and put back together several times, but the material will wear a little each time, so the connection may no longer be tight. It is also possible to use glue.
+
+Before going to the trouble of drawing a pluggable box yourself, it is advisable to use existing **software aids**:
+
+- For Inkscape there is the free extension [Lasercut tabbed box](https://inkscape.org/de/~Neon22/%E2%98%85lasercut-tabbed-box). This can be used to generate various box-like products as vector graphics when specifying length, width and height as well as tenon length and cutting width offset (kerf). This vector graphic can also be edited afterwards in Inkscape.
+- Another tool is called "Boxes.py (https://www.festi.info/boxes.py/). No software installation is required for this, the application runs in the browser. This open source project offers a variety of different push-fit laser cut kits, e.g. boxes, drawers, compartments or chests with lids. Parameters like length, width, height and cutting width offset (kerf) can be entered, finally a downloadable SVG vector graphic is generated, which can be used directly for lasercutting or edited before. Some kits also include "living hinges", more about that [below](#living-hinge).
+
+### 3D CAD and projection
+Instead of drawing lasercut projects in 2D, you can also use 3D CAD software (more on this in the [3D design and CAD basic learning module](/en/academy/3dmodels/3ddesign)). In this way, you can design a product consisting of several laser cut parts and display it in 3D. The advantage of this method is that you can directly see how the finished, assembled product will look - when designing in 2D, you only see the individual parts next to each other and need some imagination to get an idea of the finished 3D product.
+
+In addition, products can be designed in this way that contain not only laser-cut parts but also, for example, 3D-printed or CNC-milled parts, screws or other elements.
+
+Many CAD programs (e.g. FreeCAD) have tools to project 3D modeled parts onto a 2D plane for lasercutting and export them as vector graphics, which can then be used for lasercutting.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/lasercutting/19_3D_CAD_designed_product_laser_cutting_3D_printing_FreeCAD_orcuCar_Orcular.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s19">[19]</a> <i> Toy car modeled in 3D CAD software (FreeCAD) with 3D printed and laser cut parts. The latter can be projected into a 2D vector graphic (see <a href="#abb15">image 15</a> above). </i>
+</p>
+
+
+### Living hinge
+A popular technique in laser cut design is called "living hinge". Ordinary hinges are made of several components, whereas living hinges consist of only one part, which is thin-walled or tightly cut in one or more places. Living hinges are found, for example, in egg cartons or plastic lunch boxes.
+
+A living hinge can be made with lasercutting by cutting many, very closely spaced and slightly offset cut lines into the plate. This makes the board very flexible and easy to bend in place. This works well with thin wood sheets in particular. You can use it for hinge functions, such as for lids on chests, or you can use it to create rounded edges.
+
+<p align="center">
+<img height="350" src="images/academy/digitalproduction/lasercutting/20_Laser_cut_box_living_hinge.png" />
+<img height="350" src="images/academy/digitalproduction/lasercutting/21_Laser_cut_wood_living_hinge.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/digitalproduction/lasercutting#s20">[20]</a> <i> An assembled box made of laser cut wooden parts with living hinge. - </i>
+<a href="en/academy/digitalproduction/lasercutting#s21">[21]</a> <i> Certain cutting patterns create a flexible living hinge. </i>
+</p>
+
+
+### Downloading templates
+Instead of designing your own lasercut drawings, you can also use ready-made templates from the Internet. Many websites, which are actually intended for 3D printing files, also contain projects for lasercutting. You can find them by simply typing "laser cut" or "lasercutting" into the search bar. More about this topic in the ["Using 3D models from the Internet" basic learning module](/en/academy/3dmodels/3dmodelsinternet).
+
+### Common mistakes
+A common beginner mistake when creating laser cut vector graphics is not formatting the cut lines correctly so that the lines are engraved and not cut. Depending on the laser cutter and the software, there are certain things that need to be taken care of so that the software recognizes a line as a cut line and does not engrave it. It is therefore advisable to check the settings again carefully before starting laser cutting. 
+
+Occasionally an error happens where the laser cutter cuts each line twice. This is usually because you have duplicate lines in the vector graphic. However, since they are on top of each other, you can't see it on the screen. Here you should use the tools of the software to check whether there are duplicate lines (e.g. hide layers one after the other or delete lines on a test basis, then undo if necessary).
+
+Finally, it often happens that a finished cut component is not the desired size, e.g. it is only half the desired size. So you should check the dimensions of the vector graphic carefully and also check whether the correct units are set (e.g. millimeters and not inches).
+
+## Preparation and process of a laser cutting
+
+### Safety
+A laser cutter is a potentially dangerous machine and should never be used without instruction or authority. Fab Labs typically offer instructions and safety briefings that must be completed before the machine can be used.
+
+If operated properly, there is no immediate danger to humans. However, in case of improper operation, e.g. due to damage of the housing, in case of modification and bypassing of the safety technology or due to unusual reflection and scattering of the laser light, the laser radiation can become very dangerous, especially for the eyes, but also for the skin. The laser radiation of a laser cutter is invisible, which increases the danger even more. Special care should be taken if you are unsure. In case of defects or unusual behavior, a machine should not be used and fab lab personnel should be notified.
+
+During laser cutting, a brightly shining spot often appears on the processed plate. You should avoid looking directly into this bright light if possible, as it can damage your eyes.
+
+In addition to the danger from laser radiation itself, there is also a fire hazard. It is important to make sure that the ventilation is switched on during lasering and that the filter is changed regularly, especially if there is any unusual odor or smoke.
+
+A laser cutter should never be left unattended during operation. You should always stay nearby and keep an eye out for unusual flames. If in doubt, stop operation. One should know where the emergency stop switch of the machine is located. Many laser cutters are also designed to automatically stop operation when the top cover is opened.
+
+In the unlikely event of a fire, a CO2 fire extinguisher should always be used. One should know the location of the CO2 fire extinguisher and become familiar with its operation.
+
+Finally, it is important to know which materials you may and may not laser. This must always be clarified with the personnel. Some plastics, e.g. PVC, must not be lasered under any circumstances, as they produce vapors that are hazardous to health or even life.
+
+### Laser cut file
+As described in the sections above, you need a graphic file for lasercutting - cutting lines as vector graphics, engravings as raster graphics. How the data is transferred to the laser cutter is different for each model. Special software is often required. Many programs offer a function that calculates an estimate of the operating time - broken down into cutting and engraving. Before starting operation, it is advisable to use the values to check whether the job is being performed as desired. For example, if the calculated duration for engraving is unusually high and the duration for cutting is zero, the vector graphic may not have been recognized.
+
+### Preparation
+The most important steps to remember when starting a laser cutting job are:
+- Place the plate in the laser cutter
+- If necessary, adjust height and focus (or, if available, turn on autofocus)
+- Move laser to the correct position
+- Set the correct profile (material and plate thickness - derived from this the power and speed)
+- Transfer graphic file
+- Calculate time and check for plausibility
+- If necessary, check whether ventilation is switched on
+- Start laser operation
+- Be attentive and stay close, occasionally observe the process
+
+Depending on the laser cutter model, some steps may differ from the list above.
+
+### Laser cutting process
+Usually, a laser cutter starts with the engravings first. The reason is that once a part has been cut out, it may tilt slightly - subsequent engravings would thus hit a slanted surface and not be performed correctly.
+
+Then the cutting lines are executed. The cutting process is usually much faster than the engraving process.
+
+After laser cutting has been completed, it is recommended to wait a short time so that the ventilation system can extract smoke and fumes. After that, the lid can be opened and the parts can be removed.
+If a cut has not gone through correctly, this is either due to an incorrectly set profile (incorrect parameter settings), an unevenness of the plate or other causes. It can often help to simply run a laser cut job a second time so that the half-finished cuts are cut all the way through on the next pass. When doing this, the plate must be placed in exactly the same position (using the fence on the edge if possible) or left the same. It is also possible to set directly on the computer that the laser should cut two passes.
+
+# License information
+
+**Author:** Oskar Lidtke, https://github.com/orcular-org/
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)</a>.
+
+See best practices for [attribution](https://wiki.creativecommons.org/wiki/Best_practices_for_attribution) and [marking your own work](https://wiki.creativecommons.org/wiki/Marking_your_work_with_a_CC_license) with a CC license.
+
+For attribution and licenses of the images used, see the section below.
+
+# Image references
+
+<a id="s1"></a>
+**[1]** CC BY-SA 3.0Laser cutting: Epilog Legend 36EXT cutting 2.5mm wood fibreboard - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Laser_cutting_snowflakes.jpg
+
+<a id="s2"></a>
+**[2]** (no title) - **Image license:** [Unsplash Lizenz](https://unsplash.com/de/lizenz) - **Source:** https://unsplash.com/de/fotos/k3CN3UUrCxE
+
+<a id="s3"></a>
+**[3]** mini_banner.jpg (cropped) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://github.com/fab-machines/Fabulaser-Mini
+
+<a id="s4"></a>
+**[4]** Lasercutter in einem Fab Lab - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s5"></a>
+**[5]** Verschiedene lasergeschnittene und -gravierte Objekte - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s6"></a>
+**[6]** Laser cut letter - Acrylic and MDF (cropped) - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) - **Source:** https://www.flickr.com/photos/creative_tools/6981296223
+
+<a id="s7"></a>
+**[7]** Lasergravur in Sperrholzplatte - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s8"></a>
+**[8]** Laser cutting machine - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:Laser_cutting_machine.jpg
+
+<a id="s9"></a>
+**[9]** CO2 Laser Test Cut and Engraving Template (cropped) - **Image license:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) - **Source:** https://www.thingiverse.com/thing:4575909
+
+<a id="s10"></a>
+**[10]** CO2 Laser Test Cut and Engraving Template (cropped) - **Image license:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) - **Source:** https://www.thingiverse.com/thing:4575909
+
+<a id="s11"></a>
+**[11]** (no title) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - [License info for fabacademy.org](https://fabacademy.org/terms-of-service.html)  - **Source:** https://fabacademy.org/2018/labs/fablabamsterdam/lasercut/group3.html
+
+<a id="s12"></a>
+**[12]** Vektorgrafik vs. Rastergrafik - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org) **Adapted/Remixed from:** 1.) https://de.wikipedia.org/wiki/Vektorgrafik 2.) https://de.wikipedia.org/wiki/Datei:Zeichen_224_-_Haltestelle,_StVO_2017.svg , 3.) https://de.wikipedia.org/wiki/Datei:Zeichen_224_20px.png **Licenses:** 1.) [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) , 2.) [Public domain](https://creativecommons.org/publicdomain/zero/1.0/) , 3.) [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en)
+
+<a id="s13"></a>
+**[13]** Cats (Tipu & Dr. Scott) Lasercutting SVG-Datei - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s14"></a>
+**[14]** Cats (Tipu & Dr. Scott) Lasercutting Aufsteller - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s15"></a>
+**[15]** orcuCar Lasercut SVG file - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s16"></a>
+**[16]** orcuCar - 3D-Druck vs. Lasercutting - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s17"></a>
+**[17]** PartBox 3mm wood - **Image license:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) - **Source:** https://www.thingiverse.com/thing:1279926
+
+<a id="s18"></a>
+**[18]** PartBox 3mm wood - **Image license:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) - **Source:** https://www.thingiverse.com/thing:1279926
+
+<a id="s19"></a>
+**[19]** orcuCar CAD (FreeCAD) + 3D printing + laser cutting - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s20"></a>
+**[20]** KERF PURSE - **Image license:** [CC BY-NC-ND 2.0](https://creativecommons.org/licenses/by-nc-nd/2.0/) - **Source:** https://www.flickr.com/photos/augustlang/27519342320/
+
+<a id="s21"></a>
+**[21]** Parametric Flexible Wood Cut (cropped) - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) - **Source:** https://www.thingiverse.com/thing:461749
+
