@@ -1,12 +1,10 @@
 ---
 import { NewsSliderComponent } from "@components";
-import type { INewsItem } from "@interfaces/INews";
-import CommonUtils from "@util/CommonUtils";
+import { writeFileSync } from "fs";
 
 const { headline, id, ...rest } = Astro.props;
 
-const baseUrl = CommonUtils.getBaseUrl(true);
-
+const AIRTABLE_BASE_URL = "https://api.airtable.com/v0/";
 const token = import.meta.env.PUBLIC_AIRTABLE_TOKEN;
 
 const options = {
@@ -17,7 +15,7 @@ const options = {
 };
 
 const response = await fetch(
-  "https://api.airtable.com/v0/appXVxxSLF51bHZPf/tbl0L4qXFrr4xop8V",
+  AIRTABLE_BASE_URL + "appy8mE1ZpLXfYzEQ/tblvfXTgnme0tqIQD",
   options
 );
 
@@ -26,21 +24,39 @@ const data = await response.json();
 let news = [];
 
 if (data.records && data.records.length > 0) {
+  try {
+    writeFileSync(
+      "./fetch.json",
+      JSON.stringify(data.records)
+    );
+    // file written successfully
+  } catch (err) {
+    console.error("Error while writing file", err);
+  }
   news = data.records
+    // has Instagram URL
     .filter((record) => record.fields?.["Instagram URL"])
+    // has status "live"
+    .filter((record) => record.fields?.["Status"] === "live")
+    // is of media type "photo"
+    .filter((record) => record.fields?.["Media type"]?.includes("photo"))
+    // has images
+    .filter((record) => record.fields?.["Selected Photos (from Event)"]?.length)
     .map((record) => {
       return {
         title: record.fields.Name,
         target: record.fields?.["Instagram URL"],
         instagram: true,
-        // image: record.fields?.["Selected Photos (from Event)"]
+        image:
+          record.fields?.["Selected Photos (from Event)"]?.[0].thumbnails?.[
+            "large"
+          ]?.url,
       };
     });
-  console.log(news);
+  console.log("NEWS", news);
 } else {
   console.log("Error");
 }
-
 ---
 
 <NewsSliderComponent {news} {headline} {id} {...rest} client:idle />
