@@ -1,7 +1,6 @@
 ---
 import type { MarkdownLayoutProps } from "astro";
 import { Navigation, Footer } from "@components";
-import TolocarFavicon from "../assets/favicon.png";
 import CommonUtils from "@util/CommonUtils";
 import type { IMenuMarkdown } from "@interfaces/IMenu";
 import "../../base.css";
@@ -45,7 +44,7 @@ const isProduction = import.meta.env.MODE === "production";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href={TolocarFavicon} />
+    <link rel="icon" type="image/png" href={"/favicon.png"} />
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
@@ -79,9 +78,7 @@ const isProduction = import.meta.env.MODE === "production";
       <Footer
         locale={localeFromUrl}
         menu={translatedAndRebasedMenu}
-        className={frontmatter?.footerGrey
-          ? "!bg-neutral-50"
-          : ""}
+        className={frontmatter?.footerGrey ? "!bg-neutral-50" : ""}
       />
     </main>
   </body>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Map, { Marker, NavigationControl, Popup } from "react-map-gl";
 import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
-import { IInterventionPoi } from "@interfaces/IIntervention";
+import type { IInterventionPoi } from "@interfaces/IIntervention";
 import useWindowSize from "../util/useWindowSize";
 
 const InterventionMap = ({
