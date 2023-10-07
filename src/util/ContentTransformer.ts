@@ -3,7 +3,7 @@ import type {
   AcademyPageFrontmatter,
 } from "@interfaces/IAcademy";
 import type { MDXInstance } from "astro";
-import {
+import type {
   IInterventionFrontmatter,
   IInterventionPoi,
 } from "@interfaces/IIntervention";
