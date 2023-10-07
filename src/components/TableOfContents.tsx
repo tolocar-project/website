@@ -1,10 +1,11 @@
-import type { MarkdownHeading } from 'astro';
+import React from "react";
+import type { MarkdownHeading } from "astro";
 
 interface Props {
   title: string;
   headlines: Array<MarkdownHeading>;
+  baseUrl?: string;
 }
-
 
 const buildTocList = (input: Array<MarkdownHeading>) => {
   // Create a ordered list of depth and remove duplicates
@@ -27,7 +28,7 @@ const paddingMapping = {
   6: "pl-20",
 };
 
-const TableOfContents: React.FC<Props> = ({ title, headlines }) => {
+const TableOfContents: React.FC<Props> = ({ title, headlines, baseUrl }) => {
   const headlinesWithoutDepthGaps = buildTocList(headlines);
   return (
     <nav>
@@ -37,7 +38,12 @@ const TableOfContents: React.FC<Props> = ({ title, headlines }) => {
           const leftPadding = paddingMapping[headline.depth];
           return (
             <li key={index} className={leftPadding}>
-              <a className="hover:text-neutral-900" href={`#${headline.slug}`}>{headline.text}</a>
+              <a
+                className="hover:text-neutral-900"
+                href={`${baseUrl || ""}#${headline.slug}`}
+              >
+                {headline.text}
+              </a>
             </li>
           );
         })}

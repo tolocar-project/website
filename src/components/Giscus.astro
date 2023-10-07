@@ -1,11 +1,27 @@
 ---
-
+interface Props {
+  language?: string;
+}
+const { language = "en" } = Astro.props;
 ---
+
 <div class="w-full bg-neutral-50">
   <div class="container-width md:grid grid-cols-12 gap-8 my-8">
     <div class="col-start-5 col-span-7">
-      <div class="font-medium text-lg">Liked this resource? React or comment on GitHub</div>
-      <div class="w-full my-8 flex items-center after:content-[''] after:bg-neutral-300 after:h-[1px] after:flex-1 font-bold text-[15px] text-neutral-500"><span class="pr-4 bg-neutral-50 uppercase">Comments</span></div>
+      <div class="font-medium text-lg">
+        {
+          language === "ua"
+            ? "Сподобався цей ресурс? Відреагуйте або прокоментуйте на Github"
+            : "Liked this resource? React or comment on GitHub"
+        }
+      </div>
+      <div
+        class="w-full my-8 flex items-center after:content-[''] after:bg-neutral-300 after:h-[1px] after:flex-1 font-bold text-[15px] text-neutral-500"
+      >
+        <span class="pr-4 bg-neutral-50 uppercase"
+          >{language === "ua" ? "Коментарі" : "Comments"}</span
+        >
+      </div>
       <script
         is:inline
         src="https://giscus.app/client.js"
@@ -21,8 +37,7 @@
         data-theme="light"
         data-lang="en"
         crossorigin="anonymous"
-        async
-      ></script>
+        async></script>
     </div>
   </div>
 </div>

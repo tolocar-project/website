@@ -1,0 +1,574 @@
+---
+title: 3D Printing
+img: https://images.unsplash.com/photo-1633899306328-c5e70574aaa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80
+order: 1
+layout: "@layouts/AcademyContent.astro"
+teaser: In this module you will find helpful information about 3D Printing.
+---
+
+## Introduction
+
+3D printing refers to many different processes in which a device (3D printer) creates material, three-dimensional objects. In most cases, the objects are first designed in software as a 3D model and then sent to the 3D printer.
+
+There are small, relatively inexpensive 3D printers for the home or for fab labs that print mostly from plastic, but also larger printers up to large systems that can print entire buildings, at least the basic structure of walls, from concrete. Some 3D printers can also print metal or food like chocolate - the range of 3D printing processes is very wide.
+
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/1_3D_Printer_Open_Source_Hardware.png"/>
+  <img height="400" src="images/academy/digitalproduction/3dprinting/2_Prusa_3D_Printer.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s1">[1]</a> <i> DIY 3D printer with open hardware license - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s2">[2]</a> <i> Prusa 3D Printer </i>
+</p>
+
+
+<p align="center">
+  <img height="300" src="images/academy/digitalproduction/3dprinting/3_BigFDM_3D_Printer.png"/>
+  <img height="300" src="images/academy/digitalproduction/3dprinting/4_3D_printing_buildings.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s3">[3]</a> <i> BigFDM 3D printer for large models up to 80 x 80 x 90 cm - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s4">[4]</a> <i> 3D printing houses </i>
+</p>
+
+The most widespread and popular 3D printers are those that work according to the so-called FDM process. This basic learning module will therefore initially only deal with FDM printers.
+
+The second most common type of 3D printers in fab labs besides the FDM process are probably the SLA printers. However, these are more difficult to use and therefore less suitable for beginners than FDM printers, so it is recommended to start with FDM first.
+
+FDM stands for "fused deposition modeling". This means that a material, usually plastic, is heated by the 3D printer, melted in the process, and then applied in layers. The layers cool shortly thereafter, causing them to bond together to form a solid object. Objects printed with FDM can be easily recognized by the typical layers, which are usually only a fraction of a millimeter thick.
+  
+
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/5_3D_printing.png" />
+  <img height="400" src="images/academy/digitalproduction/3dprinting/6_Visible_layers_on_3D_printed_object.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s5">[5]</a> <i> 3D printing - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s6">[6]</a> <i> 3D printed object with visible layers </i>
+</p>
+
+
+This is why 3D printing is also classified as "additive manufacturing", since objects are created by adding new material. In contrast, there is also "subtractive manufacturing", i.e. manufacturing processes in which an existing material is separated or something is "taken away", e.g. by [laser cutting](/en/academy/digitalproduction/lasercutting) or [CNC milling](/en/academy/digitalproduction/cncmilling).
+
+FDM 3D printers can be used, for example, to print decorative objects such as figurines or vases, small toys, personalized name tags and key chains, models for demonstration purposes (e.g. of machines or buildings), spare parts for existing products (e.g. drawer handles or rotating knobs for music systems), everyday helpers such as towel hooks or functional parts such as housings for electronic devices, bottle openers or even components for 3D printers.
+
+<p align="center">
+  <img height="300" src="images/academy/digitalproduction/3dprinting/7_3D_printed_speaker_casing.png"/>
+  <img height="300" src="images/academy/digitalproduction/3dprinting/8_3D_printed_jet_engine_turbine_model.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s7">[7]</a> <i> 3D printed speaker housing - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s8">[8]</a> <i> 3D printed model of a turbine</i>
+</p>
+
+<p align="center">
+  <img height="300" src="images/academy/digitalproduction/3dprinting/9_3D_printing_a_yarn_bowl.png"/>
+  <img height="300" src="images/academy/digitalproduction/3dprinting/10_3D_printed_objects.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s9">[9]</a> <i> 3D printed bowl - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s10">[10]</a> <i> Various 3D printed objects</i>
+</p>
+
+<p align="center">
+  <img height="230" src="images/academy/digitalproduction/3dprinting/11_3D_printed_object.png"/>
+  <img height="230" src="images/academy/digitalproduction/3dprinting/12_3D_printed_object.png"/>
+  <img height="230" src="images/academy/digitalproduction/3dprinting/13_3D_printed_object.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s11">[11]</a> <i>  - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s12">[12]</a> <i>  - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s13">[13]</a> <i> Various 3D printed objects</i>
+</p>
+
+
+
+
+## Basics
+### Filament
+
+The basic material needed for an FDM 3D printer is called filament. A filament is a thin plastic wire wound on a spool.
+
+<p align="center">
+  <img height="300" src="images/academy/digitalproduction/3dprinting/14_Filament_for_3D_printing.png"/>
+  <img height="300" src="images/academy/digitalproduction/3dprinting/15_Filament_for_3D_printing.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s14">[14]</a> <i> Different spools of filament - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s15">[15]</a> <i> Filament spool</i>
+</p>
+
+Filaments come in a wide variety of colors and materials.
+The most common 3D printing material is PLA. It is cheap, easy to print, suitable for most applications and therefore also for beginners.
+
+PLA is a type of plastic and stands for "polylactic acid".
+
+Here is a brief overview of the most common materials for FDM 3D printers and the main advantages and disadvantages:
+
+- **PLA:** Inexpensive, easy to print, good for beginners, ideal for decorative objects or components with low loads; good recyclability. 
+- **PETG / PET-G:** More robust than PLA, good for functional components that need to withstand high forces/loads; easier to print than ABS; slightly stronger than ABS. 
+- **PET:** Rather rarely found as 3D printing filament, less suitable than PET-G; very well recyclable; can be produced from PET bottles, for example. 
+- **ABS:** Similar to PETG in load capacity, higher heat resistance than PETG; emits unhealthy fumes during printing, well ventilated room required; difficult to print, enclosure and high heating bed temperature recommended.
+- **ASA:** Considered the "successor" to ABS; less warping and evaporates less than ABS. 
+- **Nylon:** Particularly high mechanical and thermal resistance; difficult to print, more for advanced users; more expensive than other filament types; susceptible to moisture 
+- **TPU:** Flexible, "rubbery" material; can be easily deformed after printing; ideal for small tires, stamps, etc.; relatively difficult to print; more expensive than other types of filaments. 
+
+Since every material has a different melting temperature, it is important to set this correctly in the printing process. The 3D printer heats the filament in the so-called extruder to a temperature at which it can be liquefied and printed well, while the heating bed is set to a temperature that ensures that the filament adheres well to it. For example, for PLA, it is common to use an extruder temperature of 200-230 °C and a heating bed temperature of 60 °C. However, these temperature recommendations can also differ depending on the manufacturer. It is best to check the specifications on the filament spool or in the enclosed data sheets and compare them with the settings in the slicer software (more [about slicing later](#slicer-software)).
+
+Filaments are mostly sold in 1.75 mm and 2.85 mm diameter variants, with 1.75 mm being the significantly more common variant. For larger 3D printers or those where the nozzle has been changed accordingly, the thicker 2.85 mm filament is used.
+
+Ordinary 3D printers can only print with one filament at a time, so if you want to print in a different color or with a different material, you have to change the filament spool. However, there are 3D printers that can print with two or more filaments at once. In this way, multicolored objects or objects made of different materials can be printed, e.g. by printing the support material (see more below, section [support material](#support-material-and-bridges)) from an easily removable material and the actual object from a stable material.
+
+<p align="center">
+<img height="400" src="images/academy/digitalproduction/3dprinting/16_3D_printing_color_mixing.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s16">[16]</a> <i> Multicolor 3D Printing</i>
+</p>
+
+### 3D printer components
+
+First of all, you should familiarize yourself with the basic structure of an FDM 3D printer. A typical FDM 3D printer is described here as an example. Most FDM printers are built in this or a similar way. Depending on the manufacturer and model, this setup may also differ, but the basic principles remain the same.
+
+<p align="center">
+  <img height="500" src="images/academy/digitalproduction/3dprinting/17_EN_The_main_components_of_a_3D_printer.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s17">[17]</a> <i> The main components of a 3D printer </i>
+</p>
+
+The most important component is the extruder, which can be thought of as similar to a "print head" in inkjet printers.
+
+<p align="center">
+  <img height="300" src="images/academy/digitalproduction/3dprinting/18_Extruder.png"/>
+  <img height="300" src="images/academy/digitalproduction/3dprinting/19_Extruder.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s18">[18]</a> <i> Simplified sectional view of an extruder with: (1) Filament - (2) Extruder with gears for filament feed - (3) Heated nozzle - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s19">[19]</a> <i> Photo of an extruder </i>
+</p>
+
+
+
+At the top of the extruder is an opening into which the filament wire is inserted. Inside the extruder, the filament is pulled in or pushed on down by two gears that control the "feed" of the filament.
+
+After that, the filament goes through a cooling section. A fan blows air against the cooling fins to cool the filament in this area. This prevents the filament from conducting heat upwards and melting in the area of the gears. Liquid filament could then no longer be pushed forward by the gear wheels. In the course of a 3D printing process, the fan may sometimes start and sometimes stop again.
+
+After the cooling section of the extruder, the filament moves further down through the so-called "hot end". There, the filament is heated, melted and liquefied to some extent. Finally, the viscous filament is pressed through a nozzle. The filament, which is e.g. 1.75 mm thick, is pressed through the nozzle to a much smaller diameter (usually approx. 0.4 mm). The emerging filament can now be used for layer-by-layer deposition, i.e. 3D printing.
+
+In order for the extruder to create objects in three-dimensional space, it must be able to move in all directions. This is why 3D printers have three motor-controlled axes: the X, Y and Z axes.
+
+The X and Y axes usually refer to movements in the horizontal base:
+- X-axis: "left and right"
+- Y-axis: "front and back"
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/20_X-_Y-_and_Z-axis_3D_printer.png"/>
+  <img height="400" src="images/academy/digitalproduction/3dprinting/21_Top_view_3D_printer_with_X-_and_Y-axis.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s20">[20]</a> <i> X, Y and Z axis of a 3D printer - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s21">[21]</a> <i> Top view of 3D printer with X and Y axis </i>
+</p>
+
+<br/>
+
+The Z axis, on the other hand, refers to vertical movement:
+- Z-axis: "top and bottom"
+
+<br/>
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/22_Front_view_3D_printer_with_X-_and_Z-axis.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s22">[22]</a> <i> Front view of a 3D printer with X- and Z-axis </i>
+</p>
+
+The extruder often sits on a rod on which it can move to the left and right (i.e. in the X direction). This is controlled by a motor and a belt.
+
+For movements in the Y-axis, it is often not the extruder that is moved at all, but the heating bed - again by a motor and a belt.
+
+For the Z-axis, on the other hand, there are usually motor-controlled spindles that move the entire X-axis bar up and down. In some 3D printers, it is not the extruder (or the x-axis) that is moved up or down, but the heating bed.
+
+The printing process can now be imagined in such a way that a 3D printer initially functions like a "2D printer". Molten filament is pushed through the extruder's nozzle while the X and Y axes move at the same time. Thus, the printer "draws" the first, bottom layer onto the heated bed, "in 2D" so to speak. As soon as the first layer is ready, the extruder moves up a small distance (often only a fraction of a millimeter) in the z-direction and then "draws" the second layer on top of it. This continues until the top layer and thus the entire three-dimensional object is finished.
+
+### Calibration
+
+A newly purchased or newly assembled 3D printer must first be calibrated. Most 3D printers have a program for this that can be started via the settings. During calibration, the extruder moves to various points, moves along the x-, y- and z-axis once in their entire length and "scans" the heating bed. The measured values and coordinates are saved and it is ensured that the 3D printer is correctly aligned.
+
+Sometimes it may be necessary to recalibrate a 3D printer, e.g. after you have transported it or if you notice errors in the print results.
+
+
+## Preparing a 3D print
+### Digital 3D model
+
+First, you need a digital 3D model of the object you want to print. Such 3D models can either be modeled/designed by yourself (e.g. with CAD software) or you can download a ready-made model from the internet. Most model files are also small enough to be sent by e-mail, for example. Another way to create a 3D model is to 3D scan a real object or person.
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/23_3D_CAD_model_part_FreeCAD.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s23">[23]</a> <i> 3D model of a component created in FreeCAD </i>
+</p>
+
+
+
+Other basic learning modules deal with the topics of [3D CAD modelling](/en/academy/3dmodels/3ddesign) (CAD = Computer Aided Design), [3D scanning](/en/academy/3dmodels/3dscanning) and [downloading models from websites.](/en/academy/3dmodels/3dmodelsinternet).
+
+Most 3D printers require files in STL format (or sometimes OBJ format) - i.e. with the file extension ".stl" or ".obj". However, STL is the more common file format. Almost every CAD software is able to export 3D models in STL format. In the case of downloaded files from the internet, one should first check whether it is in STL format.
+
+Before you can print the STL file, you have to process it in a so-called slicer software. In short, the slicer software creates many small, superimposed layers or slices based on the 3D model and calculates the control commands for the 3D printer, which then prints the model layer by layer on top of each other (a more detailed  [description of slicing below](#slicing-testing-and-export)).
+
+### Slicer software
+
+There are many different slicer programs available. Many large and well-known 3D printer manufacturers have their own slicer software and usually offer them for free download via their website. Two examples (with download links):
+
+- PrusaSlicer		https://www.prusa3d.com/page/prusaslicer_424/
+- UltiMaker Cura 	https://ultimaker.com/software/ultimaker-cura/
+
+Many slicer programs are based on open source software, e.g. PrusaSlicer was developed on the basis of the open source software "Slic3r" and PrusaSlicer itself is thus also open source.
+
+Some smaller manufacturers of 3D printers also use slicer programs from the larger manufacturers and supply only a configuration file for this purpose, which adapts the slicer software to the 3D printer.
+
+In the slicer software you can see a preview of the heating bed and the imported 3D objects. With the software, the 3D objects to be printed can be duplicated (to print an object several times at once), virtually moved in space, rotated, scaled (enlarged/reduced), and placed in desired positions on the heating bed.
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/24_Slicing_in_PrusaSlicer.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s24">[24]</a> <i> Preparation of multiple objects for 3D printing in a slicer software (PrusaSlicer) </i>
+</p>
+
+
+
+### Slicing, testing and export
+
+There are numerous settings in the slicer, although not all settings will be discussed in detail in this basic learning module. For a first, simple 3D print the standard settings are mostly sufficient.
+
+The most important setting is the material. If you want to print with PLA, for example, select "PLA" in the material setting or enter the recommended temperatures of the filament manufacturer.
+
+After importing the STL file(s) into the slicer, correctly rotating, aligning and setting the [support material](#support-material-and-bridges), you need to start slicing.
+
+Slicing is a process in the software that divides the 3D object into many thin slices that are layered on top of each other. The slices have exactly the height or thickness you have set, e.g. 0.15 mm (this parameter is usually called "layer height"). A layer is thus practically only "2D", while the layers stacked on top of each other together result in a 3D object.
+  
+<p align="center">
+  <img height="340" src="images/academy/digitalproduction/3dprinting/25_Slicing_in_PrusaSlicer.png"/>
+  <img height="340" src="images/academy/digitalproduction/3dprinting/26_Slicing_in_PrusaSlicer_visible_layers.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s25">[25]</a> <i>Slicing of a 3D object for 3D printing (software: PrusaSlicer) - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s26">[26]</a> <i>Layers (slices) in side view </i><br/><i> (click images to enlarge)</i>
+</p>
+
+However, the slicer software does much more than just the actual slicing at this point. It also generates the exact path of the extruder, i.e. the path that the extruder takes in each layer in the x and y direction and then also in the height direction (z).
+In addition, support material is also generated during slicing, if you have set any (for more on this, see the section "Support material" below).
+
+After slicing has been performed, it is advisable to check the print run. Most slicers offer a preview or simulation function. This allows you to view the different layers (from the first, lowest layer to the last at the top) individually and also to display the extruder's path within each layer.
+
+<p align="center">
+  <img height="350" src="images/academy/digitalproduction/3dprinting/27_Slicing_simulation_infill_in_PrusaSlicer.png"/>
+  <img height="350" src="images/academy/digitalproduction/3dprinting/28_Slicing_simulation_infill_in_PrusaSlicer.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s27">[27]</a> <i>  - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s28">[28]</a> <i> Simulation of the 3D printing process with visible infill structure (software: PrusaSlicer) </i>
+</p>
+
+
+Once you have checked the slicing, you can export the file as a so-called "G-code" file.
+
+### G-code
+
+G-Code is a standardized file format that is used not only in 3D printing, but also in other manufacturing processes (e.g. [CNC milling](/en/academy/digitalproduction/cncmilling) or [laser cutting](/en/academy/digitalproduction/lasercutting)) verwendet wird. Basically, the G-code is there to "tell" the machine what to do, very precisely in many small individual steps and values. For example, the G-code tells the machine to heat up the hotend and the heating bed to a certain temperature, to move the 3D printer's extruder to a certain position (specified in X, Y, and Z coordinates), and to advance the filament, driven by the gears, and push it out of the nozzle.
+
+The G-code generated by the slicer software must be transferred to the 3D printer, whereby there are various options depending on the 3D printer model. Many 3D printers have an SD card slot or USB input. The G-code must then be copied to an SD card or USB stick, after which the storage medium is inserted into the 3D printer. However, there are also 3D printers that can be connected directly to the PC via cable. The printing process is then started directly from the PC.
+
+### Support material and bridges
+Since 3D printing always requires material to be layered on top of each other, there can be problems if an object has so-called overhangs. A 3D printer cannot print "in the air". A wall to be printed must therefore ideally project upwards at a 90° angle, although slopes are also possible depending on the material (usually at angles of at least 45°). The edges of the layers then overlap a little.
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/29_Layer_angle_minimum_45_degrees_3D_printing.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s29">[29]</a> <i> The layering angle should be at least 45 </i>
+</p>
+
+<p align="center">
+  <img height="350" src="images/academy/digitalproduction/3dprinting/30_3D_printing_object_45_degree_angle_PrusaSlicer.png"/>
+  <img height="350" src="images/academy/digitalproduction/3dprinting/31_3D_printing_object_45_degree_angle_PrusaSlicer.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s30">[30]</a> <i>  - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s31">[31]</a> <i> Object with 45° bevel in PrusaSlicer </i>
+</p>
+
+
+
+However, larger overhangs are not possible. Often this problem can be solved by rotating the object to a more favorable position in the slicer software. Many slicers have a function where you only have to click on one surface of the object on which it should be "placed".
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/32_Flipping_object_in_PrusaSlicer_for_better_3D_printing.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s32">[32]</a> <i> Above: Only the legs of the table can be printed, but the table top would have to be "printed in the air" (does not work). <br/> Below: Simple solution: Turn the table over so that it is free of overhangs and prints well. </i>
+</p>
+
+
+For more complex shaped objects, it is possible that there is no overhang-free turning position. In this case, the slicer software can automatically generate so-called support material. This support material is mostly hollow and can usually be removed relatively easily after 3D printing, e.g. with fingers or pliers.
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/33_Support_material_3D_printing.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s33">[33]</a> <i> 3D printed object with (removable) support material: <br/> This dinosaur figure is a good example of a model that can't be printed without overhanging, no matter how you turn it - so support material is necessary. </i>
+</p>
+
+
+In addition, some 3D printers and slicers can also print so-called bridges if the conditions are right. In a bridge, the extruder stretches strings from one side of a base to the other. A "bridge" that is only attached on one side and hangs freely in the air at the other end is not possible. In addition, a bridge must not be too long or the distance between the bases too wide, otherwise the filament will have too little tension during printing and will hang down. For short distances, however, bridges are a very good way to print "in the air" without support material.
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/34_Bridging_3D_printing_PrusaSlicer.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s34">[34]</a> <i> Bridge in a slicer software (PrusaSlicer) </i>
+</p>
+
+
+
+### Infill
+In most cases, it is not necessary to print a completely solid plastic part at all. Only the outer shell of the 3D-printed object is solid, but inside the object is partly hollow and partly filled with a kind of grid structure. The percentage of the interior of an object that is filled with material can be set in slicers via the "infill" parameter.
+
+An infill of e.g. 15% (usual default value) means that the object is 15% filled with material, while the remaining 85% is hollow or filled with air. For most 3D printing projects, this is perfectly sufficient. Thus, the object weighs less, it prints in less time, and it uses less material than a solid object (infill 100%). Depending on the requirements, a lower or even a higher infill value can be set, e.g. if the object has to withstand heavy loads.
+
+<p align="center">
+  <img height="350" src="images/academy/digitalproduction/3dprinting/35_Infill_3D_printing_UltiMaker_Cura_slicer.png"/>
+  <img height="350" src="images/academy/digitalproduction/3dprinting/36_Infill_3D_printing.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s35">[35]</a> <i> Visible infill (yellow) at differently set fill rates (slicer software: UltiMaker Cura) - </i> <br/>
+  <a href="en/academy/digitalproduction/3dprinting#s36">[36]</a> <i> Half-finished printed figure with visible infill structure </i>
+</p>
+
+
+## 3D printing process
+### Before printing
+
+Before starting a 3D print, you should check whether the correct filament is used and whether there is enough filament on the spool. It is also advisable to clean the heating bed, e.g. with isopropanol or glass cleaner. This removes invisible grease residues that can be caused, for example, by touching the print bed with the fingers. Grease residues can cause the filament not to adhere properly to the print bed.
+
+Once you have transferred the finished G-code to the 3D printer and started 3D printing, you should observe the start of printing for a while and pause or cancel the process in case of problems.
+
+
+### Leveling, skirt and brim
+When starting a 3D print job, the 3D printer will usually first scan the heated bed at various points to calibrate the Z positions again (so-called "leveling").
+
+After this, a line a few centimeters long is printed at the edge of the heating bed, the so-called "intro line" or "purge line". This process serves to "purge" the nozzle and ensures that the nozzle is fully filled with viscous filament, well flooded and ready for printing. If the 3D printer were to skip the purge line and start printing the object directly, it is possible that no filament would come out at the beginning or that it would come out very unevenly.
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/37_Purge_line_3D_printing.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s37">[37]</a> <i> Purge line at the edge of the heating bed: This line is drawn before the actual 3D printing begins in order to purge the nozzle and ensure an even filament flow. </i>
+</p>
+
+
+
+Afterwards, an outer line is usually printed around the area where the objects are to be created, if this option is set. This so-called "skirt" gives an impression of the size of the objects to be printed right at the start of printing. In addition, the skirt allows you to see at an early stage whether the material adheres well and whether there are no visible problems with the quality, so that you can still cancel the print at that point if you are in doubt.
+
+<p align="center">
+  <img height="400" src="images/academy/digitalproduction/3dprinting/38_Skirt_3D_printing.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s38">[38]</a> <i> Skirt on the edge of a 3D-printed object: The skirt is used to identify the outline before the actual printing begins, and it also stabilizes the flow in the nozzle. </i>
+</p>
+
+
+
+With some materials it can be helpful to print an additional "brim" to stabilize the object during printing. The brim function can be activated and set in the slicer settings if required.
+
+### The first layer
+
+After printing the skirt and brim, the first layer of the object is printed. This should be observed closely. If you notice that the first layer is not clean, e.g. if the filament does not stick properly in some places (as indicated by small bumps in the layer), you should stop printing at this point, remove the material that has already been printed, clean the heating bed or recalibrate the Z-axis and restart printing.
+
+<p align="center">
+  <img height="300" src="images/academy/digitalproduction/3dprinting/39_First_layer_3D_printing.png"/>
+  <img height="300" src="images/academy/digitalproduction/3dprinting/40_First_layer_3D_printing.png"/>
+</p>
+
+<p align="center">
+  <a href="en/academy/digitalproduction/3dprinting#s39">[39]</a> <i>  - </i>
+  <a href="en/academy/digitalproduction/3dprinting#s40">[40]</a> <i> Successful first layer of a 3D print: The printing of the first layer should always be closely monitored and restarted if necessary in case of quality defects. </i>
+</p>
+
+Otherwise, a failed first layer can result in the entire object becoming unclean or failing altogether later on. Since 3D printing can take several minutes or often even hours, it pays to ensure a good first layer before wasting a lot of time and material.
+
+### More layers
+
+In the course of 3D printing, you can observe how the further layers are applied. This will also reveal the interior of the object with the infill grid structure.
+
+If the first layer has turned out well, you can leave the 3D printer unattended without any problems. Whether you are allowed to leave the room or even print overnight must be discussed with the owner of the printer or the fab lab.
+
+### After printing
+
+Once the 3D print is finished, the extruder moves to a position where it will not interfere, so you can remove the object. Many 3D printers have a removable plate (e.g. made of spring steel sheet) on the print bed. This makes it easier to remove the objects because you can first remove the plate as a whole, then bend it slightly and easily release the objects from the plate.
+
+Finally, any supporting material must be removed. In addition, the object can be finished in various ways, e.g. sanded or treated with epoxy resin to improve the surface appearance.
+
+# License information
+
+**Author:** Oskar Lidtke, https://github.com/orcular-org/
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)</a>.
+
+See best practices for [attribution](https://wiki.creativecommons.org/wiki/Best_practices_for_attribution) and [marking your own work](https://wiki.creativecommons.org/wiki/Marking_your_work_with_a_CC_license) with a CC license.
+
+For attribution and licenses of the images used, see the section below.
+
+
+# Image references
+
+<a id="s1"></a>
+**[1]** DIY-3D-Drucker mit Open-Hardware-Lizenz [(Repository)](https://gitlab.fabcity.hamburg/hardware/interfacer-osh-build-workshops/3-d-printer-hypercuboid) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s2"></a>
+**[2]** Prusa i3 metal frame - **Image license:** [GNU Free Documentation License, Version 1.2](https://commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2) - **Source:** https://commons.wikimedia.org/wiki/File:Prusa_i3_metal_frame.jpg
+
+<a id="s3"></a>
+**[3]** BigFDM 3D-Drucker [(Repository)](https://github.com/fab-machines/BigFDM) - **Image Source:** https://openlab-hamburg.de/
+
+<a id="s4"></a>
+**[4]** Eco-sustainable 3D printed house - **Image license:** [CC BY 2.5](https://creativecommons.org/licenses/by/2.5/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Eco-sustainable_3D_printed_house_%22Tecla%22.jpg
+
+<a id="s5"></a>
+**[5]** A photo of the printing head of a FELIX 3D Printer in action - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Felix_3D_Printer_-_Printing_Head_Cropped.JPG
+
+<a id="s6"></a>
+**[6]** 3DBenchy - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) - **Source:** https://flic.kr/p/rVrSsc
+
+<a id="s7"></a>
+**[7]** Lautsprecher aus 3D Drucker - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:Mg_4327-20171101-3d-lautsprecher.jpg
+
+<a id="s8"></a>
+**[8]** A Jet Engine turbine printed from the Howard Community College Makerbot - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:HCC_3D_printed_turbine_view_1.jpg
+
+<a id="s9"></a>
+**[9]** 3D printing a yarn bowl - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) - **Source:** https://www.flickr.com/photos/ruthanddave/49896309407
+
+<a id="s10"></a>
+**[10]** Verschiedene 3D-gedruckte Objekte - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s11"></a>
+**[11]** 3D-gedrucktes Objekt - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s12"></a>
+**[12]** 3D-gedrucktes Objekt - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s13"></a>
+**[13]** 3D-gedrucktes Objekt - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s14"></a>
+**[14]** Makerbot Store, Manhattan (NY, USA) - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Makerbot_Store,_Manhattan_(NY,_USA)_(8764959982).jpg
+
+<a id="s15"></a>
+**[15]** ABS filament spool - **Image license:** [GNU Free Documentation License, Version 1.2](https://commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2) - **Source:** https://commons.wikimedia.org/wiki/File:ABS_filament_spool.jpg
+
+<a id="s16"></a>
+**[16]** 3DBenchy created using color mixing on an FDM printer - **Image license:** [GNU Free Documentation License, Version 1.2](https://commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2) - **Source:** https://commons.wikimedia.org/wiki/File:3DBenchy_created_using_color_mixing_on_an_FDM_printer.jpg
+
+<a id="s17"></a>
+**[17]** Die wichtigsten Komponenten eines 3D-Druckers (3D-Modell erstellt in FreeCAD) - [3DBenchy attribution](https://www.3dbenchy.com/license/) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s18"></a>
+**[18]** Filament Driver diagram of a 3D printer (FDM). 1 Filament. 2 Filament Driver (Extruder). 3 Heated Nozzle. 4 Print. 5 Build Platform. (cropped) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://en.wikibooks.org/wiki/File:Filament_Driver_diagram.svg
+
+<a id="s19"></a>
+**[19]** Taz 5 3D Printer (16721682637).jpg - https://www.sparkfun.com/products/retired/13300 - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Taz_5_3D_Printer_%2816721682637%29.jpg
+
+<a id="s20"></a>
+**[20]** X-, Y- und Z-Achse eines 3D-Druckers - [3DBenchy attribution](https://www.3dbenchy.com/license/) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s21"></a>
+**[21]** Draufsicht eines 3D-Druckers mit X- und Y-Achse - [3DBenchy attribution](https://www.3dbenchy.com/license/) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s22"></a>
+**[22]** Frontansicht eines 3D-Druckers mit X- und Z-Achse - [3DBenchy attribution](https://www.3dbenchy.com/license/) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s23"></a>
+**[23]** 3D-Modell eines Bauteils, erstellt in FreeCAD - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s24"></a>
+**[24]** Vorbereitung mehrerer Objekte für den 3D-Druck in einer Slicer-Software (PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s25"></a>
+**[25]** Slicing eines 3D-Objekts für den 3D-Druck (Software: PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s26"></a>
+**[26]** Schichten (slices) in Seitenansicht (Software: PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s27"></a>
+**[27]** Simulation des 3D-Druckablaufs mit sichtbarer Infill-Struktur (Software: PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s28"></a>
+**[28]** Simulation des 3D-Druckablaufs mit sichtbarer Infill-Struktur (Software: PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s29"></a>
+**[29]** Schichtwinkel beim 3D-Druck mindestens 45° - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org) - **Adapted from:** An illustration demonstrating the effect of using a part-cooling fan 3D printing on a filament-based 3D printer. - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:3D_printing_calibration_part-cooling_fan_airflow.svg
+
+<a id="s30"></a>
+**[30]** Objekt mit 45°-Schräge im PrusaSlicer - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s31"></a>
+**[31]** Objekt mit 45°-Schräge im PrusaSlicer - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s32"></a>
+**[32]** Objekt nicht 3D-druckbar, gedrehtes Objekt druckbar - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s33"></a>
+**[33]** Kunststoffdino mit Stützstruktur Rapid Prototyping /Kunststoff schichtweise aufgetragen - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Rapid-dino.jpg
+
+<a id="s34"></a>
+**[34]** Brücke in einer Slicer-Software (PrusaSlicer) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s35"></a>
+**[35]** Different levels of infill denisity, as generated by Cura software (cropped, rearranged)- **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:Infill_density.jpg
+
+<a id="s36"></a>
+**[36]** 3D printed HULK (40% only power) (cropped) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:HULK_(40%25).jpg
+
+<a id="s37"></a>
+**[37]** Purge line 3D-Druck - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s38"></a>
+**[38]** Schürze (skirt) im 3D-Druck - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s39"></a>
+**[39]** Erste Schicht 3D-Druck - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)
+
+<a id="s40"></a>
+**[40]** Erste Schicht 3D-Druck - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Author:** Oskar Lidtke, [github.com/orcular-org](https://github.com/orcular-org)

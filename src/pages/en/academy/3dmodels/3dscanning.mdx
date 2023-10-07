@@ -1,16 +1,183 @@
 ---
 title: 3D Scanning
-img: https://images.unsplash.com/photo-1612888077748-00e3a1bd7aad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80
-order: 3
+img: https://images.unsplash.com/photo-1633899306328-c5e70574aaa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80
+order: 2
 layout: "@layouts/AcademyContent.astro"
-teaser: In this module you will learn about 3D-scanning.
+teaser: In this module you will find helpful information about 3D Scanning.
 ---
 
-## Resources
+## Introduction
 
-- <a href="https://www.3d-scantech.com/beginners-guide-to-3d-scanning/" target="_blank" rel="noopener noreferrer">Beginners guide to 3D scanning</a>
-- <a href="https://www.youtube.com/watch?v=tkIAY3PJR7s" target="_blank" rel="noopener noreferrer">Meshmixer clean a scan</a>
-- <a href="https://3dtotal.com/tutorials/t/cleaning-up-a-3d-scan-with-meshmixer#article-get-your-object-in-the-right-place" target="_blank" rel="noopener noreferrer">Cleaning up a 3D scan with Meshmixer</a>
+3D scanning refers to various processes in which the surfaces of real objects, people or environments are recorded with special devices in such a way that a digital 3D model is created. 3D scanning is used in many areas, e.g. in the film industry, in terrain and building surveying or in the form of reverse engineering, i.e. the reproduction of existing technical components.
+
+In the context of fab labs and maker communities, 3D scanning methods are primarily used to create three-dimensional human models (so-called "3D selfies"), to replicate figures, toys, and the like, as well as for the reproduction of spare parts. Real objects can be produced from the 3D scanned models in fab labs, for example with 3D printers.
+
+Depending on the 3D scanning method used, either colorless (monochrome) 3D models are created - i.e. only the surface of the object is captured - or colored models that capture the colors and structure of the object or person and overlay them as a texture on the 3D model, creating a relatively realistic image of the real object.
+
+<p align="center">
+<img height="300" src="images/academy/3dmodels/3dscanning/1_3D_selfie.png"/>
+<img height="300" src="images/academy/3dmodels/3dscanning/2_3D_scanning_MeshLab_example.png"/>
+</p>
+
+<p align="center">
+<a href="en/academy/3dmodels/3dscanning#s1">[1]</a> <i> 3D selfie: Person model created via 3D scanning and 3D printing - </i>
+<a href="en/academy/3dmodels/3dscanning#s2">[2]</a> <i> 3D scanned model of a statue rendered in MeshLab software </i>
+</p>
+
+<p align="center">
+<img height="300" src="images/academy/3dmodels/3dscanning/3_Photogrammetry_with_camera.png"/>
+</p>
+
+<p align="center">
+<a href="en/academy/3dmodels/3dscanning#s3">[3]</a> <i> Photogrammetry: A 3D scanning method using a photo camera </i>
+</p>
 
 
 
+
+## Processes and technologies
+
+There are different 3D scanning methods, of which two in particular stand out in the hobby sector and in fab labs:
+- Laser scanning
+- Photogrammetry
+
+There are also devices that use a combination of laser scanning and photogrammetry or other methods.
+
+### Laser scanning
+
+With laser scanning, the surfaces to be recorded are scanned in a line or grid pattern with a laser beam. The laser radiation reflected from the surface hits sensors, whereupon the respective distance and position of the scanned points is calculated from the measurement data obtained in this way. Software uses this data to create a three-dimensional model of the surface.
+
+### Photogrammetry
+
+In photogrammetry, the object to be captured is first photographed from many different angles, either with a single camera or with many cameras simultaneously.
+
+If only a single camera is used, you have to move it around the object - by hand or mechanically with a robotic arm - and take as many photos as possible from many different perspectives. The object or person should not move if possible. It is also possible to use a turntable on which the object is placed and rotated so that the camera only has to be moved in the vertical position.
+
+When using multiple cameras, they can be placed at different angles around the object or person. The cameras are then all triggered at the same time.
+
+Software recognizes differences and similarities in the images, finds the same points on different images and calculates the respective position of each point in three-dimensional space. A 3D model of the surface is generated from this position data. In addition, the color points (pixels) of the individual photographs can be laid over the 3D model as a texture.
+
+<p align="center">
+<img height="300" src="images/academy/3dmodels/3dscanning/4_Photogrammetry_Meshroom.png"/>
+<img height="300" src="images/academy/3dmodels/3dscanning/5_Photogrammetry_Meshroom2Blender.png"/>
+</p>
+
+<p align="center">
+<a href="en/academy/3dmodels/3dscanning#s4">[4]</a> <i> Photogrammetry with the software Meshroom - </i>
+<a href="en/academy/3dmodels/3dscanning#s5">[5]</a> <i> Meshroom2Blender - an extension for the 3D graphics software Blender </i>
+</p>
+
+
+### Device types
+
+Devices for 3D scanning come in different forms, e.g. as handheld devices that you carry around the object to capture it from different angles. There are also smartphone apps that allow you to use your phone camera for photogrammetry 3D scanning. Most good apps are usually paid or only available for free to a limited extent.
+
+Especially for 3D selfies of people or groups of people, there are booths that are equipped with a large number of cameras that capture people from all directions. Since all cameras are triggered at the same time, this method is very quick and the people photographed only have to stay still for a very short time. 
+
+<p align="center">
+<img height="400" src="images/academy/3dmodels/3dscanning/6_Handheld_3D_Scanner.png"/>
+<img height="400" src="images/academy/3dmodels/3dscanning/7_3D_selfie_cabin.png"/>
+</p>
+
+<p align="center">
+<a href="en/academy/3dmodels/3dscanning#s6">[6]</a> <i> Handheld 3D scanner with laser scanner and integrated camera for texturing - </i>
+<a href="en/academy/3dmodels/3dscanning#s7">[7]</a> <i> 3D photo booth: There are many cameras in the wall that all fire at the same time, taking pictures of the person in the center from different angles. </i>
+</p>
+
+
+
+## Processing of a scanned 3D model
+
+### Post processing
+
+With many 3D scanning methods, the 3D model still has to be processed in software before it can be used for 3D printing, for example.
+
+Depending on the process, the model is initially available either as a polygon mesh or as a point cloud and must be put together, cleaned and smoothed into a clean model using software.
+
+<p align="center">
+<img height="250" src="images/academy/3dmodels/3dscanning/8_Polygon_Mesh_Dolphin_example.png" />
+<img height="250" src="images/academy/3dmodels/3dscanning/9_Point_Cloud_Tux_example.png" />
+</p>
+
+<p align="center">
+<a href="en/academy/3dmodels/3dscanning#s8">[8]</a> <i> Example of a polygon mesh - </i>
+<a href="en/academy/3dmodels/3dscanning#s9">[9]</a> <i> Example of a point cloud (created by photogrammetry) </i>
+</p>
+
+
+### Software
+
+In the field of 3D scanning, the following **software** is available, among others:
+
+- [Meshroom](https://alicevision.org/#meshroom): Free, open-source 3D reconstruction software based on the [AliceVision Framework](https://alicevision.org/), a software package for photogrammetry applications.
+- [MeshLab](https://www.meshlab.net/): Free open-source software for editing, cleaning, rendering, texturing and converting 3D scanned mesh 3D models.
+- [3DF Zephyr](https://www.3dflow.net): A program with one [free](https://www.3dflow.net/3df-zephyr-free/) and several paid versions for photogrammetry, i.e. for generating 3D models from several 2D frames.
+- [ReconstructMe](https://www.reconstructme.net): Software for creating 3D selfies with your own camera - both free and paid versions are available.
+
+### Hardware
+
+For fab labs and makers there are, among others, the following **devices and hardware projects** (partly open-source hardware):
+- [OpenScan](https://www.openscan.eu/) - ([GitHub-Seite](https://openscan-org.github.io/OpenScan-Doc/))
+- [FabScan](https://fabscan.org)
+- [MakerScanner](http://www.makerscanner.com/)
+
+There are also professional devices, but they are very expensive and are usually only used by companies, but some fab labs also have such devices.
+
+### 3D printing from 3D scanned models
+
+Once you have cleaned up a 3D scanned model and transferred it to a 3D printable format, e.g. STL (more on this in the [3D printing basic learning module](/en/academy/digitalproduction/3dprinting)), you can simply print it out as a single color object using an FDM 3D printer. When using a multicolor 3D printer, a multicolor figure can also be printed - with a few colors and limited accuracy.
+
+If you want to get a very detailed 3D printed figure with many colors and high accuracy of the surface optics, a simple FDM 3D printer (FDM = Fused Deposition Modeling, more about it [here](/en/academy/digitalproduction/3dprinting)) is not enough. Commercial providers of 3D selfies usually use a different 3D printing technology: binder jetting. In this 3D printing process, a powder is applied and bonded with a liquid binding agent. The resulting figures often have a look reminiscent of sandstone, as well as a large variety of colors and attention to detail.
+
+<p align="center">
+<img height="300" src="images/academy/3dmodels/3dscanning/10_3D_printed_3D_selfie.png"/>
+</p>
+
+<p align="center">
+<a href="en/academy/3dmodels/3dscanning#s10">[10]</a> <i>3D printed model of a 3D selfie</i>
+</p>
+
+
+Finally, there is also the option of subsequently processing and painting a figure printed in one color (preferably white) from the FDM 3D printer.
+
+# License information
+
+**Author:** Oskar Lidtke, https://github.com/orcular-org/
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)</a>.
+
+See best practices for [attribution](https://wiki.creativecommons.org/wiki/Best_practices_for_attribution) and [marking your own work](https://wiki.creativecommons.org/wiki/Marking_your_work_with_a_CC_license) with a CC license.
+
+For attribution and licenses of the images used, see the section below.
+
+# Image references
+
+<a id="s1"></a>
+**[1]** 3D selfie in 1-20 scale as received from Shapeways, the printer company for Madurodam's Fantasitron IMG 4557 FRD.jpg - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:3D_selfie_in_1-20_scale_as_received_from_Shapeways,_the_printer_company_for_Madurodam%27s_Fantasitron_IMG_4557_FRD.jpg
+
+<a id="s2"></a>
+**[2]** MeshLabv121 david.png - **Image license:** [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.html.en) - **Source:** https://commons.wikimedia.org/wiki/File:MeshLabv121_david.png
+
+<a id="s3"></a>
+**[3]** Balkan Heritage Field School (photogrammetry course) at Stobi, Republic of Macedonia (cropped) - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:Balkan_Heritage_Field_School-5.jpg
+
+<a id="s4"></a>
+**[4]** buddha_dataset.png - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://alicevision.org (home page)
+
+<a id="s5"></a>
+**[5]** meshroom2blender.jpg - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://alicevision.org (home page)
+
+<a id="s6"></a>
+**[6]** VIUscan handheld 3D scanner in use.jpg - **Image license:** [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:VIUscan_handheld_3D_scanner_in_use.jpg
+
+<a id="s7"></a>
+**[7]** 3D-scanning photo booth for 3D selfies at the Doob NY SOHO store. - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Doob_NY_SOHO_3D_selfie_photo_booth_IMG_4939_FRD.jpg
+
+<a id="s8"></a>
+**[8]** An example of a polygon mesh. - **Image license:** [Public domain](https://en.wikipedia.org/wiki/Public_domain) - **Source:** https://commons.wikimedia.org/wiki/File:Dolphin_triangle_mesh.svg
+
+<a id="s9"></a>
+**[9]** TuxaufRasen-Photogrammetriepunktwolke.png - **Image license:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - **Source:** https://commons.wikimedia.org/wiki/File:TuxaufRasen-Photogrammetriepunktwolke.png
+
+<a id="s10"></a>
+**[10]** Madurodam Shapeways 3D selfie in 1 20 scale after a second spray of varnish FRD.jpg - **Image license:** [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) - **Source:** https://commons.wikimedia.org/wiki/File:Madurodam_Shapeways_3D_selfie_in_1_20_scale_after_a_second_spray_of_varnish_FRD.jpg

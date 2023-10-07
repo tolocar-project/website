@@ -3,12 +3,20 @@ import { Course } from "@components";
 import { transformAcademy } from "@util/ContentTransformer";
 import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
 
+const { language = "en" } = Astro.props;
 
 // Only get files named index.mdx that are inside of a subfolder within the academy folder
-const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
-  "../pages/en/academy/*/*.mdx"
-);
 
+let rawAcademyContent;
+if (language === "ua") {
+  rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
+    "../pages/ua/academy/*/*.mdx"
+  );
+} else {
+  rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
+    "../pages/en/academy/*/*.mdx"
+  );
+}
 const coursesAndLessons = transformAcademy(rawAcademyContent);
 ---
 
