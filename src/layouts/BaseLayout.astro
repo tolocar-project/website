@@ -23,15 +23,15 @@ const localeFromUrl = Astro?.url?.pathname
 
 const rawMenus = await Astro.glob<IMenuMarkdown>("../pages/**/_menu.mdx");
 
-const translatedMenu = rawMenus.find((rawMenu) =>
-  rawMenu.url
-    .split("/")
+const translatedMenu = rawMenus?.find((rawMenu) =>
+  rawMenu?.url
+    ?.split("/")
     .filter(Boolean)
     .map((urlPart) => urlPart.toLowerCase())
     .includes(localeFromUrl)
-).frontmatter?.menu;
+)?.frontmatter?.menu;
 
-const translatedAndRebasedMenu = translatedMenu.map((menuItem) => ({
+const translatedAndRebasedMenu = translatedMenu?.map((menuItem) => ({
   ...menuItem,
   target: baseUrl === "/" ? menuItem.target : baseUrl + menuItem.target,
 }));
@@ -39,7 +39,7 @@ const translatedAndRebasedMenu = translatedMenu.map((menuItem) => ({
 const isProduction = import.meta.env.MODE === "production";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={localeFromUrl} class="scroll-smooth h-full">
   <head>
     <meta charset="UTF-8" />

@@ -2,14 +2,16 @@ import React from "react";
 import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 import GithubSlugger from "github-slugger";
 
+export interface ICourse {
+  title: string;
+  img: string;
+  imgAlt?: string;
+  items: { target: string; title: string }[] | null;
+}
+
 interface Props {
   className?: string;
-  course: {
-    title: string;
-    img: string;
-    imgAlt?: string;
-    items: { target: string; title: string }[] | null;
-  };
+  course: ICourse;
 }
 
 const Course: React.FC<Props> = ({ className, course }) => {

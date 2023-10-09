@@ -28,7 +28,13 @@ const trimmedAndSorted = trimAndSortInterventions(
       Latest Interventions
     </div>
     <div class="text-base md:hidden">
-      When we go to place to <strong>support a project, build a maker space or perform a workshop, we call that an intervention.</strong> Every intervention has its unique partners, goals and outcomes, but every intervention <strong>helps to strengthen the ecosystem of the Ukraine.</strong>
+      When we go to place to <strong
+        >support a project, build a maker space or perform a workshop, we call
+        that an intervention.</strong
+      > Every intervention has its unique partners, goals and outcomes, but
+      every intervention <strong
+        >helps to strengthen the ecosystem of the Ukraine.</strong
+      >
     </div>
   </div>
   <div
@@ -42,12 +48,12 @@ const trimmedAndSorted = trimAndSortInterventions(
     {
       trimmedAndSorted.map((intervention) => (
         <InterventionPreviewCard
-          href={intervention.url}
-          image={intervention.frontmatter.images[0]}
-          date={intervention.frontmatter.date}
-          title={intervention.frontmatter.title}
-          location={intervention.frontmatter.location}
-          tags={intervention.frontmatter.tags}
+          href={intervention?.url || ""}
+          image={intervention?.frontmatter?.images?.[0] || ""}
+          date={intervention?.frontmatter?.date}
+          title={intervention?.frontmatter?.title}
+          location={intervention?.frontmatter?.location}
+          tags={intervention?.frontmatter?.tags}
         />
       ))
     }

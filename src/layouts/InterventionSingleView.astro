@@ -8,7 +8,7 @@ import {
   InterventionSingleViewHeading,
 } from "@components";
 
-const { frontmatter, url, file, headings } = Astro.props;
+const { frontmatter } = Astro.props;
 
 const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
   "../pages/en/interventions/*.mdx"
@@ -20,7 +20,7 @@ const rawInterventionsContentWithoutIndex = rawInterventionsContent.filter(
 
 const relatedInterventions = rawInterventionsContentWithoutIndex.filter(
   (interventionFromFilesystem) =>
-    frontmatter.related?.some((slug) =>
+    frontmatter.related?.some((slug: string) =>
       interventionFromFilesystem.url?.includes(slug)
     )
 );
@@ -55,12 +55,12 @@ const relatedInterventions = rawInterventionsContentWithoutIndex.filter(
       {
         relatedInterventions.map((intervention) => (
           <InterventionPreviewCard
-            href={intervention.url}
-            image={intervention.frontmatter.images[0]}
-            date={intervention.frontmatter.date}
-            title={intervention.frontmatter.title}
-            location={intervention.frontmatter.location}
-            tags={intervention.frontmatter.tags}
+            href={intervention?.url || ""}
+            image={intervention?.frontmatter?.images?.[0] || ""}
+            date={intervention?.frontmatter?.date}
+            title={intervention?.frontmatter?.title}
+            location={intervention?.frontmatter?.location}
+            tags={intervention?.frontmatter?.tags}
           />
         ))
       }
