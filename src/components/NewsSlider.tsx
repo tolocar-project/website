@@ -6,7 +6,7 @@ import { NewsItem } from "@components";
 import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 import { ReactComponent as InstagramIcon } from "@assets/instagram.svg";
 import { ReactComponent as FacebookIcon } from "@assets/facebook.svg";
-import { INewsItem } from "@interfaces/INews";
+import type { INewsItem } from "@interfaces/INews";
 
 interface Props {
   news: Array<INewsItem>;
