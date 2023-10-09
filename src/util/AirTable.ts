@@ -1,16 +1,19 @@
 import fs from "node:fs";
+import jwt_decode from "jwt-decode";
 
 const AIRTABLE_BASE_URL = "https://api.airtable.com/v0/";
-const AIRTABLE_BASE_ID = "appy8mE1ZpLXfYzEQ/tblvfXTgnme0tqIQD";
 
-const token = import.meta.env.PUBLIC_AIRTABLE_TOKEN;
+const airtableToken = import.meta.env.AIRTABLE_TOKEN;
+const airtableNewsBaseId = import.meta.env.NEWS_AIRTABLE_BASE_ID;
+const airtableInterventionsBaseId = import.meta.env
+  .INTERVENTIONS_AIRTABLE_BASE_ID;
 
 const commonHeaders = {
   "content-type": "application/json",
-  Authorization: `Bearer ${token}`,
+  Authorization: `Bearer ${airtableToken}`,
 };
 
-interface AirtableResponse {
+interface AirtableNewsResponse {
   records: Array<{
     id?: string;
     createdTime?: string;
@@ -45,8 +48,6 @@ const fetchAndHandleErrors = async <T>(
     },
   });
 
-  console.log(JSON.stringify(response));
-
   if (!response.ok) {
     const text = await response.text();
     console.error("Server returned Error: " + text);
@@ -57,17 +58,62 @@ const fetchAndHandleErrors = async <T>(
 };
 
 export const getNewsItems = async () => {
-  const { records } = await fetchAndHandleErrors<AirtableResponse>(
-    AIRTABLE_BASE_ID
+  const { records } = await fetchAndHandleErrors<AirtableNewsResponse>(
+    airtableNewsBaseId
   );
 
   if (records && records.length > 0) {
     try {
       fs.writeFileSync("./fetch.json", JSON.stringify(records));
-      // file written successfully
     } catch (err) {
       console.error("Error while writing file", err);
     }
     return records;
+  }
+};
+
+export const getMapPois = async () => {
+  const { records } = await fetchAndHandleErrors<unknown>(
+    airtableInterventionsBaseId
+  );
+  console.log("FETCHING POIS");
+
+  if (records && records.length > 0) {
+    try {
+      fs.writeFileSync("./fetchPois.json", JSON.stringify(records));
+    } catch (err) {
+      console.error("Error while writing file", err);
+    }
+
+    const withLocation = records.map((record) => {
+      const locationJwt = record?.fields?.["Geo cash (Event)"]?.slice(3);
+
+      let locationDecoded;
+
+      if (locationJwt) {
+        console.log("JWT", locationJwt);
+        try {
+          locationDecoded = jwt_decode(locationJwt, { header: true });
+        } catch (e) {
+          console.log(e);
+          console.log("Malformed:", locationJwt);
+        }
+        console.log("Decoded", locationDecoded);
+
+        if (locationDecoded?.o?.lat && locationDecoded?.o?.lng) {
+          return {
+            ...record,
+            location: {
+              lat: locationDecoded?.o?.lat,
+              lng: locationDecoded?.o?.lng,
+            },
+          };
+        }
+      }
+
+      return record;
+    });
+
+    return withLocation;
   }
 };

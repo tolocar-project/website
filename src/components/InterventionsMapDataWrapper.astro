@@ -7,6 +7,7 @@ import {
   trimAndSortInterventions,
   transformInterventionsToPoiData,
 } from "@util/ContentTransformer";
+import { getMapPois } from "@util/AirTable";
 
 interface Props {
   count?: number;
@@ -18,20 +19,40 @@ const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
   "../pages/en/interventions/*.mdx"
 );
 
+const atPois = (await getMapPois())
+  .filter((poi) => poi.location)
+  .map((poi) => ({
+    locationLngLat: poi.location,
+    title: "Test from Airtable",
+    url: "/en/interventions/12-Test",
+    date: "July 17th - 27th, 2023",
+    image: "/images/interventions/Peremoha-lab-1.JPG",
+    location: "Chernihiv",
+    airtable: true
+  }));
+console.log(atPois);
+
 const trimmedAndSorted = trimAndSortInterventions(
   rawInterventionsContent,
   count
 );
+
 const sortedPoiData = transformInterventionsToPoiData(trimmedAndSorted);
 
-const bounds = sortedPoiData.reduce((bounds, poi) => {
-  return bounds.extend([poi.locationLngLat.lng, poi.locationLngLat.lat]);
-}, new mapbox.LngLatBounds(sortedPoiData[0].locationLngLat, sortedPoiData[0].locationLngLat));
+const bounds = sortedPoiData.reduce(
+  (bounds, poi) => {
+    return bounds.extend([poi.locationLngLat.lng, poi.locationLngLat.lat]);
+  },
+  new mapbox.LngLatBounds(
+    sortedPoiData[0].locationLngLat,
+    sortedPoiData[0].locationLngLat
+  )
+);
 ---
 
 <InterventionMap
   client:only="react"
   token={import.meta.env.PUBLIC_MAPBOX_TOKEN}
-  interventions={sortedPoiData}
+  interventions={[...sortedPoiData, ...atPois]}
   bounds={bounds.toArray() as [[number, number], [number, number]]}
 />
