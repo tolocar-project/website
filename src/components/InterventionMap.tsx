@@ -39,7 +39,7 @@ const InterventionMap = ({
               }`}
               onClick={(e) => {
                 e.stopPropagation();
-                if (width > 1024) {
+                if ( width && width > 1024) {
                   window.location.href = interventions[selectedPoi].url;
                 } else {
                   setIsMarkerClicked(true);

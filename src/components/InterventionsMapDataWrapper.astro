@@ -19,18 +19,8 @@ const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
   "../pages/en/interventions/*.mdx"
 );
 
-const atPois = (await getMapPois())
-  .filter((poi) => poi.location)
-  .map((poi) => ({
-    locationLngLat: poi.location,
-    title: "Test from Airtable",
-    url: "/en/interventions/12-Test",
-    date: "July 17th - 27th, 2023",
-    image: "/images/interventions/Peremoha-lab-1.JPG",
-    location: "Chernihiv",
-    airtable: true
-  }));
-console.log(atPois);
+const atPois = await getMapPois();
+// console.log(atPois);
 
 const trimmedAndSorted = trimAndSortInterventions(
   rawInterventionsContent,

@@ -1,32 +1,10 @@
 ---
 import { NewsSliderComponent } from "@components";
 import { getNewsItems } from "@util/AirTable";
-import type { INewsItem } from "@interfaces/INews";
 
 const { headline, id, ...rest } = Astro.props;
 
-const data = await getNewsItems();
-
-const news = data
-  // has Instagram URL
-  ?.filter((record) => record.fields?.["Instagram URL"])
-  // has status "live"
-  .filter((record) => record.fields?.["Status"] === "live")
-  // is of media type "photo"
-  .filter((record) => record.fields?.["Media type"]?.includes("photo"))
-  // has images
-  .filter((record) => record.fields?.["Selected Photos (from Event)"]?.length)
-  .map((record) => {
-    return {
-      title: record.fields.Name,
-      target: record.fields?.["Instagram URL"],
-      instagram: true,
-      image:
-        record.fields?.["Selected Photos (from Event)"]?.[0].thumbnails?.[
-          "large"
-        ]?.url,
-    } as INewsItem;
-  }).splice(30);
+const news = await getNewsItems();
 ---
 
 <NewsSliderComponent news={news || []} {headline} {id} {...rest} client:idle />
