@@ -170,7 +170,7 @@ export const getMapPois = async () => {
           });
         } catch (e) {
           console.warn(
-            "Could not decode malformed JWT:",
+            "Could not decode malformed Location JWT from Airtable:",
             record?.fields?.["Geo cash (Event)"]
           );
         }
