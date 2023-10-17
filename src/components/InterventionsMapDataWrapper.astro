@@ -15,9 +15,9 @@ interface Props {
 
 const { count } = Astro.props;
 
-const rawInterventionsContent = await Astro.glob<Partial<IInterventionFrontmatter>>(
-  "../pages/en/interventions/*.mdx"
-);
+const rawInterventionsContent = await Astro.glob<
+  Partial<IInterventionFrontmatter>
+>("../pages/en/interventions/*.mdx");
 
 const trimmedAndSorted = trimAndSortInterventions(
   rawInterventionsContent,
@@ -28,7 +28,8 @@ const sortedPoiData = transformInterventionsToPoiData(trimmedAndSorted);
 
 const airtablePois = await getMapPois();
 
-const combinedPois = [...sortedPoiData, ...(airtablePois || [])];
+const combinedPois = [...(airtablePois || []), ...sortedPoiData];
+
 
 const bounds = combinedPois.reduce(
   (bounds, poi) => {
@@ -39,7 +40,6 @@ const bounds = combinedPois.reduce(
     sortedPoiData[0].locationLngLat
   )
 );
-
 ---
 
 <InterventionMap
