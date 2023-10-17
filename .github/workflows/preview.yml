@@ -28,9 +28,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
       - name: Replace config file with Prod version
         run: echo "$ASTRO_CONFIG" > astro.config.mjs
+      - name: TEST ENV
+        run: echo "$INTERVENTIONS_AIRTABLE_BASE_ID"
       - name: Install Node dependencies
         run: npm ci
       - name: Build site
