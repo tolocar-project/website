@@ -3,6 +3,7 @@ import Map, { Marker, NavigationControl, Popup } from "react-map-gl";
 import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
 import type { IInterventionPoi } from "@interfaces/IIntervention";
 import useWindowSize from "../util/useWindowSize";
+import { ConditionalWrapper, TolocarMarker } from "@components";
 
 const InterventionMap = ({
   interventions,
@@ -18,6 +19,14 @@ const InterventionMap = ({
 
   const { width } = useWindowSize();
 
+  const categoryStyleMapping: Record<string, string> = {
+    Education: "!text-[#005343]",
+    "(Re)Construction": "!text-[#16cf91]",
+    Awareness: "!text-[#009664]",
+    blog: "!text-[#e9418b]",
+    default: "",
+  };
+
   return (
     <Map
       initialViewState={{ bounds, fitBoundsOptions: { padding: 50 } }}
@@ -30,17 +39,22 @@ const InterventionMap = ({
         interventions.map((intervention, index) => (
           <Marker
             key={index}
-            latitude={intervention.locationLngLat.lat}
-            longitude={intervention.locationLngLat.lng}
+            longitude={intervention.locationLngLat[0]}
+            latitude={intervention.locationLngLat[1]}
           >
-            <CustomMarker
+            <TolocarMarker
               className={`transition duration-200 ease-in-out hover:scale-125 cursor-pointer ${
-                intervention?.airtable ? "!text-black" : ""
+                categoryStyleMapping[intervention?.category || "default"] || ""
               }`}
               onClick={(e) => {
                 e.stopPropagation();
-                if ( width && width > 1024) {
-                  window.location.href = interventions[selectedPoi].url;
+                if (
+                  interventions[selectedPoi as number].url &&
+                  width &&
+                  width > 1024
+                ) {
+                  window.location.href =
+                    interventions[selectedPoi as number].url;
                 } else {
                   setIsMarkerClicked(true);
                   setSelectedPoi(index);
@@ -71,8 +85,8 @@ const InterventionMap = ({
 
       {selectedPoi !== null && (
         <Popup
-          longitude={interventions[selectedPoi].locationLngLat.lng}
-          latitude={interventions[selectedPoi].locationLngLat.lat}
+          longitude={interventions[selectedPoi].locationLngLat[0]}
+          latitude={interventions[selectedPoi].locationLngLat[1]}
           closeButton={false}
           className="my-map-popup"
           maxWidth="none"
@@ -83,7 +97,14 @@ const InterventionMap = ({
           }}
           closeOnClick
         >
-          <a className="outline-none" href={interventions[selectedPoi].url}>
+          <ConditionalWrapper
+            condition={Boolean(interventions[selectedPoi].url)}
+            wrapper={(children) => (
+              <a className="outline-none" href={interventions[selectedPoi].url}>
+                {children}
+              </a>
+            )}
+          >
             <div
               className={`w-full h-[171px] justify-end relative`}
               onMouseLeave={() => {
@@ -98,7 +119,9 @@ const InterventionMap = ({
               />
               <div className="h-full w-full absolute top-0 bg-gradient-to-b from-transparent to-black opacity-80" />
 
-              <ArrowIcon className="absolute top-4 right-4 z-10 text-white h-6 w-6" />
+              {interventions[selectedPoi].category === "blog" && (
+                <ArrowIcon className="absolute top-4 right-4 z-10 text-white h-6 w-6" />
+              )}
 
               <div className="absolute bottom-0 flex flex-col gap-1.5 p-4">
                 <span className="text-sm leading-[14px] opacity-70">
@@ -109,7 +132,7 @@ const InterventionMap = ({
                 </h3>
               </div>
             </div>
-          </a>
+          </ConditionalWrapper>
         </Popup>
       )}
 
@@ -122,46 +145,6 @@ const InterventionMap = ({
         showCompass={false}
       />
     </Map>
-  );
-};
-
-interface CustomMarkerProps extends React.SVGAttributes<SVGElement> {
-  className?: string;
-}
-
-const CustomMarker = ({ className, ...props }: CustomMarkerProps) => {
-  return (
-    <svg
-      display="block"
-      height="41px"
-      width="27px"
-      viewBox="0 0 27 41"
-      className={"text-[#009664] " + className}
-      {...props}
-    >
-      <defs>
-        <radialGradient id="shadowGradient">
-          <stop offset="10%" stopOpacity="0.4"></stop>
-          <stop offset="100%" stopOpacity="0.05"></stop>
-        </radialGradient>
-      </defs>
-      <ellipse
-        cx="13.5"
-        cy="34.8"
-        rx="10.5"
-        ry="5.25"
-        fill="url(#shadowGradient)"
-      ></ellipse>
-      <path
-        fill="currentColor"
-        d="M27,13.5C27,19.07 20.25,27 14.75,34.5C14.02,35.5 12.98,35.5 12.25,34.5C6.75,27 0,19.22 0,13.5C0,6.04 6.04,0 13.5,0C20.96,0 27,6.04 27,13.5Z"
-      ></path>
-      <path
-        opacity="0.25"
-        d="M13.5,0C6.04,0 0,6.04 0,13.5C0,19.22 6.75,27 12.25,34.5C13,35.52 14.02,35.5 14.75,34.5C20.25,27 27,19.07 27,13.5C27,6.04 20.96,0 13.5,0ZM13.5,1C20.42,1 26,6.58 26,13.5C26,15.9 24.5,19.18 22.22,22.74C19.95,26.3 16.71,30.14 13.94,33.91C13.74,34.18 13.61,34.32 13.5,34.44C13.39,34.32 13.26,34.18 13.06,33.91C10.28,30.13 7.41,26.31 5.02,22.77C2.62,19.23 1,15.95 1,13.5C1,6.58 6.58,1 13.5,1Z"
-      ></path>
-      <circle fill="white" cx="13.5" cy="13.5" r="5.5"></circle>
-    </svg>
   );
 };
 

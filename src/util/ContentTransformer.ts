@@ -7,7 +7,8 @@ import type {
   IInterventionFrontmatter,
   IInterventionPoi,
 } from "@interfaces/IIntervention";
-import mapbox from "mapbox-gl";
+
+type ExcludesFalse = <T>(x: T | false) => x is T;
 
 export function flatAcademyContentMap(
   rawAcademyContent: MDXInstance<AcademyPageFrontmatter>[]
@@ -63,8 +64,8 @@ export function transformAcademy(rawAcademyContent) {
 
     coursesAndLessons[course.url] = {
       ...coursesAndLessons[course.url],
-      children: coursesAndLessons[course.url].children.sort(
-        (a, b) => a.frontmatter.order - b.frontmatter.order
+      children: coursesAndLessons[course.url].children?.sort(
+        (a, b) => (a.frontmatter.order || 0) - (b.frontmatter.order || 0)
       ),
     };
   });
@@ -73,12 +74,12 @@ export function transformAcademy(rawAcademyContent) {
 }
 
 export function trimAndSortInterventions(
-  rawInterventionsContent: MDXInstance<IInterventionFrontmatter>[],
+  rawInterventionsContent: MDXInstance<Partial<IInterventionFrontmatter>>[],
   count?: number
-) {
+): MDXInstance<Partial<IInterventionFrontmatter>>[] {
   const rawSortedInterventionsContentWithoutIndex = rawInterventionsContent
     .filter((intervention) => !intervention.file.includes("index.mdx"))
-    .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
+    .sort((a, b) => (a.frontmatter.order || 0) - (b.frontmatter.order || 0));
 
   const trimmedInterventions = count
     ? rawSortedInterventionsContentWithoutIndex.slice(0, count)
@@ -88,26 +89,24 @@ export function trimAndSortInterventions(
 }
 
 export function transformInterventionsToPoiData(
-  rawInterventionsContent: MDXInstance<IInterventionFrontmatter>[]
+  rawInterventionsContent: MDXInstance<Partial<IInterventionFrontmatter>>[]
 ) {
-  const poiData: IInterventionPoi[] = rawInterventionsContent
+  const poiData = rawInterventionsContent
     .map((intervention) => {
       const {
         frontmatter: { locationLngLat, title, date, images, location },
         url,
       } = intervention;
 
-      if (locationLngLat.length == 2) {
+      if (title && date && images && locationLngLat?.length == 2) {
         return {
-          locationLngLat: new mapbox.LngLat(
-            locationLngLat[0],
-            locationLngLat[1]
-          ),
+          locationLngLat,
           title,
           url,
           date,
           image: images?.[0],
           location,
+          category: "blog",
         };
       } else {
         return null;
@@ -115,5 +114,5 @@ export function transformInterventionsToPoiData(
     })
     .filter(Boolean);
 
-  return poiData;
+  return poiData as IInterventionPoi[];
 }

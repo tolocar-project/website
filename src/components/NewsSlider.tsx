@@ -50,7 +50,9 @@ const NewsSlider: React.FC<Props> = ({ news, headline, ...props }) => {
               prevBtnEnabled ? "hover:text-tolo-green" : "text-neutral-300"
             }`}
             disabled={!prevBtnEnabled}
-            onClick={() => emblaApi.scrollPrev()}
+            onClick={() => {
+              emblaApi?.scrollPrev();
+            }}
             type="button"
           >
             <ArrowIcon className="w-4 h-4" />
@@ -60,7 +62,9 @@ const NewsSlider: React.FC<Props> = ({ news, headline, ...props }) => {
               nextBtnEnabled ? "hover:text-tolo-green" : "text-neutral-300"
             }`}
             disabled={!nextBtnEnabled}
-            onClick={() => emblaApi.scrollNext()}
+            onClick={() => {
+              emblaApi?.scrollNext();
+            }}
             type="button"
           >
             <ArrowIcon className="w-4 h-4" />
@@ -69,16 +73,17 @@ const NewsSlider: React.FC<Props> = ({ news, headline, ...props }) => {
       </div>
       <div className="overflow-hidden -mt-4" ref={emblaRef}>
         <div className="grid cursor-grab pt-4 active:cursor-grabbing grid-flow-col auto-cols-[80%] xl:auto-cols-[25%] md:auto-cols-[33%] sm:auto-cols-[40%] container-width">
-          {news && news.map((item, index) => (
-            <NewsItem
-              key={index}
-              image={item.image}
-              href={item.target}
-              isInstagram={item.instagram}
-            >
-              {item.title}
-            </NewsItem>
-          ))}
+          {news &&
+            news.map((item, index) => (
+              <NewsItem
+                key={index}
+                image={item.image}
+                href={item.target}
+                isInstagram={item.instagram}
+              >
+                {item.title}
+              </NewsItem>
+            ))}
         </div>
       </div>
       <div className="container-width mt-12 flex items-center justify-end">

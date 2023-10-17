@@ -1,6 +1,7 @@
-import fs from "node:fs";
+// import fs from "node:fs";
 import jwt_decode from "jwt-decode";
 import type { INewsItem } from "@interfaces/INews";
+import type { IInterventionPoi } from "@interfaces/IIntervention";
 
 const AIRTABLE_BASE_URL = "https://api.airtable.com/v0/";
 
@@ -49,7 +50,7 @@ interface AirtablePoiRecord {
   id?: string;
   createdTime?: string;
   fields: AirtablePoiFields;
-  location?: { lat?: number; lng?: number };
+  locationLngLat?: [number, number];
 }
 
 interface AirtablePoiFields {
@@ -61,6 +62,7 @@ interface AirtablePoiFields {
   "Start Date"?: string;
   "Geo cash (Event)"?: string;
   "Public Photos"?: Array<IImage>;
+  Status?: string;
 }
 
 interface IDecodedJwt {
@@ -102,14 +104,12 @@ export const getNewsItems = async () => {
     airtableNewsBaseId
   );
 
-  console.log("Getting News");
-
   if (records && records.length > 0) {
-    try {
-      fs.writeFileSync("./fetch.json", JSON.stringify(records));
-    } catch (err) {
-      console.error("Error while writing file", err);
-    }
+    // try {
+    //   fs.writeFileSync("./fetch.json", JSON.stringify(records));
+    // } catch (err) {
+    //   console.error("Error while writing file", err);
+    // }
 
     const filtered = records
       // has Instagram URL
@@ -149,40 +149,39 @@ export const getMapPois = async () => {
   const { records } = await fetchAndHandleErrors<AirtablePoiResponse>(
     airtableInterventionsBaseId
   );
-  // console.log("FETCHING POIS");
 
   if (records && records.length > 0) {
-    try {
-      fs.writeFileSync("./fetchPois.json", JSON.stringify(records));
-    } catch (err) {
-      console.error("Error while writing file", err);
-    }
+    // try {
+    //   fs.writeFileSync("./fetchPois.json", JSON.stringify(records));
+    // } catch (err) {
+    //   console.error("Error while writing file", err);
+    // }
 
-    const withLocation = records.map((record) => {
+    const withLocationDecoded = records.map((record) => {
       // Cut off unnecessary Emoji at the front of the string
       const locationJwt = record?.fields?.["Geo cash (Event)"]?.slice(3);
 
       let locationDecoded;
 
       if (locationJwt) {
-        // console.log("JWT", locationJwt);
         try {
           locationDecoded = jwt_decode<IDecodedJwt>(locationJwt, {
             header: true,
           });
         } catch (e) {
-          console.log(e);
-          console.log("Malformed:", record?.fields?.["Geo cash (Event)"]);
+          console.warn(
+            "Could not decode malformed JWT:",
+            record?.fields?.["Geo cash (Event)"]
+          );
         }
-        // console.log("Decoded", locationDecoded);
 
         if (locationDecoded?.o?.lat && locationDecoded?.o?.lng) {
           return {
             ...record,
-            location: {
-              lat: locationDecoded?.o?.lat,
-              lng: locationDecoded?.o?.lng,
-            },
+            locationLngLat: [
+              Number(locationDecoded.o.lng),
+              Number(locationDecoded.o.lat),
+            ],
           };
         }
       }
@@ -190,23 +189,62 @@ export const getMapPois = async () => {
       return record;
     });
 
-    const filtered = withLocation
-      ?.filter((poi) => poi.location)
-      ?.filter((poi) => poi.fields["Public Photos"]?.length)
-      .map((poi) => ({
-        locationLngLat: poi.location,
+    const filtered = withLocationDecoded
+      ?.filter((poi) => poi.locationLngLat?.length)
+      ?.filter((poi) => poi.fields["Short description"])
+      ?.filter((poi) => poi.fields["Start Date"] || poi.fields["End Date"])
+      ?.filter((poi) => poi.fields["Status"] === "6 - DONE")
+      ?.filter(
+        (poi) =>
+          poi.fields["Kind"] !== "Internal" && poi.fields["Kind"] !== "R&D"
+      )
+      ?.filter((poi) => poi.fields["Public Photos"]?.length);
+
+    const transformed = filtered.map((poi) => {
+      const startDate =
+        poi.fields["Start Date"] &&
+        new Date(Date.parse(poi.fields["Start Date"]));
+      const formattedStartDate =
+        startDate &&
+        new Intl.DateTimeFormat("en-GB", {
+          year: "2-digit",
+          month: "long",
+          day: "numeric",
+        }).format(startDate);
+
+      const endDate =
+        poi.fields["End Date"] && new Date(Date.parse(poi.fields["End Date"]));
+      const formattedEndDate =
+        endDate &&
+        new Intl.DateTimeFormat("en-GB", {
+          year: "2-digit",
+          month: "long",
+          day: "numeric",
+        }).format(endDate);
+
+      const oneDayEvent = !(
+        startDate &&
+        endDate &&
+        endDate.getDate() - startDate.getDate()
+      );
+
+      return {
+        locationLngLat: poi.locationLngLat,
         title: poi.fields["Short description"],
-        date: "July 17th - 27th, 2023",
+        date: `${formattedStartDate}${oneDayEvent ? "" : " - "}${
+          oneDayEvent ? "" : formattedEndDate
+        }`,
         image: poi.fields["Public Photos"]?.[0].thumbnails?.large?.url,
-        airtable: true,
-      }));
+        category: poi.fields.Kind,
+      } as IInterventionPoi;
+    });
 
-      try {
-        fs.writeFileSync("./filteredPois.json", JSON.stringify(filtered));
-      } catch (err) {
-        console.error("Error while writing file", err);
-      }
+    // try {
+    //   fs.writeFileSync("./filteredPois.json", JSON.stringify(filtered));
+    // } catch (err) {
+    //   console.error("Error while writing file", err);
+    // }
 
-    return filtered;
+    return transformed;
   }
 };
