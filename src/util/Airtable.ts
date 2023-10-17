@@ -99,7 +99,7 @@ const fetchAndHandleErrors = async <T>(
   return response.json();
 };
 
-export const getNewsItems = async () => {
+export const getNewsItems = async (count?: number) => {
   const { records } = await fetchAndHandleErrors<AirtableNewsResponse>(
     airtableNewsBaseId
   );
@@ -141,7 +141,10 @@ export const getNewsItems = async () => {
             ]?.url,
         } as INewsItem;
       });
-    return filtered;
+
+    const trimmed = count ? filtered.slice(0, count) : filtered;
+
+    return trimmed;
   }
 };
 
