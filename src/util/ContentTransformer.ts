@@ -8,8 +8,6 @@ import type {
   IInterventionPoi,
 } from "@interfaces/IIntervention";
 
-type ExcludesFalse = <T>(x: T | false) => x is T;
-
 export function flatAcademyContentMap(
   rawAcademyContent: MDXInstance<AcademyPageFrontmatter>[]
 ) {
