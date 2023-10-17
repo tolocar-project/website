@@ -28,7 +28,7 @@ export const LanguageUtils = {
   getLocaleFromUrl: function (url: URL, baseUrl: string) {
     return (
       url?.pathname
-        .replace(baseUrl, "")
+        ?.replace(baseUrl, "")
         .split("/")
         .filter(Boolean)[0]
         .toLowerCase() || "en"
