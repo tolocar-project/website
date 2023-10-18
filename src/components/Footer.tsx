@@ -71,7 +71,7 @@ const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
                 className={'-mt-12 sm:mt-0 h-full flex-shrink'}
                 href="https://www.giz.de"
                 target="_blank">
-              {locale === "ua" ? <GizLogoSvgUA className={'h-full'} /> : <GizLogoSvgEN className={'h-full'} />}
+              {locale === "ua" ? <GizLogoSvgUA className={'h-full w-full'} /> : <GizLogoSvgEN className={'h-full w-full'} />}
             </a>
             <a
                 className={'-mt-60 sm:mt-0 h-full flex-shrink'}
