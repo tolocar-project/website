@@ -154,46 +154,8 @@ export const getMapPois = async () => {
   );
 
   if (records && records.length > 0) {
-    // try {
-    //   fs.writeFileSync("./fetchPois.json", JSON.stringify(records));
-    // } catch (err) {
-    //   console.error("Error while writing file", err);
-    // }
-
-    const withLocationDecoded = records.map((record) => {
-      // Cut off unnecessary Emoji at the front of the string
-      const locationJwt = record?.fields?.["Geo cash (Event)"]?.slice(3);
-
-      let locationDecoded;
-
-      if (locationJwt) {
-        try {
-          locationDecoded = jwt_decode<IDecodedJwt>(locationJwt, {
-            header: true,
-          });
-        } catch (e) {
-          console.warn(
-            "Could not decode malformed Location JWT from Airtable:",
-            record?.fields?.["Geo cash (Event)"]
-          );
-        }
-
-        if (locationDecoded?.o?.lat && locationDecoded?.o?.lng) {
-          return {
-            ...record,
-            locationLngLat: [
-              Number(locationDecoded.o.lng),
-              Number(locationDecoded.o.lat),
-            ],
-          };
-        }
-      }
-
-      return record;
-    });
-
-    const filtered = withLocationDecoded
-      ?.filter((poi) => poi.locationLngLat?.length)
+    // Filter first, so we reduce the number of JWT decode operations
+    const filtered = records
       ?.filter((poi) => poi.fields["Short description"])
       ?.filter((poi) => poi.fields["Start Date"] || poi.fields["End Date"])
       ?.filter((poi) => poi.fields["Status"] === "6 - DONE")
@@ -203,7 +165,44 @@ export const getMapPois = async () => {
       )
       ?.filter((poi) => poi.fields["Public Photos"]?.length);
 
-    const transformed = filtered.map((poi) => {
+    // Now decode the location
+    const withLocationDecoded = filtered
+      .map((record) => {
+        // Cut off unnecessary Emoji at the front of the string
+        const locationJwt = record?.fields?.["Geo cash (Event)"]?.slice(3);
+
+        let locationDecoded;
+
+        if (locationJwt) {
+          try {
+            locationDecoded = jwt_decode<IDecodedJwt>(locationJwt, {
+              header: true,
+            });
+          } catch (e) {
+            console.warn(
+              "Could not decode malformed Location JWT from Airtable:",
+              record?.fields?.["Geo cash (Event)"]
+            );
+          }
+
+          if (locationDecoded?.o?.lat && locationDecoded?.o?.lng) {
+            return {
+              ...record,
+              locationLngLat: [
+                Number(locationDecoded.o.lng),
+                Number(locationDecoded.o.lat),
+              ],
+            };
+          } else {
+            // If we have no location, we can't show a POI on the map
+            return null;
+          }
+        }
+      })
+      .filter(Boolean) as AirtablePoiRecord[];
+
+    // Now transform into the proper UI structure
+    const transformed = withLocationDecoded.map((poi) => {
       const startDate =
         poi.fields["Start Date"] &&
         new Date(Date.parse(poi.fields["Start Date"]));
@@ -241,12 +240,6 @@ export const getMapPois = async () => {
         category: poi.fields.Kind,
       } as IInterventionPoi;
     });
-
-    // try {
-    //   fs.writeFileSync("./filteredPois.json", JSON.stringify(filtered));
-    // } catch (err) {
-    //   console.error("Error while writing file", err);
-    // }
 
     return transformed;
   }
