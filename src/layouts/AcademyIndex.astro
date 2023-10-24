@@ -3,13 +3,12 @@ import FooterCards from "@components/FooterCards.astro";
 import BaseLayout from "./BaseLayout.astro";
 import { ContentSection } from "@components";
 import CommonUtils from "@util/CommonUtils";
+import LanguageUtils from "@util/LanguageUtils";
 const { frontmatter } = Astro.props;
 
 const baseUrl = CommonUtils.getBaseUrl(false);
 
-const localeFromUrl =
-  Astro?.url?.pathname.replace(baseUrl, "").split("/").filter(Boolean)[0] ||
-  "en";
+const localeFromUrl = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
 ---
 
 <BaseLayout footerGrey={true} frontmatter={frontmatter}>

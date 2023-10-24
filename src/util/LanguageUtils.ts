@@ -24,7 +24,16 @@ export const LanguageUtils = {
   },
   setLanguage: function (newLanguage: string) {
     localStorage.setItem(STORAGE_KEY, newLanguage);
-  }
+  },
+  getLocaleFromUrl: function (url: URL, baseUrl: string) {
+    return (
+      url?.pathname
+        ?.replace(baseUrl, "")
+        .split("/")
+        .filter(Boolean)[0]
+        .toLowerCase() || "en"
+    );
+  },
 };
 
 export default LanguageUtils;

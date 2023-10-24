@@ -17,6 +17,9 @@ jobs:
     env: 
       ASTRO_CONFIG: ${{ secrets.ASTRO_CONFIG }}
       PUBLIC_MAPBOX_TOKEN: ${{ secrets.PUBLIC_MAPBOX_TOKEN }}
+      AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+      INTERVENTIONS_AIRTABLE_BASE_ID: ${{ secrets.INTERVENTIONS_AIRTABLE_BASE_ID }}
+      NEWS_AIRTABLE_BASE_ID: ${{ secrets.NEWS_AIRTABLE_BASE_ID }}
     steps:
       - name: Set env to use shell substitution logic
         run: echo "ASTRO_BASE_PATH=${GITHUB_HEAD_REF//\//-}" >> $GITHUB_ENV
@@ -25,9 +28,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
       - name: Replace config file with Prod version
         run: echo "$ASTRO_CONFIG" > astro.config.mjs
+      - name: TEST ENV
+        run: echo "$INTERVENTIONS_AIRTABLE_BASE_ID"
       - name: Install Node dependencies
         run: npm ci
       - name: Build site

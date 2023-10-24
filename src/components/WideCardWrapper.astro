@@ -3,7 +3,7 @@ import WideCardComponent from "./WideCard";
 import CommonUtils from "@util/CommonUtils";
 const { target, ...rest } = Astro.props;
 
-const baseUrl = CommonUtils.getBaseUrl(true);
+const baseUrl = CommonUtils.getBaseUrl(false);
 
 const prefixedTarget = target ? baseUrl + target : undefined;
 ---

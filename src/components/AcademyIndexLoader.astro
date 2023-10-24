@@ -2,6 +2,7 @@
 import { Course } from "@components";
 import { transformAcademy } from "@util/ContentTransformer";
 import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
+import type { ICourse } from "@components/Course";
 
 const { language = "en" } = Astro.props;
 
@@ -22,18 +23,20 @@ const coursesAndLessons = transformAcademy(rawAcademyContent);
 
 {
   Object.values(coursesAndLessons).map((course) => {
-    const lessons = course.children.map((child) => ({
+    const lessons = course?.children?.map((child) => ({
       title: child.frontmatter.title,
       target: child.url,
     }));
     return (
       <Course
-        course={{
-          title: course.frontmatter.title,
-          img: course.frontmatter.img,
-          imgAlt: course.frontmatter.imgAlt,
-          items: lessons,
-        }}
+        course={
+          {
+            title: course.frontmatter.title,
+            img: course.frontmatter.img,
+            imgAlt: course.frontmatter.imgAlt,
+            items: lessons,
+          } as ICourse
+        }
       />
     );
   })

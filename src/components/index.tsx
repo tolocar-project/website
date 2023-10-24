@@ -36,3 +36,5 @@ export { default as InterventionMap } from "@components/InterventionMap";
 export { default as InterventionsMapSection } from "@components/InterventionsMapSection.astro";
 export { default as InterventionsMapDataWrapper } from "@components/InterventionsMapDataWrapper.astro";
 export { default as LanguageSwitcher } from "@components/LanguageSwitcher";
+export { default as ConditionalWrapper } from "@components/ConditionalWrapper";
+export { default as TolocarMarker } from "@components/TolocarMarker";

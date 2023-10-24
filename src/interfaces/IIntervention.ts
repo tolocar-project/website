@@ -1,24 +1,26 @@
-import type { LngLat } from "react-map-gl";
+// import type { LngLat } from "react-map-gl";
 
+// Files in the file system
 export interface IInterventionFrontmatter {
   title: string;
-  subtitle?: string;
-  date?: string;
-  location?: string;
-  footerGrey?: boolean;
-  tags?: Array<string>;
-  images?: Array<string>;
-  car?: string;
-  locationLngLat?: [number, number];
-  order?: number;
-  teaser?: string;
+  subtitle: string;
+  date: string;
+  location: string;
+  footerGrey: boolean;
+  tags: Array<string>;
+  images: Array<string>;
+  car: string;
+  locationLngLat: [number, number];
+  order: number;
+  teaser: string;
 }
-type IInterventionFrontmatterNoLocation = Omit<
-  IInterventionFrontmatter,
-  "locationLngLat"
->;
 
+// For Map UI
 export type IInterventionPoi = Pick<
-  IInterventionFrontmatterNoLocation,
-  "title" | "date"
-> & { image: string; url: string; locationLngLat: LngLat };
+  IInterventionFrontmatter,
+  "title" | "date" | "locationLngLat"
+> & {
+  image: string;
+  url: string;
+  category: string;
+};

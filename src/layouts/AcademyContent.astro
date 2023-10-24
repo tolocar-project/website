@@ -11,23 +11,22 @@ import { getParentPage } from "@util/ContentTransformer";
 import fs from "node:fs";
 import Giscus from "@components/Giscus.astro";
 import CommonUtils from "@util/CommonUtils";
+import LanguageUtils from "@util/LanguageUtils";
 import FooterCards from "@components/FooterCards.astro";
 
 const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
   "../pages/en/academy/*/*.mdx"
 );
 
-const baseUrl = CommonUtils.getBaseUrl(false);
 const { frontmatter, url, file, headings } = Astro.props;
+
+const baseUrl = CommonUtils.getBaseUrl(true);
+const localeFromUrl = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
 
 const statsMtime = fs.statSync(file).mtime;
 const editDate = new Date(statsMtime);
 
 const parentPage = getParentPage(rawAcademyContent, url);
-
-const localeFromUrl =
-  Astro?.url?.pathname.replace(baseUrl, "").split("/").filter(Boolean)[0] ||
-  "en";
 
 ---
 
@@ -46,7 +45,7 @@ const localeFromUrl =
       title={frontmatter?.title}
       teaser={frontmatter?.teaser}
       category={parentPage?.frontmatter?.title}
-      img={frontmatter?.img || parentPage.frontmatter?.img}
+      img={frontmatter?.img || parentPage?.frontmatter?.img}
     />
   </div>
   <div

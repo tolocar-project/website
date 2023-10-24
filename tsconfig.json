@@ -1,8 +1,9 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "jsx": "react",
     "baseUrl": ".",
+    "verbatimModuleSyntax": true,
     "paths": {
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],

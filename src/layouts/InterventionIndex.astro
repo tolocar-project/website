@@ -37,8 +37,8 @@ const trimmedAndSorted = trimAndSortInterventions(rawInterventionsContent);
           title={intervention.frontmatter?.title}
           teaser={intervention.frontmatter?.teaser}
           tags={[
-            intervention.frontmatter?.tags?.[0],
-            intervention.frontmatter?.tags?.[1],
+            intervention.frontmatter?.tags?.[0] || "",
+            intervention.frontmatter?.tags?.[1] || "",
           ]}
           date={intervention.frontmatter?.date}
           location={intervention.frontmatter?.location}
@@ -66,18 +66,20 @@ const trimmedAndSorted = trimAndSortInterventions(rawInterventionsContent);
         bg={4}
         target="mailto:info@tolocar.org"
         actionCaption="Get in contact"
-        >Schools, universities, NGOs, Startups and other organizations can reach
-        out to us to request the Tolocars for projects, workshops and trainings.</Card
       >
+        Schools, universities, NGOs, Startups and other organizations can reach
+        out to us to request the Tolocars for projects, workshops and trainings.
+      </Card>
       <Card
         title="You are a Maker and want to partner with us?"
         bg={5}
         target="mailto:info@tolocar.org"
         actionCaption="Get in contact"
-        >We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other
-        Communities who wants to partner with us in the Ukraine and
-        internationally over the internet.</Card
       >
+        We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other
+        Communities who wants to partner with us in the Ukraine and
+        internationally over the internet.
+      </Card>
     </CardContainer>
   </ContentSection>
 </BaseLayout>

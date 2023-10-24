@@ -1,8 +1,9 @@
 ---
+import CommonUtils from "@util/CommonUtils";
 import GithubSlugger from "github-slugger";
 const { frontmatter } = Astro.props;
 
-const baseUrl = import.meta.env.BASE_URL;
+const baseUrl = CommonUtils.getBaseUrl(true);
 const slugger = new GithubSlugger();
 const targetSlug = slugger.slug(frontmatter.title);
 const targetUrl = baseUrl + "academy/#" + targetSlug;
