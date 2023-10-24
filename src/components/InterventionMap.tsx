@@ -22,8 +22,8 @@ const InterventionMap = ({
   const categoryStyleMapping: Record<string, string> = {
     Education: "!text-[#005343]",
     "(Re)Construction": "!text-[#16cf91]",
-    Awareness: "!text-[#009664]",
-    blog: "!text-[#e9418b]",
+    Awareness: "!text-[#bbce00]",
+    blog: "!text-[#009664]",
     default: "",
   };
 
