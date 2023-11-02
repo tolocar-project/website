@@ -2,8 +2,13 @@
 import jwt_decode from "jwt-decode";
 import type { INewsItem } from "@interfaces/INews";
 import type { IInterventionPoi } from "@interfaces/IIntervention";
+import fs from "node:fs";
+import { Readable } from "node:stream";
+import { finished } from "node:stream/promises";
 
 const AIRTABLE_BASE_URL = "https://api.airtable.com/v0/";
+
+const INTERVENTION_IMG_LOCATION = "./public/images/interventions/dynamic/";
 
 const airtableToken = import.meta.env.AIRTABLE_TOKEN;
 const airtableNewsBaseId = import.meta.env.NEWS_AIRTABLE_BASE_ID;
@@ -18,6 +23,7 @@ const commonHeaders = {
 interface IImage {
   id?: string;
   url?: string;
+  filename?: string;
   thumbnails?: {
     small?: { url?: string };
     medium?: { url?: string };
@@ -105,11 +111,11 @@ export const getNewsItems = async (count?: number) => {
   );
 
   if (records && records.length > 0) {
-    // try {
-    //   fs.writeFileSync("./fetch.json", JSON.stringify(records));
-    // } catch (err) {
-    //   console.error("Error while writing file", err);
-    // }
+    try {
+      fs.writeFileSync("./fetch.json", JSON.stringify(records));
+    } catch (err) {
+      console.error("Error while writing file", err);
+    }
 
     const filtered = records
       // has Instagram URL
@@ -131,9 +137,13 @@ export const getNewsItems = async (count?: number) => {
       })
       .map((record) => {
         return {
+          id: record.id,
           title: record.fields.Name,
           target: record.fields?.["Instagram URL"],
           instagram: true,
+          imageFilename:
+            record.fields?.["Images"]?.[0].filename ||
+            record.fields?.["Selected Photos (from Event)"]?.[0].filename,
           image:
             record.fields?.["Images"]?.[0].thumbnails?.["large"]?.url ||
             record.fields?.["Selected Photos (from Event)"]?.[0].thumbnails?.[
@@ -144,7 +154,11 @@ export const getNewsItems = async (count?: number) => {
 
     const trimmed = count ? filtered.slice(0, count) : filtered;
 
-    return trimmed;
+    console.log(`Found ${trimmed.length} news items on AirTable.`);
+
+    const withLocalImages = await downloadInterventionImages(trimmed);
+
+    return withLocalImages;
   }
 };
 
@@ -243,4 +257,27 @@ export const getMapPois = async () => {
 
     return transformed;
   }
+};
+
+const downloadFile = async (url: string, path: string): Promise<string> => {
+  const writer = fs.createWriteStream(path);
+  const response = await fetch(url);
+  //@ts-expect-error
+  const body = Readable.fromWeb(response.body);
+  return finished(body.pipe(writer)).then(() => path);
+};
+
+export const downloadInterventionImages = async (items: INewsItem[]) => {
+  return Promise.all(
+    items.map((item) => {
+      const filetype = item.imageFilename.split(".").at(-1);
+
+      const { imageFilename, ...rest } = item;
+
+      return downloadFile(
+        item.image,
+        INTERVENTION_IMG_LOCATION + item.id + "." + filetype
+      ).then((path) => ({ ...rest, image: path.replace("./public", "") }));
+    })
+  );
 };

@@ -4,7 +4,7 @@ import { getNewsItems } from "@util/Airtable";
 
 const { headline, id, ...rest } = Astro.props;
 
-const news = await getNewsItems(30);
+const news = await getNewsItems(5);
 ---
 
 <NewsSliderComponent news={news || []} {headline} {id} {...rest} client:idle />
