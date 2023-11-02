@@ -7,7 +7,7 @@ import { finished } from "node:stream/promises";
 
 const AIRTABLE_BASE_URL = "https://api.airtable.com/v0/";
 
-const INTERVENTION_IMG_LOCATION = "./public/images/interventions/dynamic/";
+const NEWS_IMG_LOCATION = "./public/images/news/dynamic/";
 
 const airtableToken = import.meta.env.AIRTABLE_TOKEN;
 const airtableNewsBaseId = import.meta.env.NEWS_AIRTABLE_BASE_ID;
@@ -155,7 +155,7 @@ export const getNewsItems = async (count?: number, baseUrl?: string) => {
 
     console.log(`Found ${trimmed.length} news items on AirTable.`);
 
-    const withLocalImages = await downloadInterventionImages(trimmed, baseUrl);
+    const withLocalImages = await downloadNewsImages(trimmed, baseUrl);
 
     return withLocalImages;
   }
@@ -266,7 +266,7 @@ const downloadFile = async (url: string, path: string): Promise<string> => {
   return finished(body.pipe(writer)).then(() => path);
 };
 
-export const downloadInterventionImages = async (
+export const downloadNewsImages = async (
   items: INewsItem[],
   baseUrl?: string
 ) => {
@@ -278,7 +278,7 @@ export const downloadInterventionImages = async (
 
       return downloadFile(
         item.image,
-        INTERVENTION_IMG_LOCATION + item.id + "." + filetype
+        NEWS_IMG_LOCATION + item.id + "." + filetype
       ).then((path) => ({
         ...rest,
         image: (baseUrl || "") + path.replace("./public", ""),
