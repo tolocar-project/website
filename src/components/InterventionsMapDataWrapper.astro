@@ -8,6 +8,9 @@ import {
   transformInterventionsToPoiData,
 } from "@util/ContentTransformer";
 import { getMapPois } from "@util/Airtable";
+import CommonUtils from "@util/CommonUtils";
+
+const baseUrl = CommonUtils.getBaseUrl(false);
 
 interface Props {
   count?: number;
@@ -26,10 +29,9 @@ const trimmedAndSorted = trimAndSortInterventions(
 
 const sortedPoiData = transformInterventionsToPoiData(trimmedAndSorted);
 
-const airtablePois = await getMapPois();
+const airtablePois = await getMapPois(baseUrl);
 
-const combinedPois = [...([]), ...sortedPoiData];
-
+const combinedPois = [...(airtablePois || []), ...sortedPoiData];
 
 const bounds = combinedPois.reduce(
   (bounds, poi) => {

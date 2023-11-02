@@ -20,7 +20,9 @@ export type IInterventionPoi = Pick<
   IInterventionFrontmatter,
   "title" | "date" | "locationLngLat"
 > & {
+  id: string;
   image: string;
-  url: string;
+  imageFilename?: string;
+  url?: string;
   category: string;
 };
