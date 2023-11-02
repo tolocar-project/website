@@ -35,12 +35,10 @@ jobs:
         run: npm ci
       - name: Build site
         run: npm run build
-      - name: List images
-        run: ls public/images/news/dynamic
-      - name: Move images
+      - name: Move images News
         run: mv public/images/news/dynamic/* dist/images/news/dynamic/
-      - name: List images in dist
-        run: ls dist/images/news/dynamic
+      - name: Move images Interventions
+        run: mv public/images/interventions/dynamic/* dist/images/interventions/dynamic/
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:

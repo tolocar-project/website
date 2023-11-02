@@ -26,11 +26,24 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v2
-      - run: echo $PUBLIC_MAPBOX_TOKEN
-      - name: Install, build, and upload your site
-        uses: withastro/action@v0
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 20
+      - name: Install Node dependencies
+        run: npm ci
+      - name: Build site
+        run: npm run build
+      - name: Move images News
+        run: mv public/images/news/dynamic/* dist/images/news/dynamic/
+      - name: Move images Interventions
+        run: mv public/images/interventions/dynamic/* dist/images/interventions/dynamic/
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-pages
+          retention-days: 5
+          path: ./dist
 
   deploy:
     needs: build
