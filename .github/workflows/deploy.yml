@@ -39,10 +39,8 @@ jobs:
       - name: Move images Interventions
         run: mv public/images/interventions/dynamic/* dist/images/interventions/dynamic/
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
-          name: github-pages
-          retention-days: 5
           path: ./dist
 
   deploy:
