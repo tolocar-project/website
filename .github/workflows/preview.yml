@@ -31,12 +31,14 @@ jobs:
           node-version: 20
       - name: Replace config file with Prod version
         run: echo "$ASTRO_CONFIG" > astro.config.mjs
-      - name: TEST ENV
-        run: echo "$INTERVENTIONS_AIRTABLE_BASE_ID"
       - name: Install Node dependencies
         run: npm ci
       - name: Build site
         run: npm run build
+      - name: List images
+        run: ls public/images/news/dynamic
+      - name: List images in dist
+        run: ls dist/images/news/dynamic
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:

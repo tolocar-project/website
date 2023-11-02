@@ -261,9 +261,13 @@ export const getMapPois = async () => {
 const downloadFile = async (url: string, path: string): Promise<string> => {
   const writer = fs.createWriteStream(path);
   const response = await fetch(url);
+  console.log("Downloaded file", url);
   //@ts-expect-error
   const body = Readable.fromWeb(response.body);
-  return finished(body.pipe(writer)).then(() => path);
+  return finished(body.pipe(writer)).then(() => {
+    console.log("Written file", path);
+    return path;
+  });
 };
 
 export const downloadNewsImages = async (
