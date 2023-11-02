@@ -14,8 +14,9 @@ const NewsItem: React.FC<Props> = ({ children, href, image, isInstagram }) => (
     {href && (
       <a
         href={href}
-        target={isInstagram && "_blank"}
-        rel={isInstagram && "noopener nofollow noreferer"}
+        {...(isInstagram
+          ? { target: "_blank", rel: "noopener nofollow noreferer" }
+          : {})}
         className="group flex flex-col h-full hover:-translate-y-4 transition-transform"
       >
         <div className="pb-[100%] h-0 w-full relative overflow-hidden">

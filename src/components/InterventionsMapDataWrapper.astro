@@ -1,6 +1,6 @@
 ---
 import type { IInterventionFrontmatter } from "@interfaces/IIntervention";
-import { InterventionMap } from "@components";
+import { InterventionsMap } from "@components";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapbox from "mapbox-gl";
 import {
@@ -8,6 +8,9 @@ import {
   transformInterventionsToPoiData,
 } from "@util/ContentTransformer";
 import { getMapPois } from "@util/Airtable";
+import CommonUtils from "@util/CommonUtils";
+
+const baseUrl = CommonUtils.getBaseUrl(false);
 
 interface Props {
   count?: number;
@@ -26,10 +29,9 @@ const trimmedAndSorted = trimAndSortInterventions(
 
 const sortedPoiData = transformInterventionsToPoiData(trimmedAndSorted);
 
-const airtablePois = await getMapPois();
+const airtablePois = await getMapPois(baseUrl);
 
 const combinedPois = [...(airtablePois || []), ...sortedPoiData];
-
 
 const bounds = combinedPois.reduce(
   (bounds, poi) => {
@@ -42,7 +44,7 @@ const bounds = combinedPois.reduce(
 );
 ---
 
-<InterventionMap
+<InterventionsMap
   client:only="react"
   token={import.meta.env.PUBLIC_MAPBOX_TOKEN}
   interventions={combinedPois}

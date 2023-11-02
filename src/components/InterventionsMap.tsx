@@ -5,7 +5,7 @@ import type { IInterventionPoi } from "@interfaces/IIntervention";
 import useWindowSize from "../util/useWindowSize";
 import { ConditionalWrapper, TolocarMarker } from "@components";
 
-const InterventionMap = ({
+const InterventionsMap = ({
   interventions,
   token,
   bounds,
@@ -148,4 +148,4 @@ const InterventionMap = ({
   );
 };
 
-export default InterventionMap;
+export default InterventionsMap;

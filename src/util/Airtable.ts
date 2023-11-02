@@ -1,9 +1,14 @@
-// import fs from "node:fs";
 import jwt_decode from "jwt-decode";
 import type { INewsItem } from "@interfaces/INews";
 import type { IInterventionPoi } from "@interfaces/IIntervention";
+import fs from "node:fs";
+import { Readable } from "node:stream";
+import { finished } from "node:stream/promises";
 
 const AIRTABLE_BASE_URL = "https://api.airtable.com/v0/";
+
+const NEWS_IMG_LOCATION = "./public/images/news/dynamic/";
+const INTERVENTIONS_IMG_LOCATION = "./public/images/interventions/dynamic/";
 
 const airtableToken = import.meta.env.AIRTABLE_TOKEN;
 const airtableNewsBaseId = import.meta.env.NEWS_AIRTABLE_BASE_ID;
@@ -18,6 +23,7 @@ const commonHeaders = {
 interface IImage {
   id?: string;
   url?: string;
+  filename?: string;
   thumbnails?: {
     small?: { url?: string };
     medium?: { url?: string };
@@ -99,7 +105,7 @@ const fetchAndHandleErrors = async <T>(
   return response.json();
 };
 
-export const getNewsItems = async (count?: number) => {
+export const getNewsItems = async (count?: number, baseUrl?: string) => {
   const { records } = await fetchAndHandleErrors<AirtableNewsResponse>(
     airtableNewsBaseId
   );
@@ -131,9 +137,13 @@ export const getNewsItems = async (count?: number) => {
       })
       .map((record) => {
         return {
+          id: record.id,
           title: record.fields.Name,
           target: record.fields?.["Instagram URL"],
           instagram: true,
+          imageFilename:
+            record.fields?.["Images"]?.[0].filename ||
+            record.fields?.["Selected Photos (from Event)"]?.[0].filename,
           image:
             record.fields?.["Images"]?.[0].thumbnails?.["large"]?.url ||
             record.fields?.["Selected Photos (from Event)"]?.[0].thumbnails?.[
@@ -144,16 +154,26 @@ export const getNewsItems = async (count?: number) => {
 
     const trimmed = count ? filtered.slice(0, count) : filtered;
 
-    return trimmed;
+    console.log(`Found ${trimmed.length} news items on AirTable.`);
+
+    const withLocalImages = await downloadNewsImages(trimmed, baseUrl);
+
+    return withLocalImages;
   }
 };
 
-export const getMapPois = async () => {
+export const getMapPois = async (baseUrl?: string) => {
   const { records } = await fetchAndHandleErrors<AirtablePoiResponse>(
     airtableInterventionsBaseId
   );
 
   if (records && records.length > 0) {
+    // try {
+    //   fs.writeFileSync("./fetchPoi.json", JSON.stringify(records));
+    // } catch (err) {
+    //   console.error("Error while writing file", err);
+    // }
+    
     // Filter first, so we reduce the number of JWT decode operations
     const filtered = records
       ?.filter((poi) => poi.fields["Short description"])
@@ -231,16 +251,74 @@ export const getMapPois = async () => {
       );
 
       return {
+        id: poi.id,
         locationLngLat: poi.locationLngLat,
         title: poi.fields["Short description"],
         date: `${formattedStartDate}${oneDayEvent ? "" : " - "}${
           oneDayEvent ? "" : formattedEndDate
         }`,
         image: poi.fields["Public Photos"]?.[0].thumbnails?.large?.url,
+        imageFilename: poi.fields["Public Photos"]?.[0].filename,
         category: poi.fields.Kind,
       } as IInterventionPoi;
     });
 
-    return transformed;
+    
+    const withLocalImages = await downloadInterventionsImages(transformed, baseUrl);
+
+
+    return withLocalImages;
   }
+};
+
+const downloadFile = async (url: string, path: string): Promise<string> => {
+  const writer = fs.createWriteStream(path);
+  const response = await fetch(url);
+  //@ts-expect-error
+  const body = Readable.fromWeb(response.body);
+  return finished(body.pipe(writer)).then(() => {
+    return path;
+  });
+};
+
+export const downloadNewsImages = async (
+  items: INewsItem[],
+  baseUrl?: string
+) => {
+  return Promise.all(
+    items.map((item) => {
+      const filetype = item.imageFilename?.split(".").at(-1);
+
+      const { imageFilename, ...rest } = item;
+
+      return downloadFile(
+        item.image,
+        NEWS_IMG_LOCATION + item.id + "." + filetype
+      ).then((path) => ({
+        ...rest,
+        image: (baseUrl || "") + path.replace("./public", ""),
+      }));
+    })
+  );
+};
+
+export const downloadInterventionsImages = async (
+  interventions: IInterventionPoi[],
+  baseUrl?: string
+) => {
+  return Promise.all(
+    interventions.map((intervention) => {
+      const filetype = intervention.imageFilename?.split(".").at(-1);
+
+      const { imageFilename, ...rest } = intervention;
+
+      return downloadFile(
+        intervention.image,
+        INTERVENTIONS_IMG_LOCATION + intervention.id + "." + filetype
+      ).then((path) => ({
+        ...rest,
+        image: (baseUrl || "") + path.replace("./public", ""),
+      }));
+    })
+  );
 };
