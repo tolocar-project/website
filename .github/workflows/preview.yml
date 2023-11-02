@@ -37,6 +37,8 @@ jobs:
         run: npm run build
       - name: List images
         run: ls public/images/news/dynamic
+      - name: Move images
+        run: mv public/images/news/dynamic/* dist/images/news/dynamic/
       - name: List images in dist
         run: ls dist/images/news/dynamic
       - name: Upload artifact
