@@ -3,9 +3,9 @@ import type { IInterventionFrontmatter } from "@interfaces/IIntervention";
 import {
   InterventionPreviewCard,
   ButtonLink,
-  InterventionsMapDataWrapper,
 } from "@components";
 import { trimAndSortInterventions } from "@util/ContentTransformer";
+import InterventionsMapDataWrapper from "./InterventionsMapDataWrapper.astro"
 
 const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
   "../pages/en/interventions/*.mdx"

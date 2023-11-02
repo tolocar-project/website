@@ -1,4 +1,3 @@
-// import fs from "node:fs";
 import jwt_decode from "jwt-decode";
 import type { INewsItem } from "@interfaces/INews";
 import type { IInterventionPoi } from "@interfaces/IIntervention";
@@ -270,7 +269,7 @@ const downloadFile = async (url: string, path: string): Promise<string> => {
 export const downloadInterventionImages = async (items: INewsItem[]) => {
   return Promise.all(
     items.map((item) => {
-      const filetype = item.imageFilename.split(".").at(-1);
+      const filetype = item.imageFilename?.split(".").at(-1);
 
       const { imageFilename, ...rest } = item;
 

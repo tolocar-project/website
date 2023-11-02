@@ -1,6 +1,6 @@
 ---
 import type { IInterventionFrontmatter } from "@interfaces/IIntervention";
-import { InterventionMap } from "@components";
+import { InterventionsMap } from "@components";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapbox from "mapbox-gl";
 import {
@@ -28,7 +28,7 @@ const sortedPoiData = transformInterventionsToPoiData(trimmedAndSorted);
 
 const airtablePois = await getMapPois();
 
-const combinedPois = [...(airtablePois || []), ...sortedPoiData];
+const combinedPois = [...([]), ...sortedPoiData];
 
 
 const bounds = combinedPois.reduce(
@@ -42,7 +42,7 @@ const bounds = combinedPois.reduce(
 );
 ---
 
-<InterventionMap
+<InterventionsMap
   client:only="react"
   token={import.meta.env.PUBLIC_MAPBOX_TOKEN}
   interventions={combinedPois}
