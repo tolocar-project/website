@@ -1,10 +1,12 @@
 ---
 import { NewsSliderComponent } from "@components";
 import { getNewsItems } from "@util/Airtable";
+import CommonUtils from "@util/CommonUtils";
 
 const { headline, id, ...rest } = Astro.props;
+const baseUrl = CommonUtils.getBaseUrl(false);
 
-const news = await getNewsItems(30);
+const news = await getNewsItems(30, baseUrl);
 ---
 
 <NewsSliderComponent news={news || []} {headline} {id} {...rest} client:idle />

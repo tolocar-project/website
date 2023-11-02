@@ -104,7 +104,7 @@ const fetchAndHandleErrors = async <T>(
   return response.json();
 };
 
-export const getNewsItems = async (count?: number) => {
+export const getNewsItems = async (count?: number, baseUrl?: string) => {
   const { records } = await fetchAndHandleErrors<AirtableNewsResponse>(
     airtableNewsBaseId
   );
@@ -155,7 +155,7 @@ export const getNewsItems = async (count?: number) => {
 
     console.log(`Found ${trimmed.length} news items on AirTable.`);
 
-    const withLocalImages = await downloadInterventionImages(trimmed);
+    const withLocalImages = await downloadInterventionImages(trimmed, baseUrl);
 
     return withLocalImages;
   }
@@ -266,7 +266,10 @@ const downloadFile = async (url: string, path: string): Promise<string> => {
   return finished(body.pipe(writer)).then(() => path);
 };
 
-export const downloadInterventionImages = async (items: INewsItem[]) => {
+export const downloadInterventionImages = async (
+  items: INewsItem[],
+  baseUrl?: string
+) => {
   return Promise.all(
     items.map((item) => {
       const filetype = item.imageFilename?.split(".").at(-1);
@@ -276,7 +279,10 @@ export const downloadInterventionImages = async (items: INewsItem[]) => {
       return downloadFile(
         item.image,
         INTERVENTION_IMG_LOCATION + item.id + "." + filetype
-      ).then((path) => ({ ...rest, image: path.replace("./public", "") }));
+      ).then((path) => ({
+        ...rest,
+        image: (baseUrl || "") + path.replace("./public", ""),
+      }));
     })
   );
 };
