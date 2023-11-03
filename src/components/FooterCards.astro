@@ -31,8 +31,10 @@ const { language = "en" } = Astro.props;
     target="mailto:info@tolocar.org"
     actionCaption={language === "ua" ? "Контактуй з нами" : "Get in contact"}
   >
-    Ми шукаємо мейкерів, фаблаби, хакерспейси, мейкерспейси та інші спільноти,
-    які мають бажання налагодити партнерство з нами в Україні або в інших
-    країнах.
+    {
+      language === "ua"
+        ? "Ми шукаємо мейкерів, фаблаби, хакерспейси, мейкерспейси та інші спільноти, які мають бажання налагодити партнерство з нами в Україні або в інших країнах."
+        : "We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other Communities who want to partner with us in the Ukraine and internationally over the internet."
+    }
   </Card>
 </CardContainer>
