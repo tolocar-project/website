@@ -107,15 +107,17 @@ const fetchAndHandleErrors = async <T>(
 
 export const getNewsItems = async (count?: number, baseUrl?: string) => {
   const { records } = await fetchAndHandleErrors<AirtableNewsResponse>(
-    airtableNewsBaseId
+    airtableNewsBaseId +
+      "?sort%5B0%5D%5Bfield%5D=Post+date&sort%5B0%5D%5Bdirection%5D=desc"
   );
 
   if (records && records.length > 0) {
     // try {
-    //   fs.writeFileSync("./fetch.json", JSON.stringify(records));
+    //   fs.writeFileSync("./fetchNews.json", JSON.stringify(records));
     // } catch (err) {
     //   console.error("Error while writing file", err);
     // }
+    // console.log("LENGTH", records.length);
 
     const filtered = records
       // has Instagram URL
@@ -123,18 +125,18 @@ export const getNewsItems = async (count?: number, baseUrl?: string) => {
       // has status "live"
       .filter((record) => record.fields?.["Status"] === "live")
       // is of media type "photo"
-      .filter((record) => record.fields?.["Media type"]?.includes("photo"))
+      .filter((record) => record.fields?.["Media type"]?.includes("photo") || record.fields?.["Media type"]?.includes("video"))
       // has images
       .filter(
         (record) =>
           record.fields?.["Images"]?.length ||
           record.fields?.["Selected Photos (from Event)"]?.length
       )
-      .sort((a, b) => {
-        const dateA = new Date(a?.fields?.["Post date"] || 0).getTime();
-        const dateB = new Date(b?.fields?.["Post date"] || 0).getTime();
-        return dateB - dateA;
-      })
+      // .sort((a, b) => {
+      //   const dateA = new Date(a?.fields?.["Post date"] || 0).getTime();
+      //   const dateB = new Date(b?.fields?.["Post date"] || 0).getTime();
+      //   return dateB - dateA;
+      // })
       .map((record) => {
         return {
           id: record.id,
@@ -173,7 +175,7 @@ export const getMapPois = async (baseUrl?: string) => {
     // } catch (err) {
     //   console.error("Error while writing file", err);
     // }
-    
+
     // Filter first, so we reduce the number of JWT decode operations
     const filtered = records
       ?.filter((poi) => poi.fields["Short description"])
@@ -263,9 +265,10 @@ export const getMapPois = async (baseUrl?: string) => {
       } as IInterventionPoi;
     });
 
-    
-    const withLocalImages = await downloadInterventionsImages(transformed, baseUrl);
-
+    const withLocalImages = await downloadInterventionsImages(
+      transformed,
+      baseUrl
+    );
 
     return withLocalImages;
   }
