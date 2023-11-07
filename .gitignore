@@ -23,3 +23,8 @@ pnpm-debug.log*
 
 /public/images/interventions/dynamic/*
 /public/images/news/dynamic/*
+
+.interventionshash
+.newshash
+fetchNews.json
+fetchPoi.json
