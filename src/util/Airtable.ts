@@ -123,7 +123,7 @@ export const getNewsItems = async (count?: number, baseUrl?: string) => {
   let hasOffset;
 
   const apiParameters = encodeURI(
-    'fields[]=Media+type&fields[]=Images&fields[]=Selected+Photos+(from+Event)&fields[]=Instagram+URL&filterByFormula=AND({Instagram+URL},{Status}="live")&sort[0][field]=Post+date&sort[0][direction]=desc'
+    '&fields[]=Name&fields[]=Media+type&fields[]=Images&fields[]=Selected+Photos+(from+Event)&fields[]=Instagram+URL&filterByFormula=AND({Instagram+URL},{Status}="live")&sort[0][field]=Post+date&sort[0][direction]=desc'
   );
 
   const { records, offset } = await fetchAndHandleErrors<AirtableNewsResponse>(
