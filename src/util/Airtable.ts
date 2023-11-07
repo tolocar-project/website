@@ -2,6 +2,7 @@ import jwt_decode from "jwt-decode";
 import type { INewsItem } from "@interfaces/INews";
 import type { IInterventionPoi } from "@interfaces/IIntervention";
 import fs from "node:fs";
+import { createHash } from "node:crypto";
 import { Readable } from "node:stream";
 import { finished } from "node:stream/promises";
 
@@ -9,6 +10,9 @@ const AIRTABLE_BASE_URL = "https://api.airtable.com/v0/";
 
 const NEWS_IMG_LOCATION = "./public/images/news/dynamic/";
 const INTERVENTIONS_IMG_LOCATION = "./public/images/interventions/dynamic/";
+
+const NEWS_ITEMS_HASH_FILE = "./.newshash";
+const INTERVENTIONS_HASH_FILE = "./.interventionshash";
 
 const airtableToken = import.meta.env.AIRTABLE_TOKEN;
 const airtableNewsBaseId = import.meta.env.NEWS_AIRTABLE_BASE_ID;
@@ -31,25 +35,29 @@ interface IImage {
   };
 }
 
+interface AirtableNewsRecord {
+  id?: string;
+  createdTime?: string;
+  fields: {
+    Name?: string;
+    "Instagram URL"?: string;
+    Status?: string;
+    "Post date"?: string;
+    "Media type"?: Array<string>;
+    Images: Array<IImage>;
+    "Selected Photos (from Event)"?: Array<IImage>;
+    Type?: Array<string>;
+  };
+}
+
 interface AirtableNewsResponse {
-  records: Array<{
-    id?: string;
-    createdTime?: string;
-    fields: {
-      Name?: string;
-      "Instagram URL"?: string;
-      Status?: string;
-      "Post date"?: string;
-      "Media type"?: Array<string>;
-      Images: Array<IImage>;
-      "Selected Photos (from Event)"?: Array<IImage>;
-      Type?: Array<string>;
-    };
-  }>;
+  records: Array<AirtableNewsRecord>;
+  offset?: string;
 }
 
 interface AirtablePoiResponse {
   records: Array<AirtablePoiRecord>;
+  offset?: string;
 }
 
 interface AirtablePoiRecord {
@@ -88,16 +96,21 @@ const fetchAndHandleErrors = async <T>(
   resource: RequestInfo,
   options?: RequestInit
 ): Promise<T> => {
-  const response = await fetch(AIRTABLE_BASE_URL + resource, {
-    ...options,
-    headers: {
-      ...options?.headers,
-      ...commonHeaders,
-    },
-  });
+  let response;
+  try {
+    response = await fetch(AIRTABLE_BASE_URL + resource, {
+      ...options,
+      headers: {
+        ...options?.headers,
+        ...commonHeaders,
+      },
+    });
+  } catch (e) {
+    console.error("ERROR WHILE FETCH", AIRTABLE_BASE_URL + resource);
+  }
 
-  if (!response.ok) {
-    const text = await response.text();
+  if (!response?.ok) {
+    const text = await response?.text();
     console.error("Server returned Error: " + text);
     throw new Error("Server returned Error: " + text);
   }
@@ -106,26 +119,71 @@ const fetchAndHandleErrors = async <T>(
 };
 
 export const getNewsItems = async (count?: number, baseUrl?: string) => {
-  const { records } = await fetchAndHandleErrors<AirtableNewsResponse>(
-    airtableNewsBaseId +
-      "?sort%5B0%5D%5Bfield%5D=Post+date&sort%5B0%5D%5Bdirection%5D=desc"
+  let combinedData: AirtableNewsRecord[] = [];
+  let hasOffset;
+
+  const apiParameters = encodeURI(
+    '&fields[]=Name&fields[]=Media+type&fields[]=Images&fields[]=Selected+Photos+(from+Event)&fields[]=Instagram+URL&filterByFormula=AND({Instagram+URL},{Status}="live")&sort[0][field]=Post+date&sort[0][direction]=desc'
   );
 
-  if (records && records.length > 0) {
-    // try {
-    //   fs.writeFileSync("./fetchNews.json", JSON.stringify(records));
-    // } catch (err) {
-    //   console.error("Error while writing file", err);
-    // }
-    // console.log("LENGTH", records.length);
+  const { records, offset } = await fetchAndHandleErrors<AirtableNewsResponse>(
+    airtableNewsBaseId + "?" + apiParameters
+  );
+  combinedData.push(...records);
+  hasOffset = offset;
 
-    const filtered = records
-      // has Instagram URL
-      ?.filter((record) => record.fields?.["Instagram URL"])
-      // has status "live"
-      .filter((record) => record.fields?.["Status"] === "live")
+  while (hasOffset) {
+    console.log("Triggering paginated fetch for news items");
+    const nextPage: AirtableNewsResponse =
+      await fetchAndHandleErrors<AirtableNewsResponse>(
+        airtableNewsBaseId + "?" + apiParameters + "&offset=" + hasOffset
+      );
+    combinedData.push(...nextPage.records);
+    hasOffset = nextPage.offset;
+  }
+
+  if (combinedData && combinedData.length > 0) {
+    let oldHash;
+    try {
+      oldHash = fs.readFileSync(NEWS_ITEMS_HASH_FILE).toString();
+    } catch (e) {
+      console.log("Could not find existing file for News items image cache");
+    }
+
+    const newHash = createHash("md5")
+      .update(JSON.stringify(combinedData.map((item) => item.id)))
+      .digest("hex");
+
+    const isCached = Boolean(oldHash) && oldHash === newHash;
+
+    if (!isCached) {
+      try {
+        // fs.writeFileSync("./fetchNews.json", JSON.stringify(combinedData));
+        fs.writeFileSync(NEWS_ITEMS_HASH_FILE, newHash);
+        console.log("Wrote new News items image cache file");
+      } catch (err) {
+        console.error("Error while writing file", err);
+      }
+    }
+
+    console.log(
+      `Received ${combinedData.length} News items from AirTable. ${
+        count ? "Displaying " + count + " items." : ""
+      }`
+    );
+
+    const filtered = combinedData
+      // DOING THIS VIA AIRTABLE API NOW
+      // // has Instagram URL
+      // ?.filter((record) => record.fields?.["Instagram URL"])
+      // // has status "live"
+      // .filter((record) => record.fields?.["Status"] === "live")
       // is of media type "photo"
-      .filter((record) => record.fields?.["Media type"]?.includes("photo") || record.fields?.["Media type"]?.includes("video"))
+      .filter(
+        (record) =>
+          record.fields?.["Media type"]?.includes("photo") ||
+          record.fields?.["Media type"]?.includes("video")
+      )
       // has images
       .filter(
         (record) =>
@@ -156,31 +214,79 @@ export const getNewsItems = async (count?: number, baseUrl?: string) => {
 
     const trimmed = count ? filtered.slice(0, count) : filtered;
 
-    console.log(`Found ${trimmed.length} news items on AirTable.`);
-
-    const withLocalImages = await downloadNewsImages(trimmed, baseUrl);
+    const withLocalImages = await downloadNewsImages(
+      trimmed,
+      baseUrl,
+      isCached
+    );
 
     return withLocalImages;
   }
 };
 
 export const getMapPois = async (baseUrl?: string) => {
-  const { records } = await fetchAndHandleErrors<AirtablePoiResponse>(
-    airtableInterventionsBaseId
+  let combinedData: AirtablePoiRecord[] = [];
+  let hasOffset;
+
+  const apiParameters = encodeURI(
+    'fields[]=Short+description&fields[]=Start+Date&fields[]=End+Date&fields[]=Status&fields[]=Kind&fields[]=Public+Photos&fields[]=Geo+cash+(Event)&filterByFormula=AND({Short+description},{Status}="6+-+DONE",OR({Start+Date},{End+Date}),{Public+Photos})'
   );
 
-  if (records && records.length > 0) {
-    // try {
-    //   fs.writeFileSync("./fetchPoi.json", JSON.stringify(records));
-    // } catch (err) {
-    //   console.error("Error while writing file", err);
-    // }
+  const { records, offset } = await fetchAndHandleErrors<AirtablePoiResponse>(
+    airtableInterventionsBaseId + "?" + apiParameters
+  );
+
+  combinedData.push(...records);
+  hasOffset = offset;
+
+  while (hasOffset) {
+    console.log(
+      "Triggering paginated fetch for Interventions at offset ",
+      hasOffset
+    );
+    const nextPage: AirtablePoiResponse =
+      await fetchAndHandleErrors<AirtablePoiResponse>(
+        airtableInterventionsBaseId +
+          "?" +
+          apiParameters +
+          "&offset=" +
+          hasOffset
+      );
+    combinedData.push(...nextPage.records);
+    hasOffset = nextPage.offset;
+  }
+
+  if (combinedData && combinedData.length > 0) {
+    let oldHash;
+    try {
+      oldHash = fs.readFileSync(INTERVENTIONS_HASH_FILE).toString();
+    } catch (e) {
+      console.log("Could not find existing file for Interventions image cache");
+    }
+
+    const newHash = createHash("md5")
+      .update(JSON.stringify(combinedData.map((item) => item.id)))
+      .digest("hex");
+
+    const isCached = Boolean(oldHash) && oldHash === newHash;
+
+    if (!isCached) {
+      try {
+        // fs.writeFileSync("./fetchPoi.json", JSON.stringify(combinedData));
+        fs.writeFileSync(INTERVENTIONS_HASH_FILE, newHash);
+        console.log("Wrote new Interventions image cache file");
+      } catch (err) {
+        console.error("Error while writing file", err);
+      }
+    }
+
+    console.log(`Received ${combinedData.length} Interventions from AirTable.`);
 
     // Filter first, so we reduce the number of JWT decode operations
-    const filtered = records
-      ?.filter((poi) => poi.fields["Short description"])
+    const filtered = combinedData
+      // ?.filter((poi) => poi.fields["Short description"])
       ?.filter((poi) => poi.fields["Start Date"] || poi.fields["End Date"])
-      ?.filter((poi) => poi.fields["Status"] === "6 - DONE")
+      // ?.filter((poi) => poi.fields["Status"] === "6 - DONE")
       ?.filter(
         (poi) =>
           poi.fields["Kind"] !== "Internal" && poi.fields["Kind"] !== "R&D"
@@ -222,6 +328,10 @@ export const getMapPois = async (baseUrl?: string) => {
         }
       })
       .filter(Boolean) as AirtablePoiRecord[];
+
+    console.log(
+      `Got ${withLocationDecoded.length} interventions after filtering and decoding location`
+    );
 
     // Now transform into the proper UI structure
     const transformed = withLocationDecoded.map((poi) => {
@@ -267,27 +377,47 @@ export const getMapPois = async (baseUrl?: string) => {
 
     const withLocalImages = await downloadInterventionsImages(
       transformed,
-      baseUrl
+      baseUrl,
+      isCached
     );
 
     return withLocalImages;
   }
 };
 
-const downloadFile = async (url: string, path: string): Promise<string> => {
-  const writer = fs.createWriteStream(path);
-  const response = await fetch(url);
-  //@ts-expect-error
-  const body = Readable.fromWeb(response.body);
-  return finished(body.pipe(writer)).then(() => {
-    return path;
-  });
+const downloadFile = async (
+  url: string,
+  path: string,
+  noop?: boolean
+): Promise<string> => {
+  if (noop) {
+    // Don't download new files if they're cached, just return their path
+    return Promise.resolve(path);
+  } else {
+    const writer = fs.createWriteStream(path);
+    let response;
+    try {
+      response = await fetch(url);
+    } catch (e) {
+      console.error("Error downloading file", url);
+      return "";
+    }
+    //@ts-expect-error
+    const body = Readable.fromWeb(response?.body);
+    return finished(body.pipe(writer)).then(() => path);
+  }
 };
 
 export const downloadNewsImages = async (
   items: INewsItem[],
-  baseUrl?: string
+  baseUrl?: string,
+  cached?: boolean
 ) => {
+  console.log(
+    cached
+      ? `Using ${items.length} cached news item images`
+      : `Downloading ${items.length} news images`
+  );
   return Promise.all(
     items.map((item) => {
       const filetype = item.imageFilename?.split(".").at(-1);
@@ -296,7 +426,8 @@ export const downloadNewsImages = async (
 
       return downloadFile(
         item.image,
-        NEWS_IMG_LOCATION + item.id + "." + filetype
+        NEWS_IMG_LOCATION + item.id + "." + filetype,
+        cached
       ).then((path) => ({
         ...rest,
         image: (baseUrl || "") + path.replace("./public", ""),
@@ -307,8 +438,14 @@ export const downloadNewsImages = async (
 
 export const downloadInterventionsImages = async (
   interventions: IInterventionPoi[],
-  baseUrl?: string
+  baseUrl?: string,
+  cached?: boolean
 ) => {
+  console.log(
+    cached
+      ? `Using ${interventions.length} cached Intervention images`
+      : `Downloading ${interventions.length} Interventions images`
+  );
   return Promise.all(
     interventions.map((intervention) => {
       const filetype = intervention.imageFilename?.split(".").at(-1);
@@ -317,7 +454,8 @@ export const downloadInterventionsImages = async (
 
       return downloadFile(
         intervention.image,
-        INTERVENTIONS_IMG_LOCATION + intervention.id + "." + filetype
+        INTERVENTIONS_IMG_LOCATION + intervention.id + "." + filetype,
+        cached
       ).then((path) => ({
         ...rest,
         image: (baseUrl || "") + path.replace("./public", ""),
