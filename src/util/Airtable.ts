@@ -420,7 +420,11 @@ export const downloadNewsImages = async (
   );
   return Promise.all(
     items.map((item) => {
-      const filetype = item.imageFilename?.split(".").at(-1);
+      const fileNameParts = item.imageFilename?.split(".");
+
+      // Guess .jpg as the file type, if none is given
+      const filetype =
+        (fileNameParts?.length || 0) > 1 ? fileNameParts?.at(-1) : "jpg";
 
       const { imageFilename, ...rest } = item;
 
@@ -448,7 +452,11 @@ export const downloadInterventionsImages = async (
   );
   return Promise.all(
     interventions.map((intervention) => {
-      const filetype = intervention.imageFilename?.split(".").at(-1);
+      const fileNameParts = intervention.imageFilename?.split(".");
+
+      // Guess .jpg as the file type, if none is given
+      const filetype =
+        (fileNameParts?.length || 0) > 1 ? fileNameParts?.at(-1) : "jpg";
 
       const { imageFilename, ...rest } = intervention;
 
