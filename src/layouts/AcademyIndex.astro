@@ -13,6 +13,35 @@ const localeFromUrl = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
 
 <BaseLayout footerGrey={true} frontmatter={frontmatter}>
   <slot />
+  <div class="container-width lg:container-width-hero prose max-w-none !px-8">
+    <h3>Aims of the basic learning modules</h3>
+    <p>
+      The basic learning modules are intended to introduce various topics
+      related to the use of fab labs. Their main purpose is to spark interest in
+      their use, to demonstrate potential applications and to teach basic
+      application skills. Since every Fab Lab, every device and every software
+      is different, no device- or lab-specific knowledge is provided, but rather
+      general basic knowledge. Furthermore, it is not the goal to teach detailed
+      practical knowledge - rather, the basic knowledge from these learning
+      modules serves as preparation for practical workshops that are typically
+      offered in fab labs.
+    </p>
+    <h3>Background</h3>
+    <p>
+      The basic learning modules were developed by Hamburg Innovation GmbH as an
+      open educational resource and further developed and revised for use on the
+      TOLOCAR.org website as part of the TOLOCAR project and supplemented with
+      an English and Ukrainian version (TOLOCAR is a project funded by the
+      German government @bmz_bund and implemented by GIZ). Author of the texts
+      is Oskar Lidtke, freelance engineer, product designer and lecturer,
+      founding member of <a href="https://www.fabcity.hamburg/" target="_blank"
+        >Fab City Hamburg e.V. association</a
+      > and operator of the project <a
+        href="https://www.orcular.org/"
+        target="_blank">Orcular</a
+      > - for further license information see the section below.
+    </p>
+  </div>
   <ContentSection>
     <div class="absolute w-full bg-white h-64 top-0"></div>
     <FooterCards language={localeFromUrl} />
