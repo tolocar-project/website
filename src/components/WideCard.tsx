@@ -20,18 +20,19 @@ const WideCard: React.FC<Props> = ({
   target,
   caption,
   linkButtonVariant,
-  bg,
+  bg = 1,
   newTab,
   buttonClasses,
 }) => {
   const bgMapping = [
     "bg-illustration-4-wide mask-illustration-vertical md:mask-illustration-horizontal bg-no-repeat bg-[position:right_-80px_top_-40px]",
     "bg-community-messages bg-no-repeat md:bg-[position:right_-60px_top_0px] bg-[position:left_-25px_bottom_-50px] scale-110 md:scale-100",
+    "bg-illustration-4-wide bg-[length:80%] bg-[position:left_-25px_top_-50px]",
   ];
 
   return (
     <div
-      className={`container-width lg:container-width-hero h-full ${
+      className={`h-full ${
         className || ""
       }`}
     >
