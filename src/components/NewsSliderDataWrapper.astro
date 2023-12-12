@@ -2,11 +2,22 @@
 import { NewsSliderComponent } from "@components";
 import { getNewsItems } from "@util/Airtable";
 import CommonUtils from "@util/CommonUtils";
+import { getCollection } from "astro:content";
 
 const { headline, id, ...rest } = Astro.props;
 const baseUrl = CommonUtils.getBaseUrl(false);
 
-const news = await getNewsItems(30, baseUrl);
+const news = await getNewsItems(3, baseUrl);
+const stickyNews = (await getCollection("news")).map((item) => ({
+  ...item.data,
+  id: item.id,
+}));
 ---
 
-<NewsSliderComponent news={news || []} {headline} {id} {...rest} client:idle />
+<NewsSliderComponent
+  news={[...stickyNews, ...(news || [])]}
+  {headline}
+  {id}
+  {...rest}
+  client:idle
+/>

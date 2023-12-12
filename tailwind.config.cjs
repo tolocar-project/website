@@ -44,6 +44,8 @@ module.exports = {
       black: "#000000",
       "tolo-black": "#111111",
       "tolo-green": "#009664",
+      "tolo-dark-green": "#047C54",
+      "tolo-darker-green": "#056746",
       neutral: {
         50: "#F5F5F5",
         100: "#EEEEEE",
