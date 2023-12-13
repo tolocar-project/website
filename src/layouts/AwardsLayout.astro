@@ -1,32 +1,8 @@
 ---
-import WideCard from "@components/WideCard";
 import BaseLayout from "./BaseLayout.astro";
-import { HeadlineUnderlined, SideBySide, TextBlock } from "@components";
 const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout footerGrey={true} frontmatter={frontmatter}>
-  <WideCard bg={3} className="mt-20 md:mt-32"/>
-  <SideBySide className="mt-2 mb-20 sm:mt-20">
-    <HeadlineUnderlined variant={3} className="flex-[2] pt-10 pb-8 sm:py-0">
-      Empowering Ukrainian Maker Community: Where Networking Meets Funding,
-      Mentoring Sparks Ideas, and Innovation Comes to Life!
-    </HeadlineUnderlined>
-    <TextBlock className="flex-[3]">
-      <p>
-        The Innovation Ecosystem of Ukraine is greatly affected by the war,
-        which has a massive negative effect on the Ukrainian society and its
-        social cohesion. The determined maker movement, a vital part of
-        Ukrainian society, strives to help the nation heal and grow.
-      </p><p>
-        By fostering collaborations among people who team up for social impact
-        this initiative promotes innovative solutions, emphasizing quality,
-        impact, and coexistence over mere competition.
-      </p><p>
-        We invite makers: tech enthusiasts, engineers, crafters, designers,
-        inventors, committed individuals or organizations to join hands in
-        shaping a brighter future for Ukraine.
-      </p>
-    </TextBlock>
-  </SideBySide>
+  <slot />
 </BaseLayout>

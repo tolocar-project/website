@@ -11,6 +11,7 @@ interface Props {
   bg?: number;
   newTab?: boolean;
   buttonClasses?: string;
+  centerImage?: string;
 }
 
 const WideCard: React.FC<Props> = ({
@@ -23,21 +24,27 @@ const WideCard: React.FC<Props> = ({
   bg = 1,
   newTab,
   buttonClasses,
+  centerImage,
 }) => {
   const bgMapping = [
-    "bg-illustration-4-wide mask-illustration-vertical md:mask-illustration-horizontal bg-no-repeat bg-[position:right_-80px_top_-40px]",
-    "bg-community-messages bg-no-repeat md:bg-[position:right_-60px_top_0px] bg-[position:left_-25px_bottom_-50px] scale-110 md:scale-100",
-    "bg-illustration-4-wide bg-[length:80%] bg-[position:left_-25px_top_-50px]",
+    "bg-illustration-4-wide mask-illustration-vertical md:mask-illustration-horizontal bg-no-repeat bg-[position:right_-80px_top_-40px] mt-24 md:mt-0",
+    "bg-community-messages bg-no-repeat md:bg-[position:right_-60px_top_0px] bg-[position:left_-25px_bottom_-50px] scale-110 md:scale-100 mt-24 md:mt-0",
+    "bg-white/50 mask-illustration-4 mt-0",
   ];
 
   return (
     <div
-      className={`h-full ${
+      className={`container-width lg:container-width-hero h-full ${
         className || ""
       }`}
     >
       <div className="bg-tolo-green relative overflow-hidden z-10">
-        <div className="p-5 lg:p-10 text-white absolute items-start md:w-[65%] h-full flex flex-col justify-start gap-4 lg:gap-6 z-20">
+        <div
+          className={`p-5 lg:p-10 text-white absolute h-full flex flex-col gap-4 lg:gap-6 z-20 ${
+            centerImage ? "items-center justify-center w-full" : "items-start justify-start md:w-[65%]"
+          }`}
+        >
+          {centerImage && <img src={centerImage} />}
           {title && (
             <h1 className="font-semibold text-2xl leading-7 md:text-[40px] md:leading-[48px] font-aktiv">
               {title}
@@ -58,7 +65,7 @@ const WideCard: React.FC<Props> = ({
         </div>
         <div
           className={`bg-fill
-          ${bgMapping[bg - 1]} h-[364px] mt-24 md:mt-0 z-0`}
+          ${bgMapping[bg - 1]} h-[364px] z-0`}
         />
       </div>
     </div>
