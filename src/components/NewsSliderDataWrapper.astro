@@ -11,6 +11,7 @@ const news = await getNewsItems(30, baseUrl);
 const stickyNews = (await getCollection("news")).map((item) => ({
   ...item.data,
   id: item.id,
+  target: baseUrl + item.data.target
 }));
 ---
 
