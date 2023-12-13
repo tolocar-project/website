@@ -23,7 +23,7 @@ const NewsItem: React.FC<Props> = ({
     <div
       className={`group relative flex flex-col h-full hover:-translate-y-4 duration-200 transition ${
         green
-          ? "bg-tolo-green hover:bg-tolo-dark-green text-white bg-[url('/bulb-cog.svg')] hover:bg-[url('/bulb-cog-dark.svg')] bg-no-repeat bg-left-bottom"
+          ? "bg-tolo-green hover:bg-tolo-dark-green text-white bg-[position:bottom_-16px_left_-16px] bg-[url('/bulb-cog.svg')] hover:bg-[url('/bulb-cog-dark.svg')] bg-no-repeat"
           : "bg-white text-black"
       }`}
     >

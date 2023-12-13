@@ -12,6 +12,7 @@ interface Props {
   newTab?: boolean;
   buttonClasses?: string;
   centerImage?: string;
+  children?: React.ReactNode;
 }
 
 const WideCard: React.FC<Props> = ({
@@ -25,11 +26,13 @@ const WideCard: React.FC<Props> = ({
   newTab,
   buttonClasses,
   centerImage,
+  children,
 }) => {
   const bgMapping = [
     "bg-illustration-4-wide mask-illustration-vertical md:mask-illustration-horizontal bg-no-repeat bg-[position:right_-80px_top_-40px] mt-24 md:mt-0",
     "bg-community-messages bg-no-repeat md:bg-[position:right_-60px_top_0px] bg-[position:left_-25px_bottom_-50px] scale-110 md:scale-100 mt-24 md:mt-0",
     "bg-white/50 mask-illustration-4 mt-0",
+    "",
   ];
 
   return (
@@ -39,34 +42,43 @@ const WideCard: React.FC<Props> = ({
       }`}
     >
       <div className="bg-tolo-green relative overflow-hidden z-10">
-        <div
-          className={`p-5 lg:p-10 text-white absolute h-full flex flex-col gap-4 lg:gap-6 z-20 ${
-            centerImage ? "items-center justify-center w-full" : "items-start justify-start md:w-[65%]"
-          }`}
-        >
-          {centerImage && <img src={centerImage} />}
-          {title && (
-            <h1 className="font-semibold text-2xl leading-7 md:text-[40px] md:leading-[48px] font-aktiv">
-              {title}
-            </h1>
-          )}
-          {text && (
-            <p className="md:w-[75%] font-medium text-lg md:text-xl">{text}</p>
-          )}
-          {target && (
-            <ButtonLink
-              target={target}
-              className={buttonClasses}
-              caption={caption}
-              variant={linkButtonVariant}
-              newTab={newTab}
-            />
-          )}
-        </div>
-        <div
-          className={`bg-fill
+        {(centerImage || title || text) && (
+          <div
+            className={`p-5 lg:p-10 text-white absolute h-full flex flex-col gap-4 lg:gap-6 z-20 ${
+              centerImage
+                ? "items-center justify-center w-full"
+                : "items-start justify-start md:w-[65%]"
+            }`}
+          >
+            {centerImage && <img src={centerImage} />}
+            {title && (
+              <h1 className="font-semibold text-2xl leading-7 md:text-[40px] md:leading-[48px] font-aktiv">
+                {title}
+              </h1>
+            )}
+            {text && (
+              <p className="md:w-[75%] font-medium text-lg md:text-xl">
+                {text}
+              </p>
+            )}
+            {target && (
+              <ButtonLink
+                target={target}
+                className={buttonClasses}
+                caption={caption}
+                variant={linkButtonVariant}
+                newTab={newTab}
+              />
+            )}
+          </div>
+        )}
+        {children}
+        {bg !== 4 && (
+          <div
+            className={`bg-fill
           ${bgMapping[bg - 1]} h-[364px] z-0`}
-        />
+          />
+        )}
       </div>
     </div>
   );
