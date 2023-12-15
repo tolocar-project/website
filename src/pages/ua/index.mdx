@@ -4,24 +4,22 @@ title: Home
 ---
 
 import {
-  HeaderLogo,
   HeroImage,
   SideBySide,
   Card,
   CarCard,
   HeadlineUnderlined,
-  Footer,
   ImageGrid,
   ImageCard,
   CardContainer,
   IllustrationBgContainer,
   TextBlock,
-  ContentSection,
+  ContentSection
 } from "@components";
 import NewsSlider from "@components/NewsSliderDataWrapper.astro";
 
 <HeroImage />
-<SideBySide className="mt-8 sm:mt-20">
+<SideBySide className="mt-8 mb-10 sm:my-20">
   <HeadlineUnderlined className="flex-[2]">
     Проєкт «Tolocar» направляє в Україну мобільні мейкерспейси, щоб допомогти, розширити можливості, оснастити та навчити місцеві громади за допомогою відкритих технологій, знань та інновацій.
   </HeadlineUnderlined>
@@ -29,6 +27,9 @@ import NewsSlider from "@components/NewsSliderDataWrapper.astro";
     «Толока» — це традиція взаємодопомоги та спільної праці громади для виконання великої за обсягом роботи, прийнята в Україні. З огляду на це, проєкт «Tolocar» використовує мобільні мейкерспейси, оснащені інструментами, обладнанням з відкритим вихідним кодом та витратними матеріалами, для підтримки гуманітарної діяльності в Україні. Для зміцнення екосистеми України різні партнери об’єдналися разом втілюючи різноманітні проєкти **з реконструкції та відновлення, відкритого виробництва, передачі знань та інновацій.** 
   </TextBlock>
 </SideBySide>
+<ContentSection id="news">
+  <NewsSlider headline="News" /> 
+</ContentSection>
 <IllustrationBgContainer>
   <CardContainer>
     <Card small title="Наша мотивація" bg={1} target="#motivation">Дізнайтеся, чому ми робимо проєкт «Tolocar»</Card>

@@ -2,16 +2,18 @@
 import { NewsSliderComponent } from "@components";
 import { getNewsItems } from "@util/Airtable";
 import CommonUtils from "@util/CommonUtils";
+import LanguageUtils from "@util/LanguageUtils";
 import { getCollection } from "astro:content";
 
 const { headline, id, ...rest } = Astro.props;
 const baseUrl = CommonUtils.getBaseUrl(false);
+const localeFromUrl = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
 
 const news = await getNewsItems(30, baseUrl);
 const stickyNews = (await getCollection("news")).map((item) => ({
   ...item.data,
   id: item.id,
-  target: baseUrl + item.data.target
+  target: baseUrl + "/" + localeFromUrl + "/" + item.data.target,
 }));
 ---
 
