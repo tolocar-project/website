@@ -7,21 +7,28 @@
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/inter-v12-latin_cyrillic-regular.woff2") format("woff2");
+    src: url("/fonts/inter-v13-cyrillic_latin-regular.woff2") format("woff2");
   }
 
   @font-face {
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
-    src: url("/fonts/inter-v12-latin_cyrillic-500.woff2") format("woff2");
+    src: url("/fonts/inter-v13-cyrillic_latin-500.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    src: url("/fonts/inter-v13-cyrillic_latin-600.woff2") format("woff2");
   }
 
   @font-face {
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
-    src: url("/fonts/inter-v12-latin_cyrillic-700.woff2") format("woff2");
+    src: url("/fonts/inter-v13-cyrillic_latin-700.woff2") format("woff2");
   }
 
   @font-face {
@@ -80,6 +87,11 @@
     @apply font-bold text-3xl text-neutral-800 my-4;
   }
 
+  .custom-prose h3 {
+    @apply font-semibold text-2xl text-neutral-800 my-4;
+  }
+
+
   .container-width {
     @apply max-w-[1440px] w-full lg:w-[84.4%] px-[4%] lg:px-8 mx-auto;
   }
@@ -94,6 +106,12 @@
 
   .mask-illustration-vertical {
     mask-image: linear-gradient(to bottom, transparent 40%, black 70%);
+  }
+
+  .mask-illustration-4 {
+    mask-image: url('/tolocar_illustration_4_wide.svg');
+    mask-position: 25px -150px;
+    mask-size: 100%;
   }
 
   .icon {

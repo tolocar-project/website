@@ -198,7 +198,7 @@ export const getNewsItems = async (count?: number, baseUrl?: string) => {
       .map((record) => {
         return {
           id: record.id,
-          title: record.fields.Name,
+          description: record.fields.Name,
           target: record.fields?.["Instagram URL"],
           instagram: true,
           imageFilename:

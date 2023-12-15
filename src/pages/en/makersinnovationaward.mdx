@@ -1,0 +1,129 @@
+---
+layout: "@layouts/AwardsLayout.astro"
+title: Makers Innovation Award
+footerGrey: false
+---
+
+import WideCard from "@components/WideCard";
+import {
+  HeadlineUnderlined,
+  TextBlock,
+  ButtonLink,
+  InfoItem,
+} from "@components";
+import { ReactComponent as Timeline } from "@assets/award/award-timeline.svg";
+import { ReactComponent as SubmitImage } from "@assets/award/submit-ideas.svg";
+
+<WideCard
+    bg={3}
+    className="mt-20 md:mt-32"
+    centerImage="makers-innovation-award-logo.svg"
+  />
+<div class="bg-neutral-50 w-full -mt-48 pt-48">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 mt-2 mb-20 sm:mt-20 bg-neutral-50">
+    <HeadlineUnderlined variant={11} className="pt-10 pb-8 sm:py-0 col-span-5">
+      Empowering Ukrainian Maker Community: Where Networking Meets Funding, Mentoring Sparks Ideas, and Innovation Comes to Life!
+    </HeadlineUnderlined>
+    <TextBlock className="col-span-6">
+    **The Innovation Ecosystem of Ukraine is greatly affected by the war**, which has a massive negative effect on the Ukrainian society and its social cohesion. The determined maker movement, a vital part of Ukrainian society, strives to help the nation heal and grow.
+
+    By fostering collaborations among people who team up for social impact this initiative promotes innovative solutions, emphasizing quality, impact, and coexistence over mere competition.
+
+    **We invite makers:** tech enthusiasts, engineers, crafters, designers, inventors, committed individuals or organizations to join hands in shaping a brighter future for Ukraine.
+    </TextBlock>
+  </div>
+</div>
+
+<div class="container-width grid grid-cols-12 gap-8 py-8 md:py-24">
+  <Timeline className="col-span-12 w-full" />
+</div>
+
+<div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 py-8 md:py-24">
+  <div class="col-span-1 md:col-span-12">
+    <h2
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >
+      Idea Cultivation Workshop (Mid January)
+    </h2>
+  </div>
+  <TextBlock className="col-span-1 md:col-span-5">
+    Idea Cultivation Workshop (January 19): We are delighted to invite you to our Workshop in Kyiv, an exciting initiative aimed at bringing together like-minded people, facilitating the exchange of ideas and knowledge, and presenting the Innovation Makers Award.
+
+    Share your innovative ideas, find partners, and plan your contribution to social cohesion and the country's recovery.
+  </TextBlock>
+  <div className="col-span-1 md:col-span-5">
+    <TextBlock>
+      This is your opportunity to present your projects, regardless of their current stage of development. Take the chance to lay the foundation for potential funding that can turn your vision into reality.
+
+      **Please fill out a form to participate in the Workshop and receive your invitation for the event!** The number of participants is limited to 50.
+    </TextBlock>
+    <ButtonLink caption="Apply now" target="https://forms.gle/X5S7rbqZsmDSwoFS9" variant="dark" className="mt-8" newTab />
+  </div>
+</div>
+
+<div class="bg-tolo-green w-full text-white">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-x-16 gap-y-24 py-8 md:py-24">
+    <div class="col-span-1 md:col-span-5 flex items-center justify-center"><SubmitImage /></div>
+    <div class="col-span-1 md:col-span-7 font-semibold font-aktiv text-2xl">
+      <p class="mb-8">Final project Application will be open from January 9th until February 9th.<br/><br/>
+      Please find the selection criteria below:</p>
+    </div>
+    <div class="col-span-1 md:col-span-12 grid gap-8" style={{ gridTemplateColumns: "subgrid" }}>
+      <InfoItem
+        title="Social Impact"
+        description="How big is the social impact the idea can create?"
+        icon="bullseye_arrow"
+        className="col-span-4"
+      />
+      <InfoItem
+        title="Feasibility"
+        description="How feasible is it for the team to implement the idea?"
+        icon="feather"
+        className="col-span-4"
+      />
+      <InfoItem
+        title="Scalability"
+        description="To what extent can the idea be expanded/ scaled to many people?"
+        icon="maximize"
+        className="col-span-4"
+      />
+      <InfoItem
+        title="Innovativeness"
+        description="What is the level of innovation? How new or different is the idea?"
+        icon="lightbulb"
+        className="col-span-4"
+      />
+      <InfoItem
+        title="Sustainability"
+        description="Does the project have a mature idea for a revenue model to sustain itself eventually?"
+        icon="leaf"
+        className="col-span-4"
+      />
+      <InfoItem
+        title="Team"
+        description="Is the team for the implementation of the project well positioned in terms of motivation, cohesion and background knowledge?"
+        icon="users"
+        className="col-span-4"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="bg-neutral-50 w-full">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 py-8 md:py-24 gap-8">
+    <TextBlock className="col-span-1 md:col-span-4">
+      ### Virtual training sessions
+      While working on your application, attend two virtual training sessions focused on improving your application, proposal writing and effective pitching. You will work together with trained coaches to develop, refine and redesign your idea, solution or approach.
+    </TextBlock>
+    <TextBlock className="col-span-1 md:col-span-4">
+      ### Pitching event: Selection of fundable ideas
+      The jury selection event is a pivotal stage in our program where the preselected participants pitch their projects to a panel of experienced judges. Based on the selection criteria, the jury will choose the winners who will receive **EUR 50,000** in funding for project implementation and further support through 3 mentoring sessions.
+    </TextBlock>
+    <TextBlock className="col-span-1 md:col-span-4">
+      ### Mentoring & Support
+      In the following three mentoring sessions, experienced mentors will support the selected individuals/organizations according to their specific needs. The mentors will align their areas of expertise with the knowledge gaps of the participants.
+    </TextBlock>
+  </div>
+</div>
+
+<WideCard bg={4} className="mt-16"><div className="text-white px-10 py-20 flex h-full items-center justify-between"><h4 className="text-[2.5rem]/[1.2] font-aktiv font-semibold w-2/3 md:max-w-[50%] z-10">Join us in shaping a brighter future for Ukraine through your inventive solutions!</h4><img className="absolute right-0 h-[120%] w-auto z-0" src="bulb-cog-dark.svg" /></div></WideCard>

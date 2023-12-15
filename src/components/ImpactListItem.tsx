@@ -1,10 +1,10 @@
 import React from "react";
-import { ReactComponent as BullseyeIcon } from "@assets/bullseye.svg";
-import { ReactComponent as MicrochipIcon } from "@assets/microchip.svg";
-import { ReactComponent as HandFistIcon } from "@assets/hand-fist.svg";
-import { ReactComponent as ParachuteIcon } from "@assets/parachute.svg";
-import { ReactComponent as BookOpenIcon } from "@assets/book-open.svg";
-import { ReactComponent as ChartNetworkIcon } from "@assets/chart-network.svg";
+import { ReactComponent as BullseyeIcon } from "@assets/icons/bullseye.svg";
+import { ReactComponent as MicrochipIcon } from "@assets/icons/microchip.svg";
+import { ReactComponent as HandFistIcon } from "@assets/icons/hand-fist.svg";
+import { ReactComponent as ParachuteIcon } from "@assets/icons/parachute.svg";
+import { ReactComponent as BookOpenIcon } from "@assets/icons/book-open.svg";
+import { ReactComponent as ChartNetworkIcon } from "@assets/icons/chart-network.svg";
 
 interface Props {
   className?: string;
