@@ -49,9 +49,12 @@ import { ReactComponent as SubmitImageUa } from "@assets/award/submit-ideas-ua.s
 
     Поділіться своїми інноваційними ідеями, знайдіть однодумців-партнерів та сплануйте свій внесок у соціальну згуртованість та відновлення країни.
   </TextBlock>
-  <TextBlock className="col-span-1 md:col-span-5">
-    Це ваша можливість представити свої проекти, незалежно від того, на якій стадії розвитку вони зараз знаходяться. Скористайтеся шансом закласти фундамент для потенційного фінансування, яке може перетворити ваше бачення на реальність.
-  </TextBlock>
+  <div className="col-span-1 md:col-span-5">
+    <TextBlock>
+      Це ваша можливість представити свої проекти, незалежно від того, на якій стадії розвитку вони зараз знаходяться. Скористайтеся шансом закласти фундамент для потенційного фінансування, яке може перетворити ваше бачення на реальність.
+    </TextBlock>
+    <ButtonLink caption="Подати заявку" target="https://forms.gle/X5S7rbqZsmDSwoFS9" variant="dark" className="mt-8" newTab />
+  </div>
 </div>
 
 <div class="bg-tolo-green w-full text-white">
@@ -59,7 +62,6 @@ import { ReactComponent as SubmitImageUa } from "@assets/award/submit-ideas-ua.s
     <div class="col-span-1 md:col-span-5 flex items-center justify-center"><SubmitImageUa /></div>
     <div class="col-span-1 md:col-span-7 font-semibold font-aktiv text-2xl">
       <p class="mb-8">Подавайте свої проекти, які мають високу соціальну користь та потенціал відбудови України, до 9 лютого 23:59 за Києвським часом за допомогою форми.</p>
-      <ButtonLink caption="Подати заявку" target="https://forms.gle/X5S7rbqZsmDSwoFS9" newTab />
     </div>
     <div class="col-span-1 md:col-span-12 grid gap-8" style={{ gridTemplateColumns: "subgrid" }}>
       <InfoItem
