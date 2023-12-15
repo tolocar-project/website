@@ -1,0 +1,122 @@
+---
+layout: "@layouts/AwardsLayout.astro"
+title: Нагорода “Інновації Мейкерів” – Tolocar Project
+footerGrey: false
+---
+
+import WideCard from "@components/WideCard";
+import {
+  HeadlineUnderlined,
+  TextBlock,
+  ButtonLink,
+  InfoItem,
+} from "@components";
+import { ReactComponent as Timeline } from "@assets/award/award-timeline.svg";
+import { ReactComponent as SubmitImage } from "@assets/award/submit-ideas.svg";
+
+<WideCard
+    bg={3}
+    className="mt-20 md:mt-32"
+    centerImage="makers-innovation-award-logo.svg"
+  />
+<div class="bg-neutral-50 w-full -mt-48 pt-48">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 mt-2 mb-20 sm:mt-20 bg-neutral-50">
+    <HeadlineUnderlined variant={11} className="pt-10 pb-8 sm:py-0 col-span-5">
+      Сприяння розвитку можливостей української спільноти мейкерів: тут нетворкінг зустрічається з фінансуванням, менторство запалює ідеї, а інновації втілюються в життя!
+    </HeadlineUnderlined>
+    <TextBlock className="col-span-6">
+    Війна сильно впливає на інноваційну екосистему України, що має значний негативний вплив на українське суспільство та його соціальну згуртованість. Рух рішучих мейкерів, життєво важливої частини українського суспільства, прагне допомогти країні  зцілюватися та розвиватися. 
+    
+    Сприяючи співпраці між людьми, які об'єднуються заради позитивного соціального перетворення, ця ініціатива покликана просувати інноваційні рішення, наголошуючи на якості, впливі та співіснуванні понад конкуренцією. Запрошуємо мeйкерів: технологічних ентузіастів, інженерів, ремісників, дизайнерів, винахідників, відданих своїй справі людей чи організації, об'єднати зусилля в створенні сталого майбутнього для України. 
+    </TextBlock>
+  </div>
+</div>
+
+<div class="container-width grid grid-cols-12 gap-8 py-8 md:py-24">
+  <Timeline className="col-span-12 w-full" />
+</div>
+
+<div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 py-8 md:py-24">
+  <div class="col-span-1 md:col-span-12">
+    <h2
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >
+      Майстерня ідей
+    </h2>
+  </div>
+  <TextBlock className="col-span-1 md:col-span-5">
+    Ми щиро запрошуємо вас на нашу майстерню, яка відбудеться у Києві 19 січня 2024 року, спрямовану на об'єднання однодумців, сприяння обміну ідеями, знаннями та презентацію проекту фінансування Нагороди “Інновації Мейкерів”.
+
+    Поділіться своїми інноваційними ідеями, знайдіть однодумців-партнерів та сплануйте свій внесок у соціальну згуртованість та відновлення країни.
+  </TextBlock>
+  <TextBlock className="col-span-1 md:col-span-5">
+    Це ваша можливість представити свої проекти, незалежно від того, на якій стадії розвитку вони зараз знаходяться. Скористайтеся шансом закласти фундамент для потенційного фінансування, яке може перетворити ваше бачення на реальність.
+  </TextBlock>
+</div>
+
+<div class="bg-tolo-green w-full text-white">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-x-16 gap-y-24 py-8 md:py-24">
+    <div class="col-span-1 md:col-span-5 flex items-center justify-center"><SubmitImage /></div>
+    <div class="col-span-1 md:col-span-7 font-semibold font-aktiv text-2xl">
+      <p class="mb-8">Прийом заявок на участь у фінальному відборі буде відкрито з 09 січня до 09 лютого.</p>
+      <ButtonLink caption="Apply now" target="https://forms.gle/X5S7rbqZsmDSwoFS9" newTab />
+    </div>
+    <div class="col-span-1 md:col-span-12 grid gap-8" style={{ gridTemplateColumns: "subgrid" }}>
+      <InfoItem
+        title="Соціальний вплив"
+        description="Наскільки великим є вплив від реалізації проекту?"
+        icon="bullseye_arrow"
+        className="col-span-4"
+      />
+      <InfoItem
+        title="Здійсненність"
+        description="Наскільки реально для команди реалізувати ідею?"
+        icon="feather"
+        className="col-span-4"
+      />
+      <InfoItem
+        title="Масштабованість"
+        description="До якої міри ідея може бути розширена/масштабована і для якої кількості людей?"
+        icon="maximize"
+        className="col-span-4"
+      />
+      <InfoItem
+        title="Інноваційність"
+        description="Який рівень інноваційності? Чи є ідея новою і відмінною від інших?"
+        icon="lightbulb"
+        className="col-span-4"
+      />
+      <InfoItem
+        title="Сталий розвиток"
+        description="Чи є у проекту зріла ідея щодо моделі отримання прибутку, щоб зрештою забезпечити подальше існування?"
+        icon="leaf"
+        className="col-span-4"
+      />
+      <InfoItem
+        title="Команда"
+        description="Чи добре підібрана команда для реалізації проекту з точки зору мотивації, згуртованості та необхідних знань?"
+        icon="users"
+        className="col-span-4"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="bg-neutral-50 w-full">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 py-8 md:py-24 gap-8">
+    <TextBlock className="col-span-1 md:col-span-4">
+      ### Віртуальні тренінгові сесії
+      Під час роботи над своїм проектом  запрошуємо взяти участь у двох віртуальних тренінгах, присвячених удосконаленню вашої заявки, написанню проектної пропозиції та ефективному пітчингу. Разом з кваліфікованими тренерами ви будете працювати над розробкою, оптимізацією та редизайном вашої ідеї, рішення або підходу.
+    </TextBlock>
+    <TextBlock className="col-span-1 md:col-span-4">
+      ### Пітчинг-івент: Відбір ідей на отримання фінансування
+      Відбір журі є ключовим етапом нашої програми, де попередньо відібрані учасники презентують свої проекти перед групою досвідчених суддів. На основі критеріїв конкурсу журі обере переможців, які отримають **50 000 євро** на реалізацію проекту та подальшу підтримку у вигляді 3 менторських сесій. 
+    </TextBlock>
+    <TextBlock className="col-span-1 md:col-span-4">
+      ### Менторство та підтримка
+      Досвідчені ментори надаватимуть підтримку відібраним організаціям відповідно до їхніх конкретних потреб під час трьох менторських сесій.
+    </TextBlock>
+  </div>
+</div>
+
+<WideCard bg={4} className="mt-16"><div className="text-white px-10 py-20 flex h-full items-center justify-between"><h4 className="text-[2.5rem]/[1.2] font-aktiv font-semibold w-2/3 md:max-w-[50%] z-10">Приєднуйтесь до нас у формуванні світлого майбутнього для України через ваші винахідницькі рішення!</h4><img className="absolute right-0 h-[120%] w-auto z-0" src="bulb-cog-dark.svg" /></div></WideCard>
