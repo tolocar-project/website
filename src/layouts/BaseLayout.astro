@@ -8,6 +8,8 @@ import "../../base.css";
 
 type Props = MarkdownLayoutProps<{
   title: string;
+  metaImage: string;
+  metaDescription: string;
   footerGrey?: boolean;
   darkNavigation?: boolean;
 }>;
@@ -34,6 +36,9 @@ const translatedAndRebasedMenu = translatedMenu?.map((menuItem) => ({
 }));
 
 const isProduction = import.meta.env.MODE === "production";
+
+const META_TITLE = `${frontmatter?.title} - Tolocar Project`;
+const META_CANONICAL_URL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -44,6 +49,24 @@ const isProduction = import.meta.env.MODE === "production";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href={"/favicon.png"} />
     <meta name="generator" content={Astro.generator} />
+    {frontmatter?.title && <meta property="og:title" content={META_TITLE} />}
+    <meta property="og:url" content={META_CANONICAL_URL} />
+    {
+      frontmatter?.metaImage && (
+        <meta
+          property="og:image"
+          content={Astro.site + frontmatter?.metaImage}
+        />
+      )
+    }
+    {
+      frontmatter?.metaDescription && (
+        <meta
+          property="og:description"
+          content={frontmatter?.metaDescription}
+        />
+      )
+    }
     <meta
       name="description"
       content="The Tolocar project sends mobile makerspaces into Ukraine to help, empower, equip and train local communities through open technology, knowledge and innovation."
@@ -59,7 +82,7 @@ const isProduction = import.meta.env.MODE === "production";
         />
       )
     }
-    <title>{frontmatter?.title} - Tolocar Project</title>
+    <title>{META_TITLE}</title>
   </head>
   <body class="w-full font-inter antialiased h-full tracking-[-0.02em]">
     <main class="flex flex-col items-center h-full overflow-x-hidden">
