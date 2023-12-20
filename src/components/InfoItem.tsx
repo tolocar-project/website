@@ -1,10 +1,10 @@
 import React from "react";
-import { ReactComponent as BullseyeArrowIcon } from "@assets/icons/bullseye-arrow.svg";
-import { ReactComponent as FeatherIcon } from "@assets/icons/feather.svg";
-import { ReactComponent as LeafIcon } from "@assets/icons/leaf.svg";
-import { ReactComponent as LightbulbOnIcon } from "@assets/icons/lightbulb-on.svg";
-import { ReactComponent as MaximizeIcon } from "@assets/icons/maximize.svg";
-import { ReactComponent as UsersIcon } from "@assets/icons/users.svg";
+import BullseyeArrowIcon from "@assets/icons/bullseye-arrow.svg?react";
+import FeatherIcon from "@assets/icons/feather.svg?react";
+import LeafIcon from "@assets/icons/leaf.svg?react";
+import LightbulbOnIcon from "@assets/icons/lightbulb-on.svg?react";
+import MaximizeIcon from "@assets/icons/maximize.svg?react";
+import UsersIcon from "@assets/icons/users.svg?react";
 
 type Icons =
   | "bullseye_arrow"

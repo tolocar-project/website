@@ -1,4 +1,4 @@
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import type { INewsItem } from "@interfaces/INews";
 import type { IInterventionPoi } from "@interfaces/IIntervention";
 import fs from "node:fs";
@@ -303,7 +303,7 @@ export const getMapPois = async (baseUrl?: string) => {
 
         if (locationJwt) {
           try {
-            locationDecoded = jwt_decode<IDecodedJwt>(locationJwt, {
+            locationDecoded = jwtDecode<IDecodedJwt>(locationJwt, {
               header: true,
             });
           } catch (e) {

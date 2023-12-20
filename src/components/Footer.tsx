@@ -1,11 +1,11 @@
 import React from "react";
-import { ReactComponent as TolocarLogoSvg } from "@assets/tolocar_logo.svg";
-import { ReactComponent as GizLogoSvgEN } from "@assets/giz_logo_en.svg";
-import { ReactComponent as GizLogoSvgUA } from "@assets/giz_logo_ua.svg";
-import { ReactComponent as GizZusammenarbeitSvg } from "@assets/giz_zusammenarbeit.svg";
-import { ReactComponent as HiwwLogoSvg } from "@assets/hiww_logo.svg";
-import { ReactComponent as InstagramIcon } from "@assets/instagram.svg";
-import { ReactComponent as FacebookIcon } from "@assets/facebook.svg";
+import TolocarLogoSvg from "@assets/tolocar_logo.svg?react";
+import GizLogoSvgEN from "@assets/giz_logo_en.svg?react";
+import GizLogoSvgUA from "@assets/giz_logo_ua.svg?react";
+import GizZusammenarbeitSvg from "@assets/giz_zusammenarbeit.svg?react";
+import HiwwLogoSvg from "@assets/hiww_logo.svg?react";
+import InstagramIcon from "@assets/instagram.svg?react";
+import FacebookIcon from "@assets/facebook.svg?react";
 import type { IMenuItem } from "@interfaces/IMenu";
 
 interface Props {

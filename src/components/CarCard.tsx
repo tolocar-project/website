@@ -1,10 +1,10 @@
 import React from "react";
-import { ReactComponent as CalendarIcon } from "@assets/fa-calendar.svg";
-import { ReactComponent as TruckIcon } from "@assets/fa-truck.svg";
-import { ReactComponent as CogIcon } from "@assets/fa-cog.svg";
-import { ReactComponent as HammerIcon } from "@assets/fa-hammer.svg";
-import { ReactComponent as ToolboxIcon } from "@assets/fa-toolbox.svg";
-import { ReactComponent as ScrewdriverIcon } from "@assets/fa-screwdriver.svg";
+import CalendarIcon from "@assets/fa-calendar.svg?react";
+import TruckIcon from "@assets/fa-truck.svg?react";
+import CogIcon from "@assets/fa-cog.svg?react";
+import HammerIcon from "@assets/fa-hammer.svg?react";
+import ToolboxIcon from "@assets/fa-toolbox.svg?react";
+import ScrewdriverIcon from "@assets/fa-screwdriver.svg?react";
 
 interface Props {
   className?: string;

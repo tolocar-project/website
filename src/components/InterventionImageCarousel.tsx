@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
-import { ReactComponent as DotIcon } from "@assets/dot-icon.svg";
+import ArrowIcon from "@assets/arrow.svg?react";
+import DotIcon from "@assets/dot-icon.svg?react";
 
 interface Props {
   images: Array<string>;

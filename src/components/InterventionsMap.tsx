@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Map, { Marker, NavigationControl, Popup } from "react-map-gl";
-import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
+import ArrowIcon from "@assets/arrow.svg?react";
 import type { IInterventionPoi } from "@interfaces/IIntervention";
 import useWindowSize from "../util/useWindowSize";
 import { ConditionalWrapper, TolocarMarker } from "@components";

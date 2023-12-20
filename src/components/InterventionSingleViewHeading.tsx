@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as LocationIcon } from "@assets/location-dot.svg";
-import { ReactComponent as DotIcon } from "@assets/dot-icon.svg";
+import LocationIcon from "@assets/location-dot.svg?react";
+import DotIcon from "@assets/dot-icon.svg?react";
 import type { IInterventionFrontmatter } from "@interfaces/IIntervention";
 import { Tag } from "@components";
 

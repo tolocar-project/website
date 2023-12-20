@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
-import { ReactComponent as GitHubIcon } from "@assets/GitHub.svg";
+import ArrowIcon from "@assets/arrow.svg?react";
+import GitHubIcon from "@assets/GitHub.svg?react";
 
 interface Props {
   className?: string;
