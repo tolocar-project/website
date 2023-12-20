@@ -3,9 +3,9 @@ import useEmblaCarousel from "embla-carousel-react";
 
 import HeadlineUnderlined from "./HeadlineUnderlined";
 import { NewsItem } from "@components";
-import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
-import { ReactComponent as InstagramIcon } from "@assets/instagram.svg";
-import { ReactComponent as FacebookIcon } from "@assets/facebook.svg";
+import ArrowIcon from "@assets/arrow.svg?react";
+import InstagramIcon from "@assets/instagram.svg?react";
+import FacebookIcon from "@assets/facebook.svg?react";
 import type { INewsItem } from "@interfaces/INews";
 
 interface Props {

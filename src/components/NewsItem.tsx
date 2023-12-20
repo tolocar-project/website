@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
-import { ReactComponent as InstagramIcon } from "@assets/instagram.svg";
+import ArrowIcon from "@assets/arrow.svg?react";
+import InstagramIcon from "@assets/instagram.svg?react";
 
 interface Props {
   href: string;

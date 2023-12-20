@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as TolocarHero } from "@assets/tolocar_hero.svg";
+import TolocarHero from "@assets/tolocar_hero.svg?react";
 
 interface Props {
   className?: string;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { ReactComponent as TolocarLogoSvg } from "@assets/tolocar_logo.svg";
-import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
+import TolocarLogoSvg from "@assets/tolocar_logo.svg?react";
+import ArrowIcon from "@assets/arrow.svg?react";
 import type { IMenuItem } from "@interfaces/IMenu";
 import { LanguageSwitcher } from "@components";
 import useCurrentWidth from "@util/useCurrentWidth";

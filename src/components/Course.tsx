@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as ArrowIcon } from "@assets/arrow.svg";
+import ArrowIcon from "@assets/arrow.svg?react";
 import GithubSlugger from "github-slugger";
 
 export interface ICourse {
