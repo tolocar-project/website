@@ -66,11 +66,10 @@ import {
     <div class="col-span-1 md:col-span-5 flex items-center justify-center">
       <img src="images/award/submit-ideas.svg" className="col-span-12 w-full" />
     </div>
-    <div class="col-span-1 md:col-span-7 font-semibold font-aktiv text-2xl">
-      <ButtonLink caption="Apply now" target="https://docs.google.com/forms/d/1ebhHq0FyhzP6dldqfOgnc0SeYvtYpGkODyrutHJ52l8/prefill" variant="dark" className="mt-8" newTab /><br/><br/>
-      <p class="mb-8">Application will close on February 9th, 4 pm (EET).<br/><br/>
-      Please find the terms and conditions <u><a href="https://drive.google.com/file/d/1ew4PntndU5NGfdOO0lNxBY4zZnTEAODF/view?usp=sharing">HERE</a></u>.<br/><br/>
-      Please find the main selection criteria for your project ideas below:</p>
+    <div class="col-span-1 md:col-span-7 font-semibold font-aktiv text-2xl flex flex-col gap-4">
+      <p>Application will close on February 9th, 4 pm (EET).</p>
+      <p>Please find the terms and conditions <a className="underline" href="https://drive.google.com/file/d/1ew4PntndU5NGfdOO0lNxBY4zZnTEAODF/view?usp=sharing" target="_blank">here</a>.</p>
+      <p>Please find the main selection criteria for your project ideas below:</p>
     </div>
     <div class="col-span-1 md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
       <InfoItem
@@ -109,6 +108,9 @@ import {
         icon="users"
         className="col-span-1"
       />
+      <div class="md:col-start-2 col-span-1">
+        <ButtonLink className="w-full" caption="Apply now" target="https://docs.google.com/forms/d/1ebhHq0FyhzP6dldqfOgnc0SeYvtYpGkODyrutHJ52l8/prefill" variant="light" newTab />
+      </div>
     </div>
   </div>
 </div>
