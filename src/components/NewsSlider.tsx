@@ -12,9 +12,15 @@ interface Props {
   news: Array<INewsItem>;
   headline: string;
   id?: string;
+  findAllCaption?: string;
 }
 
-const NewsSlider: React.FC<Props> = ({ news, headline, ...props }) => {
+const NewsSlider: React.FC<Props> = ({
+  news,
+  headline,
+  findAllCaption,
+  ...props
+}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     slidesToScroll: "auto",
@@ -88,7 +94,9 @@ const NewsSlider: React.FC<Props> = ({ news, headline, ...props }) => {
         </div>
       </div>
       <div className="container-width mt-12 flex items-center justify-end">
-        <span className="text-tolo-green mr-5 text-lg">Find all news on</span>
+        {findAllCaption && (
+          <span className="text-tolo-green mr-5 text-lg">{findAllCaption}</span>
+        )}
         <a
           href="https://www.instagram.com/tolocar.ua/"
           target="_blank"

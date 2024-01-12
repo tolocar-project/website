@@ -8,9 +8,11 @@ import { finished } from "node:stream/promises";
 
 const AIRTABLE_BASE_URL = "https://api.airtable.com/v0/";
 
+// Where to save images from Airtable
 const NEWS_IMG_LOCATION = "./public/images/news/dynamic/";
 const INTERVENTIONS_IMG_LOCATION = "./public/images/interventions/dynamic/";
 
+// Where to store the hash of the fetched content (for caching purposes)
 const NEWS_ITEMS_HASH_FILE = "./.newshash";
 const INTERVENTIONS_HASH_FILE = "./.interventionshash";
 
@@ -40,6 +42,7 @@ interface AirtableNewsRecord {
   createdTime?: string;
   fields: {
     Name?: string;
+    "Name UA"?: string;
     "Instagram URL"?: string;
     Status?: string;
     "Post date"?: string;
@@ -118,12 +121,18 @@ const fetchAndHandleErrors = async <T>(
   return response.json();
 };
 
-export const getNewsItems = async (count?: number, baseUrl?: string) => {
+// Relevant API Doc: https://airtable.com/developers/web/api/list-records
+// Helper tool for query building: https://codepen.io/airtable/pen/MeXqOg
+export const getNewsItems = async (
+  count?: number,
+  baseUrl?: string,
+  locale: string = "en"
+) => {
   let combinedData: AirtableNewsRecord[] = [];
   let hasOffset;
 
   const apiParameters = encodeURI(
-    '&fields[]=Name&fields[]=Media+type&fields[]=Images&fields[]=Selected+Photos+(from+Event)&fields[]=Instagram+URL&filterByFormula=AND({Instagram+URL},{Status}="live")&sort[0][field]=Post+date&sort[0][direction]=desc'
+    '&fields[]=Name&fields[]=Name+UA&fields[]=Media+type&fields[]=Images&fields[]=Selected+Photos+(from+Event)&fields[]=Instagram+URL&filterByFormula=AND({Instagram+URL},{Status}="live")&sort[0][field]=Post+date&sort[0][direction]=desc'
   );
 
   const { records, offset } = await fetchAndHandleErrors<AirtableNewsResponse>(
@@ -179,6 +188,9 @@ export const getNewsItems = async (count?: number, baseUrl?: string) => {
       // // has status "live"
       // .filter((record) => record.fields?.["Status"] === "live")
       // is of media type "photo"
+      .filter((record) =>
+        locale === "ua" ? record.fields?.["Name UA"] : record.fields?.["Name"]
+      )
       .filter(
         (record) =>
           record.fields?.["Media type"]?.includes("photo") ||
@@ -198,7 +210,10 @@ export const getNewsItems = async (count?: number, baseUrl?: string) => {
       .map((record) => {
         return {
           id: record.id,
-          description: record.fields.Name,
+          description:
+            locale === "ua"
+              ? record.fields?.["Name UA"]
+              : record.fields?.["Name"],
           target: record.fields?.["Instagram URL"],
           instagram: true,
           imageFilename:
