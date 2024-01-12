@@ -5,12 +5,16 @@ import CommonUtils from "@util/CommonUtils";
 import LanguageUtils from "@util/LanguageUtils";
 import { getCollection } from "astro:content";
 
-const { headline, id, ...rest } = Astro.props;
+const { headline, id, findAllCaption, ...rest } = Astro.props;
 const baseUrl = CommonUtils.getBaseUrl(false);
 const localeFromUrl = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
 
-const news = await getNewsItems(30, baseUrl);
-const stickyNews = (await getCollection("news")).map((item) => ({
+const news = await getNewsItems(30, baseUrl, localeFromUrl);
+const stickyNews = (
+  await getCollection("news", ({ id }) => {
+    return id.startsWith(localeFromUrl);
+  })
+).map((item) => ({
   ...item.data,
   id: item.id,
   target: baseUrl + "/" + localeFromUrl + "/" + item.data.target,
@@ -21,6 +25,7 @@ const stickyNews = (await getCollection("news")).map((item) => ({
   news={[...stickyNews, ...(news || [])]}
   {headline}
   {id}
+  {findAllCaption}
   {...rest}
   client:idle
 />
