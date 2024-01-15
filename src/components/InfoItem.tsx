@@ -5,6 +5,9 @@ import LeafIcon from "@assets/icons/leaf.svg?react";
 import LightbulbOnIcon from "@assets/icons/lightbulb-on.svg?react";
 import MaximizeIcon from "@assets/icons/maximize.svg?react";
 import UsersIcon from "@assets/icons/users.svg?react";
+import TruckFastIcon from "@assets/icons/truck-fast.svg?react";
+import GearIcon from "@assets/icons/gear.svg?react";
+import ScrewdriverWrenchIcon from "@assets/icons/screwdriver-wrench.svg?react";
 
 type Icons =
   | "bullseye_arrow"
@@ -12,7 +15,10 @@ type Icons =
   | "leaf"
   | "lightbulb"
   | "maximize"
-  | "users";
+  | "users"
+  | "truck"
+  | "gear"
+  | "screwdriver-wrench";
 
 interface Props {
   className?: string;
@@ -35,6 +41,9 @@ const InfoItem: React.FC<Props> = ({
       lightbulb: LightbulbOnIcon,
       maximize: MaximizeIcon,
       users: UsersIcon,
+      truck: TruckFastIcon,
+      gear: GearIcon,
+      "screwdriver-wrench": ScrewdriverWrenchIcon,
     };
 
     const IconComponent = iconMapping[icon as Icons] || (() => <></>);
