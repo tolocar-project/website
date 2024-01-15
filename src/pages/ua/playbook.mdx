@@ -13,6 +13,7 @@ import {
   ButtonLink,
   InfoItem,
 } from "@components";
+import LinkNewTab from "@components/LinkNewTab.astro"
 
 
 <WideCard
@@ -107,16 +108,17 @@ import {
 
 <div class="bg-neutral-50 w-full">
   <div class="container-width grid grid-cols-1 md:grid-cols-12 py-8 md:py-24 gap-8">
-<TextBlock className="col-span-1 md:col-span-4">
-### Appropedia
-Appropedia - це вікі-сайт, який допомагає людям обмінюватися інформацією та співпрацювати над проектами, спрямованими на подолання бідності, міжнародний розвиток та екологічну стійкість.
-<br/><br/><a href="https://www.appropedia.org" target="_blank">www.appropedia.org</a>
-</TextBlock>
+    <TextBlock className="col-span-1 md:col-span-4">
+    ### Appropedia
+    Appropedia - це вікі-сайт, який допомагає людям обмінюватися інформацією та співпрацювати над проектами, спрямованими на подолання бідності, міжнародний розвиток та екологічну стійкість.
+    <br/>
+    <LinkNewTab caption="www.appropedia.org" href="https://www.appropedia.org" />
+    </TextBlock>
     <TextBlock className="col-span-1 md:col-span-4">
       ### Maker Academy
       Разом з Академією мейкерства ми розробляємо проєктну навчальну програму українською мовою, яка зосереджена на створенні комп'ютерно-керованих машин з відкритим вихідним кодом, різних за складністю та можливостями. 
-      <br/><br/>
-      <a href="/ua/academy" target="_blank">tolocar.org/ua/academy</a>
+      <br/>
+      <LinkNewTab caption="tolocar.org/ua/academy" href="/ua/academy" />
     </TextBlock>
     <TextBlock className="col-span-1 md:col-span-4">
       ### Support & Contact

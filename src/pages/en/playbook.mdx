@@ -13,6 +13,7 @@ import {
   ButtonLink,
   InfoItem,
 } from "@components";
+import LinkNewTab from "@components/LinkNewTab.astro"
 
 
 <WideCard
@@ -113,14 +114,12 @@ import {
     <TextBlock className="col-span-1 md:col-span-4">
       ### Appropedia
       Appropedia is a wiki-based website that helps people share information and collaborate on projects to address poverty, international development, and environmental sustainability.
-
-      https://www.appropedia.org
+      <br/><LinkNewTab caption="www.appropedia.org" href="https://www.appropedia.org" />
     </TextBlock>
     <TextBlock className="col-span-1 md:col-span-4">
       ### Maker Academy
-      With the Maker Academy, we are crafting a project-based curriculum in Ukrainian centered around the construction of open source computer-controlled machines, ranging in complexity and capabilities. 
-
-      https://tolocar.org/ua/academy
+      With the Maker Academy, we are crafting a project-based curriculum in Ukrainian centered around the construction of open source computer-controlled machines, ranging in complexity and capabilities.
+      <br/><LinkNewTab caption="tolocar.org/en/academy" href="https://tolocar.org/en/academy" />
     </TextBlock>
     <TextBlock className="col-span-1 md:col-span-4">
       ### Support & Contact
