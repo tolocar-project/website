@@ -1,9 +1,9 @@
 ---
 layout: "@layouts/AwardsLayout.astro"
-title: "How To Tolocar: Playbook for Mobile Makerspaces"
+title: "How to Tolocar: Playbook for Mobile Makerspaces"
 footerGrey: false
-metaImage: og_image_award.jpg
-metaDescription: "Empowering Ukrainian Maker Community: Where Networking Meets Funding, Mentoring Sparks Ideas, and Innovation Comes to Life!"
+metaImage: images/playbook/og_playbook.jpg
+metaDescription: "How to Tolocar: With this playbook, we share our insights from the Tolocar project, and the diverse possibilities and applications of mobile makerspaces in Ukraine since May 2022."
 ---
 
 import WideCard from "@components/WideCard";
@@ -20,7 +20,7 @@ import LinkNewTab from "@components/LinkNewTab.astro"
   bg={3}
   className="mt-20 md:mt-32 !px-0"
   centerImage="images/playbook/playbook.svg"
-  centerImageClasses="w-full"
+  centerImageClasses="w-full relative -top-32"
 />
 <div class="bg-neutral-50 w-full -mt-48 pt-48">
   <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 mt-8 mb-20 md:mt-20 bg-neutral-50 lg:!px-0">
@@ -37,7 +37,9 @@ import LinkNewTab from "@components/LinkNewTab.astro"
   </div>
 </div>
 
-<div class="container-width grid grid-cols-12 p-0 md:py-24">
+
+<div class="container-width grid grid-cols-12 p-0 md:pt-24">
+  <HeadlineUnderlined large variant={12} className="pt-10 pb-8 sm:py-0 col-span-5 mb-10">Read the Playbook</HeadlineUnderlined>
   <object type="application/pdf" data="/playbook/HowToTolocar_Playbook_EN_ES.pdf" width="100%" height="800px" className="w-full md:col-span-12"></object>
 </div>
 
