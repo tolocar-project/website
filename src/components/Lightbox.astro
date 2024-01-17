@@ -1,0 +1,24 @@
+---
+const { image, alt, path } = Astro.props;
+---
+
+<div class="">
+  <a href={path + "#lightbox"} id={"nolightbox"} class="scroll-mt-20">
+    <img
+      src={image}
+      class="aspect-square rounded-lg object-cover object-center"
+      {alt}
+    />
+  </a>
+  <a
+    href={path + "#nolightbox"}
+    class="hidden fixed z-50 inset-0 p-4 sm:p-24 bg-black/50 target:block items-center"
+    id={"lightbox"}
+  >
+    <img
+      src={image}
+      class="w-full h-full object-center object-contain"
+      {alt}
+    />
+  </a>
+</div>
