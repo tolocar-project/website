@@ -14,11 +14,13 @@ const stickyNews = (
   await getCollection("news", ({ id }) => {
     return id.startsWith(localeFromUrl);
   })
-).map((item) => ({
-  ...item.data,
-  id: item.id,
-  target: baseUrl + "/" + localeFromUrl + "/" + item.data.target,
-}));
+)
+  .map((item) => ({
+    ...item.data,
+    id: item.id,
+    target: baseUrl + "/" + localeFromUrl + "/" + item.data.target,
+  }))
+  .sort((a, b) => (a?.order || 0) - (b?.order || 0));
 ---
 
 <NewsSliderComponent

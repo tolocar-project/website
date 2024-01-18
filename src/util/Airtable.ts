@@ -217,7 +217,8 @@ export const getNewsItems = async (
               ? record.fields?.["Name UA"]
               : record.fields?.["Name"],
           target: record.fields?.["Instagram URL"],
-          instagram: true,
+          type: "instagram",
+          newTab: true,
           imageFilename:
             record.fields?.["Images"]?.[0].filename ||
             record.fields?.["Selected Photos (from Event)"]?.[0].filename,

@@ -4,9 +4,12 @@ const newsCollection = defineCollection({
   type: "data",
   schema: z.object({
     target: z.string(),
-    title: z.string(),
+    title: z.string().optional(),
     description: z.string(),
-    green: z.boolean(),
+    type: z.enum(["instagram", "cta", "fullImage"]),
+    newTab: z.boolean().optional(),
+    image: z.string().optional(),
+    order: z.number().optional()
   }),
 });
 

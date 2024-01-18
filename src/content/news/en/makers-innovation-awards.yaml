@@ -1,4 +1,5 @@
 title: "Makers Innovation Award"
 description: "Where Networking Meets Funding, Mentoring Sparks Ideas, and Innovation Comes to Life!"
 target: makersinnovationaward
-green: true
+type: cta
+order: 1

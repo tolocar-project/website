@@ -85,10 +85,10 @@ const NewsSlider: React.FC<Props> = ({
                 key={index}
                 image={item.image}
                 href={item.target}
-                isInstagram={item.instagram}
-                green={item.green}
+                type={item.type}
                 description={item.description}
                 title={item.title}
+                newTab={item.newTab}
               />
             ))}
         </div>
