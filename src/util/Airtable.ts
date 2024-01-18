@@ -131,6 +131,8 @@ export const getNewsItems = async (
   let combinedData: AirtableNewsRecord[] = [];
   let hasOffset;
 
+  console.log(`Trying to get news items...`);
+
   const apiParameters = encodeURI(
     '&fields[]=Name&fields[]=Name+UA&fields[]=Media+type&fields[]=Images&fields[]=Selected+Photos+(from+Event)&fields[]=Instagram+URL&filterByFormula=AND({Instagram+URL},{Status}="live")&sort[0][field]=Post+date&sort[0][direction]=desc'
   );
@@ -242,6 +244,8 @@ export const getNewsItems = async (
 export const getMapPois = async (baseUrl?: string) => {
   let combinedData: AirtablePoiRecord[] = [];
   let hasOffset;
+
+  console.log(`Trying to get Map POIs...`);
 
   const apiParameters = encodeURI(
     'fields[]=Short+description&fields[]=Start+Date&fields[]=End+Date&fields[]=Status&fields[]=Kind&fields[]=Public+Photos&fields[]=Geo+cash+(Event)&filterByFormula=AND({Short+description},{Status}="6+-+DONE",OR({Start+Date},{End+Date}),{Public+Photos})'
