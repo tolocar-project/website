@@ -12,6 +12,7 @@ interface Props {
   newTab?: boolean;
   buttonClasses?: string;
   centerImage?: string;
+  centerImageClasses?: string;
   children?: React.ReactNode;
 }
 
@@ -27,6 +28,7 @@ const WideCard: React.FC<Props> = ({
   buttonClasses,
   centerImage,
   children,
+  centerImageClasses
 }) => {
   const bgMapping = [
     "bg-illustration-4-wide mask-illustration-vertical md:mask-illustration-horizontal bg-no-repeat bg-[position:right_-80px_top_-40px] mt-24 md:mt-0",
@@ -44,13 +46,13 @@ const WideCard: React.FC<Props> = ({
       <div className="bg-tolo-green relative overflow-hidden z-10">
         {(centerImage || title || text) && (
           <div
-            className={`p-5 lg:p-10 text-white absolute h-full flex flex-col gap-4 lg:gap-6 z-20 ${
+            className={`text-white absolute h-full flex flex-col gap-4 lg:gap-6 z-20 ${
               centerImage
                 ? "items-center justify-center w-full"
-                : "items-start justify-start md:w-[65%]"
+                : "items-start justify-start md:w-[65%] p-5 lg:p-10"
             }`}
           >
-            {centerImage && <img src={centerImage} />}
+            {centerImage && <img src={centerImage} className={centerImageClasses} />}
             {title && (
               <h1 className="font-semibold text-2xl leading-7 md:text-[40px] md:leading-[48px] font-aktiv">
                 {title}

@@ -3,9 +3,9 @@ export interface INewsItem {
   image?: string;
   imageFilename?: string;
   target: string;
-  instagram?: boolean;
+  newTab?: boolean;
   title?: string;
   description: string;
   order?: number;
-  green?: boolean;
+  type?: "instagram" | "cta" | "fullImage";
 }

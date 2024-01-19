@@ -1,0 +1,137 @@
+---
+layout: "@layouts/AwardsLayout.astro"
+title: "How to Tolocar: Playbook for Mobile Makerspaces"
+footerGrey: false
+metaImage: images/playbook/og_playbook.jpg
+metaDescription: "How to Tolocar: With this playbook, we share our insights from the Tolocar project, and the diverse possibilities and applications of mobile makerspaces in Ukraine since May 2022."
+---
+
+import WideCard from "@components/WideCard";
+import {
+  HeadlineUnderlined,
+  TextBlock,
+  ButtonLink,
+  InfoItem,
+} from "@components";
+import LinkNewTab from "@components/LinkNewTab.astro"
+import Lightbox from "@components/Lightbox.astro"
+import CommonUtils from "@util/CommonUtils";
+export const baseUrl = CommonUtils.getBaseUrl(false);
+
+<WideCard
+  bg={3}
+  className="mt-20 md:mt-32 !px-0"
+  centerImage="images/playbook/playbook.svg"
+  centerImageClasses="w-full relative md:-top-32"
+/>
+<div class="bg-neutral-50 w-full -mt-48 pt-48">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 mt-8 mb-20 md:mt-20 bg-neutral-50 lg:!px-0">
+    <HeadlineUnderlined variant={11} className="py-0 md:pt-10 md:pb-8 col-span-5">
+      How to Tolocar: Our Playbook for Mobile Makerspaces
+    </HeadlineUnderlined>
+    <TextBlock className="col-span-6">
+      **Toloka is a traditional way of showing solidarity through the provision of physical support in Ukraine.** With that in mind, German and Ukrainian partners with support from the Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) co-created the Tolocar project just a few weeks after the start of the full-scale Russian invasion of Ukraine. 
+
+      The goal of the project is to support both the emergency relief activities, and the development of a participatory innovation ecosystem for the socio-economic recovery of Ukraine.
+
+      With this playbook, we showcase different interpretations of what mobile makerspaces are, share use cases and equipment lists, and introduce the different qualities of our team which have been essential to the successful implementation of the project.
+    </TextBlock>
+  </div>
+</div>
+
+
+<div class="container-width grid md:grid-cols-12 p-0 md:pt-24">
+  <HeadlineUnderlined large variant={12} className="pt-10 pb-8 sm:py-0 md:col-span-5 mb-10">Read the Playbook</HeadlineUnderlined>
+  <object type="application/pdf" data={baseUrl + "/playbook/HowToTolocar_Playbook_EN_ES.pdf"} width="100%" height="800px" className="w-full col-span-1 md:col-span-12 h-96 md:h-[800px]"></object>
+</div>
+
+<div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 py-8 md:py-24">
+  <div class="col-span-1 md:col-span-12">
+    <h2
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >
+      Make Things that Make Sense. Anywhere.
+    </h2>
+  </div>
+  <TextBlock className="col-span-1 md:col-span-5">
+    Connected to the global maker community, Tolocars create flexible and temporary production systems at partner organization locations. This innovative approach enables on-site distributed manufacturing, providing customized solutions where they are needed most.
+
+    Distributed manufacturing enables smaller-scale production much closer to the end-user, reducing costs, lead times, and environmental impact.
+  </TextBlock>
+  <div className="col-span-1 md:col-span-5">
+    <TextBlock>
+      The playbook reflects the iterative and pluralistic approach of this unprecedented project, and aims to spark conversations with others who are interested in the topic. Hosted on Appropedia, the sustainability wiki, the playbook in its virtual form is a living document. Please join the conversation on Appropedia!
+    </TextBlock>
+    <ButtonLink
+      target={"https://www.appropedia.org/Tolocar_Playbook"}
+      className={"mt-8"}
+      caption={"Playbook on Appropedia"}
+      variant={"dark"}
+      newTab={true}
+    />
+  </div>
+</div>
+
+<div class="bg-tolo-green w-full text-white">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-x-16 gap-y-4 md:gap-y-24 py-8 md:py-24">
+    <div class="col-span-1 md:col-span-5 flex items-center justify-center">
+      <Lightbox image="images/playbook/tolocar_map_en.jpg" path="/en/playbook/" alt="Playbook Map" />
+    </div>
+    <div class="col-span-1 md:col-span-7 font-semibold font-aktiv text-2xl">
+      <p class="mb-8">With a fleet of mobile makerspaces at its core, Tolocar
+        brings together experts from the fields of making, distributed
+        manufacturing, and urban planning with civil society
+        organizations in Ukraine to:</p>
+    </div>
+    <div class="col-span-1 md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <InfoItem
+        description="Harness Ukraine's digital innovation capacity to meet urgent humanitarian needs"
+        icon="lightbulb"
+        className="col-span-1"
+      />
+      <InfoItem
+        description="Support both new and existing stationary makerspaces"
+        icon="truck"
+        className="col-span-1"
+      />
+      <InfoItem
+        description="Expand the reach of Ukrainian makers by connecting them to national, regional, and global maker networks"
+        icon="users"
+        className="col-span-1"
+      />
+      <InfoItem
+        description="Strengthen decentralized production systems at partner locations, such as displaced businesses, makerspaces or community workshops"
+        icon="gear"
+        className="col-span-1"
+      />
+      <InfoItem
+        description="Develop the capacities of Ukrainian makers and makerspace managers"
+        icon="screwdriver-wrench"
+        className="col-span-1"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="bg-neutral-50 w-full">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 py-8 md:py-24 gap-8">
+    <TextBlock className="col-span-1 md:col-span-4">
+      ### Appropedia
+      Appropedia is a wiki-based website that helps people share information and collaborate on projects to address poverty, international development, and environmental sustainability.
+      <br/><LinkNewTab caption="www.appropedia.org" href="https://www.appropedia.org" />
+    </TextBlock>
+    <TextBlock className="col-span-1 md:col-span-4">
+      ### Maker Academy
+      With the Maker Academy, we are crafting a project-based curriculum in Ukrainian centered around the construction of open source computer-controlled machines, ranging in complexity and capabilities.
+      <br/><LinkNewTab caption="tolocar.org/en/academy" href="https://tolocar.org/en/academy" />
+    </TextBlock>
+    <TextBlock className="col-span-1 md:col-span-4">
+      ### Support & Contact
+      One of our main goals is to connect the global maker community with local makers and initivatives in order to support and strengthen them. 
+
+      For more information, please contact us at 
+
+      info@tolocar.org
+    </TextBlock>
+  </div>
+</div>

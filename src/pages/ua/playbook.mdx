@@ -1,0 +1,136 @@
+---
+layout: "@layouts/AwardsLayout.astro"
+title: "ЯК ТОЛОКАРИТИ: Практичний посібник для мобільних мейкерспейсів"
+footerGrey: false
+metaImage: images/playbook/og_playbook.jpg
+metaDescription: "ЯК ТОЛОКАРИТИ: У цьому Практичний посібник ми ділимося нашими усвідомленнями, здобутими в межах проєкту «Tolocar», а також різноманітними можливостями та варіантами застосування мобільних мейкерспейсів в Україні з травня 2022 року."
+---
+
+import WideCard from "@components/WideCard";
+import {
+  HeadlineUnderlined,
+  TextBlock,
+  ButtonLink,
+  InfoItem,
+} from "@components";
+import LinkNewTab from "@components/LinkNewTab.astro"
+import Lightbox from "@components/Lightbox.astro"
+import CommonUtils from "@util/CommonUtils";
+export const baseUrl = CommonUtils.getBaseUrl(false);
+
+
+<WideCard
+  bg={3}
+  className="mt-20 md:mt-32 !px-0"
+  centerImage="images/playbook/playbook.svg"
+  centerImageClasses="w-full relative md:-top-32"
+/>
+<div class="bg-neutral-50 w-full -mt-48 pt-48">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 mt-8 mb-20 md:mt-20 bg-neutral-50 lg:!px-0">
+    <HeadlineUnderlined variant={11} className="py-0 md:pt-10 md:pb-8 col-span-5">
+      ЯК ТОЛОКАРИТИ. Практичний посібник для мобільних мейкерспейсів
+    </HeadlineUnderlined>
+    <TextBlock className="col-span-6">
+      **Толока — це традиційний спосіб виявлення солідарності в Україні через фізичну допомогу.** Зважаючи на це, за підтримки Німецького товариства з міжнародного співробітництва (GIZ) німецькі й українські партнери разом створили проєкт «Tolocar» всього через кілька тижнів після початку повномасштабного вторгнення Росії* в Україну.
+
+      Мета проєкту — підтри- мати як заходи з надання екстреної допомоги, так і розвиток інновацій-ної учасницької екосистеми для соціально-економічного відновлення України.
+
+      **У цьому Практичний посібник** ми показуємо різне розуміння того, чим є мобільні мейкер- спейси, ділимося випадками використання та списками обладнання, а також представляємо багатогранні якості нашої команди, які стали визначальними для успішної реалізації проєкту.
+    </TextBlock>
+  </div>
+</div>
+
+<div class="container-width grid md:grid-cols-12 p-0 md:pt-24">
+  <HeadlineUnderlined large variant={12} className="pt-10 pb-8 sm:py-0 md:col-span-8 mb-10">Читати практичний посібник</HeadlineUnderlined>
+  <object type="application/pdf" data={baseUrl + "/playbook/HowToTolocar_Playbook_UA_ES.pdf"} width="100%" height="800px" className="w-full col-span-1 md:col-span-12 h-96 md:h-[800px]"></object>
+</div>
+
+<div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 py-8 md:py-24">
+  <div class="col-span-1 md:col-span-12">
+    <h2
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >
+      Робити те, що має сенс. Будь-де.
+    </h2>
+  </div>
+  <TextBlock className="col-span-1 md:col-span-5">
+    Завдяки зв'язкам з глобальною спільнотою виробників, Tolocars створює гнучкі та тимчасові виробничі системи в місцях розташування організацій-партнерів. Цей інноваційний підхід уможливлює розподілене виробництво на місці, надаючи індивідуальні рішення там, де вони найбільше потрібні.
+
+    Розподілене виробництво дає змогу розмістити дрібномасштабне виробництво набагато ближче до кінцевого споживача, зменшуючи витрати, час виконання замовлення та вплив на навколишнє середовище.
+  </TextBlock>
+  <div className="col-span-1 md:col-span-5">
+    <TextBlock>
+      Практичний посібник відображає ітеративний і плюралістичний підхід цього безпрецедентного проекту і має на меті викликати дискусії з іншими, хто цікавиться цією темою. Розміщений на Appropedia, вікі про сталий розвиток, ігровий посібник у своїй віртуальній формі є живим документом. Будь ласка, долучайтеся до обговорення на Appropedia!
+    </TextBlock>
+    <ButtonLink
+      target={"https://www.appropedia.org/Tolocar_Playbook"}
+      className={"mt-8"}
+      caption={"Playbook на Appropedia"}
+      variant={"dark"}
+      newTab={true}
+    />
+  </div>
+</div>
+
+<div class="bg-tolo-green w-full text-white">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-x-16 gap-y-4 md:gap-y-24 py-8 md:py-24">
+    <div class="col-span-1 md:col-span-5 flex items-center justify-center">
+      <Lightbox image="images/playbook/tolocar_map_ua.png" path="/ua/playbook/" alt="Playbook Map" />
+    </div>
+    <div class="col-span-1 md:col-span-7 font-semibold font-aktiv text-2xl">
+      <p class="mb-8">Проєкт «Tolocar» розгортається навколо парку мобільних майстерень — мейкерспейсів — та об’єднує фахівців у сфері мейкінгу, розподіленого виробництва та планування міського розвитку із організаціями грома-дянського суспільства України для:</p>
+    </div>
+    <div class="col-span-1 md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <InfoItem
+        description="використання українського потенціалу цифрових інновацій для забезпечення нагальних гуманітарних потреб"
+        icon="lightbulb"
+        className="col-span-1"
+      />
+      <InfoItem
+        description="підтримки як нових, так і наявних стаціонарних мейкерспейсів"
+        icon="truck"
+        className="col-span-1"
+      />
+      <InfoItem
+        description="розширення горизонту українських мейкерів через встановлення зв’язків із національними, регіональними та глобальними мережами мейкерів"
+        icon="users"
+        className="col-span-1"
+      />
+      <InfoItem
+        description="зміцнення децентралізованих систем виробництва на партнерських локаціях, як-от переміщені бізнеси, мейкерспейси або громадські майстерні"
+        icon="gear"
+        className="col-span-1"
+      />
+      <InfoItem
+        description="розвитку спроможності українських мейкерів і менеджерів майстерень"
+        icon="screwdriver-wrench"
+        className="col-span-1"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="bg-neutral-50 w-full">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 py-8 md:py-24 gap-8">
+    <TextBlock className="col-span-1 md:col-span-4">
+    ### Appropedia
+    Appropedia - це вікі-сайт, який допомагає людям обмінюватися інформацією та співпрацювати над проектами, спрямованими на подолання бідності, міжнародний розвиток та екологічну стійкість.
+    <br/>
+    <LinkNewTab caption="www.appropedia.org" href="https://www.appropedia.org" />
+    </TextBlock>
+    <TextBlock className="col-span-1 md:col-span-4">
+      ### Maker Academy
+      Разом з Академією мейкерства ми розробляємо проєктну навчальну програму українською мовою, яка зосереджена на створенні комп'ютерно-керованих машин з відкритим вихідним кодом, різних за складністю та можливостями. 
+      <br/>
+      <LinkNewTab caption="tolocar.org/ua/academy" href="/ua/academy" />
+    </TextBlock>
+    <TextBlock className="col-span-1 md:col-span-4">
+      ### Support & Contact
+      Одна з наших головних цілей - об'єднати глобальну спільноту мейкерів з локальними мейкерами та ініціативами, щоб підтримати та зміцнити їх.  
+
+      Для отримання додаткової інформації, будь ласка, зв'яжіться з нами за адресою  
+
+      info@tolocar.org
+    </TextBlock>
+  </div>
+</div>

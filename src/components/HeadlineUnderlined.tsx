@@ -9,6 +9,7 @@ import Underline7Svg from "@assets/tolocar_underline_7.svg";
 import Underline8Svg from "@assets/tolocar_underline_8.svg";
 import Underline9Svg from "@assets/tolocar_underline_9.svg";
 import Underline10Svg from "@assets/tolocar_underline_10.svg";
+import Underline11Svg from "@assets/tolocar_underline_11.svg";
 import CircularUnderlineSvg from "@assets/tolocar_circular_underline.svg";
 
 interface Props {
@@ -36,6 +37,7 @@ const underlineSvgAndClassesMapping = [
   },
   { component: Underline9Svg, classes: "bottom-0" },
   { component: Underline10Svg, classes: "top-6 w-full" },
+  { component: Underline11Svg, classes: "top-10 w-full" },
 ];
 
 const HeadlineUnderlined: React.FC<Props> = ({
