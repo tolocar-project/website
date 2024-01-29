@@ -5,6 +5,7 @@ import CommonUtils from "@util/CommonUtils";
 import LanguageUtils from "@util/LanguageUtils";
 import type { IMenuMarkdown } from "@interfaces/IMenu";
 import "../../base.css";
+import LocalFont from "@components/LocalFont.astro";
 
 type Props = MarkdownLayoutProps<{
   title: string;
@@ -83,6 +84,7 @@ const META_CANONICAL_URL = new URL(Astro.url.pathname, Astro.site);
       )
     }
     <title>{META_TITLE}</title>
+    <LocalFont />
   </head>
   <body class="w-full font-inter antialiased h-full tracking-[-0.02em]">
     <main class="flex flex-col items-center h-full overflow-x-hidden">

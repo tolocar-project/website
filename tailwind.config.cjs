@@ -60,8 +60,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      aktiv: ["aktiv-grotesk-extended", "Arial", "sans-serif"],
-      inter: ["Inter", "sans-serif"],
+      aktiv: ["var(--font-aktiv)", "Arial", "sans-serif"],
+      inter: ["var(--font-inter)", "sans-serif"],
     },
   },
   plugins: [

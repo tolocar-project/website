@@ -1,0 +1,72 @@
+---
+import { join } from "node:path";
+import { AstroFont } from "astro-font";
+
+const makeFontPath = (name: string) =>
+  join(process.cwd(), "public", "fonts", name);
+---
+
+<head>
+  <AstroFont
+    config={[
+      {
+        name: "Inter",
+        src: [
+          {
+            style: "normal",
+            weight: "400",
+            path: makeFontPath("inter-v13-cyrillic_latin-regular.woff2"),
+          },
+          {
+            style: "normal",
+            weight: "500",
+            path: makeFontPath("inter-v13-cyrillic_latin-500.woff2"),
+          },
+          {
+            style: "normal",
+            weight: "600",
+            path: makeFontPath("inter-v13-cyrillic_latin-600.woff2"),
+          },
+          {
+            style: "normal",
+            weight: "700",
+            path: makeFontPath("inter-v13-cyrillic_latin-700.woff2"),
+          },
+        ],
+        preload: false,
+        display: "swap",
+        fallback: "sans-serif",
+        cssVariable: "font-inter",
+      },
+      {
+        name: "aktiv-grotesk-extended",
+        src: [
+          {
+            style: "normal",
+            weight: "700",
+            path: makeFontPath("aktiv_grotesk_ex_700.woff2"),
+          },
+          {
+            style: "normal",
+            weight: "600",
+            path: makeFontPath("aktiv_grotesk_ex_600.woff2"),
+          },
+          {
+            style: "normal",
+            weight: "500",
+            path: makeFontPath("aktiv_grotesk_ex_500.woff2"),
+          },
+          {
+            style: "normal",
+            weight: "400",
+            path: makeFontPath("aktiv_grotesk_ex_400.woff2"),
+          },
+        ],
+        preload: false,
+        display: "swap",
+        fallback: "sans-serif",
+        cssVariable: "font-aktiv",
+      },
+    ]}
+  />
+</head>
