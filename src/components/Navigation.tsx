@@ -109,7 +109,7 @@ const Navigation: React.FC<Props> = ({
             />
           </ul>
         </nav>
-        <div className="flex items-center md:hidden bg-white box-border z-20">
+        <div className="flex items-center md:hidden bg-white box-border z-20 px-1">
           {showOverlayMenu && (
             <LanguageSwitcher
               path={path}
