@@ -84,8 +84,8 @@ const META_CANONICAL_URL = new URL(Astro.url.pathname, Astro.site);
     }
     <title>{META_TITLE}</title>
   </head>
-  <body class="w-full font-inter antialiased h-full tracking-[-0.02em]">
-    <main class="flex flex-col items-center h-full overflow-x-hidden">
+  <body class="w-full font-inter antialiased h-full tracking-[-0.02em] overflow-x-hidden">
+    <main class="flex flex-col items-center h-full">
       <Navigation
         baseUrl={baseUrl}
         path={path}
