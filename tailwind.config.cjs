@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       transitionProperty: {
-        'height': 'height',
+        height: "height",
       },
       opacity: {
         15: ".15",
@@ -63,8 +63,10 @@ module.exports = {
       aktiv: ["aktiv-grotesk-extended", "Arial", "sans-serif"],
       inter: ["Inter", "sans-serif"],
     },
+    content: {
+      plus: 'url("/images/award/plus.svg")',
+      minus: 'url("/images/award/minus.svg")',
+    },
   },
-  plugins: [
-    require("@tailwindcss/typography")
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };
