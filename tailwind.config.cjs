@@ -64,8 +64,10 @@ module.exports = {
       inter: ["Inter", "sans-serif"],
     },
     content: {
-      plus: 'url("/images/award/plus.svg")',
-      minus: 'url("/images/award/minus.svg")',
+      "plus-green": 'url("/images/award/plus_green.svg")',
+      "minus-green": 'url("/images/award/minus_green.svg")',
+      "plus-white": 'url("/images/award/plus_white.svg")',
+      "minus-white": 'url("/images/award/minus_white.svg")',
     },
   },
   plugins: [require("@tailwindcss/typography")],
