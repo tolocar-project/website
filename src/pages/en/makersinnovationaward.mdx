@@ -8,12 +8,11 @@ metaDescription: "Empowering Ukrainian Maker Community: Where Networking Meets F
 
 import WideCard from "@components/WideCard";
 import {
+  Accordion,
   HeadlineUnderlined,
   TextBlock,
-  InfoItem,
-  ButtonLink
+  InfoItem
 } from "@components";
-
 
 <WideCard
     bg={3}
@@ -35,7 +34,7 @@ import {
   </div>
 </div>
 
-<div class="container-width grid grid-cols-12 p-0 md:py-24">
+<div class="container-width grid grid-cols-12 py-8 md:py-24">
   <img src="images/award/award-timeline.svg" className="col-span-12 w-full" />
 </div>
 
@@ -43,32 +42,26 @@ import {
   <div class="col-span-1 md:col-span-12">
     <h2
       class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
-    >Virtual training sessions</h2>
+    >Up next</h2>
   </div>
   <TextBlock className="col-span-1 md:col-span-5">
-    **Proposal and budget writing**<br />
-    In the first session on January 29th at 6pm our trainer will walk you through the application form focusing on proposal and budget writing. 
+    **Pitch Event on March 1st**<br />
+    After the submission of the project ideas for social cohesion and reconstruction in Ukraine, the jury members with an extensive expertise will pre-select 15 candidates with the most impressive project ideas in the maker scene for the Pitch event on March 1st. Exactly then, eight winners who will get 50.000 Euro each will be announced! 
   </TextBlock>
-  <div className="col-span-1 md:col-span-5">
-    <TextBlock>
-      **Q&A session with the MIA team**<br />
-    In the second session on February, 2nd at 6pm the MIA team will be there to answer all of your questions. 
-    </TextBlock>
-  </div>
 </div>
 
 <div class="bg-tolo-green w-full text-white">
   <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-x-16 gap-y-2 md:gap-y-24 py-8 md:py-24">
     <div class="col-span-1 md:col-span-5 flex items-center justify-center">
-      <img src="images/award/submit-ideas.svg" className="col-span-12 w-full" />
+      <img src="images/award/selection-criteria.svg" className="col-span-12 w-full" />
     </div>
     <div class="col-span-1 md:col-span-7 font-semibold font-aktiv text-2xl flex flex-col gap-4">
-      <p>Application will close on February 11th, 4 pm (EET).</p>
+      <p>Application has been closed on February 11th, 4 pm (EET).</p>
       <p>Please find the terms and conditions <a className="underline" href="https://drive.google.com/file/d/1wvyB3S_sJYxGaDQV2xDz-iIhNXJN0NtI/view" target="_blank">here</a>.</p>
       <p>Please find the FAQ section <a className="underline" href="https://thoughtful-hiss-0d9.notion.site/MIA-FAQ-05fbb555509146a189aa56767fd50b70" target="_blank">here</a>.</p>
       <p>Please find the detailed selection criteria <a className="underline" href="https://drive.google.com/file/d/1zdYGhu72ue7r5jedIwzZ42C8zYExf6zj/view?usp=sharing" target="_blank">here</a> as well as an overview below:</p>
     </div>
-    <div class="col-span-1 md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="col-span-1 my-6 md:my-0 md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
       <InfoItem
         title="Social Impact"
         description="How big is the social impact the idea can create?"
@@ -105,9 +98,31 @@ import {
         icon="users"
         className="col-span-1"
       />
-      <div class="md:col-start-2 col-span-1">
+      {/* <div class="md:col-start-2 col-span-1">
         <ButtonLink className="w-full" caption="Apply now" target="https://docs.google.com/forms/d/e/1FAIpQLSevNCKvz3f-L2_5Ci8ctaiPSAy5fNCfIeB8DptEHZxh_xPZcw/viewform" variant="light" newTab />
-      </div>
+      </div> */}
+
+    </div>
+    <div class="col-span-1 md:col-span-4 flex flex-col gap-4">
+      <h2 class="text-white font-aktiv font-semibold text-3xl md:text-5xl leading-10">Jury members</h2>
+      <TextBlock className="!text-white">The role of a Jury Member for MIA is pivotal in the selection process and includes the thorough review and evaluation of applications submitted by participants. From all applications, the 15 most promising teams will be selected and have an opportunity to present their ideas concisely and convince the jury at the Pitch Event on March 1st. The 5-member expert jury panel will select eight teams as the winners of the award amounting to EUR 50,000 each.</TextBlock>
+    </div>
+    <div class="mt-6 md:mt-0 col-span-1 md:col-start-6 md:col-span-7 flex flex-col divide-y divide-neutral-200 border-y border-neutral-200">
+      <Accordion title="Valeriya Ionan" subtitle="Deputy Minister for Eurointegration" image="images/award/jury/Valeriya_Ionan.png" name="jury" light>
+        The head of the jury of Makers Innovation Award - *Valeriya Ionan*, the Deputy Minister for Eurointegration at the Ministry of Digital Transformation of Ukraine
+      </Accordion>
+      <Accordion title="Alina Nosenko" subtitle="Head of strategic partnerships at PHINEO" image="images/award/jury/Alina_Nosenko.png" name="jury" light>
+        *Alina Nosenko* is the head of strategic partnerships at PHINEO. Alina has more than 12 years of experience in organizational development and strategic partnerships, she is a systemic business coach, dedicated to fostering holistic growth and effectiveness within NGOs.
+      </Accordion>
+      <Accordion title="Yevheniia Talinovska" subtitle="Co-founder of NGO Zgraya" image="images/award/jury/Yevheniia_Talinovska.png" name="jury" light>
+        *Yevheniia Talinovska* is a co-founder of the NGO-volunteer headquarters (public organization) Zgraya. Since 2014, "Zgraya" has been providing the military with all necessary assistance. It has also opened a tailor shop for sewing tactical gear and conducts a physical rehabilitation program for soldiers after injuries.
+      </Accordion>
+      <Accordion title="Volodymyr Orlov" subtitle="Global Impact Ambassador and adjunct professor at KMBS" image="images/award/jury/Volodymyr_Orlov.png" name="jury" light>
+        *Volodymyr Orlov* is a Global Impact Ambassador, regional manager for Innovation and Digital Transformation at Cisco, adjunct professor at KMBS, CCIE#11791 Certified Networking Expert, director of Cisco Azerbaijan 2013-2021 
+      </Accordion>
+      <Accordion title="Roman Zinchenko" subtitle="Co-founder of Greencubator" image="images/award/jury/Roman_Zinchenko.png" name="jury" light>
+        *Roman Zinchenko* has numerous innovation awards and is the co-founder of Greencubator that became a meeting point for Ukraine's sustainable energy community, a launchpad for new green ventures, a social innovations accelerator, and a manager of grant programs for climate-positive SMEs 🌳 
+      </Accordion>
     </div>
   </div>
 </div>
@@ -119,13 +134,42 @@ import {
       On January 19th the idea cultivation workshop took place in Kyiv where 50+ inventors not only celebrated creativity and innovation but also nurtured the spirit of collaboration and social impact. Together, we aimed to transform visionary ideas into concrete solutions that will contribute to social cohesion and the recovery of Ukraine.
     </TextBlock>
     <TextBlock className="col-span-1 md:col-span-4">
-      ### Pitching event: Selection of fundable ideas
-      The jury selection event is a pivotal stage in our program where the preselected participants pitch their projects to a panel of experienced judges. Based on the selection criteria, the jury will choose the winners who will receive **EUR 50,000** in funding for project implementation and further support through 3 mentoring sessions.
+      ### Online sessions
+      On January 29th and February 2nd, the MIA team and trainer Serhiy Korneliuk conducted two online sessions. The first session focused on improving participants' skills in proposal writing and budgeting. During the Q&A session, participants had the opportunity to ask questions and receive an overview of the main concerns to address before submitting their applications.
     </TextBlock>
     <TextBlock className="col-span-1 md:col-span-4">
       ### Mentoring & Support
       In the following three mentoring sessions, experienced mentors will support the selected individuals/organizations according to their specific needs. The mentors will align their areas of expertise with the knowledge gaps of the participants.
     </TextBlock>
+  </div>
+</div>
+
+<div class="bg-neutral-50 w-full">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 py-8 md:py-24 gap-8">
+    <div class="col-span-1 md:col-span-4 flex flex-col gap-4">
+      <h2 class="text-tolo-black font-aktiv font-semibold text-3xl md:text-5xl leading-10">Facilitators, Moderators and Trainers</h2>
+      <TextBlock>The Idea Cultivation Workshop that took place in a hybrid format on January 19th focused on idea development and refinement enhancing networking skills and led participants to analyse the current environement in which maker spaces develop as well as to find own solutions to identified challenges.</TextBlock>
+    </div>
+    <div class="col-span-1 mt-6 md:mt-0 md:col-start-6 md:col-span-7 flex flex-col divide-y divide-neutral-200 border-y border-neutral-200">
+      <Accordion title="Dzvenyslava Novakivska" subtitle="Facilitator" image="images/award/trainers/Dzvenyslava_Novakivska.png" name="jury">
+        *Dzvenyslava Novakivska*, an expert in change marketing and transformational strategic sessions for government and public sectors. She's a coach for change leaders and their teams. Dzvenyslava is a co-founder of the Ukrainian U hub and UA IDG Network.
+      </Accordion>
+      <Accordion title="Olena Kukhar" subtitle="Co-facilitator" image="images/award/trainers/Olena_Kukhar.png" name="jury">
+        *Olena Kukhar* is a business mediator (KMBS) and consultant specializing in internal team culture and conflict transformations. With over 13 years of experience in process management and human change, she brings expertise in team and project management within human capital. Olena is also a honoured member of the National Association of Mediators of Ukraine.
+      </Accordion>
+      <Accordion title="Ksenia Yemshyna" subtitle="Co-facilitator" image="images/award/trainers/Ksenia_Yemshyna.png" name="jury">
+        *Ksenia Yemshyna* is a facilitator, team integrator, and designer of educational experiences. She is a trainer for the All-Ukrainian program "Youth Worker" by the Ministry of Youth and Sports. She teaches the course "Digital Tools for NGOs" in the master's program "Management of Non-profit Organizations" at the Ukrainian Catholic University. Ksenia is a practitioner of GamEduHacking, reshaping the learning process through innovative game technologies.
+      </Accordion>
+      <Accordion title="Anastasia Sylenok" subtitle="Moderator" image="images/award/trainers/Anastasia_Sylenok.png" name="jury">
+        *Anastasia Sylenok* is a co-founder of Digitizing.Space, WTECH ambassador, ecosystem builder, community architect, change management expert, launcher of impact-oriented projects. Startup mentor and advisor.
+        Thanks to Anastasia’s expertise in project/process management and impact oriented projects, she organized and conducted more than 500 business-oriented events!
+      </Accordion>
+      <Accordion title="Serhiy Kornyliuk" subtitle="Trainer" image="images/award/trainers/Serhiy_Kornyliuk.png" name="jury">
+        *Serhiy Kornyliuk* is a consultant with more than 12 years of consulting and coaching experience, specializing in the development of organizational strategies, management projects, and local economic development.
+        
+        Serhiy successfully helped enterprises, non-government organizations, and city councils attract grant financing for implementing dozens of socially important projects. Besides that, Serhiy participated many times as an expert on the jury in selecting winners of grant competitions.
+      </Accordion>
+    </div>
   </div>
 </div>
 

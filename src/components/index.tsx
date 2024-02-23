@@ -1,3 +1,4 @@
+export { default as Accordion } from "@components/Accordion";
 export { default as TextBlock } from "@components/TextBlock";
 export { default as Card } from "@components/Card";
 export { default as HeaderLogo } from "@components/HeaderLogo";
