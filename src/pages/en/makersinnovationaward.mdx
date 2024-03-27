@@ -13,7 +13,8 @@ import {
   TextBlock,
   InfoItem,
   ContentSection,
-  ImageCard
+  ImageCard,
+  InterventionImageCarousel
 } from "@components";
 
 <WideCard
@@ -66,6 +67,14 @@ import {
   </TextBlock>
 </div>
 
+<div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 py-8 md:py-24">
+  <div class="col-span-1 md:col-span-12">
+    <h2
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >Meet the Winners of the 2024 Makers Innovation Award</h2>
+  </div>
+</div>
+
 <ContentSection variant="dark" className="z-10">
   <div class="container-width grid grid-cols-3 gap-6 -mt-20 pb-8">
     <ImageCard aspect="2/1" title="Molodozhni Vitryla" img="images/award/winners/molodozhni-vitryla.jpg" imgClassName="object-top">The project “Vitryla Maker Space” aims to increase the interest of young people in technical sciences, to link attention to the local maker community and promote the development of entrepreneurship and innovation. </ImageCard>
@@ -76,9 +85,20 @@ import {
     <ImageCard aspect="2/1" title="Molod' Online" img="images/award/winners/molod-online.jpg" imgClassName="object-top">The project “Skin Open Source (SOS)” aims to cheapen and disseminate biotechnologies, applying the principles of “do-it-yourself biology” and “citizen science”, especially attracting young people to the DIY biotech movement.</ImageCard>
     <ImageCard aspect="2/1" title="HackLab" img="images/award/winners/hacklab.jpg" imgClassName="object-top">The goal of the project “HackLab 2.0” is to create an inclusive workshop where creative enthusiasts developing startups have a space for experiments and rapid prototyping and can quickly acquire practical skills for working with modern equipment.</ImageCard>
     <ImageCard aspect="2/1" title="Kolo" img="images/award/winners/kolo.jpg" imgClassName="object-top">The aim of the project “Galician Makers” is to set up two workshops based on Fablab approaches, where experience and expertise in educational institutions through training and workshops teach project thinking and project skills as well as engineering thinking.</ImageCard>
+  </div>
+  <div class="container-width grid grid-cols-3 gap-6 pb-8">
+    <h2 class="text-white text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold">Finalists</h2>
+  </div>
+  <div class="container-width grid grid-cols-3 gap-6 pb-8">
     <ImageCard aspect="2/1" title="NGO Tourist Association Hutsuliya" img="images/award/winners/hutsuliya.jpg" imgClassName="object-top">The aim of the project “Crafts of unforgotten ancestors” is to set up an innovative and educational space for children and teenagers, to increase their interest in the preservation, modernization and popularization of local crafts, which will be combined with modern technologies.</ImageCard>
     <ImageCard aspect="2/1" title="Pure hearts Kalush" img="images/award/winners/pure-hearts-kalush.jpg" imgClassName="object-top">The goal of the project “Technospace: cyborg laboratory” is to create a safe, inclusive and accessible platform for the development, socialization and adaptation of children, veterans, persons with disabilities, IDPs and other persons in need of retraining or training by creating an innovative and technological space with 3D printers and radio equipment.</ImageCard>
     <ImageCard aspect="2/1" title="Charity Foundation «Soloma Cats»" img="images/award/winners/soloma-cats.jpg" imgClassName="object-top">The project Kickstart FabAcademy Ukraine aims to implement in four Kyiv universities a recognized course from MIT aimed at developing technical and innovative skills among students through forming a pool of qualified and certified instructors. In the long term, the full integration of Fab Academy into the educational programs of several Ukrainian universities.</ImageCard>
+    </div>
+</ContentSection>
+
+<ContentSection variant="dark" className="pb-8">
+  <div class="container-width grid grid-cols-12">
+    <InterventionImageCarousel dark className="col-start-2 col-span-10" images={["https://picsum.photos/id/237/800/600", "https://picsum.photos/id/123/800/600", "https://picsum.photos/id/12/800/600"]} client:load/>
   </div>
 </ContentSection>
 

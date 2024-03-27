@@ -5,9 +5,15 @@ import DotIcon from "@assets/dot-icon.svg?react";
 
 interface Props {
   images: Array<string>;
+  className?: string;
+  dark?: boolean;
 }
 
-const InterventionImageCarousel: React.FC<Props> = ({ images }) => {
+const InterventionImageCarousel: React.FC<Props> = ({
+  images,
+  className,
+  dark,
+}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
@@ -45,7 +51,7 @@ const InterventionImageCarousel: React.FC<Props> = ({ images }) => {
   }, [emblaApi, setScrollSnaps, onSelect]);
 
   return (
-    <section className="pt-8 md:pt-11 pb-7 md:pb-4">
+    <section className={`pt-8 md:pt-11 pb-7 md:pb-4 ${className || ""}`}>
       {Boolean(images.length) && (
         <div className="flex flex-col justify-between items-center">
           <div className="overflow-hidden w-full" ref={emblaRef}>
@@ -65,6 +71,7 @@ const InterventionImageCarousel: React.FC<Props> = ({ images }) => {
             <div className="flex">
               {scrollSnaps.map((_, index) => (
                 <DotIndicator
+                  dark={dark}
                   key={index}
                   isActive={index === selectedIndex}
                   onClick={() => scrollTo(index)}
@@ -73,15 +80,18 @@ const InterventionImageCarousel: React.FC<Props> = ({ images }) => {
             </div>
             <div className="flex gap-4">
               <button
-                className={`py-3 rotate-180 transition-colors hover:text-tolo-green disabled:text-neutral-300
-              `}
+                className={`py-3 rotate-180 transition-colors hover:text-tolo-green disabled:text-neutral-300 ${
+                  dark ? "text-white" : "text-black"
+                }`}
                 disabled={!prevBtnEnabled}
                 onClick={scrollPrev}
               >
                 <ArrowIcon className="w-4 h-4" />
               </button>
               <button
-                className={`py-3 transition-colors hover:text-tolo-green disabled:text-neutral-300`}
+                className={`py-3 transition-colors hover:text-tolo-green disabled:text-neutral-300 ${
+                  dark ? "text-white" : "text-black"
+                }`}
                 disabled={!nextBtnEnabled}
                 onClick={scrollNext}
               >
@@ -100,9 +110,11 @@ export default InterventionImageCarousel;
 const DotIndicator = ({
   isActive,
   onClick,
+  dark,
 }: {
   isActive?: boolean;
   onClick?: () => void;
+  dark?: boolean;
 }) => {
   return (
     <div
@@ -110,7 +122,13 @@ const DotIndicator = ({
       onClick={onClick}
     >
       <DotIcon
-        className={`${isActive ? "text-neutral-800" : "text-neutral-300"}`}
+        className={`${
+          isActive
+            ? dark
+              ? "text-white"
+              : "text-neutral-800"
+            : "text-neutral-300"
+        }`}
       />
     </div>
   );
