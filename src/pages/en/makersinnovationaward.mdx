@@ -56,15 +56,16 @@ import {
   <img src="images/award/award-timeline.svg" className="col-span-12 w-full" />
 </div>
 
-<div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 py-8 md:py-24">
-  <div class="col-span-1 md:col-span-12">
+<div class="container-width grid grid-cols-1 lg:grid-cols-12 gap-8 py-8 md:py-24">
+  <div class="col-span-1 lg:col-span-6 flex flex-col gap-8">
     <h2
       class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
     >Up next: Mentoring sessions for winners!</h2>
-  </div>
-  <TextBlock className="col-span-1 md:col-span-6">
+    <TextBlock>
     During the mentoring sessions, experienced mentors will support the prize award winners according to their needs. The mentors will align their areas of expertise to fit the exact needs of the winning projects. 
-  </TextBlock>
+    </TextBlock>
+  </div>
+
 </div>
 
 <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 py-8 md:py-24">
@@ -75,8 +76,8 @@ import {
   </div>
 </div>
 
-<ContentSection variant="dark" className="z-10">
-  <div class="container-width grid grid-cols-3 gap-6 -mt-20 pb-8">
+<ContentSection variant="dark" className="z-10 mt-20 md:mt-0">
+  <div class="container-width grid grid-cols-1 md:grid-cols-3 gap-6 -mt-20 pb-8">
     <ImageCard aspect="2/1" title="Molodozhni Vitryla" img="images/award/winners/molodozhni-vitryla.jpg" imgClassName="object-top">The project “Vitryla Maker Space” aims to increase the interest of young people in technical sciences, to link attention to the local maker community and promote the development of entrepreneurship and innovation. </ImageCard>
     <ImageCard aspect="2/1" title="Noyiv Kurin" img="images/award/winners/noyiv-kurin.jpg" imgClassName="object-top">The project “Filament Production Boost” identified a need for knowledge centers for filament production and its modifications and development of related technologies such as different types of plastic, secondary and primary plastic as well as skills of makers and companies.</ImageCard>
     <ImageCard aspect="2/1" title="It's Craft" img="images/award/winners/its-craft.jpg" imgClassName="object-top">The project “Mythologization and modernization of the Tripillia culture” aims to create a large circle of like-minded people who, through synergies, will implement the idea of a renewed Ukrainian identity based on the Tripillia culture in different ways.</ImageCard>
@@ -89,7 +90,7 @@ import {
   <div class="container-width grid grid-cols-3 gap-6 pb-8">
     <h2 class="text-white text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold">Finalists</h2>
   </div>
-  <div class="container-width grid grid-cols-3 gap-6 pb-8">
+  <div class="container-width grid grid-cols-1 md:grid-cols-3 gap-6 pb-8">
     <ImageCard aspect="2/1" title="NGO Tourist Association Hutsuliya" img="images/award/winners/hutsuliya.jpg" imgClassName="object-top">The aim of the project “Crafts of unforgotten ancestors” is to set up an innovative and educational space for children and teenagers, to increase their interest in the preservation, modernization and popularization of local crafts, which will be combined with modern technologies.</ImageCard>
     <ImageCard aspect="2/1" title="Pure hearts Kalush" img="images/award/winners/pure-hearts-kalush.jpg" imgClassName="object-top">The goal of the project “Technospace: cyborg laboratory” is to create a safe, inclusive and accessible platform for the development, socialization and adaptation of children, veterans, persons with disabilities, IDPs and other persons in need of retraining or training by creating an innovative and technological space with 3D printers and radio equipment.</ImageCard>
     <ImageCard aspect="2/1" title="Charity Foundation «Soloma Cats»" img="images/award/winners/soloma-cats.jpg" imgClassName="object-top">The project Kickstart FabAcademy Ukraine aims to implement in four Kyiv universities a recognized course from MIT aimed at developing technical and innovative skills among students through forming a pool of qualified and certified instructors. In the long term, the full integration of Fab Academy into the educational programs of several Ukrainian universities.</ImageCard>
@@ -98,7 +99,32 @@ import {
 
 <ContentSection variant="dark" className="pb-8">
   <div class="container-width grid grid-cols-12">
-    <InterventionImageCarousel dark className="col-start-2 col-span-10" images={["https://picsum.photos/id/237/800/600", "https://picsum.photos/id/123/800/600", "https://picsum.photos/id/12/800/600"]} client:load/>
+    <InterventionImageCarousel dark className="col-span-12 md:col-start-2 md:col-span-10" images={[
+      "/images/award/gallery/Tolocar_Award_1.jpg",
+      "/images/award/gallery/Tolocar_Award_2.jpg",
+      "/images/award/gallery/Tolocar_Award_3.jpg",
+      "/images/award/gallery/Tolocar_Award_4.jpg",
+      "/images/award/gallery/Tolocar_Award_5.jpg",
+      "/images/award/gallery/Tolocar_Award_6.jpg",
+      "/images/award/gallery/Tolocar_Award_7.jpg",
+      "/images/award/gallery/Tolocar_Award_8.jpg",
+      "/images/award/gallery/Tolocar_Award_9.jpg",
+      "/images/award/gallery/Tolocar_Award_10.jpg",
+      "/images/award/gallery/Tolocar_Award_11.jpg",
+      "/images/award/gallery/Tolocar_Award_12.jpg",
+      "/images/award/gallery/Tolocar_Award_13.jpg",
+      "/images/award/gallery/Tolocar_Award_14.jpg",
+      "/images/award/gallery/Tolocar_Award_15.jpg",
+      "/images/award/gallery/Tolocar_Award_16.jpg",
+      "/images/award/gallery/Tolocar_Award_17.jpg",
+      "/images/award/gallery/Tolocar_Award_18.jpg",
+      "/images/award/gallery/Tolocar_Award_19.jpg",
+      "/images/award/gallery/Tolocar_Award_20.jpg",
+      "/images/award/gallery/Tolocar_Award_21.jpg",
+      "/images/award/gallery/Tolocar_Award_22.jpg",
+      "/images/award/gallery/Tolocar_Award_23.jpg",
+      "/images/award/gallery/Tolocar_Award_24.jpg"
+]} client:load/>
   </div>
 </ContentSection>
 
