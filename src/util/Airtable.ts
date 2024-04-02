@@ -72,11 +72,11 @@ interface AirtablePoiRecord {
 
 interface AirtablePoiFields {
   "Short description"?: string;
-  "End Date"?: string;
+  "End"?: string;
   "Project or Intervention"?: string;
   "Impact reason"?: string;
   Kind?: string;
-  "Start Date"?: string;
+  "Start"?: string;
   "Geo cash (Event)"?: string;
   "Public Photos"?: Array<IImage>;
   Status?: string;
@@ -249,7 +249,7 @@ export const getMapPois = async (baseUrl?: string) => {
   console.log(`Trying to get Map POIs...`);
 
   const apiParameters = encodeURI(
-    'fields[]=Short+description&fields[]=Start+Date&fields[]=End+Date&fields[]=Status&fields[]=Kind&fields[]=Public+Photos&fields[]=Geo+cash+(Event)&filterByFormula=AND({Short+description},{Status}="6+-+DONE",OR({Start+Date},{End+Date}),{Public+Photos})'
+    'fields[]=Short+description&fields[]=Start&fields[]=End&fields[]=Status&fields[]=Kind&fields[]=Public+Photos&fields[]=Geo+cash+(Event)&filterByFormula=AND({Short+description},{Status}="6+-+DONE",OR({Start},{End}),{Public+Photos})'
   );
 
   const { records, offset } = await fetchAndHandleErrors<AirtablePoiResponse>(
@@ -305,7 +305,7 @@ export const getMapPois = async (baseUrl?: string) => {
     // Filter first, so we reduce the number of JWT decode operations
     const filtered = combinedData
       // ?.filter((poi) => poi.fields["Short description"])
-      ?.filter((poi) => poi.fields["Start Date"] || poi.fields["End Date"])
+      ?.filter((poi) => poi.fields["Start"] || poi.fields["End"])
       // ?.filter((poi) => poi.fields["Status"] === "6 - DONE")
       ?.filter(
         (poi) =>
@@ -356,8 +356,8 @@ export const getMapPois = async (baseUrl?: string) => {
     // Now transform into the proper UI structure
     const transformed = withLocationDecoded.map((poi) => {
       const startDate =
-        poi.fields["Start Date"] &&
-        new Date(Date.parse(poi.fields["Start Date"]));
+        poi.fields["Start"] &&
+        new Date(Date.parse(poi.fields["Start"]));
       const formattedStartDate =
         startDate &&
         new Intl.DateTimeFormat("en-GB", {
@@ -367,7 +367,7 @@ export const getMapPois = async (baseUrl?: string) => {
         }).format(startDate);
 
       const endDate =
-        poi.fields["End Date"] && new Date(Date.parse(poi.fields["End Date"]));
+        poi.fields["End"] && new Date(Date.parse(poi.fields["End"]));
       const formattedEndDate =
         endDate &&
         new Intl.DateTimeFormat("en-GB", {

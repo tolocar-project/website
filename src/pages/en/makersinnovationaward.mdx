@@ -11,7 +11,10 @@ import {
   Accordion,
   HeadlineUnderlined,
   TextBlock,
-  InfoItem
+  InfoItem,
+  ContentSection,
+  ImageCard,
+  InterventionImageCarousel
 } from "@components";
 
 <WideCard
@@ -25,41 +28,104 @@ import {
       Empowering Ukrainian Maker Community: Where Networking Meets Funding, Mentoring Sparks Ideas, and Innovation Comes to Life!
     </HeadlineUnderlined>
     <TextBlock className="col-span-6">
-    **The Innovation Ecosystem of Ukraine is greatly affected by the war**, which has a massive negative effect on the Ukrainian society and its social cohesion. The determined maker movement, a vital part of Ukrainian society, strives to help the nation heal and grow.
+    **The Innovation Ecosystem of Ukraine** is greatly affected by the war, which has a massive negative effect on the Ukrainian society and its social cohesion. The determined maker movement, a vital part of Ukrainian society, strives to help the nation heal and grow.
 
-    By fostering collaborations among people who team up for social impact this initiative promotes innovative solutions, emphasizing quality, impact, and coexistence over mere competition.
-
-    **We invite makers:** tech enthusiasts, engineers, crafters, designers, and inventors to join hands in shaping a brighter future for Ukraine. The top eight project ideas will receive a prize of €50,000 each, accompanied by a personalized mentoring program tailored to the specific needs of each project.
+    The **Makers Innovation Award (MIA)** aims at fostering collaboration among makers (tech enthusiasts, engineers, designers, crafters) who join forces for social impact and innovation. Eight project ideas showcasing the greatest potential to achieve these aims secured 50,000 Euro of prize money each and will benefit from personalized mentoring sessions to enhance their capacities and refine their project concepts further.
     </TextBlock>
   </div>
-</div>
-
-<div class="container-width grid grid-cols-12 py-8 md:py-24">
-  <img src="images/award/award-timeline.svg" className="col-span-12 w-full" />
 </div>
 
 <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 py-8 md:py-24">
   <div class="col-span-1 md:col-span-12">
     <h2
       class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
-    >Up next</h2>
+    >What happened before</h2>
   </div>
-  <TextBlock className="col-span-1 md:col-span-5">
-    **Pitch Event on March 1st**<br />
-    After the submission of the project ideas for social cohesion and reconstruction in Ukraine, the jury members with an extensive expertise will pre-select 15 candidates with the most impressive project ideas in the maker scene for the Pitch event on March 1st. Exactly then, eight winners who will get 50.000 Euro each will be announced! 
-
-    **Join our MIA livestream via <a className="underline" href="https://us06web.zoom.us/j/89120450235?pwd=HwuELxstCDZJczK67xF2XNOZaTp7MM.1" target="_blank">zoom</a>**
+  <TextBlock className="col-span-1 md:col-span-4">
+    On January 19th, the **idea cultivation workshop** gathered 50+ inventors in Kyiv to celebrate creativity, foster collaboration, and address societal challenges. Facilitators equipped participants with tools to transform visionary ideas into impactful solutions for Ukraine's recovery and social cohesion. 
   </TextBlock>
-  <TextBlock className="col-span-1 md:col-span-5">
-    **Agenda - Makers Innovation Award (March 1st)**<br />
-    14:00 - 14:30  Opening Ceremony<br/>
-    14:30 - 15:30  Pitch Part I<br/>
-    15:30 - 16:00  Coffee break<br/>
-    16:00 - 17:00  Pitch Part II<br/>
-    17:00 - 18:00  Makers success stories<br/>
-    18:00 - 18:30  Award ceremony
+  <TextBlock className="col-span-1 md:col-span-4">
+    On January 29th and February 2nd, **two virtual training sessions** were held with trainer Serhiy Korneliuk and the MIA team. The first session enhanced proposal writing and budgeting skills, while the second addressed participant queries and key pre-submission considerations.
+  </TextBlock>
+  <TextBlock className="col-span-1 md:col-span-4">
+    On March 1st, the **Pitch event** offered 14 pre-selected teams the opportunity to present their project ideas to the expert jury. Eight projects with the most potential for social impact, recovery and social cohesion in Ukraine won 50,000 Euro each. 
   </TextBlock>
 </div>
+
+<div class="container-width grid grid-cols-12 py-8 md:py-24">
+  <img src="images/award/award-timeline.svg" className="col-span-12 w-full" />
+</div>
+
+<div class="container-width grid grid-cols-1 lg:grid-cols-12 gap-8 py-8 md:py-24">
+  <div class="col-span-1 lg:col-span-6 flex flex-col gap-8">
+    <h2
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >Up next: Mentoring sessions for winners!</h2>
+    <TextBlock>
+      During the mentoring sessions, experienced mentors will support the prize award winners according to their needs. The mentors will align their areas of expertise to fit the exact needs of the winning projects. 
+    </TextBlock>
+  </div>
+</div>
+
+<div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 py-8 md:py-24">
+  <div class="col-span-1 md:col-span-12">
+    <h2
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >Meet the Winners of the 2024 Makers Innovation Award</h2>
+  </div>
+</div>
+
+<ContentSection variant="dark" className="z-10 mt-20 md:mt-0">
+  <div class="container-width grid grid-cols-1 md:grid-cols-3 gap-6 -mt-20 pb-8">
+    <ImageCard aspect="2/1" title="Molodozhni Vitryla" img="images/award/winners/molodozhni-vitryla.jpg" imgClassName="object-top">The project “Vitryla Maker Space” aims to increase the interest of young people in technical sciences, to link attention to the local maker community and promote the development of entrepreneurship and innovation. </ImageCard>
+    <ImageCard aspect="2/1" title="Noyiv Kurin" img="images/award/winners/noyiv-kurin.jpg" imgClassName="object-top">The project “Filament Production Boost” identified a need for knowledge centers for filament production and its modifications and development of related technologies such as different types of plastic, secondary and primary plastic as well as skills of makers and companies.</ImageCard>
+    <ImageCard aspect="2/1" title="It's Craft" img="images/award/winners/its-craft.jpg" imgClassName="object-top">The project “Mythologization and modernization of the Tripillia culture” aims to create a large circle of like-minded people who, through synergies, will implement the idea of a renewed Ukrainian identity based on the Tripillia culture in different ways.</ImageCard>
+    <ImageCard aspect="2/1" title="CultGroup" img="images/award/winners/cultgroup.jpg" imgClassName="object-top">The project “STR Lab Polytechnic” aims to set up a laboratory for research into sustainable recycling technologies, where students from related disciplines can gain practical experience in using digital production tools using the example of designing industrial processes.</ImageCard>
+    <ImageCard aspect="2/1" title="Eko misto Chernihiv" img="images/award/winners/eko-misto-chernihiv.jpg" imgClassName="object-top">The project “Plastic Fantastic LAB” aims at its own production of plastic processing equipment, expanding the geography of plastic processing workshops, and promoting sorting, recycling and production in Ukraine.</ImageCard>
+    <ImageCard aspect="2/1" title="Molod' Online" img="images/award/winners/molod-online.jpg" imgClassName="object-top">The project “Skin Open Source (SOS)” aims to cheapen and disseminate biotechnologies, applying the principles of “do-it-yourself biology” and “citizen science”, especially attracting young people to the DIY biotech movement.</ImageCard>
+    <ImageCard aspect="2/1" title="HackLab" img="images/award/winners/hacklab.jpg" imgClassName="object-top">The goal of the project “HackLab 2.0” is to create an inclusive workshop where creative enthusiasts developing startups have a space for experiments and rapid prototyping and can quickly acquire practical skills for working with modern equipment.</ImageCard>
+    <ImageCard aspect="2/1" title="Kolo" img="images/award/winners/kolo.jpg" imgClassName="object-top">The aim of the project “Galician Makers” is to set up two workshops based on Fablab approaches, where experience and expertise in educational institutions through training and workshops teach project thinking and project skills as well as engineering thinking.</ImageCard>
+  </div>
+  <div class="container-width grid grid-cols-3 gap-6 pb-8">
+    <h2 class="text-white text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold">Finalists</h2>
+  </div>
+  <div class="container-width grid grid-cols-1 md:grid-cols-3 gap-6 pb-8">
+    <ImageCard aspect="2/1" title="NGO Tourist Association Hutsuliya" img="images/award/winners/hutsuliya.jpg" imgClassName="object-top">The aim of the project “Crafts of unforgotten ancestors” is to set up an innovative and educational space for children and teenagers, to increase their interest in the preservation, modernization and popularization of local crafts, which will be combined with modern technologies.</ImageCard>
+    <ImageCard aspect="2/1" title="Pure hearts Kalush" img="images/award/winners/pure-hearts-kalush.jpg" imgClassName="object-top">The goal of the project “Technospace: cyborg laboratory” is to create a safe, inclusive and accessible platform for the development, socialization and adaptation of children, veterans, persons with disabilities, IDPs and other persons in need of retraining or training by creating an innovative and technological space with 3D printers and radio equipment.</ImageCard>
+    <ImageCard aspect="2/1" title="Charity Foundation «Soloma Cats»" img="images/award/winners/soloma-cats.jpg" imgClassName="object-top">The project Kickstart FabAcademy Ukraine aims to implement in four Kyiv universities a recognized course from MIT aimed at developing technical and innovative skills among students through forming a pool of qualified and certified instructors. In the long term, the full integration of Fab Academy into the educational programs of several Ukrainian universities.</ImageCard>
+    </div>
+</ContentSection>
+
+<ContentSection variant="dark" className="pb-8">
+  <div class="container-width grid grid-cols-12">
+    <InterventionImageCarousel dark className="col-span-12 md:col-start-2 md:col-span-10" images={[
+      "images/award/gallery/Tolocar_Award_1.jpg",
+      "images/award/gallery/Tolocar_Award_2.jpg",
+      "images/award/gallery/Tolocar_Award_3.jpg",
+      "images/award/gallery/Tolocar_Award_4.jpg",
+      "images/award/gallery/Tolocar_Award_5.jpg",
+      "images/award/gallery/Tolocar_Award_6.jpg",
+      "images/award/gallery/Tolocar_Award_7.jpg",
+      "images/award/gallery/Tolocar_Award_8.jpg",
+      "images/award/gallery/Tolocar_Award_9.jpg",
+      "images/award/gallery/Tolocar_Award_10.jpg",
+      "images/award/gallery/Tolocar_Award_11.jpg",
+      "images/award/gallery/Tolocar_Award_12.jpg",
+      "images/award/gallery/Tolocar_Award_13.jpg",
+      "images/award/gallery/Tolocar_Award_14.jpg",
+      "images/award/gallery/Tolocar_Award_15.jpg",
+      "images/award/gallery/Tolocar_Award_16.jpg",
+      "images/award/gallery/Tolocar_Award_17.jpg",
+      "images/award/gallery/Tolocar_Award_18.jpg",
+      "images/award/gallery/Tolocar_Award_19.jpg",
+      "images/award/gallery/Tolocar_Award_20.jpg",
+      "images/award/gallery/Tolocar_Award_21.jpg",
+      "images/award/gallery/Tolocar_Award_22.jpg",
+      "images/award/gallery/Tolocar_Award_23.jpg",
+      "images/award/gallery/Tolocar_Award_24.jpg"
+]} client:load/>
+  </div>
+</ContentSection>
 
 <div class="bg-tolo-green w-full text-white">
   <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-x-16 gap-y-2 md:gap-y-24 py-8 md:py-24">
@@ -67,10 +133,8 @@ import {
       <img src="images/award/selection-criteria.svg" className="col-span-12 w-full" />
     </div>
     <div class="col-span-1 md:col-span-7 font-semibold font-aktiv text-2xl flex flex-col gap-4">
-      <p>Application has been closed on February 11th, 4 pm (EET).</p>
-      <p>Please find the terms and conditions <a className="underline" href="https://drive.google.com/file/d/1wvyB3S_sJYxGaDQV2xDz-iIhNXJN0NtI/view" target="_blank">here</a>.</p>
-      <p>Please find the FAQ section <a className="underline" href="https://thoughtful-hiss-0d9.notion.site/MIA-FAQ-05fbb555509146a189aa56767fd50b70" target="_blank">here</a>.</p>
-      <p>Please find the detailed selection criteria <a className="underline" href="https://drive.google.com/file/d/1zdYGhu72ue7r5jedIwzZ42C8zYExf6zj/view?usp=sharing" target="_blank">here</a> as well as an overview below:</p>
+      <p>Application has been closed since February 11th, 4 pm (EET).</p>
+      <p>The criteria for the winner selection were the following:</p>
     </div>
     <div class="col-span-1 my-6 md:my-0 md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
       <InfoItem
@@ -138,22 +202,6 @@ import {
   </div>
 </div>
 
-<div class="bg-neutral-50 w-full">
-  <div class="container-width grid grid-cols-1 md:grid-cols-12 py-8 md:py-24 gap-8">
-    <TextBlock className="col-span-1 md:col-span-4">
-      ### Idea Cultivation Workshop
-      On January 19th the idea cultivation workshop took place in Kyiv where 50+ inventors not only celebrated creativity and innovation but also nurtured the spirit of collaboration and social impact. Together, we aimed to transform visionary ideas into concrete solutions that will contribute to social cohesion and the recovery of Ukraine.
-    </TextBlock>
-    <TextBlock className="col-span-1 md:col-span-4">
-      ### Online sessions
-      On January 29th and February 2nd, the MIA team and trainer Serhiy Korneliuk conducted two online sessions. The first session focused on improving participants' skills in proposal writing and budgeting. During the Q&A session, participants had the opportunity to ask questions and receive an overview of the main concerns to address before submitting their applications.
-    </TextBlock>
-    <TextBlock className="col-span-1 md:col-span-4">
-      ### Mentoring & Support
-      In the following three mentoring sessions, experienced mentors will support the selected individuals/organizations according to their specific needs. The mentors will align their areas of expertise with the knowledge gaps of the participants.
-    </TextBlock>
-  </div>
-</div>
 
 <div class="bg-neutral-50 w-full">
   <div class="container-width grid grid-cols-1 md:grid-cols-12 py-8 md:py-24 gap-8">
