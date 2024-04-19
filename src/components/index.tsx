@@ -36,3 +36,4 @@ export { default as LanguageSwitcher } from "@components/LanguageSwitcher";
 export { default as ConditionalWrapper } from "@components/ConditionalWrapper";
 export { default as TolocarMarker } from "@components/TolocarMarker";
 export { default as InfoItem } from "@components/InfoItem";
+export { default as VideoCard } from "@components/VideoCard";
