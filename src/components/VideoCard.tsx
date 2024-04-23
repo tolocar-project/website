@@ -30,7 +30,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
         {children}
       </ImageCard>
       {showVideoLightbox && (
-        <div className="fixed inset-0 bg-black/60 flex flex-col gap-4 items-center justify-center p-8 sm:p-32 xl:p-96 z-50" id="lightbox">
+        <div className="fixed inset-0 bg-black/60 flex flex-col gap-4 items-center justify-center p-8 sm:p-32 xl:p-96 z-50" id="lightbox-video">
           <button
             aria-label="Close Video Overlay"
             className="self-end text-white"

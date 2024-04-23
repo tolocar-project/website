@@ -165,7 +165,7 @@
     @apply tracking-[-0.03em] font-aktiv;
   }
 
-  body:has(#lightbox) {
+  body:has(#lightbox-video) {
     overflow: hidden;
   }
 }
