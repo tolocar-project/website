@@ -17,6 +17,7 @@ import {
   InterventionImageCarousel,
   VideoCard
 } from "@components";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
 
 <WideCard
     bg={3}
@@ -86,6 +87,15 @@ import {
     <VideoCard videoId="Orqxz7fwWRA" aspect="2/1" title="Molod' Online" img="images/award/winners/molod-online.jpg" imgClassName="object-top" client:only="react">The project “Skin Open Source (SOS)” aims to cheapen and disseminate biotechnologies, applying the principles of “do-it-yourself biology” and “citizen science”, especially attracting young people to the DIY biotech movement.</VideoCard>
     <VideoCard videoId="poPFlee2J8U" aspect="2/1" title="HackLab" img="images/award/winners/hacklab.jpg" imgClassName="object-top" client:only="react">The goal of the project “HackLab 2.0” is to create an inclusive workshop where creative enthusiasts developing startups have a space for experiments and rapid prototyping and can quickly acquire practical skills for working with modern equipment.</VideoCard>
     <VideoCard videoId="ksY3jer0EOg" aspect="2/1" title="Kolo" img="images/award/winners/kolo.jpg" imgClassName="object-top" client:only="react">The aim of the project “Galician Makers” is to set up two workshops based on Fablab approaches, where experience and expertise in educational institutions through training and workshops teach project thinking and project skills as well as engineering thinking.</VideoCard>
+  </div>
+  <div class="container-width grid grid-cols-12 mb-14">
+    <LiteYouTubeEmbed
+      title={"title"}
+      poster="maxresdefault"
+      id={"wugjcup1Rsw"}
+      wrapperClass="yt-lite w-full col-span-10 col-start-2"
+      client:only="react"
+    />
   </div>
   <div class="container-width grid grid-cols-3 gap-6 pb-8">
     <h2 class="text-white text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold">Finalists</h2>
