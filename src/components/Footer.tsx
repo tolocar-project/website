@@ -3,7 +3,7 @@ import TolocarLogoSvg from "@assets/tolocar_logo.svg?react";
 import GizLogoSvgEN from "@assets/giz_logo_en.svg?react";
 import GizLogoSvgUA from "@assets/giz_logo_ua.svg?react";
 import GizZusammenarbeitSvg from "@assets/giz_zusammenarbeit.svg?react";
-import HiwwLogoSvg from "@assets/hiww_logo.svg?react";
+import AtStakeLogoSvg from "@assets/at_stake_logo.svg?react";
 import InstagramIcon from "@assets/instagram.svg?react";
 import FacebookIcon from "@assets/facebook.svg?react";
 import type { IMenuItem } from "@interfaces/IMenu";
@@ -74,10 +74,10 @@ const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
               {locale === "ua" ? <GizLogoSvgUA className={'h-full w-full'} /> : <GizLogoSvgEN className={'h-full w-full'} />}
             </a>
             <a
-                className={'-mt-60 sm:mt-0 h-full flex-shrink'}
-                href="https://www.hiww.de"
+                className={'h-full flex-shrink'}
+                href="https://www.at-stake.org/"
                 target="_blank">
-              <HiwwLogoSvg className={'h-full w-full'}/>
+              <AtStakeLogoSvg className={'h-full w-full px-2'}/>
             </a>
           </div>
         </div>
