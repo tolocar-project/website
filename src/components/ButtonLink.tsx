@@ -6,7 +6,7 @@ interface Props {
   className?: string;
   target?: string;
   caption?: string;
-  variant?: "dark" | "light" | "search" | "github";
+  variant?: "dark" | "light" | "search" | "github" | "green";
   newTab?: boolean;
 }
 
