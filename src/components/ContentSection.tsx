@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+interface ContentSectionProps {
   className?: string;
   children: React.ReactNode;
   id?: string;
@@ -13,7 +13,7 @@ const bgColorMapping = {
   default: "bg-neutral-50",
 };
 
-const ContentSection: React.FC<Props> = ({
+const ContentSection: React.FC<ContentSectionProps> = ({
   className,
   children,
   id,
@@ -22,7 +22,7 @@ const ContentSection: React.FC<Props> = ({
   return (
     <section
       className={`w-full ${
-        bgColorMapping[variant] || bgColorMapping["default"]
+        bgColorMapping[variant || "default"]
       } relative ${className || ""}`}
       id={id}
     >

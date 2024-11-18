@@ -3,13 +3,13 @@ import useEmblaCarousel from "embla-carousel-react";
 import ArrowIcon from "@assets/arrow.svg?react";
 import DotIcon from "@assets/dot-icon.svg?react";
 
-interface Props {
+interface InterventionImageCarouselProps {
   images: Array<string>;
   className?: string;
   dark?: boolean;
 }
 
-const InterventionImageCarousel: React.FC<Props> = ({
+const InterventionImageCarousel: React.FC<InterventionImageCarouselProps> = ({
   images,
   className,
   dark,

@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+interface AcademyHeroImageProps {
   className?: string;
   title: string;
   teaser?: string;
@@ -8,13 +8,13 @@ interface Props {
   img: string;
 }
 
-const AcademyHeroImage: React.FC<Props> = ({
+const AcademyHeroImage: React.FC<AcademyHeroImageProps> = ({
   className,
   title,
   teaser,
   category,
   img,
-}: Props) => {
+}) => {
   return (
     <div
       style={{ backgroundImage: `url(${img})` }}

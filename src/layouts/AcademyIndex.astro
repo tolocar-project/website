@@ -11,7 +11,7 @@ const baseUrl = CommonUtils.getBaseUrl(false);
 const localeFromUrl = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
 ---
 
-<BaseLayout footerGrey={true} frontmatter={frontmatter}>
+<BaseLayout frontmatter={frontmatter}>
   <slot />
   <div class="container-width lg:container-width-hero prose max-w-none !px-8">
     {

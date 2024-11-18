@@ -1,11 +1,11 @@
 import React from "react";
 
-interface Props {
+interface IllustrationBgContainerProps {
   className?: string;
   children: React.ReactNode;
 }
 
-const IllustrationBgContainer: React.FC<Props> = ({ className, children }) => {
+const IllustrationBgContainer: React.FC<IllustrationBgContainerProps> = ({ className, children }) => {
   return (
     <div className={`relative w-full flex ${className || ""}`}>
       {children}

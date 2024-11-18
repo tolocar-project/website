@@ -1,21 +1,23 @@
 ---
 import CommonUtils from "@util/CommonUtils";
+import LanguageUtils from "@util/LanguageUtils";
 import GithubSlugger from "github-slugger";
 const { frontmatter } = Astro.props;
 
 const baseUrl = CommonUtils.getBaseUrl(true);
+const locale = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
 const slugger = new GithubSlugger();
 const targetSlug = slugger.slug(frontmatter.title);
-const targetUrl = baseUrl + "academy/#" + targetSlug;
+const targetUrl = baseUrl + locale + "/academy/#" + targetSlug;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="refresh" content={`0; url=${targetUrl}`} />
-    <script type="text/javascript">
-      window.location.href = { targetUrl };
+    <script type="text/javascript" define:vars={{ targetUrl }} is:inline>
+      window.location.href = targetUrl;
     </script>
     <title>Redirect</title>
   </head>

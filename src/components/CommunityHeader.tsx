@@ -1,17 +1,17 @@
 import React from "react";
 import { HeadlineUnderlined } from "@components";
 
-interface Props {
+interface CommunityHeaderProps {
   className?: string;
   title?: string;
   text?: string;
 }
 
-const CommunityHeader: React.FC<Props> = ({
+const CommunityHeader: React.FC<CommunityHeaderProps > = ({
   className,
   title,
   text,
-}: Props) => {
+}) => {
   return (
     <div className={`w-full bg-neutral-50 md:pt-16 mt-14 sm:mt-20 ${className || ""}`}>
       <div className="container-width background-community background-position-2 lg:background-position-1">

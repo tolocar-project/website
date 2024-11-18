@@ -5,7 +5,7 @@ import type { IMenuItem } from "@interfaces/IMenu";
 import { LanguageSwitcher } from "@components";
 import useCurrentWidth from "@util/useCurrentWidth";
 
-interface Props {
+interface NavigationProps {
   className?: string;
   baseUrl?: string;
   path?: string;
@@ -14,14 +14,14 @@ interface Props {
   dark?: boolean;
 }
 
-const Navigation: React.FC<Props> = ({
+const Navigation: React.FC<NavigationProps> = ({
   menu,
   baseUrl = "/",
   path,
   locale,
   className,
   dark,
-}: Props) => {
+}) => {
   const [showOverlayMenu, setShowOverlayMenu] = useState(false);
 
   const [scrollTop, setScrollTop] = useState(0);
@@ -38,6 +38,7 @@ const Navigation: React.FC<Props> = ({
   }, [width]);
 
   useEffect(() => {
+    //@ts-expect-error
     const changeBackgroundColor = (e) => {
       setHasWhiteBackground(e.target.scrollTop > scrollThreshold);
     };
@@ -50,6 +51,7 @@ const Navigation: React.FC<Props> = ({
   }, [scrollTop]);
 
   useEffect(() => {
+    //@ts-expect-error
     const handleScroll = (e) => {
       setScrollTop(e.target.scrollTop);
     };
@@ -238,15 +240,18 @@ const OverlayMenu: React.FC<OverlayMenuProps> = ({
       <div className="bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
         <div className="mt-16 py-10 px-5">
           <ul className="flex flex-col gap-2 md:gap-5">
-            {menu?.map((item) => (
-              <MenuListItem
-                key={item.title}
-                target={item.target}
-                onClick={toggleMenu}
-              >
-                {item.title}
-              </MenuListItem>
-            ))}
+            {menu?.map(
+              (item) =>
+                !item.hideInHeader && (
+                  <MenuListItem
+                    key={item.title}
+                    target={item.target}
+                    onClick={toggleMenu}
+                  >
+                    {item.title}
+                  </MenuListItem>
+                )
+            )}
           </ul>
         </div>
       </div>

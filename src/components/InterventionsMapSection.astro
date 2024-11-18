@@ -50,10 +50,10 @@ const trimmedAndSorted = trimAndSortInterventions(
         <InterventionPreviewCard
           href={intervention?.url || ""}
           image={intervention?.frontmatter?.images?.[0] || ""}
-          date={intervention?.frontmatter?.date}
-          title={intervention?.frontmatter?.title}
-          location={intervention?.frontmatter?.location}
-          tags={intervention?.frontmatter?.tags}
+          date={intervention?.frontmatter?.date!}
+          title={intervention?.frontmatter?.title!}
+          location={intervention?.frontmatter?.location!}
+          tags={intervention?.frontmatter?.tags!}
         />
       ))
     }

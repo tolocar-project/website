@@ -9,15 +9,13 @@ import InstagramIcon from "@assets/instagram.svg?react";
 import FacebookIcon from "@assets/facebook.svg?react";
 import type { IMenuItem } from "@interfaces/IMenu";
 
-interface Props {
+interface FooterProps {
   className?: string;
   menu?: IMenuItem[];
   locale?: string;
 }
 
-const logoClasses = "w-full";
-
-const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
+const Footer: React.FC<FooterProps> = ({ className, menu, locale }) => {
   return (
     <div className={`w-full flex bg-white py-16 ${className || ""}`}>
       <div className="container-width flex flex-col justify-between text-black">

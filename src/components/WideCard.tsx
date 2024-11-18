@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonLink } from "@components";
 
-interface Props {
+interface WideCardProps {
   className?: string;
   title?: string;
   text?: string;
@@ -16,7 +16,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const WideCard: React.FC<Props> = ({
+const WideCard: React.FC<WideCardProps> = ({
   className,
   text,
   title,

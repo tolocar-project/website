@@ -6,7 +6,17 @@ import HammerIcon from "@assets/icons/hammer.svg?react";
 import ToolboxIcon from "@assets/icons/toolbox.svg?react";
 import ScrewdriverIcon from "@assets/icons/screwdriver.svg?react";
 
-interface Props {
+
+const iconMapping = {
+  truck: TruckIcon,
+  cog: CogIcon,
+  hammer: HammerIcon,
+  toolbox: ToolboxIcon,
+  screwdriver: ScrewdriverIcon,
+  default: <></>,
+};
+
+interface CarCardProps {
   className?: string;
   title: string;
   subtitle: string;
@@ -14,10 +24,10 @@ interface Props {
   date: string;
   operator: string;
   img: string;
-  tagIcon?: "truck" | "hammer" | "cog" | "toolbox" | "screwdriver";
+  tagIcon?: keyof typeof iconMapping;
 }
 
-const CarCard: React.FC<Props> = ({
+const CarCard: React.FC<CarCardProps> = ({
   className,
   img,
   title,
@@ -25,19 +35,11 @@ const CarCard: React.FC<Props> = ({
   tag,
   date,
   tagIcon,
-}: Props) => {
-  const renderIcon = (icon) => {
-    const iconMapping = {
-      truck: TruckIcon,
-      cog: CogIcon,
-      hammer: HammerIcon,
-      toolbox: ToolboxIcon,
-      screwdriver: ScrewdriverIcon,
-      default: null,
-    };
-
-    const IconComponent = iconMapping[icon || "default"];
-
+}) => {
+  
+  const renderIcon = (icon: keyof typeof iconMapping) => {
+    const IconComponent = iconMapping[icon];
+    //@ts-expect-error
     return <IconComponent className="w-5 h-5 inline-block" />;
   };
 

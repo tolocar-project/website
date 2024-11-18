@@ -1,7 +1,7 @@
 import React from "react";
 import ArrowIcon from "@assets/arrow.svg?react";
 
-interface Props {
+interface CardProps {
   title: string;
   className?: string;
   bg: number;
@@ -11,7 +11,7 @@ interface Props {
   actionCaption?: string;
 }
 
-const Card: React.FC<Props> = ({
+const Card: React.FC<CardProps> = ({
   title,
   className,
   children,
@@ -19,7 +19,7 @@ const Card: React.FC<Props> = ({
   target,
   small,
   actionCaption
-}: Props) => {
+}) => {
   const bgMapping = [
     "bg-illustration-1 bg-contain bg-[position:bottom_-40px_right] lg:bg-[position:left_-100px_bottom_-40px] bg-no-repeat",
     "bg-illustration-2 bg-contain bg-[position:bottom_-70px_right] lg:bg-bottom bg-no-repeat",

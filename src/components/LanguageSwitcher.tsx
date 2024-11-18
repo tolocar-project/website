@@ -1,19 +1,19 @@
 import React from "react";
 import LanguageUtils from "@util/LanguageUtils";
 
-interface Props {
+interface LanguageSwitcherProps {
   className?: string;
   baseUrl?: string;
   path?: string;
   locale: string;
 }
 
-const LanguageSwitcher: React.FC<Props> = ({
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   className,
   baseUrl = "/",
   path,
   locale,
-}: Props) => {
+}) => {
   // Changing the language requires only to change the locale in the URL
   // The rest (slug) will be handled by redirect logic
   const changeLanguage = (newLanguage: string) => {

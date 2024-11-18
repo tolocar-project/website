@@ -1,7 +1,7 @@
 import React from "react";
 import ArrowIcon from "@assets/arrow.svg?react";
 
-interface Props {
+interface CommunityCardProps {
   title: string;
   className?: string;
   target?: string;
@@ -11,7 +11,7 @@ interface Props {
   img: string;
 }
 
-const CommunityCard: React.FC<Props> = ({
+const CommunityCard: React.FC<CommunityCardProps> = ({
   title,
   children,
   className,
@@ -19,7 +19,7 @@ const CommunityCard: React.FC<Props> = ({
   small,
   actionCaption,
   img,
-}: Props) => {
+}) => {
   const cardContent = (
     <>
       {title && (

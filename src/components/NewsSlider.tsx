@@ -8,14 +8,14 @@ import InstagramIcon from "@assets/instagram.svg?react";
 import FacebookIcon from "@assets/facebook.svg?react";
 import type { INewsItem } from "@interfaces/INews";
 
-interface Props {
+interface NewsSliderProps {
   news: Array<INewsItem>;
   headline: string;
   id?: string;
   findAllCaption?: string;
 }
 
-const NewsSlider: React.FC<Props> = ({
+const NewsSlider: React.FC<NewsSliderProps> = ({
   news,
   headline,
   findAllCaption,

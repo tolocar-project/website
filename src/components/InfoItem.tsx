@@ -20,19 +20,19 @@ type Icons =
   | "gear"
   | "screwdriver-wrench";
 
-interface Props {
+interface InfoItemProps {
   className?: string;
   icon: Icons;
   title: string;
   description: string;
 }
 
-const InfoItem: React.FC<Props> = ({
+const InfoItem: React.FC<InfoItemProps> = ({
   className,
   icon,
   title,
   description,
-}: Props) => {
+}) => {
   const renderIcon = (icon: Icons) => {
     const iconMapping: Record<Icons, React.FunctionComponent | null> = {
       bullseye_arrow: BullseyeArrowIcon,

@@ -21,7 +21,7 @@ const rawInterventionsContent = await Astro.glob<IInterventionFrontmatter>(
 const trimmedAndSorted = trimAndSortInterventions(rawInterventionsContent);
 ---
 
-<BaseLayout footerGrey={true} frontmatter={frontmatter}>
+<BaseLayout frontmatter={frontmatter}>
   <InterventionsHeader
     title="Interventions"
     text="When we go to a place to support a project, build a makerspace or perform a workshop, we call that an intervention. Every intervention has its unique partners, goals and outcomes, but every intervention aims to strengthen the ecosystem of Ukraine."

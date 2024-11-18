@@ -54,7 +54,7 @@ const InterventionsMap = ({
                   width > 1024
                 ) {
                   window.location.href =
-                    interventions[selectedPoi as number].url;
+                    interventions[selectedPoi as number].url!;
                 } else {
                   setIsMarkerClicked(true);
                   setSelectedPoi(index);

@@ -4,11 +4,11 @@ import DotIcon from "@assets/dot-icon.svg?react";
 import type { IInterventionFrontmatter } from "@interfaces/IIntervention";
 import { Tag } from "@components";
 
-interface Props extends IInterventionFrontmatter {
+interface InterventionSingleViewHeadingProps extends IInterventionFrontmatter {
   className?: string;
 }
 
-const InterventionSingleViewHeading: React.FC<Props> = ({
+const InterventionSingleViewHeading: React.FC<InterventionSingleViewHeadingProps> = ({
   className,
   title,
   subtitle,
@@ -16,7 +16,7 @@ const InterventionSingleViewHeading: React.FC<Props> = ({
   date,
   car,
   location,
-}: Props) => {
+}) => {
   return (
     <div
       className={`flex flex-col items-start md:items-center md:justify-center w-full mt-12 pt-24 mb-10 ${

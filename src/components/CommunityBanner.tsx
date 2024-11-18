@@ -1,13 +1,13 @@
 import React from "react";
 
-interface Props {
+interface CommunityBannerProps {
   className?: string;
   title?: string;
   text?: string;
-  bg?: number;
+  bg: number;
 }
 
-const CommunityBanner: React.FC<Props> = ({ className, text, title, bg }) => {
+const CommunityBanner: React.FC<CommunityBannerProps> = ({ className, text, title, bg }) => {
   const bgMapping = [
     "lg:bg-community-banner-1-lg bg-community-banner-1-sm",
     "lg:bg-community-banner-2-lg bg-community-banner-2-sm",

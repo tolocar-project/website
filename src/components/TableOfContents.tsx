@@ -1,7 +1,7 @@
 import React from "react";
 import type { MarkdownHeading } from "astro";
 
-interface Props {
+interface TableOfContentsProps {
   title: string;
   headlines: Array<MarkdownHeading>;
   baseUrl?: string;
@@ -15,7 +15,7 @@ const buildTocList = (input: Array<MarkdownHeading>) => {
       .map((depth, i) => [depth, i + 1])
   );
   const output = [...input];
-  for (let o of output) o.depth = map.get(o.depth);
+  for (let o of output) o.depth = map.get(o.depth) || 0;
   return output;
 };
 
@@ -28,14 +28,15 @@ const paddingMapping = {
   6: "pl-20",
 };
 
-const TableOfContents: React.FC<Props> = ({ title, headlines, baseUrl }) => {
+const TableOfContents: React.FC<TableOfContentsProps> = ({ title, headlines, baseUrl }) => {
   const headlinesWithoutDepthGaps = buildTocList(headlines);
   return (
     <nav>
       <div className={"text-lg font-bold text-neutral-800"}>{title}</div>
       <ul className="text-neutral-500 text-lg font-medium flex flex-col gap-4 mt-4 pl-10 leading-[100%]">
         {headlinesWithoutDepthGaps.map((headline, index) => {
-          const leftPadding = paddingMapping[headline.depth];
+          const leftPadding =
+            paddingMapping[headline.depth as keyof typeof paddingMapping];
           return (
             <li key={index} className={leftPadding}>
               <a
