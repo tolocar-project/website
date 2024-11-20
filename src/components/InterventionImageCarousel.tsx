@@ -7,12 +7,14 @@ interface InterventionImageCarouselProps {
   images: Array<string>;
   className?: string;
   dark?: boolean;
+  indicators?: boolean;
 }
 
 const InterventionImageCarousel: React.FC<InterventionImageCarouselProps> = ({
   images,
   className,
   dark,
+  indicators = true,
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -51,33 +53,37 @@ const InterventionImageCarousel: React.FC<InterventionImageCarouselProps> = ({
   }, [emblaApi, setScrollSnaps, onSelect]);
 
   return (
-    <section className={`pt-8 md:pt-11 pb-7 md:pb-4 ${className || ""}`}>
+    <section className={`pt-8 md:pt-6 pb-7 md:pb-4 not-prose ${className || ""}`}>
       {Boolean(images.length) && (
         <div className="flex flex-col justify-between items-center">
           <div className="overflow-hidden w-full" ref={emblaRef}>
             <div className="flex flex-row h-full aspect-[1.91/1] shrink-0">
-              {images.map((image, index) => (
-                <div className="h-full w-full flex-[0_0_100%]" key={index}>
-                  <img
-                    src={image}
-                    className="h-full w-full object-cover"
-                    alt="Photos"
-                  />
-                </div>
-              ))}
+              {images.map((image, index) => {
+                return (
+                  <div className="h-full w-full flex-[0_0_100%]" key={index}>
+                    <img
+                      src={image}
+                      className="h-full w-full object-cover"
+                      alt="Photos"
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="flex w-full justify-between items-center">
-            <div className="flex">
-              {scrollSnaps.map((_, index) => (
-                <DotIndicator
-                  dark={dark}
-                  key={index}
-                  isActive={index === selectedIndex}
-                  onClick={() => scrollTo(index)}
-                />
-              ))}
-            </div>
+            {indicators && (
+              <div className="flex">
+                {scrollSnaps.map((_, index) => (
+                  <DotIndicator
+                    dark={dark}
+                    key={index}
+                    isActive={index === selectedIndex}
+                    onClick={() => scrollTo(index)}
+                  />
+                ))}
+              </div>
+            )}
             <div className="flex gap-4">
               <button
                 className={`py-3 rotate-180 transition-colors hover:text-tolo-green disabled:text-neutral-300 ${
@@ -93,7 +99,7 @@ const InterventionImageCarousel: React.FC<InterventionImageCarouselProps> = ({
                   dark ? "text-white" : "text-black"
                 }`}
                 disabled={!nextBtnEnabled}
-                onClick={scrollNext}
+                onClick={(scrollNext)}
               >
                 <ArrowIcon className="w-4 h-4" />
               </button>

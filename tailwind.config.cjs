@@ -36,6 +36,14 @@ module.exports = {
         "community-messages":
           "linear-gradient(-6.5deg, rgba(0, 150, 100, 1) 0%, rgba(0, 150, 100, 0) 31.54%, rgba(0, 150, 100, 0) 66.78%, rgba(0, 150, 100, 1) 100%), url(/community_messages.svg)",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            "blockquote p:first-of-type::before": { content: "none" },
+            "blockquote p:first-of-type::after": { content: "none" },
+          },
+        },
+      },
     },
     colors: {
       transparent: "transparent",

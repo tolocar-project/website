@@ -39,8 +39,8 @@ const InterventionsMap = ({
         interventions.map((intervention, index) => (
           <Marker
             key={index}
-            longitude={intervention.locationLngLat[0]}
-            latitude={intervention.locationLngLat[1]}
+            longitude={intervention?.locationLngLat[0]}
+            latitude={intervention?.locationLngLat[1]}
           >
             <TolocarMarker
               className={`transition duration-200 ease-in-out hover:scale-125 cursor-pointer ${

@@ -23,7 +23,7 @@ export default defineConfig({
   redirects: {
     '/en/playbook': '/en/resources/playbook',
     '/ua/playbook': '/ua/resources/playbook',
-    '/en/makersinnovationaward': '/en/resources/makersinnovationaward',
-    '/ua/makersinnovationaward': '/ua/resources/makersinnovationaward'
+    '/en/makersinnovationaward': '/en/get-involved/makers-innovation-award',
+    '/ua/makersinnovationaward': '/ua/get-involved/makers-innovation-award'
   }
 });

@@ -9,11 +9,20 @@ const newsCollection = defineCollection({
     type: z.enum(["instagram", "cta", "fullImage"]),
     newTab: z.boolean().optional(),
     image: z.string().optional(),
-    order: z.number().optional()
+    order: z.number().optional(),
   }),
 });
 
+const interventionsCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    teaser: z.string(),
+    images: z.array(z.string()).optional()
+  }),
+});
 
 export const collections = {
   news: newsCollection,
+  interventions: interventionsCollection
 };

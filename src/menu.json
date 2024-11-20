@@ -22,7 +22,7 @@
     "children": [
       {
         "title": "Building Makerspaces",
-        "target": "en/interventions/makerspaces"
+        "target": "en/interventions/building-makerspaces"
       },
       {
         "title": "Co-Creating Community Spaces",
@@ -34,7 +34,7 @@
       },
       {
         "title": "Adressing Humanitarian Needs",
-        "target": "en/interventions/humanitarian"
+        "target": "en/interventions/humanitarian-needs"
       },
       {
         "title": "Promoting Inclusivity and Mental Health",
@@ -49,8 +49,8 @@
         "target": "en/interventions/sustainability"
       },
       {
-        "title": "Learning through Enquiry",
-        "target": "en/interventions/enquiry"
+        "title": "Learning through Inquiry",
+        "target": "en/interventions/inquiry"
       }
     ]
   },
