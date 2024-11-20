@@ -4,6 +4,7 @@ export interface AcademyPageFrontmatter {
   img?: string;
   imgAlt?: string;
   disableComments?: boolean;
+  teaser?: string;
 }
 
 export interface AcademyPage {

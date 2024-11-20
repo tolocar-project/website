@@ -74,10 +74,10 @@ const LanguageSwitcherItem: React.FC<LanguageSwitcherItemProps> = ({
       <a
         onClick={isSelected ? undefined : onClick}
         className={`md:hover:text-neutral-800 ${
-          isSelected ? "text-neutral-800 " : "cursor-pointer "
+          isSelected ? "text-neutral-800 font-semibold" : "cursor-pointer font-medium"
         }`}
       >
-        <div className="flex text-lg lg:text-[15px] font-inter items-center md:text-base md:font-medium">
+        <div className="flex text-lg lg:text-base font-inter items-center">
           {children}
         </div>
       </a>

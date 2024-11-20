@@ -1,0 +1,97 @@
+[
+  {
+    "title": "Головна",
+    "target": "ua/#top",
+    "hideInFooter": true
+  },
+  {
+    "title": "Діючі програми",
+    "children": [
+      {
+        "title": "Мейкери для відновлення",
+        "target": "ua/get-involved/makers-for-recovery"
+      },
+      {
+        "title": "Нагорода “Інновації мейкерів",
+        "target": "ua/get-involved/makers-innovation-award"
+      }
+    ]
+  },
+  {
+    "title": "Проєкти та ініціативи",
+    "children": [
+      {
+        "title": "Побудова майстерень",
+        "target": "ua/interventions/makerspaces"
+      },
+      {
+        "title": "Створення громадських просторів",
+        "target": "ua/interventions/community-spaces"
+      },
+      {
+        "title": "Підтримка культури",
+        "target": "ua/interventions/cultivating-culture"
+      },
+      {
+        "title": "Рішення для гуманітарних потреб",
+        "target": "ua/interventions/humanitarian"
+      },
+      {
+        "title": "Сприяння інклюзивності і ментальному здоров’ю",
+        "target": "ua/interventions/inclusivity-mental-health"
+      },
+      {
+        "title": "Розвиток відкритого виробництва",
+        "target": "ua/interventions/open-production"
+      },
+      {
+        "title": "Інновації для сталого розвитку",
+        "target": "ua/interventions/sustainability"
+      },
+      {
+        "title": "Навчання через дослідження",
+        "target": "ua/interventions/enquiry"
+      }
+    ]
+  },
+  {
+    "title": "Інфоосвітні ресурси ",
+    "children": [
+      {
+        "title": "Playbook",
+        "target": "ua/resources/playbook"
+      },
+      {
+        "title": "Maker Academy",
+        "target": "ua/resources/maker-academy"
+      },
+      {
+        "title": "Appropedia",
+        "target": "https://www.appropedia.org/Tolocar",
+        "newTab": true
+      }
+    ]
+  },
+  {
+    "title": "Спільнота",
+    "children": [
+      {
+        "title": "Партнери проєкту",
+        "target": "ua/community/partners"
+      },
+      {
+        "title": "Лабораторії в Україні",
+        "target": "ua/community/labs-ukraine"
+      },
+      {
+        "title": "Глобальні ініціативи мейкерів",
+        "target": "ua/community/global-initiatives"
+      }
+    ]
+  },
+  {
+    "title": "Контакти",
+    "target": "mailto:info@tolocar.org",
+    "hideInHeader": true
+  }
+]

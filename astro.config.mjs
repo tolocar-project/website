@@ -20,4 +20,10 @@ export default defineConfig({
   vite: {
     plugins: [svgr()],
   },
+  redirects: {
+    '/en/playbook': '/en/resources/playbook',
+    '/ua/playbook': '/ua/resources/playbook',
+    '/en/makersinnovationaward': '/en/resources/makersinnovationaward',
+    '/ua/makersinnovationaward': '/ua/resources/makersinnovationaward'
+  }
 });

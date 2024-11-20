@@ -1,5 +1,6 @@
 ---
-import BaseLayout, { type BaseLayoutFrontmatterProps } from "./BaseLayout.astro";
+import BaseLayout from "./BaseLayout.astro";
+import type { Props as BaseLayoutFrontmatter } from "./BaseLayout.astro";
 import {
   AcademyHeroImage,
   BackButton,
@@ -7,6 +8,7 @@ import {
   TableOfContents,
 } from "@components";
 import type { AcademyPageFrontmatter } from "@interfaces/IAcademy";
+import type { MarkdownLayoutProps } from "astro";
 import { getParentPage } from "@util/ContentTransformer";
 import fs from "node:fs";
 import Giscus from "@components/Giscus.astro";
@@ -18,7 +20,24 @@ const rawAcademyContent = await Astro.glob<AcademyPageFrontmatter>(
   "../pages/en/academy/*/*.mdx"
 );
 
-const { frontmatter, url, file, headings } = Astro.props;
+type Props = MarkdownLayoutProps<
+  BaseLayoutFrontmatter & AcademyPageFrontmatter
+>;
+
+const {
+  frontmatter: {
+    title,
+    teaser,
+    order,
+    imgAlt,
+    img,
+    disableComments,
+    ...baseFrontmatter
+  },
+  url,
+  file,
+  headings,
+} = Astro.props;
 
 const baseUrl = CommonUtils.getBaseUrl(true);
 const localeFromUrl = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
@@ -26,11 +45,10 @@ const localeFromUrl = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
 const statsMtime = fs.statSync(file).mtime;
 const editDate = new Date(statsMtime);
 
-const parentPage = getParentPage(rawAcademyContent, url);
-
+const parentPage = getParentPage(rawAcademyContent, url!);
 ---
 
-<BaseLayout frontmatter={frontmatter}>
+<BaseLayout {...baseFrontmatter} title={title}>
   <div class="mt-20 container-width">
     <BackButton target={`${baseUrl}${localeFromUrl}/academy`}>
       {
@@ -42,17 +60,22 @@ const parentPage = getParentPage(rawAcademyContent, url);
   </div>
   <div class="container-width-hero">
     <AcademyHeroImage
-      title={frontmatter?.title}
-      teaser={frontmatter?.teaser}
+      title={title}
+      teaser={teaser}
       category={parentPage?.frontmatter?.title}
-      img={frontmatter?.img || parentPage?.frontmatter?.img}
+      img={img || parentPage?.frontmatter?.img!}
     />
   </div>
   <div
     class="container-width mt-8 mb-24 flex flex-col md:grid grid-cols-12 gap-8"
   >
     <div class="col-span-4">
-      <TableOfContents title={frontmatter?.title} headlines={headings} baseUrl={Astro.url.href} client:only="react"/>
+      <TableOfContents
+        title={title}
+        headlines={headings}
+        baseUrl={Astro.url.href}
+        client:only="react"
+      />
       <div class="mt-16">
         <span class="font-bold uppercase text-neutral-400 text-[15px]"
           >Last updated</span
@@ -73,12 +96,12 @@ const parentPage = getParentPage(rawAcademyContent, url);
       <slot />
     </div>
   </div>
-  {!frontmatter.disableComments && <Giscus />}
+  {!disableComments && <Giscus />}
 
   <ContentSection variant="white">
     <div
       class:list={`absolute w-full h-64 top-0 ${
-        frontmatter.disableComments ? "bg-white" : "bg-neutral-50"
+        disableComments ? "bg-white" : "bg-neutral-50"
       }`}
     >
     </div>

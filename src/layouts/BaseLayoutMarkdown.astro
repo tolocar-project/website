@@ -1,0 +1,13 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+import type { Props as BaseLayoutProps } from "./BaseLayout.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+
+type Props = MarkdownLayoutProps<BaseLayoutProps>;
+---
+
+<BaseLayout {...frontmatter}>
+  <slot />
+</BaseLayout>

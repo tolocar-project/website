@@ -13,6 +13,7 @@ const newsCollection = defineCollection({
   }),
 });
 
+
 export const collections = {
   news: newsCollection,
 };
