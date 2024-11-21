@@ -20,15 +20,15 @@ const { Content } = await entry.render();
 ---
 
 <BaseLayout
-  title={entry?.data.title || "Not found"}
-  metaDescription={entry.data.teaser}
-  metaImage={entry.data.images?.[0]}
+  title={entry?.data?.title || "Not found"}
+  metaDescription={entry?.data?.teaser}
+  metaImage={entry?.data?.images?.[0]}
 >
   <div class="container-width">
-    <InterventionSingleViewHeading title={entry.data.title} />
+    <InterventionSingleViewHeading title={entry?.data?.title} />
     {
-      entry.data?.images && (
-        <InterventionImageCarousel images={entry.data.images} client:load />
+      entry?.data?.images && (
+        <InterventionImageCarousel images={entry?.data?.images} client:load />
       )
     }
   </div>

@@ -21,6 +21,7 @@ export default defineConfig({
     plugins: [svgr()],
   },
   redirects: {
+    '/en/community': '/en/community/partners',
     '/en/playbook': '/en/resources/playbook',
     '/ua/playbook': '/ua/resources/playbook',
     '/en/makersinnovationaward': '/en/get-involved/makers-innovation-award',
