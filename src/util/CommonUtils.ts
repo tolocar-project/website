@@ -14,28 +14,42 @@ const CommonUtils = {
     return baseUrl;
   },
 
+  rebaseSingleMenuItem: (item: IMenuItem, baseUrl: string): IMenuItem => {
+    let itemWithoutChildren;
+
+    if (item.target?.startsWith("https") || item.target?.startsWith("mailto")) {
+      itemWithoutChildren = {
+        ...item,
+      };
+    } else {
+      itemWithoutChildren = {
+        ...item,
+        ...(item.target
+          ? {
+              target: baseUrl === "/" ? item.target : baseUrl + item.target,
+            }
+          : {}),
+      };
+    }
+
+    if (item.children?.length) {
+      return {
+        ...itemWithoutChildren,
+        children: item.children.map((child) =>
+          CommonUtils.rebaseSingleMenuItem(child, baseUrl)
+        ),
+      };
+    }
+    return itemWithoutChildren;
+  },
+
   /**
    * Attach baseURl to all Menu items
    * */
   rebaseMenu: (baseUrl: string, menu: IMenuItem[]): IMenuItem[] => {
-    return menu?.map((menuItem) => ({
-      ...menuItem,
-      ...(menuItem.target
-        ? {
-            target:
-              baseUrl === "/" ? menuItem.target : baseUrl + menuItem.target,
-          }
-        : {}),
-      ...(menuItem.children?.length
-        ? {
-            children: menuItem.children?.map((subMenuItem) => ({
-              ...subMenuItem,
-              target:
-                baseUrl === "/" ? subMenuItem.target : baseUrl + subMenuItem.target,
-            })),
-          }
-        : {}),
-    }));
+    return menu?.map((menuItem) =>
+      CommonUtils.rebaseSingleMenuItem(menuItem, baseUrl)
+    );
   },
 };
 
