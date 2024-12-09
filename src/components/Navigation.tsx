@@ -101,7 +101,7 @@ const Navigation: React.FC<NavigationProps> = ({
           Image
         )}
         <nav>
-          <PopoverGroup className="hidden md:flex gap-6" as="ul">
+          <PopoverGroup className="hidden md:flex gap-6 items-center" as="ul">
             {menu?.map((menuItem) => {
               const itemClasses =
                 "font-aktiv md:font-inter flex items-center md:text-base md:font-medium px-0 md:px-3 py-2 md:hover:bg-neutral-50 text-2xl font-bold gap-2 md:rounded-md";
