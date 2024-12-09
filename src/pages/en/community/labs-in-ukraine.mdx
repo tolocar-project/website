@@ -8,12 +8,12 @@ darkFooter: true
 import { HeaderLogo, Footer, CommunityBanner, CommunityGridCard, ContentSection, CommunityHeader} from "@components";
 import WideCard from "@components/WideCardWrapper.astro"
 
-<CommunityHeader title="Community" text="We are a highly interactive group with diverse backgrounds driven by the desire to reduce suffering in Ukraine. We connect international makers and initiatives with local communities. You can join in this community effort in a variety of ways and be a part of the Tolocar project. Connect with us online or on the ground. This way we can jointly establish support networks and catalyze reconstruction efforts."/>
+<CommunityHeader title="Labs in Ukraine" text="We aim to build strong relationships to all existing makerspaces and FabLabs in Ukraine. Meanwhile our approach is to support initiatives by founding their labs or even plant completely new labs or small scale productions."/>
 
 <ContentSection variant="white" id="labs">
-    <CommunityBanner className="mt-28" title="Labs in Ukraine" text="We aim to build strong relationships to all existing makerspaces and FabLabs in Ukraine. Meanwhile our approach is to support initiatives by founding their labs or even plant completely new labs or small scale productions." bg={2}/>
+    {/* <CommunityBanner className="mt-28" title="Labs in Ukraine" text="We aim to build strong relationships to all existing makerspaces and FabLabs in Ukraine. Meanwhile our approach is to support initiatives by founding their labs or even plant completely new labs or small scale productions." bg={2}/> */}
 
-    <div className="container-width grid grid-cols-1 gap-6 md:grid-cols-2  lg:grid-cols-3">
+    <div className="container-width grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-16">
         <CommunityGridCard title="Creative Rural Hub" text="A hub for makers, artists, architects, scientists and all creatives in Ivano-Frankivska." target="www.creativeruralhub.org"/>
         <CommunityGridCard title="Hub Lab" text="Coworking for inventors, technical specialty students and other people who want to implement technological projects." target="www.impacthub.odessa.ua"/>
         <CommunityGridCard title="Hack Lab" text="Oldest hackerspace/open lab in Ukraine (founded 2013). Has long been a center of a large maker community." target="www.hacklab.kyiv.ua" url="www.hacklab.kyiv.ua"/>

@@ -4,6 +4,7 @@ import ChevronIcon from "@assets/chevron.svg?react";
 import type { IMenuItem } from "@interfaces/IMenu";
 import { LanguageSwitcher } from "@components";
 import useCurrentWidth from "@util/useCurrentWidth";
+import ArrowTopRightOnSquare from "@assets/icons/arrow-top-right-on-square.svg?react";
 import {
   Popover,
   PopoverButton,
@@ -142,10 +143,15 @@ const Navigation: React.FC<NavigationProps> = ({
                           <a
                             key={subMenuItem.title}
                             href={subMenuItem.target}
-                            {...(subMenuItem.newTab ? { target: "_blank" } : {})}
-                            className="block p-2 hover:text-tolo-black"
+                            {...(subMenuItem.newTab
+                              ? { target: "_blank" }
+                              : {})}
+                            className="flex gap-2 items-center p-2 hover:text-tolo-black"
                           >
                             {subMenuItem.title}
+                            {subMenuItem.newTab && (
+                              <ArrowTopRightOnSquare className="size-4" />
+                            )}
                           </a>
                         ))}
                       </div>
@@ -247,6 +253,7 @@ interface MenuListItemProps {
   className?: string;
   children?: React.ReactNode;
   title: string;
+  newTab?: boolean;
 }
 
 const MenuListItem: React.FC<MenuListItemProps> = ({
@@ -254,8 +261,10 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
   className,
   title,
   children,
+  newTab,
 }: MenuListItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  console.log("MENULISTITEM NEW TAB", newTab);
   return (
     <li
       className={`flex-shrink-0 md:rounded-md overflow-hidden ${
@@ -266,13 +275,15 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
         href={target}
         onClick={() => children && setIsOpen((oldState) => !oldState)}
         className="md:hover:text-neutral-800 flex gap-2 items-center cursor-pointer"
+        {...(newTab ? { target: "_blank" } : {})}
       >
         <div className="font-aktiv md:font-inter text-[15px] flex items-center md:text-base md:font-medium px-0 md:px-3 py-2 md:hover:bg-neutral-50 text-2xl font-bold">
           {title}
         </div>{" "}
         {children && (
-          <ChevronIcon className={`w-4 h-4 transition-all transform`} />
+          <ChevronIcon className={`size-4 transition-all transform`} />
         )}
+        {newTab && <ArrowTopRightOnSquare className="size-4" />}
       </a>
       {children && isOpen && <ul className="ml-4">{children}</ul>}
     </li>
@@ -285,6 +296,7 @@ interface OverlayMenuProps {
 }
 
 const OverlayMenu: React.FC<OverlayMenuProps> = ({ menu, show }) => {
+  console.log("MENU", menu);
   return (
     <div
       className={`fixed z-10 top-0 inset-x-0 transition transform origin-top-right${
@@ -301,14 +313,18 @@ const OverlayMenu: React.FC<OverlayMenuProps> = ({ menu, show }) => {
                     key={menuItem.title}
                     target={menuItem.target}
                     title={menuItem.title}
+                    newTab={menuItem.newTab}
                   >
-                    {menuItem.children?.map((subMenuItem) => (
-                      <MenuListItem
-                        key={subMenuItem.title}
-                        target={subMenuItem.target}
-                        title={subMenuItem.title}
-                      />
-                    ))}
+                    {menuItem.children?.map((subMenuItem) => {
+                      return (
+                        <MenuListItem
+                          key={subMenuItem.title}
+                          target={subMenuItem.target}
+                          title={subMenuItem.title}
+                          newTab={subMenuItem.newTab}
+                        />
+                      );
+                    })}
                   </MenuListItem>
                 )
             )}

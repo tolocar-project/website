@@ -33,6 +33,8 @@
     "vite-plugin-svgr": "^4.3.0"
   },
   "dependencies": {
-    "@headlessui/react": "^2.2.0"
+    "@headlessui/react": "^2.2.0",
+    "@iconify-json/heroicons": "^1.2.1",
+    "astro-icon": "^1.1.4"
   }
 }

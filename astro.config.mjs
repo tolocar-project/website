@@ -5,18 +5,16 @@ import tailwind from "@astrojs/tailwind";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import svgr from "vite-plugin-svgr";
 
+import icon from 'astro-icon';
+
 export default defineConfig({
   site: "https://www.tolocar.org",
   devToolbar: { enabled: false },
-  integrations: [
-    mdx({
-      rehypePlugins: [[rehypeAutolinkHeadings, { behavior: "append" }]],
-    }),
-    react(),
-    tailwind({
-      config: { applyBaseStyles: false },
-    }),
-  ],
+  integrations: [mdx({
+    rehypePlugins: [[rehypeAutolinkHeadings, { behavior: "append" }]],
+  }), react(), tailwind({
+    config: { applyBaseStyles: false },
+  }), icon()],
   vite: {
     plugins: [svgr()],
   },
