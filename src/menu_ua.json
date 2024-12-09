@@ -9,7 +9,7 @@
     "children": [
       {
         "title": "Мейкери для відновлення",
-        "target": "ua/get-involved/makers-for-recovery"
+        "target": "ua/get-involved/makers-empowerment-hubs"
       },
       {
         "title": "Нагорода “Інновації мейкерів",
@@ -22,7 +22,7 @@
     "children": [
       {
         "title": "Побудова майстерень",
-        "target": "ua/interventions/makerspaces"
+        "target": "ua/interventions/building-makerspaces"
       },
       {
         "title": "Створення громадських просторів",
@@ -34,7 +34,7 @@
       },
       {
         "title": "Рішення для гуманітарних потреб",
-        "target": "ua/interventions/humanitarian"
+        "target": "ua/interventions/humanitarian-needs"
       },
       {
         "title": "Сприяння інклюзивності і ментальному здоров’ю",
@@ -50,7 +50,7 @@
       },
       {
         "title": "Навчання через дослідження",
-        "target": "ua/interventions/enquiry"
+        "target": "ua/interventions/inquiry"
       }
     ]
   },
@@ -63,7 +63,7 @@
       },
       {
         "title": "Maker Academy",
-        "target": "ua/resources/maker-academy"
+        "target": "ua/academy"
       },
       {
         "title": "Appropedia",
@@ -81,17 +81,17 @@
       },
       {
         "title": "Лабораторії в Україні",
-        "target": "ua/community/labs-ukraine"
+        "target": "ua/community/labs-in-ukraine"
       },
       {
         "title": "Глобальні ініціативи мейкерів",
-        "target": "ua/community/global-initiatives"
+        "target": "ua/community/maker-initiatives"
       }
     ]
   },
   {
     "title": "Контакти",
-    "target": "mailto:info@tolocar.org",
+    "target": "ua/contact",
     "hideInHeader": true
   }
 ]
