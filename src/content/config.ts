@@ -10,6 +10,7 @@ const newsCollection = defineCollection({
     newTab: z.boolean().optional(),
     image: z.string().optional(),
     order: z.number().optional(),
+    id: z.string().optional()
   }),
 });
 

@@ -72,11 +72,11 @@ interface AirtablePoiRecord {
 
 interface AirtablePoiFields {
   "Short description"?: string;
-  "End"?: string;
+  End?: string;
   "Project or Intervention"?: string;
   "Impact reason"?: string;
   Kind?: string;
-  "Start"?: string;
+  Start?: string;
   "Geo cash (Event)"?: string;
   "Public Photos"?: Array<IImage>;
   Status?: string;
@@ -210,7 +210,7 @@ export const getNewsItems = async (
       //   return dateB - dateA;
       // })
       .map((record) => {
-        return {
+        const pickedValues = {
           id: record.id,
           description:
             locale === "ua"
@@ -228,6 +228,8 @@ export const getNewsItems = async (
               "large"
             ]?.url,
         } as INewsItem;
+
+        return pickedValues;
       });
 
     const trimmed = count ? filtered.slice(0, count) : filtered;
@@ -237,6 +239,17 @@ export const getNewsItems = async (
       baseUrl,
       isCached
     );
+
+    withLocalImages.forEach((item, i) => {
+      fs.writeFileSync(
+        `./news-json/${locale}/${withLocalImages.length - (i + 1)}.json`,
+        JSON.stringify(
+          { ...item, order: withLocalImages.length - (i + 1) },
+          null,
+          2
+        )
+      );
+    });
 
     return withLocalImages;
   }
@@ -356,8 +369,7 @@ export const getMapPois = async (baseUrl?: string) => {
     // Now transform into the proper UI structure
     const transformed = withLocationDecoded.map((poi) => {
       const startDate =
-        poi.fields["Start"] &&
-        new Date(Date.parse(poi.fields["Start"]));
+        poi.fields["Start"] && new Date(Date.parse(poi.fields["Start"]));
       const formattedStartDate =
         startDate &&
         new Intl.DateTimeFormat("en-GB", {

@@ -264,7 +264,6 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
   newTab,
 }: MenuListItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log("MENULISTITEM NEW TAB", newTab);
   return (
     <li
       className={`flex-shrink-0 md:rounded-md overflow-hidden ${
@@ -296,7 +295,6 @@ interface OverlayMenuProps {
 }
 
 const OverlayMenu: React.FC<OverlayMenuProps> = ({ menu, show }) => {
-  console.log("MENU", menu);
   return (
     <div
       className={`fixed z-10 top-0 inset-x-0 transition transform origin-top-right${
