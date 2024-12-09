@@ -17,6 +17,7 @@ const interventionsCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
+    subtitle: z.string().optional(),
     teaser: z.string(),
     images: z.array(z.string()).optional()
   }),

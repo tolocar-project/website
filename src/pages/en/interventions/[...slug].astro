@@ -25,7 +25,7 @@ const { Content } = await entry.render();
   metaImage={entry?.data?.images?.[0]}
 >
   <div class="container-width">
-    <InterventionSingleViewHeading title={entry?.data?.title} />
+    <InterventionSingleViewHeading title={entry?.data?.title} subtitle={entry?.data?.subtitle} />
     {
       entry?.data?.images && (
         <InterventionImageCarousel images={entry?.data?.images} client:load />
