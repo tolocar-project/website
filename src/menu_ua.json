@@ -6,6 +6,7 @@
   },
   {
     "title": "Діючі програми",
+    "hideInFooter": true,
     "children": [
       {
         "title": "Мейкери для відновлення",
@@ -19,6 +20,7 @@
   },
   {
     "title": "Проєкти та ініціативи",
+    "hideInFooter": true,
     "children": [
       {
         "title": "Побудова майстерень",
@@ -55,7 +57,8 @@
     ]
   },
   {
-    "title": "Інфоосвітні ресурси ",
+    "title": "Інфоосвітні ресурси",
+    "hideInFooter": true,
     "children": [
       {
         "title": "Playbook",
@@ -74,6 +77,7 @@
   },
   {
     "title": "Спільнота",
+    "hideInFooter": true,
     "children": [
       {
         "title": "Партнери проєкту",
@@ -92,6 +96,7 @@
   {
     "title": "Контакти",
     "target": "ua/contact",
+    "hideInFooter": true,
     "hideInHeader": true
   }
 ]

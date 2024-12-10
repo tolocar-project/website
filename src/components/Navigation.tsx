@@ -168,7 +168,7 @@ const Navigation: React.FC<NavigationProps> = ({
             />
           </PopoverGroup>
         </nav>
-        <div className="flex items-center md:hidden bg-white box-border z-20 px-1">
+        <div className="flex items-center md:hidden bg-white box-border z-20 p-1">
           {showOverlayMenu && (
             <LanguageSwitcher
               path={path}
@@ -304,28 +304,25 @@ const OverlayMenu: React.FC<OverlayMenuProps> = ({ menu, show }) => {
       <div className="bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
         <div className="mt-16 py-10 px-5">
           <ul className="flex flex-col gap-2 md:gap-5">
-            {menu?.map(
-              (menuItem) =>
-                !menuItem.hideInHeader && (
-                  <MenuListItem
-                    key={menuItem.title}
-                    target={menuItem.target}
-                    title={menuItem.title}
-                    newTab={menuItem.newTab}
-                  >
-                    {menuItem.children?.map((subMenuItem) => {
-                      return (
-                        <MenuListItem
-                          key={subMenuItem.title}
-                          target={subMenuItem.target}
-                          title={subMenuItem.title}
-                          newTab={subMenuItem.newTab}
-                        />
-                      );
-                    })}
-                  </MenuListItem>
-                )
-            )}
+            {menu?.map((menuItem) => (
+              <MenuListItem
+                key={menuItem.title}
+                target={menuItem.target}
+                title={menuItem.title}
+                newTab={menuItem.newTab}
+              >
+                {menuItem.children?.map((subMenuItem) => {
+                  return (
+                    <MenuListItem
+                      key={subMenuItem.title}
+                      target={subMenuItem.target}
+                      title={subMenuItem.title}
+                      newTab={subMenuItem.newTab}
+                    />
+                  );
+                })}
+              </MenuListItem>
+            ))}
           </ul>
         </div>
       </div>

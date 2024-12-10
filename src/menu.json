@@ -6,6 +6,7 @@
   },
   {
     "title": "Get involved",
+    "hideInFooter": true,
     "children": [
       {
         "title": "Makers Empowerment Hubs",
@@ -19,6 +20,7 @@
   },
   {
     "title": "Interventions",
+    "hideInFooter": true,
     "children": [
       {
         "title": "Building Makerspaces",
@@ -56,6 +58,7 @@
   },
   {
     "title": "Resources",
+    "hideInFooter": true,
     "children": [
       {
         "title": "Playbook",
@@ -74,6 +77,7 @@
   },
   {
     "title": "Community",
+    "hideInFooter": true,
     "children": [
       {
         "title": "Project Partners",
@@ -92,6 +96,7 @@
   {
     "title": "Contact",
     "target": "en/contact",
-    "hideInHeader": true
+    "hideInHeader": true,
+    "hideInFooter": true
   }
 ]
