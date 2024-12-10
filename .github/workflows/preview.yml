@@ -86,6 +86,6 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '✅ Successfully deployed to: ${{ env.TARGET_URL }}'
+              body: `✅ Successfully deployed to: ${process.env.TARGET_URL}`
             })
 
