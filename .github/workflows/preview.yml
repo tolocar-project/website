@@ -84,6 +84,6 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '✅ Successfully deployed to: https://${{ GITHUB_HEAD_REF }}.dev.tolocar.org/'
+              body: '✅ Successfully deployed to: https://${GITHUB_HEAD_REF}.dev.tolocar.org/'
             })
 
