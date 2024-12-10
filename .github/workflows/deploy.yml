@@ -32,7 +32,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 22
       - name: Install Node dependencies
         run: npm ci
       - name: Build site
