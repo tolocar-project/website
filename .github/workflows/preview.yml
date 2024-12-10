@@ -58,8 +58,9 @@ jobs:
       SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
 
     steps:
-      # - name: Set env to use shell substitution logic
-      #   run: echo "ASTRO_BASE_PATH=${GITHUB_HEAD_REF//\//-}" >> $GITHUB_ENV
+      - name: Set env to use shell substitution logic
+        run: |
+          echo "TARGET_URL=https://${GITHUB_HEAD_REF//\//-}.dev.tolocar.org" >> $GITHUB_ENV
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
