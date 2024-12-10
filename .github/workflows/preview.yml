@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Set env to use shell substitution logic
         run: |
-          echo "TARGET_URL=${GITHUB_HEAD_REF//\//-}" >> $GITHUB_ENV
+          echo "TARGET_URL=https://${GITHUB_HEAD_REF//\//-}.dev.tolocar.org" >> $GITHUB_ENV
       - name: Checkout repository using git
         uses: actions/checkout@v2
       - name: Setup Node
