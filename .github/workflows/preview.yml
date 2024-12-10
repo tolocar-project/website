@@ -55,6 +55,7 @@ jobs:
       SFTP_PATH: ${{ secrets.SFTP_PATH }}
       SFTP_USER: ${{ secrets.SFTP_USER }}
       SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+      TARGET_URL: https://${{ github.head_ref }}.dev.tolocar.org/
     steps:
       # - name: Set env to use shell substitution logic
       #   run: echo "ASTRO_BASE_PATH=${GITHUB_HEAD_REF//\//-}" >> $GITHUB_ENV
@@ -76,14 +77,14 @@ jobs:
       - name: Deploy via LFTP to SFTP target
         run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --only-newer --ignore-time --verbose --delete ./dist ./$SFTP_PATH/${GITHUB_HEAD_REF//\//-} --exclude pdfjs/ ; bye"
       - name: Comment on PR
-        uses: actions/github-script@v3
+        uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            github.issues.createComment({
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '✅ Successfully deployed to: https://${GITHUB_HEAD_REF}.dev.tolocar.org/'
+              body: '✅ Successfully deployed to: $TARGET_URL'
             })
 
