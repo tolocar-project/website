@@ -20,6 +20,7 @@ jobs:
       AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
       INTERVENTIONS_AIRTABLE_BASE_ID: ${{ secrets.INTERVENTIONS_AIRTABLE_BASE_ID }}
       NEWS_AIRTABLE_BASE_ID: ${{ secrets.NEWS_AIRTABLE_BASE_ID }}
+      TARGET_URL: https://${GITHUB_HEAD_REF}.dev.tolocar.org/
     steps:
       - name: Set env to use shell substitution logic
         run: echo "ASTRO_BASE_PATH=${GITHUB_HEAD_REF//\//-}" >> $GITHUB_ENV
@@ -55,6 +56,8 @@ jobs:
       SFTP_PATH: ${{ secrets.SFTP_PATH }}
       SFTP_USER: ${{ secrets.SFTP_USER }}
       SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+      TARGET_URL: https://${GITHUB_HEAD_REF}.dev.tolocar.org/
+
     steps:
       # - name: Set env to use shell substitution logic
       #   run: echo "ASTRO_BASE_PATH=${GITHUB_HEAD_REF//\//-}" >> $GITHUB_ENV
