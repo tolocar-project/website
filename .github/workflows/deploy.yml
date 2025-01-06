@@ -48,7 +48,7 @@ jobs:
     env:
       SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
       SFTP_HOST: ${{ secrets.SFTP_HOST }}
-      SFTP_PATH: ${{ secrets.SFTP_PATH }}
+      SFTP_PATH: tolocar.org/httpdocs
       SFTP_USER: ${{ secrets.SFTP_USER }}
       SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
 
@@ -69,5 +69,5 @@ jobs:
           pwd
           ls -la
       - name: Deploy via LFTP to SFTP target
-        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --only-newer --ignore-time --verbose --delete ./dist ./$SFTP_PATH/main --exclude pdfjs/ ; bye"
+        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --only-newer --ignore-time --verbose --delete ./dist ./$SFTP_PATH --exclude pdfjs/ ; bye"
 
