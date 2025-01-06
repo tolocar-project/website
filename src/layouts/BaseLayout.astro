@@ -30,10 +30,9 @@ const isProduction = import.meta.env.MODE === "production";
 
 const META_TITLE = `${title} - Tolocar Project`;
 const META_CANONICAL_URL = new URL(Astro.url.pathname, Astro.site);
-
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={localeFromUrl} class="scroll-smooth h-full overflow-x-hidden">
   <head>
     <base href={baseUrl} />
@@ -59,8 +58,8 @@ const META_CANONICAL_URL = new URL(Astro.url.pathname, Astro.site);
         <script
           async
           defer
-          data-website-id="7642c494-7e60-4564-952b-5d0d33e7c16b"
-          src="https://analytics.fabcity.hamburg/script.js"
+          src="https://analytics.bitbetter.de/script.js"
+          data-website-id="142e119c-430e-4681-8870-35afc03dbe8e"
           is:inline
         />
       )
