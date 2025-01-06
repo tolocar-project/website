@@ -69,5 +69,5 @@ jobs:
           pwd
           ls -la
       - name: Deploy via LFTP to SFTP target
-        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --only-newer --ignore-time --verbose --delete ./dist ./$SFTP_PATH/${GITHUB_HEAD_REF//\//-} --exclude pdfjs/ ; bye"
+        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --only-newer --ignore-time --verbose --delete ./dist ./$SFTP_PATH/main --exclude pdfjs/ ; bye"
 
