@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+interface AccordionProps {
   className?: string;
   children?: React.ReactNode;
   open?: boolean;
@@ -10,7 +10,7 @@ interface Props {
   light?: boolean;
 }
 
-const Accordion: React.FC<Props> = ({
+const Accordion: React.FC<AccordionProps> = ({
   className,
   open,
   children,
@@ -19,7 +19,7 @@ const Accordion: React.FC<Props> = ({
   image,
   light,
   ...rest
-}: Props) => {
+}) => {
   return (
     <details
       className={`py-6 ${

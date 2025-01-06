@@ -1,12 +1,12 @@
 import type { ReactElement, ReactNode } from "react";
 
-interface Props {
+interface ConditionalWrapperProps {
   condition: boolean;
   children: ReactElement | ReactNode;
   wrapper: (c: ReactElement | ReactNode) => ReactElement | ReactNode;
 }
 
-const ConditionalWrapper: React.FC<Props> = ({
+const ConditionalWrapper: React.FC<ConditionalWrapperProps> = ({
   condition,
   wrapper,
   children,

@@ -9,12 +9,12 @@ export interface ICourse {
   items: { target: string; title: string }[] | null;
 }
 
-interface Props {
+interface CourseProps {
   className?: string;
   course: ICourse;
 }
 
-const Course: React.FC<Props> = ({ className, course }) => {
+const Course: React.FC<CourseProps> = ({ className, course }) => {
   const slugger = new GithubSlugger();
   return (
     <div

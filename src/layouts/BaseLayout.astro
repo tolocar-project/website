@@ -1,47 +1,39 @@
 ---
-import type { MarkdownLayoutProps } from "astro";
 import { Navigation, Footer } from "@components";
 import CommonUtils from "@util/CommonUtils";
 import LanguageUtils from "@util/LanguageUtils";
-import type { IMenuMarkdown } from "@interfaces/IMenu";
+import menuJson from "../menu.json";
+import menuUaJson from "../menu_ua.json";
 import "../../base.css";
 
-type Props = MarkdownLayoutProps<{
+export interface Props {
   title: string;
-  metaImage: string;
-  metaDescription: string;
-  footerGrey?: boolean;
+  metaImage?: string;
+  metaDescription?: string;
+  darkFooter?: boolean;
   darkNavigation?: boolean;
-}>;
+}
 
-const { frontmatter } = Astro.props;
+const { title, metaImage, metaDescription, darkFooter, darkNavigation } =
+  Astro.props;
 const path = Astro.url.pathname;
 const baseUrl = CommonUtils.getBaseUrl(true);
 
 const localeFromUrl = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
 
-const rawMenus = await Astro.glob<IMenuMarkdown>("../pages/**/_menu.mdx");
-
-const translatedMenu = rawMenus?.find((rawMenu) =>
-  rawMenu?.url
-    ?.split("/")
-    .filter(Boolean)
-    .map((urlPart) => urlPart.toLowerCase())
-    .includes(localeFromUrl)
-)?.frontmatter?.menu;
-
-const translatedAndRebasedMenu = translatedMenu?.map((menuItem) => ({
-  ...menuItem,
-  target: baseUrl === "/" ? menuItem.target : baseUrl + menuItem.target,
-}));
+const translatedAndRebasedMenu = CommonUtils.rebaseMenu(
+  baseUrl,
+  localeFromUrl === "ua" ? menuUaJson : menuJson
+);
 
 const isProduction = import.meta.env.MODE === "production";
 
-const META_TITLE = `${frontmatter?.title} - Tolocar Project`;
+const META_TITLE = `${title} - Tolocar Project`;
 const META_CANONICAL_URL = new URL(Astro.url.pathname, Astro.site);
+
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang={localeFromUrl} class="scroll-smooth h-full overflow-x-hidden">
   <head>
     <base href={baseUrl} />
@@ -49,22 +41,12 @@ const META_CANONICAL_URL = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href={"/favicon.png"} />
     <meta name="generator" content={Astro.generator} />
-    {frontmatter?.title && <meta property="og:title" content={META_TITLE} />}
+    {title && <meta property="og:title" content={META_TITLE} />}
     <meta property="og:url" content={META_CANONICAL_URL} />
+    {metaImage && <meta property="og:image" content={Astro.site + metaImage} />}
     {
-      frontmatter?.metaImage && (
-        <meta
-          property="og:image"
-          content={Astro.site + frontmatter?.metaImage}
-        />
-      )
-    }
-    {
-      frontmatter?.metaDescription && (
-        <meta
-          property="og:description"
-          content={frontmatter?.metaDescription}
-        />
+      metaDescription && (
+        <meta property="og:description" content={metaDescription} />
       )
     }
     <meta
@@ -79,26 +61,29 @@ const META_CANONICAL_URL = new URL(Astro.url.pathname, Astro.site);
           defer
           data-website-id="7642c494-7e60-4564-952b-5d0d33e7c16b"
           src="https://analytics.fabcity.hamburg/script.js"
+          is:inline
         />
       )
     }
     <title>{META_TITLE}</title>
   </head>
-  <body class="w-full font-inter antialiased h-full tracking-[-0.02em] overflow-x-hidden">
+  <body
+    class="w-full font-inter antialiased h-full tracking-[-0.02em] overflow-x-hidden"
+  >
     <main class="flex flex-col items-center h-full">
       <Navigation
         baseUrl={baseUrl}
         path={path}
         menu={translatedAndRebasedMenu}
         locale={localeFromUrl}
-        dark={frontmatter?.darkNavigation || false}
+        dark={darkNavigation || false}
         client:only="react"
       />
       <slot />
       <Footer
         locale={localeFromUrl}
         menu={translatedAndRebasedMenu}
-        className={frontmatter?.footerGrey ? "!bg-neutral-50" : ""}
+        className={darkFooter ? "!bg-neutral-50" : ""}
       />
     </main>
   </body>

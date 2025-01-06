@@ -1,0 +1,43 @@
+---
+import {
+  ContentSection,
+  InterventionImageCarousel,
+  InterventionSingleViewHeading,
+} from "@components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+export interface SimpleContentLayoutProps {
+  title: string;
+  subtitle?: string;
+  images: Array<string>;
+  teaser: string;
+} 
+
+type Props = SimpleContentLayoutProps;
+
+const { title, images, teaser, subtitle } = Astro.props;
+---
+
+<BaseLayout
+  title={title || "Not found"}
+  metaDescription={teaser}
+  metaImage={images?.[0]}
+>
+  <div class="container-width">
+    <InterventionSingleViewHeading title={title} subtitle={subtitle} />
+    {
+      images && (
+        <InterventionImageCarousel images={images} client:load />
+      )
+    }
+  </div>
+  <ContentSection variant="white">
+    <div class="container-width my-10 lg:mt-14 lg:mb-[60px] default-prose">
+      <slot/>
+    </div>
+  </ContentSection>
+
+  <div class="relative w-full">
+    <div class="absolute z-0 w-full bg-neutral-50 h-[90%] bottom-0"></div>
+  </div>
+</BaseLayout>

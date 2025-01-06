@@ -6,7 +6,7 @@ import ParachuteIcon from "@assets/icons/parachute.svg?react";
 import BookOpenIcon from "@assets/icons/book-open.svg?react";
 import ChartNetworkIcon from "@assets/icons/chart-network.svg?react";
 
-interface Props {
+interface ImpactListItemProps {
   className?: string;
   title: string;
   text: string;
@@ -19,25 +19,25 @@ interface Props {
     | "chart_network";
 }
 
-const ImpactListItem: React.FC<Props> = ({
+const iconMapping = {
+  bullseye: BullseyeIcon,
+  microchip: MicrochipIcon,
+  hand_fist: HandFistIcon,
+  parachute: ParachuteIcon,
+  book_open: BookOpenIcon,
+  chart_network: ChartNetworkIcon,
+  default: null,
+};
+
+const ImpactListItem: React.FC<ImpactListItemProps> = ({
   className,
   title,
   text,
   tagIcon,
-}: Props) => {
-  const renderIcon = (icon) => {
-    const iconMapping = {
-      bullseye: BullseyeIcon,
-      microchip: MicrochipIcon,
-      hand_fist: HandFistIcon,
-      parachute: ParachuteIcon,
-      book_open: BookOpenIcon,
-      chart_network: ChartNetworkIcon,
-      default: null,
-    };
-
+}) => {
+  const renderIcon = (icon: keyof typeof iconMapping) => {
     const IconComponent = iconMapping[icon || "default"];
-
+    // @ts-expect-error
     return <IconComponent />;
   };
 

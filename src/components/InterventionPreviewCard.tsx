@@ -4,13 +4,13 @@ import LocationIcon from "@assets/location-dot.svg?react";
 import type { IInterventionFrontmatter } from "@interfaces/IIntervention";
 import { Tag } from "@components";
 
-interface Props extends IInterventionFrontmatter {
+interface InterventionPreviewCardProps extends Partial<IInterventionFrontmatter> {
   href: string;
   className?: string;
   image: string;
 }
 
-const InterventionPreviewCard: React.FC<Props> = ({
+const InterventionPreviewCard: React.FC<InterventionPreviewCardProps> = ({
   href,
   image,
   className,
@@ -40,9 +40,9 @@ const InterventionPreviewCard: React.FC<Props> = ({
             {date}
           </div>
         )}
-        {Boolean(tags.length) && (
+        {Boolean(tags?.length) && (
           <div className="flex justify-start">
-            {tags.map((tag, index) => (
+            {tags?.map((tag, index) => (
               <Tag key={index} title={tag} />
             ))}
           </div>

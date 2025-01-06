@@ -1,0 +1,34 @@
+---
+layout: "@layouts/BaseLayoutMarkdown.astro"
+title: Контакти
+darkFooter: true
+darkNavigation: true
+---
+
+import { ButtonLink } from "@components";
+
+<div class="w-full bg-neutral-50">
+  <h1 class="mt-40 container-width text-5xl font-semibold font-aktiv">Contact</h1>
+  <p class="container-width mt-10 mb-20 text-lg">Ви можете звернутися до нас за вказаними нижче контактами. </p>
+</div>
+
+<div class="container-width my-20 custom-prose h-full">
+
+## Будемо раді поспілкуватися
+
+Якщо у вас є запитання, ідеї, пропозиції щодо співпраці, коментарі або інші питання для обговорення, будь ласка, звертайтеся до нас електронною поштою. Ми з радістю відповімо Вам! 
+
+<br/><br/>
+<ButtonLink
+  target="mailto:info@tolocar.irg"
+  caption="info@tolocar.org"
+  variant="dark"
+  className="not-prose"
+/>
+
+<br/><br/>
+
+<img src="images/contact/tolocar_team.jpg" />
+
+</div>
+

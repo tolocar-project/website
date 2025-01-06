@@ -4,6 +4,10 @@ import BaseLayout from "./BaseLayout.astro";
 import { ContentSection } from "@components";
 import CommonUtils from "@util/CommonUtils";
 import LanguageUtils from "@util/LanguageUtils";
+import type { MarkdownLayoutProps } from "astro";
+import type { Props as BaseLayoutFrontmatter } from "./BaseLayout.astro";
+
+type Props = MarkdownLayoutProps<BaseLayoutFrontmatter>;
 const { frontmatter } = Astro.props;
 
 const baseUrl = CommonUtils.getBaseUrl(false);
@@ -11,7 +15,7 @@ const baseUrl = CommonUtils.getBaseUrl(false);
 const localeFromUrl = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
 ---
 
-<BaseLayout footerGrey={true} frontmatter={frontmatter}>
+<BaseLayout {...frontmatter}>
   <slot />
   <div class="container-width lg:container-width-hero prose max-w-none !px-8">
     {

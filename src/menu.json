@@ -1,0 +1,102 @@
+[
+  {
+    "title": "Home",
+    "target": "en/#top",
+    "hideInFooter": true
+  },
+  {
+    "title": "Get involved",
+    "hideInFooter": true,
+    "children": [
+      {
+        "title": "Makers Empowerment Hubs",
+        "target": "en/get-involved/makers-empowerment-hubs"
+      },
+      {
+        "title": "Makers Innovation Award",
+        "target": "en/get-involved/makers-innovation-award"
+      }
+    ]
+  },
+  {
+    "title": "Interventions",
+    "hideInFooter": true,
+    "children": [
+      {
+        "title": "Building Makerspaces",
+        "target": "en/interventions/building-makerspaces"
+      },
+      {
+        "title": "Co-Creating Community Spaces",
+        "target": "en/interventions/community-spaces"
+      },
+      {
+        "title": "Cultivating Culture",
+        "target": "en/interventions/cultivating-culture"
+      },
+      {
+        "title": "Adressing Humanitarian Needs",
+        "target": "en/interventions/humanitarian-needs"
+      },
+      {
+        "title": "Promoting Inclusivity and Mental Health",
+        "target": "en/interventions/inclusivity-mental-health"
+      },
+      {
+        "title": "Enabling Open Production",
+        "target": "en/interventions/open-production"
+      },
+      {
+        "title": "Innovate for Sustainability",
+        "target": "en/interventions/sustainability"
+      },
+      {
+        "title": "Learning through Inquiry",
+        "target": "en/interventions/inquiry"
+      }
+    ]
+  },
+  {
+    "title": "Resources",
+    "hideInFooter": true,
+    "children": [
+      {
+        "title": "Playbook",
+        "target": "en/resources/playbook"
+      },
+      {
+        "title": "Maker Academy",
+        "target": "en/academy"
+      },
+      {
+        "title": "Appropedia",
+        "target": "https://www.appropedia.org/Tolocar",
+        "newTab": true
+      }
+    ]
+  },
+  {
+    "title": "Community",
+    "hideInFooter": true,
+    "children": [
+      {
+        "title": "Project Partners",
+        "target": "en/community/partners"
+      },
+      {
+        "title": "Labs in Ukraine",
+        "target": "en/community/labs-in-ukraine"
+      },
+      {
+        "title": "Global Maker Initiatives",
+        "target": "en/community/maker-initiatives"
+      }
+    ]
+  },
+  {
+    "title": "Contact",
+    "target": "en/contact",
+    "hideInHeader": true,
+    "hideInFooter": true
+  }
+]

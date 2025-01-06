@@ -1,0 +1,37 @@
+---
+layout: "@layouts/BaseLayoutMarkdown.astro"
+title: Project Partners
+darkNavigation: true
+darkFooter: true
+---
+
+import { HeaderLogo, Footer, CommunityBanner, CommunityGridCard, ContentSection, CommunityHeader} from "@components";
+import WideCard from "@components/WideCardWrapper.astro"
+
+<CommunityHeader title="Project partners" text="TOLOCAR is a component of the project «GovTech and Transparency in Ukraine» funded by the German Federal Ministry for Economic Cooperation and Development (BMZ) and implemented by Deutsche Gesellschaft für internationale Zusammenarbeit (GIZ) GmbH in close collaboration with Ukrainian and international partners."/>
+
+<ContentSection variant="white" id="partners">
+    {/* <CommunityBanner title="Project partners" text="TOLOCAR is a project funded by the German Federal Ministry for Economic Cooperation and Development (BMZ) and implemented by the German Institute HIWW with support from the Deutsche Gesellschaft für internationale Zusammenarbeit (GIZ) GmbH in close collaboration with its Ukrainian and international partners." bg={1}/> */}
+
+    <div className="container-width grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-16">
+        <CommunityGridCard img="images/logos/BMZ.png" title="BMZ" text="The Federal Ministry for Economic Cooperation and Development (BMZ) is the donor of the Tolocar project. The BMZ sees itself as a transformative ministry working to support the worldwide transformation to a sustainable, climate-friendly and nature-friendly way of doing business whilst at the same time strengthening peace, freedom and human rights." target="www.bmz.de"/>
+        <CommunityGridCard img="images/logos/giz.png" title="GIZ" text="The Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH is a federal enterprise with worldwide operations. It supports the German Government in the field of international cooperation for sustainable development. GIZ is also engaged in international education activities around the globe and supports the realization of the Tolocar project." target="www.giz.de"/>
+        <CommunityGridCard img="images/logos/AtStake-logo.svg" title="At Stake" text="At Stake gGmbH is a non-profit consulting company with the goal of empowering people and communities around the world to participate in value creation for sustainable development through unrestricted access to knowledge, technology and infrastructure. To this end, At Stake is breaking new ground in the areas of innovation, production and knowledge management, supporting the Tolocar project." target="www.at-stake.org"/>
+        <CommunityGridCard img="images/logos/hiww.svg" title="HIWW" text="HIWW is a leading consulting firm for value creation increasingly focused on openness, decentralization and sustainability. It supports and accompanies organizations in breaking new ground in the areas of innovation, production and knowledge management. HIWW implemented the Tolocar project." target="www.hiww.de"/>
+        <CommunityGridCard img="images/logos/Mitost.png" title="MitOst" text="MitOst has been connecting active citizens in an open and diverse network in Europe and its neighboring regions for years, and was managing administration, communication and networking during the first phase of the Tolocar project." target="www.mitost.org"/>
+        <CommunityGridCard img="images/logos/cadus.png" title="CADUS" text="CADUS is a non-profit and independent aid organisation that provides medical and technical emergency response in crisis-affected areas. CADUS managed the first Tolocar during the first project phase." target="www.cadus.org"/>
+        <CommunityGridCard img="images/logos/metalab.png" title="METALAB" text="METALAB is an urban development laboratory in Ivano-Frankivsk that aims to research the needs of the city and the region, create livable public spaces, and develop a community of like-minded people so that the number of active citizens and urban development experts in the region increases." target="www.metalab.space"/>
+        <CommunityGridCard img="images/logos/insha-osvita.png" title="Insha Osvita" text="A non-governmental organization that works with culture and art as forms of collective learning and exchange, and creates and uses spaces for this. This aspect is also very important in the Tolocar project: through diverse, holistic and living learning from each other, we develop more trust in ourselves and others, and join together to strengthen ourselves and our communities." target="insha-osvita.org"/>
+        <CommunityGridCard img="images/logos/Ostriv.png" title="Ostriv Platform" text="Ostriv is a community makerspace in Kyiv. Together with the Ukraine's largest volunteer organisation, Building Ukraine Together (BUR), they have been helping different communities in Ukraine to create spaces for exchange - and to grow together as communities - for years." target="ostrivplatform.com"/>
+        <CommunityGridCard img="images/logos/gig.png" title="Global Innovation Gathering (GIG)" text="GIG facilitates collaboration between Ukrainian and international makers. Together, they're co-designing essential open-hardware products, workshops, and service kits aimed at addressing local needs. Diverse teams from various countries collaborate on ideation, design, and testing." target="globalinnovationgathering.org"/>
+        <CommunityGridCard img="images/logos/betterplace-lab.png" title="betterplace lab" text="A digital-social think-and-do tank focusing on digitalization for the common good innovation for digital transformation conducting research, workshops and organizing events." target="betterplace-lab.org"/>
+        <CommunityGridCard img="images/logos/futurechallenges.png" title="Future Challenges e.V." text="A non-profit organization dedicated to building ecosystems for human rights actors fostering digital transformation in the field of human rights empowering co-creative, sustainable, and digital mindsets." target="futurechallenges.org"/>
+        <CommunityGridCard img="images/logos/makerhub.svg" title="Maker Hub NGO" text="The Maker Hub develops zero-to-maker and maker-to-business pipelines by providing small and big events for makers, such as meetups and Maker Faires, and publishing manuals and playbooks for makerspaces." target="makerhub.org"/>
+
+    </div>
+</ContentSection>
+
+<ContentSection variant="white">
+  <WideCard className="mt-28 lg:mt-24" title="Discuss and contribute to our community!" text="We're using GitHub Discussions as a place to connect with other members of our community." target="https://www.github.com/tolocar-project/community" newTab={true} caption="Open GitHub" linkButtonVariant="github" bg={2}/>
+  <div class="absolute w-full bg-neutral-50 h-52 bottom-0" />
+</ContentSection>

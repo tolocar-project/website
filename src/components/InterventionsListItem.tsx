@@ -5,13 +5,13 @@ import DotIcon from "@assets/dot-icon.svg?react";
 import { Tag } from "@components";
 import type { IInterventionFrontmatter } from "@interfaces/IIntervention";
 
-interface Props extends IInterventionFrontmatter {
+interface InterventionsListItemProps extends IInterventionFrontmatter {
   className?: string;
   image?: string;
   href?: string;
 }
 
-const InterventionsListItem: React.FC<Props> = ({
+const InterventionsListItem: React.FC<InterventionsListItemProps> = ({
   className,
   image,
   title,
@@ -20,7 +20,7 @@ const InterventionsListItem: React.FC<Props> = ({
   location,
   href,
   teaser,
-}: Props) => {
+}) => {
   return (
     <div className={`flex gap-[42px] ${className || ""}`}>
       <div className="border-l-2 border-neutral-200 relative">

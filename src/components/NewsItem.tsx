@@ -5,7 +5,7 @@ import { ConditionalWrapper } from "@components";
 
 type ItemType = "cta" | "instagram" | "fullImage";
 
-interface Props {
+interface NewsItemProps {
   href: string;
   image?: string;
   title?: string;
@@ -14,7 +14,7 @@ interface Props {
   newTab?: boolean;
 }
 
-const NewsItem: React.FC<Props> = ({
+const NewsItem: React.FC<NewsItemProps> = ({
   href,
   image,
   title,

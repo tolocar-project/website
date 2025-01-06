@@ -1,7 +1,7 @@
 import React from "react";
 import { ConditionalWrapper } from "@components";
 
-interface Props {
+interface CommunityGridCardProps {
   className?: string;
   title?: string;
   text?: string;
@@ -9,13 +9,13 @@ interface Props {
   img?: string;
 }
 
-const CommunityGridCard: React.FC<Props> = ({
+const CommunityGridCard: React.FC<CommunityGridCardProps> = ({
   className,
   title,
   text,
   target,
   img,
-}: Props) => {
+}) => {
   return (
     <div className={`col-span-1 bg-neutral-50 ${className}`}>
       <ConditionalWrapper

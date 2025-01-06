@@ -1,0 +1,254 @@
+---
+layout: "@layouts/BaseLayoutMarkdown.astro"
+title: Makers Innovation Award
+darkFooter: false
+metaImage: og_image_award.jpg
+metaDescription: "Empowering Ukrainian Maker Community: Where Networking Meets Funding, Mentoring Sparks Ideas, and Innovation Comes to Life!"
+---
+
+import WideCard from "@components/WideCard";
+import {
+  Accordion,
+  HeadlineUnderlined,
+  TextBlock,
+  InfoItem,
+  ContentSection,
+  ImageCard,
+  InterventionImageCarousel,
+  VideoCard,
+  ButtonLink,
+} from "@components";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+
+<WideCard
+    bg={3}
+    className="mt-20 md:mt-32"
+    centerImage="makers-innovation-award-logo.svg"
+  />
+<div class="bg-neutral-50 w-full -mt-48 pt-48">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 mt-8 mb-20 md:mt-20 bg-neutral-50 lg:!px-0">
+    <HeadlineUnderlined variant={11} className="pt-10 pb-8 sm:py-0 col-span-5">
+      Empowering Ukrainian Maker Community: Where Networking Meets Funding, Mentoring Sparks Ideas, and Innovation Comes to Life!
+    </HeadlineUnderlined>
+    <TextBlock className="col-span-6">
+    **The Innovation Ecosystem of Ukraine** is greatly affected by the war, which has a massive negative effect on the Ukrainian society and its social cohesion. The determined maker movement, a vital part of Ukrainian society, strives to help the nation heal and grow.
+
+    The **Makers Innovation Award (MIA)** aims at fostering collaboration among makers (tech enthusiasts, engineers, designers, crafters) who join forces for social impact and innovation. Eight project ideas showcasing the greatest potential to achieve these aims secured 50,000 Euro of prize money each and will benefit from personalized mentoring sessions to enhance their capacities and refine their project concepts further.
+    </TextBlock>
+  </div>
+</div>
+
+
+
+<div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 py-8 md:py-24">
+  <div class="col-span-1 md:col-span-12">
+    <h2
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >What happened before</h2>
+  </div>
+  <TextBlock className="col-span-1 md:col-span-4">
+    On January 19th, the **Idea Cultivation Workshop** gathered 50+ inventors in Kyiv to celebrate creativity, foster collaboration, and address societal challenges. Facilitators equipped participants with tools to transform visionary ideas into impactful solutions for Ukraine's recovery and social cohesion. 
+  </TextBlock>
+  <TextBlock className="col-span-1 md:col-span-4">
+    On January 29th and February 2nd, **two virtual training sessions** were held with trainer Serhiy Korneliuk and the MIA team. The first session enhanced proposal writing and budgeting skills, while the second addressed participant queries and key pre-submission considerations.
+  </TextBlock>
+  <TextBlock className="col-span-1 md:col-span-4">
+    On March 1st, the **Pitch Event** offered 14 pre-selected teams the opportunity to present their project ideas to the expert jury. Eight projects with the most potential for social impact, recovery and social cohesion in Ukraine won 50,000 Euro each. 
+  </TextBlock>
+</div>
+
+<div class="container-width grid grid-cols-12 py-8 md:py-24">
+  <img src="images/award/award-timeline.svg" className="col-span-12 w-full" />
+</div>
+
+<div class="container-width grid grid-cols-1 lg:grid-cols-12 gap-8 py-8 md:py-24">
+  <div class="col-span-1 lg:col-span-6 flex flex-col gap-8">
+    <h2
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >Up Next: Implementation of the projects!</h2>
+    <TextBlock>
+      Experienced mentors provided the winners with the necessary support during three joint mentoring sessions on legal issues, project management, and a training game on refining and enhancing the original project ideas. Additionally, the teams had individual mentoring sessions that were aimed at tackling the most pressing and relevant questions for their project implementation processes.
+
+The time has come for the implementation! We are excited to see their contribution to Ukraine's recovery and social cohesion! 
+  
+    </TextBlock>
+  </div>
+</div>
+
+<div class="container-width grid grid-cols-1 md:grid-cols-12 gap-8 py-8 md:py-24">
+  <div class="col-span-1 md:col-span-12">
+    <h2
+      class="text-neutral-900 text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold"
+    >Meet the Winners of the 2024 Makers Innovation Award! Congratulations!</h2>
+  </div>
+</div>
+
+<ContentSection variant="dark" className="z-10 mt-20 md:mt-0">
+  <div class="container-width grid grid-cols-1 md:grid-cols-3 gap-6 -mt-20 pb-8">
+    <VideoCard videoId="rT8Oo0YuJKU" aspect="2/1" title="Molodozhni Vitryla" img="images/award/winners/molodozhni-vitryla.jpg" client:only="react">The project “Vitryla Maker Space” aims to increase the interest of young people in technical sciences, to link attention to the local maker community and promote the development of entrepreneurship and innovation.</VideoCard>
+    <VideoCard videoId="Zdk2pdPSF4Q" aspect="2/1" title="It's Craft" img="images/award/winners/its-craft.jpg" imgClassName="object-top" client:only="react">The project “Mythologization and modernization of the Tripillia culture” aims to create a large circle of like-minded people who, through synergies, will implement the idea of a renewed Ukrainian identity based on the Tripillia culture in different ways.</VideoCard>
+    <VideoCard videoId="YKiyKg_VfP4" aspect="2/1" title="CultGroup" img="images/award/winners/cultgroup.jpg" imgClassName="object-top" client:only="react">The project “STR Lab Polytechnic” aims to set up a laboratory for research into sustainable recycling technologies, where students from related disciplines can gain practical experience in using digital production tools using the example of designing industrial processes.</VideoCard>
+    <VideoCard videoId="1zOYlImfDbI" aspect="2/1" title="Eco misto Chernihiv" img="images/award/winners/eko-misto-chernihiv.jpg" imgClassName="object-top" client:only="react">The project “Plastic Fantastic LAB” aims at its own production of plastic processing equipment, expanding the geography of plastic processing workshops, and promoting sorting, recycling and production in Ukraine.</VideoCard>
+    <VideoCard videoId="Orqxz7fwWRA" aspect="2/1" title="Molod' Online" img="images/award/winners/molod-online.jpg" imgClassName="object-top" client:only="react">The project “Skin Open Source (SOS)” aims to cheapen and disseminate biotechnologies, applying the principles of “do-it-yourself biology” and “citizen science”, especially attracting young people to the DIY biotech movement.</VideoCard>
+    <VideoCard videoId="poPFlee2J8U" aspect="2/1" title="HackLab" img="images/award/winners/hacklab.jpg" imgClassName="object-top" client:only="react">The goal of the project “HackLab 2.0” is to create an inclusive workshop where creative enthusiasts developing startups have a space for experiments and rapid prototyping and can quickly acquire practical skills for working with modern equipment.</VideoCard>
+    <VideoCard videoId="ksY3jer0EOg" aspect="2/1" title="Kolo" img="images/award/winners/kolo.jpg" imgClassName="object-top" client:only="react">The aim of the project “Galician Makers” is to set up two workshops based on Fablab approaches, where experience and expertise in educational institutions through training and workshops teach project thinking and project skills as well as engineering thinking.</VideoCard>
+  </div>
+  <div class="container-width grid grid-cols-12 mb-14">
+    <LiteYouTubeEmbed
+      title={"Video from the final Makers Innovation Award event"}
+      poster="maxresdefault"
+      id={"wugjcup1Rsw"}
+      wrapperClass="yt-lite w-full col-span-10 col-start-2"
+      client:only="react"
+    />
+  </div>
+  <div class="container-width grid grid-cols-3 gap-6 pb-8">
+    <h2 class="text-white text-lg leading-6 lg:text-2xl lg:leading-7 font-aktiv font-semibold">Finalists</h2>
+  </div>
+  <div class="container-width grid grid-cols-1 md:grid-cols-3 gap-6 pb-8">
+    <ImageCard aspect="2/1" title="NGO Tourist Association Hutsuliya" img="images/award/winners/hutsuliya.jpg" imgClassName="object-top">The aim of the project “Crafts of unforgotten ancestors” is to set up an innovative and educational space for children and teenagers, to increase their interest in the preservation, modernization and popularization of local crafts, which will be combined with modern technologies.</ImageCard>
+    <ImageCard aspect="2/1" title="Pure hearts Kalush" img="images/award/winners/pure-hearts-kalush.jpg" imgClassName="object-top">The goal of the project “Technospace: cyborg laboratory” is to create a safe, inclusive and accessible platform for the development, socialization and adaptation of children, veterans, persons with disabilities, IDPs and other persons in need of retraining or training by creating an innovative and technological space with 3D printers and radio equipment.</ImageCard>
+    <ImageCard aspect="2/1" title="Charity Foundation «Soloma Cats»" img="images/award/winners/soloma-cats.jpg" imgClassName="object-top">The project Kickstart FabAcademy Ukraine aims to implement in four Kyiv universities a recognized course from MIT aimed at developing technical and innovative skills among students through forming a pool of qualified and certified instructors. In the long term, the full integration of Fab Academy into the educational programs of several Ukrainian universities.</ImageCard>
+    </div>
+</ContentSection>
+
+<ContentSection variant="dark" className="pb-8">
+  <div class="container-width grid grid-cols-12">
+    <InterventionImageCarousel dark className="col-span-12 md:col-start-2 md:col-span-10" images={[
+      "images/award/gallery/Tolocar_Award_1.jpg",
+      "images/award/gallery/Tolocar_Award_2.jpg",
+      "images/award/gallery/Tolocar_Award_3.jpg",
+      "images/award/gallery/Tolocar_Award_4.jpg",
+      "images/award/gallery/Tolocar_Award_5.jpg",
+      "images/award/gallery/Tolocar_Award_6.jpg",
+      "images/award/gallery/Tolocar_Award_7.jpg",
+      "images/award/gallery/Tolocar_Award_8.jpg",
+      "images/award/gallery/Tolocar_Award_9.jpg",
+      "images/award/gallery/Tolocar_Award_10.jpg",
+      "images/award/gallery/Tolocar_Award_11.jpg",
+      "images/award/gallery/Tolocar_Award_12.jpg",
+      "images/award/gallery/Tolocar_Award_13.jpg",
+      "images/award/gallery/Tolocar_Award_14.jpg",
+      "images/award/gallery/Tolocar_Award_15.jpg",
+      "images/award/gallery/Tolocar_Award_16.jpg",
+      "images/award/gallery/Tolocar_Award_17.jpg",
+      "images/award/gallery/Tolocar_Award_18.jpg",
+      "images/award/gallery/Tolocar_Award_19.jpg",
+      "images/award/gallery/Tolocar_Award_20.jpg",
+      "images/award/gallery/Tolocar_Award_21.jpg",
+      "images/award/gallery/Tolocar_Award_22.jpg",
+      "images/award/gallery/Tolocar_Award_23.jpg",
+      "images/award/gallery/Tolocar_Award_24.jpg"
+]} client:load/>
+  </div>
+</ContentSection>
+
+<div class="bg-tolo-green w-full text-white">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 gap-x-16 gap-y-2 md:gap-y-24 py-8 md:py-24">
+    <div class="col-span-1 md:col-span-5 flex items-center justify-center">
+      <img src="images/award/selection-criteria.svg" className="col-span-12 w-full" />
+    </div>
+    <div class="col-span-1 md:col-span-7 font-semibold font-aktiv text-2xl flex flex-col gap-4">
+      <p>Application has been closed since February 11th, 4 pm (EET).</p>
+      <p>The criteria for the winner selection were the following:</p>
+    </div>
+    <div class="col-span-1 my-6 md:my-0 md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <InfoItem
+        title="Social Impact"
+        description="How big is the social impact the idea can create?"
+        icon="bullseye_arrow"
+        className="col-span-1"
+      />
+      <InfoItem
+        title="Feasibility"
+        description="How feasible is it for the team to implement the idea?"
+        icon="feather"
+        className="col-span-1"
+      />
+      <InfoItem
+        title="Scalability"
+        description="To what extent can the idea be expanded/ scaled to many people?"
+        icon="maximize"
+        className="col-span-1"
+      />
+      <InfoItem
+        title="Innovativeness"
+        description="What is the level of innovation? How new or different is the idea?"
+        icon="lightbulb"
+        className="col-span-1"
+      />
+      <InfoItem
+        title="Sustainability"
+        description="Does the project have a mature idea to sustain itself eventually?"
+        icon="leaf"
+        className="col-span-1"
+      />
+      <InfoItem
+        title="Team"
+        description="Is the team for the implementation of the project well positioned in terms of motivation, cohesion and background knowledge?"
+        icon="users"
+        className="col-span-1"
+      />
+      {/* <div class="md:col-start-2 col-span-1">
+        <ButtonLink className="w-full" caption="Apply now" target="https://docs.google.com/forms/d/e/1FAIpQLSevNCKvz3f-L2_5Ci8ctaiPSAy5fNCfIeB8DptEHZxh_xPZcw/viewform" variant="light" newTab />
+      </div> */}
+
+    </div>
+    <div class="col-span-1 md:col-span-4 flex flex-col gap-4">
+      <h2 class="text-white font-aktiv font-semibold text-3xl md:text-5xl leading-10">Jury members</h2>
+      <TextBlock className="!text-white">The role of a Jury Member for MIA is pivotal in the selection process and includes the thorough review and evaluation of applications submitted by participants. From all applications, the 15 most promising teams will be selected and have an opportunity to present their ideas concisely and convince the jury at the Pitch Event on March 1st. The 5-member expert jury panel will select eight teams as the winners of the award amounting to EUR 50,000 each.</TextBlock>
+    </div>
+    <div class="mt-6 md:mt-0 col-span-1 md:col-start-6 md:col-span-7 flex flex-col divide-y divide-neutral-200 border-y border-neutral-200">
+      <Accordion title="Valeriya Ionan" subtitle="Deputy Minister for Eurointegration" image="images/award/jury/Valeriya_Ionan.png" name="jury" light>
+        The head of the jury of Makers Innovation Award - *Valeriya Ionan*, the Deputy Minister for Eurointegration at the Ministry of Digital Transformation of Ukraine
+      </Accordion>
+      <Accordion title="Alina Nosenko" subtitle="Head of strategic partnerships at PHINEO" image="images/award/jury/Alina_Nosenko.png" name="jury" light>
+        *Alina Nosenko* is the head of strategic partnerships at PHINEO. Alina has more than 12 years of experience in organizational development and strategic partnerships, she is a systemic business coach, dedicated to fostering holistic growth and effectiveness within NGOs.
+      </Accordion>
+      <Accordion title="Yevheniia Talinovska" subtitle="Co-founder of NGO Zgraya" image="images/award/jury/Yevheniia_Talinovska.png" name="jury" light>
+        *Yevheniia Talinovska* is a co-founder of the NGO-volunteer headquarters (public organization) Zgraya. Since 2014, "Zgraya" has been providing the military with all necessary assistance. It has also opened a tailor shop for sewing tactical gear and conducts a physical rehabilitation program for soldiers after injuries.
+      </Accordion>
+      <Accordion title="Volodymyr Orlov" subtitle="Global Impact Ambassador and adjunct professor at KMBS" image="images/award/jury/Volodymyr_Orlov.png" name="jury" light>
+        *Volodymyr Orlov* is a Global Impact Ambassador, regional manager for Innovation and Digital Transformation at Cisco, adjunct professor at KMBS, CCIE#11791 Certified Networking Expert, director of Cisco Azerbaijan 2013-2021 
+      </Accordion>
+      <Accordion title="Roman Zinchenko" subtitle="Co-founder of Greencubator" image="images/award/jury/Roman_Zinchenko.png" name="jury" light>
+        *Roman Zinchenko* has numerous innovation awards and is the co-founder of Greencubator that became a meeting point for Ukraine's sustainable energy community, a launchpad for new green ventures, a social innovations accelerator, and a manager of grant programs for climate-positive SMEs 🌳 
+      </Accordion>
+    </div>
+  </div>
+</div>
+
+
+<div class="bg-neutral-50 w-full">
+  <div class="container-width grid grid-cols-1 md:grid-cols-12 py-8 md:py-24 gap-8">
+    <div class="col-span-1 md:col-span-4 flex flex-col gap-4">
+      <h2 class="text-tolo-black font-aktiv font-semibold text-3xl md:text-5xl leading-10">Facilitators, Moderators and Trainers</h2>
+      <TextBlock>The Idea Cultivation Workshop that took place in a hybrid format on January 19th focused on idea development and refinement enhancing networking skills and led participants to analyse the current environement in which maker spaces develop as well as to find own solutions to identified challenges.</TextBlock>
+    </div>
+    <div class="col-span-1 mt-6 md:mt-0 md:col-start-6 md:col-span-7 flex flex-col divide-y divide-neutral-200 border-y border-neutral-200">
+      <Accordion title="Dzvenyslava Novakivska" subtitle="Facilitator" image="images/award/trainers/Dzvenyslava_Novakivska.png" name="jury">
+        *Dzvenyslava Novakivska*, an expert in change marketing and transformational strategic sessions for government and public sectors. She's a coach for change leaders and their teams. Dzvenyslava is a co-founder of the Ukrainian U hub and UA IDG Network.
+      </Accordion>
+      <Accordion title="Olena Kukhar" subtitle="Co-facilitator" image="images/award/trainers/Olena_Kukhar.png" name="jury">
+        *Olena Kukhar* is a business mediator (KMBS) and consultant specializing in internal team culture and conflict transformations. With over 13 years of experience in process management and human change, she brings expertise in team and project management within human capital. Olena is also a honoured member of the National Association of Mediators of Ukraine.
+      </Accordion>
+      <Accordion title="Ksenia Yemshyna" subtitle="Co-facilitator" image="images/award/trainers/Ksenia_Yemshyna.png" name="jury">
+        *Ksenia Yemshyna* is a facilitator, team integrator, and designer of educational experiences. She is a trainer for the All-Ukrainian program "Youth Worker" by the Ministry of Youth and Sports. She teaches the course "Digital Tools for NGOs" in the master's program "Management of Non-profit Organizations" at the Ukrainian Catholic University. Ksenia is a practitioner of GamEduHacking, reshaping the learning process through innovative game technologies.
+      </Accordion>
+      <Accordion title="Anastasia Sylenok" subtitle="Moderator" image="images/award/trainers/Anastasia_Sylenok.png" name="jury">
+        *Anastasia Sylenok* is a co-founder of Digitizing.Space, WTECH ambassador, ecosystem builder, community architect, change management expert, launcher of impact-oriented projects. Startup mentor and advisor.
+        Thanks to Anastasia’s expertise in project/process management and impact oriented projects, she organized and conducted more than 500 business-oriented events!
+      </Accordion>
+      <Accordion title="Serhiy Kornyliuk" subtitle="Trainer" image="images/award/trainers/Serhiy_Kornyliuk.png" name="jury">
+        *Serhiy Kornyliuk* is a consultant with more than 12 years of consulting and coaching experience, specializing in the development of organizational strategies, management projects, and local economic development.
+        
+        Serhiy successfully helped enterprises, non-government organizations, and city councils attract grant financing for implementing dozens of socially important projects. Besides that, Serhiy participated many times as an expert on the jury in selecting winners of grant competitions.
+      </Accordion>
+    </div>
+  </div>
+</div>
+
+<WideCard bg={4} className="mt-16"><div className="text-white py-10 px-6 md:px-10 md:py-20 flex h-full items-center justify-between"><h4 className="text-xl md:text-[2.5rem]/[1.2] font-aktiv font-semibold w-full md:max-w-[50%] z-10">Join us in shaping a brighter future for Ukraine through your inventive solutions!</h4><img className="absolute right-0 h-[120%] w-auto z-0" src="bulb-cog-dark.svg" /></div></WideCard>
+<div class="container-width lg:container-width-hero text-lg leading-6 custom-prose max-w-none !px-8 mt-8">
+The “Makers Innovation Award” is organized by [betterplace lab gGmbH](https://www.betterplace-lab.org/) and [Future Challenges e.V.](https://futurechallenges.org/) in the framework of #TOLOCAR, a project funded by the German Federal Ministry for Economic Cooperation and Development [(BMZ)](https://www.bmz.de/de) and implemented by the Deutsche Gesellschaft für internationale Zusammenarbeit [(GIZ)](https://www.giz.de/) GmbH with support of [HIWW](https://www.hiww.de/) in close collaboration with Ukrainian and international partners.
+</div>

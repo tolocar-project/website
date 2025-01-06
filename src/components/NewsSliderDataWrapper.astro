@@ -1,6 +1,5 @@
 ---
 import { NewsSliderComponent } from "@components";
-import { getNewsItems } from "@util/Airtable";
 import CommonUtils from "@util/CommonUtils";
 import LanguageUtils from "@util/LanguageUtils";
 import { getCollection } from "astro:content";
@@ -9,8 +8,7 @@ const { headline, id, findAllCaption, ...rest } = Astro.props;
 const baseUrl = CommonUtils.getBaseUrl(false);
 const localeFromUrl = LanguageUtils.getLocaleFromUrl(Astro.url, baseUrl);
 
-const news = await getNewsItems(30, baseUrl, localeFromUrl);
-const stickyNews = (
+const localNews = (
   await getCollection("news", ({ id }) => {
     return id.startsWith(localeFromUrl);
   })
@@ -20,11 +18,11 @@ const stickyNews = (
     id: item.id,
     target: baseUrl + "/" + localeFromUrl + "/" + item.data.target,
   }))
-  .sort((a, b) => (a?.order || 0) - (b?.order || 0));
+  .sort((a, b) => (b?.order || 0) - (a?.order || 0));
 ---
 
 <NewsSliderComponent
-  news={[...stickyNews, ...(news || [])]}
+  news={[...localNews]}
   {headline}
   {id}
   {findAllCaption}

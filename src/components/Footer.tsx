@@ -4,20 +4,17 @@ import GizLogoSvgDE from "@assets/giz_logo_de.svg?react";
 import GizImplementedByEN from "@assets/giz_logo_implemented_by.svg?react";
 import GizImplementedByUA from "@assets/giz_logo_implemented_by_ua.svg?react";
 import GizZusammenarbeitSvg from "@assets/giz_zusammenarbeit.svg?react";
-import AtStakeLogoSvg from "@assets/at_stake_logo.svg?react";
 import InstagramIcon from "@assets/instagram.svg?react";
 import FacebookIcon from "@assets/facebook.svg?react";
 import type { IMenuItem } from "@interfaces/IMenu";
 
-interface Props {
+interface FooterProps {
   className?: string;
   menu?: IMenuItem[];
   locale?: string;
 }
 
-const logoClasses = "w-full";
-
-const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
+const Footer: React.FC<FooterProps> = ({ className, menu, locale }) => {
   return (
     <div className={`w-full flex bg-white py-16 ${className || ""}`}>
       <div className="container-width flex flex-col justify-between text-black">
@@ -64,7 +61,7 @@ const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
           <div className="mt-4 lg:mt-0 flex-[3] flex items-center">
             <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr] grid-rows-[repeat(4,auto)] md:grid-rows-[auto_auto_auto] gap-x-4 gap-y-1">
               <a
-                className={"md:row-start-2 md:row-span-2"}
+                className={"col-start-2 md:row-start-2 md:row-span-2"}
                 href="https://www.giz.de"
                 target="_blank"
               >
@@ -77,18 +74,11 @@ const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
               )}
 
               <a
-                className={"md:row-start-2"}
+                className={"col-start-3 md:row-start-2"}
                 href="https://www.giz.de"
                 target="_blank"
               >
                 <GizLogoSvgDE className={"w-full"} />
-              </a>
-              <a
-                className={"md:row-start-2 relative mt-8 md:mt-0"}
-                href="https://www.at-stake.org/"
-                target="_blank"
-              >
-                <AtStakeLogoSvg className={"md:absolute h-full w-auto"} />
               </a>
             </div>
           </div>
@@ -110,8 +100,8 @@ const Footer: React.FC<Props> = ({ className, menu, locale }: Props) => {
 };
 
 interface FooterLinkListItemProps {
-  target: string;
-  children?: React.ReactNode;
+  target?: string;
+  children: React.ReactNode;
 }
 
 const FooterLinkListItem: React.FC<FooterLinkListItemProps> = ({

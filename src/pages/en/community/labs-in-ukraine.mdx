@@ -1,0 +1,29 @@
+---
+layout: "@layouts/BaseLayoutMarkdown.astro"
+title: Labs in Ukraine
+darkNavigation: true
+darkFooter: true
+---
+
+import { HeaderLogo, Footer, CommunityBanner, CommunityGridCard, ContentSection, CommunityHeader} from "@components";
+import WideCard from "@components/WideCardWrapper.astro"
+
+<CommunityHeader title="Labs in Ukraine" text="We aim to build strong relationships to all existing makerspaces and FabLabs in Ukraine. Meanwhile our approach is to support initiatives by founding their labs or even plant completely new labs or small scale productions."/>
+
+<ContentSection variant="white" id="labs">
+    {/* <CommunityBanner className="mt-28" title="Labs in Ukraine" text="We aim to build strong relationships to all existing makerspaces and FabLabs in Ukraine. Meanwhile our approach is to support initiatives by founding their labs or even plant completely new labs or small scale productions." bg={2}/> */}
+
+    <div className="container-width grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-16">
+        <CommunityGridCard title="Creative Rural Hub" text="A hub for makers, artists, architects, scientists and all creatives in Ivano-Frankivska." target="www.creativeruralhub.org"/>
+        <CommunityGridCard title="Hub Lab" text="Coworking for inventors, technical specialty students and other people who want to implement technological projects." target="www.impacthub.odessa.ua"/>
+        <CommunityGridCard title="Hack Lab" text="Oldest hackerspace/open lab in Ukraine (founded 2013). Has long been a center of a large maker community." target="www.hacklab.kyiv.ua" url="www.hacklab.kyiv.ua"/>
+        <CommunityGridCard title="Makerspace Lviv" text="Lab with STEAM workshops for children and teenagers in Lviv." target="www.makerspace.com.ua" url="www.makerspace.com.ua"/>
+        <CommunityGridCard title="Ksiprostir" text="An open art workshop where everyone can find a place to realize their own ideas." target="www.ksiprostir.org"/>
+        <CommunityGridCard title="Maker Hub" text="A makerspace in Kyiv which organised Kyiv Mini Maker Faire, Odesa Mini Maker Faire, Raspberry Jam's, Maker BBQ etc." target="https://makerhub.org"/>
+    </div>
+</ContentSection>
+
+<ContentSection variant="white">
+  <WideCard className="mt-28 lg:mt-24" title="Discuss and contribute to our community!" text="We're using GitHub Discussions as a place to connect with other members of our community." target="https://www.github.com/tolocar-project/community" newTab={true} caption="Open GitHub" linkButtonVariant="github" bg={2}/>
+  <div class="absolute w-full bg-neutral-50 h-52 bottom-0" />
+</ContentSection>

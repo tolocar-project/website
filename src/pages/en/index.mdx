@@ -1,6 +1,7 @@
 ---
-layout: "@layouts/BaseLayout.astro"
+layout: "@layouts/BaseLayoutMarkdown.astro"
 title: Home
+darkFooter: true
 ---
 
 import {
@@ -43,12 +44,6 @@ import InterventionsMapSection from "@components/InterventionsMapSection.astro"
         </div>
         <div class="flex-[60%]">This means they bring the capacity of **high end manufacturing or diagnosis technologies to the point of need**. But crucially they remain plugged into a world wide community of diverse domain experts who can bring their collective intelligence to bear in ways that complement conventional relief or rebuilding efforts.<br/><br/>
         The aim is to enable communities to replicate some of the capabilities and so to catalyze rebuilding efforts and establish support networks.</div>
-          {/* Waiting for Fleet Subpage */}
-          {/* <br/>
-          <div className="flex items-center gap-4 text-tolo-green">   
-            <a href="#" className="no-underline">Discover our fleet</a>
-            <ArrowIcon className="w-5 h-5" />
-          </div> */}
       </div>
     </div>
   </div>
@@ -75,78 +70,21 @@ import InterventionsMapSection from "@components/InterventionsMapSection.astro"
 </ContentSection>
 
 <ContentSection variant="white" className="mb-16 mt-20">
-  <div class="container-width flex flex-col lg:flex-row gap-4">
-    <div class="flex flex-col flex-1 basis-full min-w-0 gap-4 lg:order-1 order-2">
-      <CarCard img="images/cars/image4.jpg" title="The Cadus Crafter" subtitle="Tolocar 01" tag="Renovation & Handcraft" date="May - August 2022" operator="cadus" tagIcon="hammer"/>
-      <CarCard img="images/cars/image1.jpg" title="The MitOst Sprinter II" subtitle="Tolocar 03" tag="Making" tagIcon="toolbox" date="September 2022 - Open End" operator="ostriv" />
-    </div>
-    <div class="flex flex-col flex-1 basis-full min-w-0 gap-4 items-center lg:order-2 order-1">
-      <h3 class="font-semibold text-5xl font-aktiv">Our fleet</h3>
+  <div class="container-width grid grid-cols-2 gap-8">
+    <div class="col-span-2 w-full flex flex-col justify-center">
+      <h3 class="font-semibold text-5xl font-aktiv text-center">Our fleet</h3>
       <p class="text-lg text-neutral-500 w-full text-center mb-16">Overview of all our past, current and planned Tolocars</p>
-      <CarCard img="images/cars/image2.jpg" title="The Cadus Supporter" subtitle="Support Vehicle 01" tag="Staff & Material Transport" tagIcon="truck" date="June - November 2022" operator="mitost" tagIcon="truck"/>
-      <CarCard img="images/cars/hiww.jpg" title="The HIWW Van" subtitle="Tolocar 04" tag="Making & Open Source HW" date="September 2022 - Open End" tagIcon="cog" operator="hiww"/>
     </div>
-    <div class="flex flex-col flex-1 basis-full min-w-0 gap-4 order-3">
-      <CarCard img="images/cars/MitOstSprinter-1.jpg" title="The MitOst Sprinter I" subtitle="Tolocar 02" tag="Making, Digital Fabrication" tagIcon="cog" date="June 2022 - Open End" operator="ostriv"/>
-      <CarCard img="images/cars/image7.jpg" title="The HIWW Truck" subtitle="Tolocar 05" tag="Making & Open Source HW" tagIcon="cog" date="September 2022 - Open End" operator="hiww"/>
-    </div>
+    <CarCard img="images/cars/image1.jpg" title="The Kyiv Sprinter" subtitle="Tolocar 03" tag="Making" tagIcon="toolbox" date="September 2022 - Open End" operator="ostriv" />
+    <CarCard img="images/cars/hiww.jpg" title="The Van" subtitle="Tolocar 04" tag="Making & Open Source HW" date="September 2022 - Open End" tagIcon="cog" operator="hiww"/>
+    <CarCard img="images/cars/MitOstSprinter-1.jpg" title="The Okhtyrka Sprinter" subtitle="Tolocar 02" tag="Making, Digital Fabrication" tagIcon="cog" date="June 2022 - Open End" operator="ostriv"/>
+    <CarCard img="images/cars/image7.jpg" title="The Truck" subtitle="Tolocar 05" tag="Making & Open Source HW" tagIcon="cog" date="September 2022 - Open End" operator="hiww"/>
   </div>
 </ContentSection>
 
-<ContentSection id="what-we-do">
-  <HeadlineUnderlined large variant={8} className="container-width mt-8 sm:mt-20">What we do</HeadlineUnderlined>
-  <div class="container-width flex lg:justify-start mt-8 sm:mt-14 mb-16">
-    <div class="flex flex-col lg:w-10/12 ">
-      <div class="flex flex-col lg:flex-row custom-prose text-lg leading-6 gap-8 mb-12 lg:mb-16">
-        <div class="flex-1">
-          <h3 class="text-2xl leading-8 font-bold text-tolo-black">With our Tolocars we operate directly in Ukraine.</h3>
-          <br/>
-          We perform different maker workshops with various groups like schools, universities, fablabs and others in topics like digital fabrication, coding and more. 
-
-        </div>
-        <div class="flex-1">In our replication workshops we train fablabs and local businesses to build/replicate certain open source hardware machines like 3D printers, cnc-milling machines and laser cutters.<br/><br/>We support various partners with their project through our expertise, tools and machines. In this projects we renovate, repair, build and invent special solutions.</div>
-      </div>
-    </div>
-  </div>
-</ContentSection>
-
-<ContentSection variant="dark" className="z-10">
-  <div class="container-width flex flex-col lg:flex-row gap-6 -mt-20 pb-8">
-    <ImageCard title="Building a community & empowering people" img="images/tolocar-community.jpg" >We are connected to local actors, makers and initiatives in Ukraine and internationally. <br/>  
-    Our goal is to connect these actors and enable them to work together.</ImageCard>
-    <ImageCard title="Interventions" img="images/interventions.jpg" >When we go to a place to support a project, build a makerspace or perform a workshop, we call that an intervention. Every intervention has its unique partners, goals and outcomes, but every intervention aims to strengthen the ecosystem of Ukraine. </ImageCard>
-    <ImageCard title="Projects" img="images/interventions/water-system-1.jpeg">Within the Tolocar Project we support different projects with our equipment, knowledge and capacities. The projects are in areas like insulation, energy supply, connectivity and sewage water.</ImageCard>
-  </div>
-</ContentSection>
-
-<ContentSection variant="default" className="h-fit">
-  <div class="absolute w-full bg-white h-[364px] top-0" />
-  <InterventionsMapSection/>
-</ContentSection>
-
-<ContentSection variant="white">
-  <WideCard title="Build your own projects with our Academy guides" text="In the Makerspace Academy you will find a lot of helpful information about making and makerspaces." target="/en/academy" caption="Go to Academy" linkButtonVariant="light" bg={1} className="mt-16"/>
-  <div class="absolute w-full bg-neutral-50 h-52 bottom-0" />
-</ContentSection>
-
-<ContentSection variant="default" className="lg:min-h-fit pb-5">
-  <div className="container-width relative h-full overflow-hidden mt-6">
-    <img className="absolute scale-125 -right-20 lg:top-10 lg:right-28 opacity-25" alt="Hand drawn illustration of tools" src="tolocar_illustration_3_dark.svg"/>
-    <HeadlineUnderlined large variant={6} className="flex justify-center mt-8 lg:mt-[78px]">Community</HeadlineUnderlined>
-    <div class="flex flex-col lg:flex-row lg:justify-center gap-16 mt-20 mb-8 lg:mb-40">
-      <CommunityCard className="self-start lg:-mt-40" img="images/news/heating-mats.jpeg" title="Who we are"
-      target="/en/community#partners" actionCaption="See more">TOLOCAR is funded by the German Federal Ministry for Economic Cooperation and Development (BMZ) and implemented by the German Institute HIWW with support from the Deutsche Gesellschaft für internationale Zusammenarbeit (GIZ) GmbH in close collaboration with its Ukrainian and international partners.</CommunityCard>
-      <CommunityCard className="self-center" img="images/group_session.jpg" title="Labs in Ukraine"
-      target="/en/community#labs" actionCaption="See more">We aim to build strong relationships to all exsisting makerspaces and FabLabs in Ukraine. Meanwhile our approach is to support initiatives by founding theirs labs or even plant completely new labs or small scale productions.</CommunityCard>
-      <CommunityCard className="self-end lg:-mb-40" img="images/saw.jpg" title="Global maker initiatives"
-      target="/en/community#maker-initiatives" actionCaption="See more">Throughout our network we are connected to several maker initiatives around the globe. We invite them to participate in the Tolocar project and connect them to Ukrainian communities.</CommunityCard>
-    </div>
-  </div>
-</ContentSection>
-
-<ContentSection variant="white">
+<ContentSection variant="default">
   <div class="absolute w-full bg-neutral-50 h-40 top-0" />
-  <CardContainer className="lg:h-[408px]">
+  <CardContainer className="lg:h-[408px] ">
     <Card title="You are based in Ukraine and think we could support you?" bg={4} target="mailto:info@tolocar.org" actionCaption="Get in contact">Schools, universities, NGOs, Startups and other organizations can reach out to us to request the Tolocars for projects, workshops and trainings.</Card>
     <Card title="You are a Maker and want to partner with us?" bg={5} target="mailto:info@tolocar.org" actionCaption="Get in contact">We are looking for Makers, FabLabs, Hackerspaces, Makerspaces and other Communities who wants to partner with us in the Ukraine and internationally over the internet.</Card>
   </CardContainer>

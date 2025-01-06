@@ -1,14 +1,19 @@
 import React from "react";
 import LocationIcon from "@assets/location-dot.svg?react";
 import DotIcon from "@assets/dot-icon.svg?react";
-import type { IInterventionFrontmatter } from "@interfaces/IIntervention";
 import { Tag } from "@components";
 
-interface Props extends IInterventionFrontmatter {
+interface InterventionSingleViewHeadingProps {
+  title?: string;
+  subtitle?: string;
+  tags?: Array<any>;
+  date?: string;
   className?: string;
+  car?: string;
+  location?: string;
 }
 
-const InterventionSingleViewHeading: React.FC<Props> = ({
+const InterventionSingleViewHeading: React.FC<InterventionSingleViewHeadingProps> = ({
   className,
   title,
   subtitle,
@@ -16,22 +21,22 @@ const InterventionSingleViewHeading: React.FC<Props> = ({
   date,
   car,
   location,
-}: Props) => {
+}) => {
   return (
     <div
       className={`flex flex-col items-start md:items-center md:justify-center w-full mt-12 pt-24 mb-10 ${
         className || ""
       }`}
     >
-      {Boolean(tags.length) && (
+      {Boolean(tags?.length) && (
         <div className="flex">
-          {tags.map((tag, index) => (
+          {tags?.map((tag, index) => (
             <Tag key={index} title={tag} />
           ))}
         </div>
       )}
       {title && (
-        <h1 className="text-[32px] leading-10 md:text-5xl md:leading-[52px] font-semibold mb-5 font-aktiv">
+        <h1 className="text-[32px] leading-10 md:text-5xl md:leading-[52px] font-semibold mb-5 font-aktiv text-center">
           {title}
         </h1>
       )}

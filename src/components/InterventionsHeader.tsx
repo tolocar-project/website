@@ -1,17 +1,17 @@
 import React from "react";
 import { HeadlineUnderlined } from "@components";
 
-interface Props {
+interface InterventionsHeaderProps {
   className?: string;
   title?: string;
   text?: string;
 }
 
-const InterventionsHeader: React.FC<Props> = ({
+const InterventionsHeader: React.FC<InterventionsHeaderProps> = ({
   className,
   title,
   text,
-}: Props) => {
+}) => {
   return (
     <div className={`w-full lg:pt-16 mt-32 ${className || ""}`}>
       <div className="container-width">

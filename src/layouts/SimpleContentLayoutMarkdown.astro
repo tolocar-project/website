@@ -1,0 +1,11 @@
+---
+import SimpleContentLayout, { type SimpleContentLayoutProps } from "./SimpleContentLayout.astro";
+import type { MarkdownLayoutProps } from "astro";
+
+type Props = MarkdownLayoutProps<SimpleContentLayoutProps>;
+
+const { frontmatter } = Astro.props;
+---
+<SimpleContentLayout {...frontmatter}>
+  <slot />
+</SimpleContentLayout>

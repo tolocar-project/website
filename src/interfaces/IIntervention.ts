@@ -6,7 +6,7 @@ export interface IInterventionFrontmatter {
   subtitle: string;
   date: string;
   location: string;
-  footerGrey: boolean;
+  darkFooter: boolean;
   tags: Array<string>;
   images: Array<string>;
   car: string;

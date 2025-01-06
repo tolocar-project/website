@@ -12,7 +12,7 @@ import Underline10Svg from "@assets/tolocar_underline_10.svg";
 import Underline11Svg from "@assets/tolocar_underline_11.svg";
 import CircularUnderlineSvg from "@assets/tolocar_circular_underline.svg";
 
-interface Props {
+interface HeadlineUnderlinedProps {
   children: React.ReactNode;
   className?: string;
   variant?: number;
@@ -40,14 +40,14 @@ const underlineSvgAndClassesMapping = [
   { component: Underline11Svg, classes: "top-10 w-full" },
 ];
 
-const HeadlineUnderlined: React.FC<Props> = ({
+const HeadlineUnderlined: React.FC<HeadlineUnderlinedProps> = ({
   children,
   className,
   variant = 1,
   large,
   light,
   id,
-}: Props) => {
+}) => {
   return (
     <div className={`${className || ""}`}>
       <h2

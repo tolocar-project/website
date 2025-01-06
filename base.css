@@ -67,11 +67,11 @@
     font-stretch: normal;
   }
 
-  .custom-prose {
+  .custom-prose *:not(.not-prose) {
     @apply text-neutral-500 text-base leading-[22px] lg:text-lg lg:leading-6;
   }
 
-  .custom-prose strong {
+  .custom-prose strong:not(.not-prose) {
     @apply text-tolo-black;
   }
 
@@ -79,15 +79,15 @@
     @apply mt-4;
   }
 
-  .custom-prose a {
+  .custom-prose a:not(.not-prose) {
     @apply underline;
   }
 
-  .custom-prose h2 {
+  .custom-prose h2:not(.not-prose) {
     @apply font-bold text-3xl text-neutral-800 my-4;
   }
 
-  .custom-prose h3 {
+  .custom-prose h3:not(.not-prose) {
     @apply font-semibold text-2xl text-neutral-800 my-4;
   }
 

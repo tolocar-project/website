@@ -1,0 +1,29 @@
+---
+layout: "@layouts/BaseLayoutMarkdown.astro"
+title: Global Maker Initiatives
+darkNavigation: true
+darkFooter: true
+---
+
+import { HeaderLogo, Footer, CommunityBanner, CommunityGridCard, ContentSection, CommunityHeader} from "@components";
+import WideCard from "@components/WideCardWrapper.astro"
+
+<CommunityHeader title="Global Maker Initiatives" text="Throughout our network we are connected to several maker initiatives around the globe. We invite them to participate in the Tolocar project and connect them to Ukrainian communities."/>
+
+<ContentSection variant="white" id="maker-initiatives">
+    {/* <CommunityBanner className="mt-28" title="Global maker initiatives" text="Throughout our network we are connected to several maker initiatives around the globe. We invite them to participate in the Tolocar project and connect them to Ukrainian communities." bg={3}/> */}
+
+    <div className="container-width grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-16">
+        <CommunityGridCard img="images/logos/Appropedia.png" title="Appropedia" text="Appropedia, a widely recognized platform for accessible solutions, serves as a comprehensive resource for global development and aid, allowing individuals to access, replicate, and utilize projects and training kits worldwide." target="www.appropedia.org"/> 
+        <CommunityGridCard img="images/logos/NPI.png" title="New Production Institute" text="A think tank for the future of value creation and production which deals with the transformation of value creation systems." target="www.newproductioninstitute.de"/>
+        <CommunityGridCard img="images/logos/FCHH.png" title="Fab City Hamburg" text="Fab City Hamburg proposes a new urban, economic, social and industrial model that relocalises production to Hamburg and its bioregional context." target="www.fabcity.hamburg"/>
+        <CommunityGridCard img="images/logos/IoP.png" title="Internet of Production" text="An initiative for sustainable, globally networked, local manufacturing." target="www.internetofproduction.org" url="www.internetofproduction.org"/>
+        <CommunityGridCard img="images/logos/fieldready.png" title="Field Ready" text="Field Ready manufacture supplies in the field so that people have what they need, where and when they need it." target="www.fieldready.org"/>
+        <CommunityGridCard img="images/logos/interfacer.png" title="INTERFACER" text="The EU-EFRE project INTERFACER is developing a federated open source platform called Fab City OS." target="www.interfacerproject.eu"/>
+    </div>
+</ContentSection>
+
+<ContentSection variant="white">
+  <WideCard className="mt-28 lg:mt-24" title="Discuss and contribute to our community!" text="We're using GitHub Discussions as a place to connect with other members of our community." target="https://www.github.com/tolocar-project/community" newTab={true} caption="Open GitHub" linkButtonVariant="github" bg={2}/>
+  <div class="absolute w-full bg-neutral-50 h-52 bottom-0" />
+</ContentSection>

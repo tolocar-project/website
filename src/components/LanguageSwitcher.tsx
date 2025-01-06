@@ -1,19 +1,19 @@
 import React from "react";
 import LanguageUtils from "@util/LanguageUtils";
 
-interface Props {
+interface LanguageSwitcherProps {
   className?: string;
   baseUrl?: string;
   path?: string;
   locale: string;
 }
 
-const LanguageSwitcher: React.FC<Props> = ({
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   className,
   baseUrl = "/",
   path,
   locale,
-}: Props) => {
+}) => {
   // Changing the language requires only to change the locale in the URL
   // The rest (slug) will be handled by redirect logic
   const changeLanguage = (newLanguage: string) => {
@@ -74,10 +74,10 @@ const LanguageSwitcherItem: React.FC<LanguageSwitcherItemProps> = ({
       <a
         onClick={isSelected ? undefined : onClick}
         className={`md:hover:text-neutral-800 ${
-          isSelected ? "text-neutral-800 " : "cursor-pointer "
+          isSelected ? "text-neutral-800 font-semibold" : "cursor-pointer font-medium"
         }`}
       >
-        <div className="flex text-lg lg:text-[15px] font-inter items-center md:text-base md:font-medium">
+        <div className="flex text-lg lg:text-base font-inter items-center">
           {children}
         </div>
       </a>

@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayoutMarkdown from "./BaseLayout.astro";
 import type { IInterventionFrontmatter } from "@interfaces/IIntervention";
 import {
   ContentSection,
@@ -26,7 +26,7 @@ const relatedInterventions = rawInterventionsContentWithoutIndex.filter(
 );
 ---
 
-<BaseLayout footerGrey={true} frontmatter={frontmatter}>
+<BaseLayoutMarkdown {...frontmatter}>
   <div class="container-width">
     <InterventionSingleViewHeading
       title={frontmatter.title}
@@ -67,4 +67,4 @@ const relatedInterventions = rawInterventionsContentWithoutIndex.filter(
     </div>
     <div class="absolute z-0 w-full bg-neutral-50 h-[90%] bottom-0"></div>
   </div>
-</BaseLayout>
+</BaseLayoutMarkdown>

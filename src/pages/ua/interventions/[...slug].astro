@@ -1,0 +1,44 @@
+---
+import {
+  ContentSection,
+  InterventionImageCarousel,
+  InterventionSingleViewHeading,
+} from "@components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const interventions = await getCollection("interventions");
+  return interventions.map((intervention) => ({
+    params: { slug: intervention.slug.replace("ua/", "") },
+    props: { entry: intervention },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout
+  title={entry?.data?.title || "Not found"}
+  metaDescription={entry?.data?.teaser}
+  metaImage={entry?.data?.images?.[0]}
+>
+  <div class="container-width">
+    <InterventionSingleViewHeading title={entry?.data?.title} subtitle={entry?.data?.subtitle} />
+    {
+      entry?.data?.images && (
+        <InterventionImageCarousel images={entry?.data?.images} client:load />
+      )
+    }
+  </div>
+  <ContentSection variant="white">
+    <div class="container-width my-10 lg:mt-14 lg:mb-[60px] default-prose">
+      <Content />
+    </div>
+  </ContentSection>
+
+  <div class="relative w-full">
+    <div class="absolute z-0 w-full bg-neutral-50 h-[90%] bottom-0"></div>
+  </div>
+</BaseLayout>

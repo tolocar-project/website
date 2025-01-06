@@ -1,5 +1,5 @@
 import React from "react";
-interface Props {
+interface ImageGridProps {
   className?: string;
   images?: Array<string>;
   caption?: string;
@@ -13,12 +13,12 @@ const defaultImages = [
   "https://picsum.photos/id/1042/1920/1080",
 ];
 
-const ImageGrid: React.FC<Props> = ({
+const ImageGrid: React.FC<ImageGridProps> = ({
   images = defaultImages,
   className,
   caption,
   subCaption,
-}: Props) => {
+}) => {
   return (
     <>
       <ImageGridWrapper className={className}>

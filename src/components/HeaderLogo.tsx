@@ -1,12 +1,12 @@
 import React from "react";
 import TolocarLogoSvg from "@assets/tolocar_logo.svg?react";
 
-interface Props {
+interface HeaderLogoProps {
   className?: string;
   target?: string;
 }
 
-const HeaderLogo: React.FC<Props> = ({ target = "/", className }: Props) => {
+const HeaderLogo: React.FC<HeaderLogoProps> = ({ target = "/", className }) => {
   const Image = <TolocarLogoSvg className={`h-8 sm:h-16 mt-8 sm:mt-16`} />;
   
   return (
