@@ -1,58 +1,73 @@
-name: Github Pages Astro CI
+name: Live Deployment
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
+  workflow_dispatch:
   push:
     branches: [ main ]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
-  workflow_dispatch:
-  schedule:
-  - cron: '48 10 * * *'
-  - cron: '48 17 * * *'
   
 # Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
-  pages: write
   id-token: write
+  pull-requests: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: github-pages
+    environment: netcup-bitbetter
     env: 
+      ASTRO_CONFIG: ${{ secrets.ASTRO_CONFIG }}
       PUBLIC_MAPBOX_TOKEN: ${{ secrets.PUBLIC_MAPBOX_TOKEN }}
       AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
       INTERVENTIONS_AIRTABLE_BASE_ID: ${{ secrets.INTERVENTIONS_AIRTABLE_BASE_ID }}
       NEWS_AIRTABLE_BASE_ID: ${{ secrets.NEWS_AIRTABLE_BASE_ID }}
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout repository using git
         uses: actions/checkout@v2
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 22
+      - name: Replace config file with Prod version
+        run: echo "$ASTRO_CONFIG" > astro.config.mjs
       - name: Install Node dependencies
         run: npm ci
       - name: Build site
         run: npm run build
-      - name: Move images News
-        run: mv public/images/news/dynamic/* dist/images/news/dynamic/
-      - name: Move images Interventions
-        run: mv public/images/interventions/dynamic/* dist/images/interventions/dynamic/
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
+          name: deployment
+          retention-days: 5
           path: ./dist
 
   deploy:
     needs: build
+    environment: netcup-bitbetter
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+      SFTP_HOST: ${{ secrets.SFTP_HOST }}
+      SFTP_PATH: ${{ secrets.SFTP_PATH }}
+      SFTP_USER: ${{ secrets.SFTP_USER }}
+      SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: deployment
+          path: dist
+      - name: Install LFTP
+        run: sudo apt-get install -y lftp
+      - name: Add SSH Known Hosts
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+      - name: List dir
+        run: |
+          pwd
+          ls -la
+      - name: Deploy via LFTP to SFTP target
+        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --only-newer --ignore-time --verbose --delete ./dist ./$SFTP_PATH/${GITHUB_HEAD_REF//\//-} --exclude pdfjs/ ; bye"
+
