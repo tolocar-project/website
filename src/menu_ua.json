@@ -9,17 +9,17 @@
     "hideInFooter": true,
     "children": [
       {
-        "title": "Мейкери для відновлення",
+        "title": "Хаби розвитку мейкерства",
         "target": "ua/get-involved/makers-empowerment-hubs"
       },
       {
-        "title": "Нагорода “Інновації мейкерів",
+        "title": "Нагорода \"Інновації мейкерів\"",
         "target": "ua/get-involved/makers-innovation-award"
       }
     ]
   },
   {
-    "title": "Проєкти та ініціативи",
+    "title": "Активності",
     "hideInFooter": true,
     "children": [
       {
@@ -27,7 +27,7 @@
         "target": "ua/interventions/building-makerspaces"
       },
       {
-        "title": "Створення громадських просторів",
+        "title": "Співтворення громадських просторів",
         "target": "ua/interventions/community-spaces"
       },
       {
@@ -35,7 +35,7 @@
         "target": "ua/interventions/cultivating-culture"
       },
       {
-        "title": "Рішення для гуманітарних потреб",
+        "title": "Задоволення гуманітарних потреб",
         "target": "ua/interventions/humanitarian-needs"
       },
       {
@@ -57,7 +57,7 @@
     ]
   },
   {
-    "title": "Інфоосвітні ресурси",
+    "title": "Ресурси",
     "hideInFooter": true,
     "children": [
       {
