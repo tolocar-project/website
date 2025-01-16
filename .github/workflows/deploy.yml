@@ -22,6 +22,9 @@ jobs:
       INTERVENTIONS_AIRTABLE_BASE_ID: ${{ secrets.INTERVENTIONS_AIRTABLE_BASE_ID }}
       NEWS_AIRTABLE_BASE_ID: ${{ secrets.NEWS_AIRTABLE_BASE_ID }}
     steps:
+      - name: Set env to use shell substitution logic
+        run: |
+          echo "TARGET_URL=https://${GITHUB_HEAD_REF//\//-}.dev.tolocar.org" >> $GITHUB_ENV
       - name: Checkout repository using git
         uses: actions/checkout@v2
       - name: Setup Node
@@ -30,6 +33,7 @@ jobs:
           node-version: 22
       - name: Replace config file with Prod version
         run: echo "$ASTRO_CONFIG" > astro.config.mjs
+      - run: cat astro.config.mjs
       - name: Install Node dependencies
         run: npm ci
       - name: Build site
@@ -69,5 +73,5 @@ jobs:
           pwd
           ls -la
       - name: Deploy via LFTP to SFTP target
-        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --only-newer --ignore-time --verbose --delete ./dist ./$SFTP_PATH --exclude pdfjs/ ; bye"
+        run: lftp -e "set ftp:list-options -a; set net:timeout 5; set net:max-retries 3; set net:reconnect-interval-base 5; open sftp://$SFTP_HOST; user $SFTP_USER $SFTP_PASSWORD; mirror --reverse --verbose --delete ./dist ./$SFTP_PATH --exclude pdfjs/ ; bye"
 
