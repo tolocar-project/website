@@ -89,7 +89,7 @@ const Footer: React.FC<FooterProps> = ({ className, menu, locale }) => {
           </div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
           <div>
-            <a href="en/privacy">Privacy Notice</a>
+            <a href="en/privacy">Privacy Policy</a>
           </div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
           <div>© 2022 Tolocar Project Operators</div>
