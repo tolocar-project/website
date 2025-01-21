@@ -24,7 +24,20 @@ const interventionsCollection = defineCollection({
   }),
 });
 
+const poisCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    id: z.string(),
+    title: z.string(),
+    date: z.string(),
+    locationLngLat: z.array(z.number()).length(2),
+    image: z.string(),
+    category: z.string().optional()
+  }),
+});
+
 export const collections = {
   news: newsCollection,
-  interventions: interventionsCollection
+  interventions: interventionsCollection,
+  pois: poisCollection
 };

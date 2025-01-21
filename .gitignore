@@ -21,8 +21,7 @@ pnpm-debug.log*
 
 .temp*
 
-/public/images/interventions/dynamic/*
-/public/images/news/dynamic/*
+
 
 .interventionshash
 .newshash

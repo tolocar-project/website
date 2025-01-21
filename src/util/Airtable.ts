@@ -121,6 +121,7 @@ const fetchAndHandleErrors = async <T>(
   return response.json();
 };
 
+// Unused/Deprecated
 // Relevant API Doc: https://airtable.com/developers/web/api/list-records
 // Helper tool for query building: https://codepen.io/airtable/pen/MeXqOg
 export const getNewsItems = async (
@@ -250,11 +251,15 @@ export const getNewsItems = async (
         )
       );
     });
-
     return withLocalImages;
   }
 };
 
+export const getMapPoisFromLocalFiles = async () => {
+  
+}
+
+/** Deprecated/Unused */
 export const getMapPois = async (baseUrl?: string) => {
   let combinedData: AirtablePoiRecord[] = [];
   let hasOffset;
@@ -274,7 +279,7 @@ export const getMapPois = async (baseUrl?: string) => {
 
   while (hasOffset) {
     console.log(
-      "Triggering paginated fetch for Interventions at offset ",
+      "Triggering paginated fetch for Interventions at offset",
       hasOffset
     );
     const nextPage: AirtablePoiResponse =
@@ -305,7 +310,7 @@ export const getMapPois = async (baseUrl?: string) => {
 
     if (!isCached) {
       try {
-        // fs.writeFileSync("./fetchPoi.json", JSON.stringify(combinedData));
+        fs.writeFileSync("./fetchPoi.json", JSON.stringify(combinedData));
         fs.writeFileSync(INTERVENTIONS_HASH_FILE, newHash);
         console.log("Wrote new Interventions image cache file");
       } catch (err) {
@@ -412,6 +417,12 @@ export const getMapPois = async (baseUrl?: string) => {
       baseUrl,
       isCached
     );
+
+    fs.writeFileSync("./finalPois.json", JSON.stringify(withLocalImages));
+
+    withLocalImages.forEach((entry) => {
+      fs.writeFileSync(`./src/content/pois/${entry.id}.json`, JSON.stringify(entry, null, 2));
+    })
 
     return withLocalImages;
   }

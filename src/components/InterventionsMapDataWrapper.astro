@@ -7,10 +7,8 @@ import {
   trimAndSortInterventions,
   transformInterventionsToPoiData,
 } from "@util/ContentTransformer";
-import { getMapPois } from "@util/Airtable";
-import CommonUtils from "@util/CommonUtils";
+import { getCollection } from "astro:content";
 
-const baseUrl = CommonUtils.getBaseUrl(false);
 
 interface Props {
   count?: number;
@@ -29,13 +27,13 @@ const trimmedAndSorted = trimAndSortInterventions(
 
 const sortedPoiData = transformInterventionsToPoiData(trimmedAndSorted);
 
-const airtablePois = await getMapPois(baseUrl);
 
-const combinedPois = [...(airtablePois || []), ...sortedPoiData];
+const localPois = (await getCollection('pois')).map((entry) => entry.data);
+const combinedPois = [...(localPois || []), ...sortedPoiData];
 
 const bounds = combinedPois.reduce(
   (bounds, poi) => {
-    return bounds.extend(poi.locationLngLat);
+    return bounds.extend(poi.locationLngLat as [number, number]);
   },
   new mapbox.LngLatBounds(
     sortedPoiData[0].locationLngLat,
