@@ -16,7 +16,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ className, menu, locale }) => {
   return (
-    <div className={`w-full flex bg-white py-16 ${className || ""}`}>
+    <footer className={`w-full flex bg-white py-16 ${className || ""}`}>
       <div className="container-width flex flex-col justify-between text-black">
         <div className="flex flex-col lg:flex-row">
           <div className="flex-[2] flex flex-col gap-8 text-sm items-start">
@@ -95,7 +95,7 @@ const Footer: React.FC<FooterProps> = ({ className, menu, locale }) => {
           <div>© 2022 Tolocar Project Operators</div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

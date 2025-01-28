@@ -67,23 +67,23 @@ const META_CANONICAL_URL = new URL(Astro.url.pathname, Astro.site);
     <title>{META_TITLE}</title>
   </head>
   <body
-    class="w-full font-inter antialiased h-full tracking-[-0.02em] overflow-x-hidden"
+    class="w-full font-inter antialiased min-h-full h-auto tracking-[-0.02em] overflow-x-hidden flex flex-col"
   >
-    <main class="flex flex-col items-center h-full">
-      <Navigation
-        baseUrl={baseUrl}
-        path={path}
-        menu={translatedAndRebasedMenu}
-        locale={localeFromUrl}
-        dark={darkNavigation || false}
-        client:only="react"
-      />
+    <Navigation
+      baseUrl={baseUrl}
+      path={path}
+      menu={translatedAndRebasedMenu}
+      locale={localeFromUrl}
+      dark={darkNavigation || false}
+      client:only="react"
+    />
+    <main class="flex flex-col items-center min-h-full h-auto">
       <slot />
-      <Footer
-        locale={localeFromUrl}
-        menu={translatedAndRebasedMenu}
-        className={darkFooter ? "!bg-neutral-50" : ""}
-      />
     </main>
+    <Footer
+      locale={localeFromUrl}
+      menu={translatedAndRebasedMenu}
+      className={darkFooter ? "!bg-neutral-50" : ""}
+    />
   </body>
 </html>
