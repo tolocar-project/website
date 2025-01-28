@@ -85,11 +85,11 @@ const Footer: React.FC<FooterProps> = ({ className, menu, locale }) => {
         </div>
         <div className="text-sm text-neutral-500 flex flex-col lg:flex-row gap-2 lg:gap-0 mt-8">
           <div>
-            <a href="en/legal">Legal Notice</a>
+            <a href={`${locale}/legal`}>Legal Notice</a>
           </div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
           <div>
-            <a href="en/privacy">Privacy Policy</a>
+            <a href={`${locale}/privacy`}>Privacy Policy</a>
           </div>
           <div className="hidden lg:block">&nbsp;—&nbsp;</div>
           <div>© 2022 Tolocar Project Operators</div>
