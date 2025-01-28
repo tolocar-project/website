@@ -31,28 +31,12 @@ import NewsSlider from "@components/NewsSliderDataWrapper.astro";
 <ContentSection id="news">
   <NewsSlider headline="Новини" findAllCaption="Слідкуйте за нами" /> 
 </ContentSection>
-<IllustrationBgContainer>
-  <CardContainer>
-    <Card small title="Наша мотивація" bg={1} target="#motivation">Дізнайтеся, чому ми робимо проєкт «Tolocar»</Card>
-    <Card small title="Що таке Толокар?" bg={2} target="#what-is-a-tolocar">Дізнайтеся більше про Толокари</Card>
-    <Card small title="Проєкти та спільнота" bg={3} target="#projects-community">Ознайомтеся з нашими проєктами та спільнотою</Card>
-  </CardContainer>
-</IllustrationBgContainer>
-
-<ContentSection variant="dark" className="bg-illustration-1-dark bg-no-repeat bg-[position:right_-50px_bottom_-40px]" id="who-we-are">
-  <div class="container-width flex lg:justify-end">
-    <div class="lg:w-10/12">
-      <HeadlineUnderlined light variant={3} className="mt-8">Про нас</HeadlineUnderlined>
-      <div class="text-neutral-300 mt-8 lg:mt-6 mb-8 lg:mb-24 lg:w-3/5 custom-prose">Проєкт «Tolocar» виконується на замовлення Федерального міністерства економічного співробітництва та розвитку Німеччини (BMZ) компанією Deutsche Gesellschaft für Internationale Zusammenarbeit <a href="https://www.giz.de/de/weltweit/102083.html" target="_blank">(GIZ)</a> GmbH у тісній співпраці з українськими та міжнародними партнерами: Creative Rural Hub, <a href="https://www.metalab.space/metalab-en" target="_blank">МетаЛаб</a>, <a href="https://insha-osvita.org/en/" target="_blank">Інша Освіта</a>, <a href="http://ostrivplatform.com/">Платформа Острів</a>, <a href="https://bur.ukredu.org/en/" target="_blank">БУР</a>, <a href="https://makerhub.org/" target="_blank">Maker Hub</a> та <a href="https://www.cadus.org/de/blog/artikel/eine-mobile-werkstatt-fuer-die-ukraine" target="_blank">CADUS</a>. Управління проєктом здійснюється <a href="https://www.mitost.org/" target="_blank">MitOst e.V.</a> у пілотній фазі та Hamburger Institut für Wertschöpfungssystematik und Wissensmanagement <a href="https://www.hiww.de/" target="_blank">(HIWW)</a> у його основній фазі.</div>
-    </div>
-  </div>
-</ContentSection>
 
 <ContentSection variant="white" id="what-is-a-tolocar">
   <HeadlineUnderlined large variant={5} className="container-width mt-8 sm:mt-20">Що таке Толокар?</HeadlineUnderlined>
   <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-16">
-    <div class="flex flex-col lg:w-10/12 ">
-      <div class="flex flex-col lg:flex-row custom-prose text-lg leading-6 gap-8 mb-12 lg:mb-20">
+    <div class="flex flex-col">
+      <div class="flex flex-col lg:flex-row custom-prose text-lg leading-6 gap-8 mb-12 lg:mb-10">
         <div class="flex-1">
           <p class="text-2xl leading-7 font-bold text-tolo-black">Толокар — це переобладнаний фургон, який має можливості мейкерспейсу або фаблабу на колесах.</p>
 
@@ -68,7 +52,7 @@ import NewsSlider from "@components/NewsSliderDataWrapper.astro";
           Все це уможливлює високореактивні проєкти, орієнтовані на користувача, короткі цикли зворотного зв'язку, дезінтермедіацію та адаптацію продуктів і послуг до складних і мінливих середовищ.
         </div>
       </div>
-        <ImageGrid images={["images/roof.jpg", "images/car.jpg"]}/>
+        <ImageGrid images={["images/roof.jpg", "images/cars/tolocar-flotte.jpg"]} caption="Photos: Nika Popova (l), Sergiy Bezborodko (r)."/>
     </div>
   </div>
 </ContentSection>
@@ -76,7 +60,7 @@ import NewsSlider from "@components/NewsSliderDataWrapper.astro";
 <ContentSection variant="white" className="mb-16 mt-20">
   <div class="container-width grid grid-cols-2 gap-8">
     <div class="col-span-2 w-full flex flex-col justify-center">
-      <h3 class="font-semibold text-5xl font-aktiv">Наш автопарк</h3>
+      <h3 class="font-semibold text-5xl font-aktiv text-center">Наш автопарк</h3>
       <p class="text-lg text-neutral-500 w-full text-center mb-16">Огляд всіх наших минулих, поточних і запланованих Толокарів</p>
     </div>
     <CarCard img="images/cars/image1.jpg" title="Sprinter II від MitOst" subtitle="ТОЛОКАР 03" tag="Конструювання" tagIcon="toolbox" date="З вересня 2022 року" operator="ostriv" />
