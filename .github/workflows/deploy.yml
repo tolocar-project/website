@@ -22,9 +22,6 @@ jobs:
       INTERVENTIONS_AIRTABLE_BASE_ID: ${{ secrets.INTERVENTIONS_AIRTABLE_BASE_ID }}
       NEWS_AIRTABLE_BASE_ID: ${{ secrets.NEWS_AIRTABLE_BASE_ID }}
     steps:
-      - name: Set env to use shell substitution logic
-        run: |
-          echo "TARGET_URL=https://${GITHUB_HEAD_REF//\//-}.dev.tolocar.org" >> $GITHUB_ENV
       - name: Checkout repository using git
         uses: actions/checkout@v2
       - name: Setup Node
