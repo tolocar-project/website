@@ -13,11 +13,12 @@ import {
   ImageGrid,
   ImageCard,
   CardContainer,
-  IllustrationBgContainer,
   TextBlock,
-  ContentSection
+  ContentSection,
+  CommunityCard,
+  ImpactListItem,
 } from "@components";
-import NewsSlider from "@components/NewsSliderDataWrapper.astro";
+import NewsSlider from "@components/NewsSliderDataWrapper.astro"
 
 <HeroImage />
 <SideBySide className="mt-8 mb-10 sm:my-20">
@@ -33,18 +34,18 @@ import NewsSlider from "@components/NewsSliderDataWrapper.astro";
 </ContentSection>
 
 <ContentSection variant="white" id="what-is-a-tolocar">
-  <HeadlineUnderlined large variant={5} className="container-width mt-8 sm:mt-20">Що таке Толокар?</HeadlineUnderlined>
-  <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-16">
+  <HeadlineUnderlined large variant={6} className="container-width mt-8 sm:mt-20">Що таке Толокар?</HeadlineUnderlined>
+  <div class="container-width flex lg:justify-end mt-8 sm:mt-16 mb-8">
     <div class="flex flex-col">
       <div class="flex flex-col lg:flex-row custom-prose text-lg leading-6 gap-8 mb-12 lg:mb-10">
-        <div class="flex-1">
+        <div class="flex-[40%]">
           <p class="text-2xl leading-7 font-bold text-tolo-black">Толокар — це переобладнаний фургон, який має можливості мейкерспейсу або фаблабу на колесах.</p>
 
           Це означає, **що вони забезпечують потенціал високих технологій виробництва або діагностики там, де це необхідно.**  
 
           Але найголовніше те, що вони залишаються на зв’язку зі світовою спільнотою експертів з різних галузей, які можуть використовувати свої колективні знання та розум у спосіб, що доповнює звичайні зусилля з надання допомоги чи відбудови.
         </div>
-        <div class="flex-1">
+        <div class="flex-[60%]">
           Мета полягає в тому, щоб дати можливість громадам відтворити деякі з можливостей і таким чином каталізувати зусилля з відбудови та створити мережі підтримки.  
 
           Окрім технічних можливостей, Толокари мають гнучкість, різноманіття поглядів і здатність сприймати зворотний зв'язок безпосередньо з контексту користувача.  
@@ -52,9 +53,28 @@ import NewsSlider from "@components/NewsSliderDataWrapper.astro";
           Все це уможливлює високореактивні проєкти, орієнтовані на користувача, короткі цикли зворотного зв'язку, дезінтермедіацію та адаптацію продуктів і послуг до складних і мінливих середовищ.
         </div>
       </div>
-        <ImageGrid images={["images/roof.jpg", "images/cars/tolocar-flotte.jpg"]} caption="Photos: Nika Popova (l), Sergiy Bezborodko (r)."/>
     </div>
   </div>
+</ContentSection>
+
+<ContentSection variant="dark">
+  <div className="bg-white absolute w-full h-40 top-0"/> 
+  <div class="container-width flex lg:justify-end bg-illustration-2-dark bg-no-repeat lg:bg-[position:left_0_top_135px]"> 
+      <div class="lg:w-10/12">
+      <ImageGrid images={["images/roof.jpg", "images/cars/tolocar-flotte.jpg"]} caption="Photos: Nika Popova (l), Sergiy Bezborodko (r)."/>
+      <HeadlineUnderlined light variant={3} className="mt-8">Наш Вплив</HeadlineUnderlined>
+      </div>
+  </div>
+  <div className="container-width flex lg:justify-end">
+    <div className="lg:w-10/12 overflow-hidden lg:grid lg:grid-cols-2 lg:gap-px py-10"> 
+    <ImpactListItem tagIcon="bullseye" title="Допомога там, де вона потрібна" text="Завдяки мобільним мейкерспейсам ми можемо приїжджати безпосередньо в місця, де є потреба, та надавати доступ до сучасного виробничого обладнання, інструментів, знань і експертної підтримки." />
+    <ImpactListItem tagIcon="parachute" title="Гуманітарний фокус" text="Технології можуть мати різне застосування, але в нашому проєкті ми зосереджуємося виключно на гуманітарних ініціативах і не беремо участі у військових розробках або військовій діяльності." />
+    <ImpactListItem tagIcon="microchip" title="Відкриті технології" text="Ми використовуємо обладнання з відкритим кодом та максимально сприяємо його поширенню, щоб люди могли самостійно створювати необхідне обладнання за доступною ціною." />
+    <ImpactListItem tagIcon="book_open" title="Доступні знання" text="У наших майстер-класах та тренінгах ми використовуємо багато інформації з відкритих джерел. Ми ділимося знаннями безкоштовно та заохочуємо всіх долучатися до їхнього розвитку." />
+    <ImpactListItem tagIcon="hand_fist" title="Розширення можливостей людей" text="Уся наша діяльність спрямована на те, щоб дати людям інструменти та знання, щоб вони могли вирішувати проблеми та реалізовувати власні проєкти самостійно." />
+    <ImpactListItem tagIcon="chart_network" title="Об’єднання спільнот" text="Одна з наших ключових цілей - налагодити зв’язки між глобальною мейкерською спільнотою та місцевими мейкерами й ініціативами, щоб підтримувати та посилювати їх." />
+    </div>
+  </div>  
 </ContentSection>
 
 <ContentSection variant="white" className="mb-16 mt-20">
