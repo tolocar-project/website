@@ -16,7 +16,7 @@ const localNews = (
   .map((item) => ({
     ...item.data,
     id: item.id,
-    target: baseUrl + "/" + localeFromUrl + "/" + item.data.target,
+    target: item.data.target,
   }))
   .sort((a, b) => (b?.order || 0) - (a?.order || 0));
 ---
